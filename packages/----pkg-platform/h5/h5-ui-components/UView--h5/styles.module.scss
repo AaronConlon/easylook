@@ -1,0 +1,45 @@
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper {
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode {
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  // https://duxapp.com/blog/harmony
+  // https://github.com/facebook/yoga/blob/main/website/docs/styling/index.md
+  // The default Yoga node style is similar to a box on web set to `display: flex`, with a few notable exceptions:
+  //
+  // 1. `flex-direction` defaults to `column` instead of `row`
+  // 2. `align-content` defaults to `flex-start` instead of `stretch`
+  // 3. `flex-shrink` defaults to `0` instead of `1`
+  // 4. `position` defaults to `relative` instead of `static`
+  //
+  display: flex;
+  flex-direction: column; // follow HTML div
+  // flex-shrink: 1; // follow HTML div
+  flex-shrink: 0;
+  position: relative;
+  align-content: flex-start;
+}
+
+
+.comp-wrapper--block {
+  flex-direction: column;
+}
+
+.comp-wrapper--row {
+  flex-direction: row;
+}
+
+.comp-wrapper--wrap {
+  flex-wrap: wrap;
+}

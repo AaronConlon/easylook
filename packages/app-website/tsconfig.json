@@ -1,0 +1,44 @@
+{
+  "display": "__APP_WEBSITE__",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "----pkg-uni/*": ["../----pkg-uni/*"],
+      "----pkg-platform/*": ["../----pkg-platform/*"]
+    },
+    "target": "ES2020",
+    "lib": ["ES2020", "ES2021", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    //
+    "allowJs": true,
+    "strict": true,
+    //
+    "useDefineForClassFields": true,
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    //
+    "noEmit": true,
+    "noUnusedLocals": false,
+    // 可以使用未使用的变量
+    "noUnusedParameters": false,
+    // 可以使用未使用的 parems
+    "noUncheckedSideEffectImports": true,
+    "noFallthroughCasesInSwitch": true,
+    //
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "allowArbitraryExtensions": true,
+    //
+    "resolveJsonModule": true,
+    "resolvePackageJsonImports": false,
+    //
+    // Causes issues with package.json "exports"
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src", "typings", "eslint.config.ts"],
+  "exclude": ["node_modules"]
+}

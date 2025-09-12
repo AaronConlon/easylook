@@ -1,0 +1,1 @@
+export { AppGlobalFetch } from './AppGlobalFetch';

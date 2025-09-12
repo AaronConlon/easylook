@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "__h5_monorepo_root__",
+  "files": [],
+  "references": [
+    {
+      "path": "packages/----pkg-config"
+    },
+    {
+      "path": "packages/----pkg-platform"
+    },
+    {
+      "path": "packages/----pkg-uni"
+    },
+    {
+      "path": "packages/app-website"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "----pkg-config/*": ["packages/----pkg-config/*"],
+      "----pkg-platform/*": ["packages/----pkg-platform/*"],
+      "----pkg-uni/*": ["packages/----pkg-uni/*"],
+      "app-website/*": ["packages/app-website/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/Pods/**"]
+}

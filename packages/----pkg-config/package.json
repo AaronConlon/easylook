@@ -1,0 +1,10 @@
+{
+  "name": "----pkg-config",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Jason Feng <solidzoro@live.com>",
+  "ignoreLintStaged": true,
+  "devDependencies": {
+    "@typescript-eslint/utils": "*"
+  }
+}

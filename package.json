@@ -1,0 +1,32 @@
+{
+  "name": "mono-root",
+  "version": "0.0.1",
+  "author": "Jason Feng <solidzoro@live.com>",
+  "license": "./LICENSE",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "____避免 iconfont cmd 在 shared 下面找 generateComponent，所以不要提升____",
+      "**/react-iconfont-cli-mod-by-jasonfeng",
+      "**/react-native-iconfont-cli-mod-by-jasonfeng",
+      "**/taro-iconfont-cli-mod-by-jasonfeng",
+      "---- EOF ----"
+    ]
+  },
+  "scripts": {
+    "clear-all-node-modules-dir": "npx --yes rimraf --glob ./packages/*/node_modules ./node_modules ./yarn.lock",
+    "-------------------------------- CLEAR ----": "----",
+    "nuke-all": "yarn clear-all-node-modules-dir && yarn install",
+    "prepare": "husky",
+    "dev__COMMENT__": "确保在 monoreop 顶层目录也能 dev",
+    "dev": "cd ./packages/app-website && yarn dev"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "rimraf": "^6.0.1"
+  },
+  "packageManager": "yarn@1.22.22"
+}

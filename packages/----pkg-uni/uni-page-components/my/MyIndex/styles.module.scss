@@ -1,0 +1,69 @@
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  // width: 100%;
+  background-color: #ffb8b8;
+  // flex: 1;
+  height: 100%;
+  width: 100%;
+  // flex: 1;
+}
+
+.icon-test-block {
+  background-color: #e9ffb0;
+}
+
+
+.demo-admin-layout {
+  // display: flex;
+  // flex-direction: row;
+  // width: 100%;
+  background-color: #f9ff00;
+}
+
+.da-sidebar {
+  width: 100px;
+  background-color: var(--uni-abs-green-2-for-light);
+}
+
+.da-main {
+  flex: 1;
+  height: 300px;
+  // background-color: yellow;
+  background-color: #4488f2;
+}
+
+.but-pink {
+  background-color: #f482fc;
+  height: 50px;
+  // width: 80px;
+  width: 100%;
+}
+
+.input-test-block {
+  background-color: #b9dbff;
+
+}
+
+.dnd-wrapper {
+  height: 503px;
+  width: 100%;
+  background-color: #eaffac;
+  border: 2px solid blue;
+}
+
+.dnd-item {
+  background-color: rgba(40, 255, 66, 0.78);
+  width: 80px;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.dnd-item-text {
+  text-align: center;
+  font-weight: bold;
+}

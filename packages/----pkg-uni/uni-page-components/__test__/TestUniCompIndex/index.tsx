@@ -1,0 +1,1 @@
+export { TestUniCompIndex } from './TestUniCompIndex';

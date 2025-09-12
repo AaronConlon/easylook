@@ -1,0 +1,1 @@
+export { PageNotFoundIndex } from './PageNotFoundIndex';

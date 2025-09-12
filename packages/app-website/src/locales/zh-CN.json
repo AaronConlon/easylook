@@ -1,0 +1,14 @@
+{
+  "field": {
+    "username": "用户名",
+    "password": "密码"
+  },
+  "form": {
+    "login": "登录",
+    "login_success": "登录成功",
+    "login_faild": "登录失败",
+    "register": "注册",
+    "remember_account": "记住账号",
+    "please_input_field": "请输入{field}"
+  }
+}

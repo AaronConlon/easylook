@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper {
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode {
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  display: inline;
+  color: #000;
+}
+
+.comp-wrapper--isDarkMode {
+  color: #fff;
+}
+
+// 模拟 pre 空格，换行
+.comp-wrapper--preMode {
+  white-space: pre;
+}
+

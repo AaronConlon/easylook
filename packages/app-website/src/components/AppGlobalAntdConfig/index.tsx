@@ -1,0 +1,1 @@
+export { AppGlobalAntdConfig } from './AppGlobalAntdConfig';

@@ -1,0 +1,13 @@
+const TIME_CONST_FETCH_TIMEOUT = 30; // 30s 比较不容易超时
+
+export const TIME_CONST_FMT = {
+  // time
+  FMT_DATE_TIME: 'YYYY-MM-DD HH:mm:ss',
+  FMT_DATE: 'YYYY-MM-DD',
+  FMT_TIME: 'HH:mm:ss',
+  //
+  //
+  // TIME_CONST_FETCH_TIMEOUT: 10,
+  FETCH_TIMEOUT: TIME_CONST_FETCH_TIMEOUT,
+  PULL_REFRESH_TIMEOUT: 3,
+};

@@ -1,0 +1,63 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.3](https://github.com/SolidZORO/hyx-h5/compare/app-website@0.0.2...app-website@0.0.3) (2025-09-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* react-router - Fix types for UIMatch to reflect that the loaderData/data
+
+### Features
+
+* rename ([2ef0097](https://github.com/SolidZORO/hyx-h5/commit/2ef0097a9cdab7843d9b9e96422b2c72359de7bb))
+* 使用 antd Flex ([04155db](https://github.com/SolidZORO/hyx-h5/commit/04155db223da08b0485d236db8beabd921565642))
+* 使用 history: hashHistory 路由 ([820b052](https://github.com/SolidZORO/hyx-h5/commit/820b052cbeab6b16ddc282eff19b26b9a7ecff42))
+* 完成 btn loading 效果 ([1eeb50b](https://github.com/SolidZORO/hyx-h5/commit/1eeb50b4576be190a4a9a9b374aa9bf9fd4cfd49))
+* 对齐 antd 按钮 90% 进度 ([f0667fd](https://github.com/SolidZORO/hyx-h5/commit/f0667fdcd7bde7ffeb3ccf92bfd51ad796f5ea4d))
+* 对齐 message ([684724f](https://github.com/SolidZORO/hyx-h5/commit/684724fdcf1b6ab0588aeceb11152069ba5cb937))
+* 对齐路由到 rr v7 ([f7dbd77](https://github.com/SolidZORO/hyx-h5/commit/f7dbd77df0d192dc95b71dac66d436d9df4d0ffe))
+* 按钮暗色模式 ([bc530c3](https://github.com/SolidZORO/hyx-h5/commit/bc530c39dc469e162dfb90e573c3e1969e070d5d))
+* 添加 UDnDWrapper ([79d2c46](https://github.com/SolidZORO/hyx-h5/commit/79d2c466a43736bfd469e89ab215e705d89ffefe))
+* 添加 UniIconFont ([079a553](https://github.com/SolidZORO/hyx-h5/commit/079a55390b9b649fe71724406ff450fc9038bc64))
+* 特大重构，所有组件都加上 Uni 前缀 ([4ed3059](https://github.com/SolidZORO/hyx-h5/commit/4ed3059f856fa45f60727737697889309a28e749))
+* 让 h5 follow rn 的 View style ([08eb0a4](https://github.com/SolidZORO/hyx-h5/commit/08eb0a4ee5e70b523af8898b9fa9e05307a82ff6))
+* 迁移到 @tanstack/react-router ([d1593d7](https://github.com/SolidZORO/hyx-h5/commit/d1593d713d0c3db56a186639f9b19a8898fd604b))
+
+
+### Bug Fixes
+
+* sass silenceDeprecations: ['legacy-js-api'], ([356be4b](https://github.com/SolidZORO/hyx-h5/commit/356be4b6e71ef70a2f96857ff8d0d5d20703a278))
+* 修复 rr 路由 v7.8.0 ([3283461](https://github.com/SolidZORO/hyx-h5/commit/328346123c7a701f0ca7477f0dfa981a2dece345)), closes [#14047](https://github.com/SolidZORO/hyx-h5/issues/14047) [#12206](https://github.com/SolidZORO/hyx-h5/issues/12206)
+
+
+### Refactor
+
+* 完成 style css vars 的对齐 ([8a63055](https://github.com/SolidZORO/hyx-h5/commit/8a6305560cfd3024565347e9b0f57ea16c189618))
+* 移除 cra，换上 rsbuild ([0ec8bd4](https://github.com/SolidZORO/hyx-h5/commit/0ec8bd44021e78c5eac11b5e56ee428e30f062ae))
+
+
+### Chore
+
+* 去掉 cro scripts ([75f7090](https://github.com/SolidZORO/hyx-h5/commit/75f70903c008d484bb26e3fd6e931940d5c9c50c))
+* 调试 modal ([9d96d1a](https://github.com/SolidZORO/hyx-h5/commit/9d96d1a96bd19c5d88e137400a510ca0e28125cf))
+
+### 0.0.2 (2025-07-30)
+
+
+### Features
+
+* init ([4e512ec](https://github.com/SolidZORO/hyx-h5/commit/4e512ec9fcd6c7c8873f7c4bbb3229938458cb0e))
+* 对于 windowsLib 的导出，这里要使用 ----pkg-platform ([e41edd4](https://github.com/SolidZORO/hyx-h5/commit/e41edd48bf901c261021a0d4994bf622e2331392))
+* 对齐 Modal ([7083263](https://github.com/SolidZORO/hyx-h5/commit/70832637cf2d6851d11426488c2fa6ac78498fcd))
+
+
+### Bug Fixes
+
+* 固化 windowLib 问题发生之前（正常运行） ([b438ce5](https://github.com/SolidZORO/hyx-h5/commit/b438ce545421055e28a8001814d2f03b9513ab21))
+
+
+### Refactor
+
+* 重构代码组织，去掉所有 index.ts 导出 ([eefdbb4](https://github.com/SolidZORO/hyx-h5/commit/eefdbb4614ae3cd6a70beb9ad81f67ef22126057))

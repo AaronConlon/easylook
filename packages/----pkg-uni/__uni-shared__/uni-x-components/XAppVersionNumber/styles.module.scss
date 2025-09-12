@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS MIXIN VARS
+//
+// prettier-ignore
+.comp-wrapper { // for-CSS-VARS--light
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode { // for-CSS-VARS--dark
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  cursor: text;
+
+  .build-version,
+  .build-time {
+    font-size: 12px;
+    line-height: 1.2;
+    padding: 0;
+    margin: 0;
+  }
+
+  .build-version {
+    position: relative;
+
+    em {
+      margin-left: 2px;
+      font-size: 12px;
+      font-style: normal;
+    }
+  }
+
+  .build-time {
+    margin-left: 0;
+  }
+}
+
+.input-password-wrapper {
+  text-align: center;
+}

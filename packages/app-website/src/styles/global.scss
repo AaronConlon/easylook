@@ -1,0 +1,42 @@
+// html
+html,
+body {
+  width: 100%;
+  //line-height: 1.15; // antd-v5 默认
+  line-height: 1.5715; // antd-v4 默认
+}
+
+html {
+  text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+body {
+  font-size: 14px;
+  font-family: var(--app-font-family), sans-serif;
+
+  // 对标 iOS 的渲染效果
+  // -webkit-font-smoothing: antialiased;
+
+  // 锁定 Tabbar 在滚动时不跳动 （注意，html 不用锁）
+  -ms-overflow-style: scrollbar;
+}
+
+html.theme-dark {
+  body {
+  }
+}
+
+#root,
+#app,
+#g-layout--MasterLayout,
+.g-css-comp--AppRouter {
+  width: 100%;
+}
+
+.g-css--icon-font {
+  display: inline-block !important;
+  // vertical-align: middle;
+  position: relative;
+  // top: -0.1em;
+}

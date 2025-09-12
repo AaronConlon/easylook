@@ -1,0 +1,1 @@
+export { SettingIndex } from './SettingIndex';

@@ -1,0 +1,12 @@
+{
+  "____MEMO____": "这里读取的是 iconfont.weapp.json",
+  "____ICON_URL____": "https://www.iconfont.cn/manage/index?spm=a313x.manage_type_myicons.i1.db775f1f3.3b773a81FsOAXc&manage_type=myprojects&projectId=4936190",
+  "symbol_url": "https://at.alicdn.com/t/c/font_4987105_gqkeb5l0k3h.js",
+  "use_typescript": true,
+  "save_dir": "./uni-assets/iconfont",
+  "__plt__": "说明 =>  weapp: 微信  |  swan: 百度  |  alipay: 支付宝  |  tt: 字节跳动",
+  "platforms": ["rn", "h5"],
+  "trim_icon_prefix": "icon",
+  "default_icon_size": 18,
+  "design_width": 750
+}

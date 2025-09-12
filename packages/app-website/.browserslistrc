@@ -1,0 +1,9 @@
+> 0.3%             # 支持全球市场份额大于 0.3% 的浏览器
+not dead           # 排除已被停止支持的浏览器
+not IE 11          # 排除 IE 11
+not OperaMini all  # 排除所有版本的 Opera Mini
+not Android < 5    # 排除 Android 4.4.3-4.4.4 的设备
+
+Firefox ESR        # 支持 Firefox ESR 版本
+Chrome >= 69       # 支持 Chrome 69 及以上版本
+iOS >= 11          # 支持 iOS 11 及以上版本

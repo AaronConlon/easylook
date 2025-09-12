@@ -1,0 +1,1 @@
+export { AppGlobalAntdFn } from './AppGlobalAntdFn';
