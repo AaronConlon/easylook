@@ -1,0 +1,114 @@
+@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss'
+  as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper { // for-CSS-VARS--light
+  --master-header-wrapper-height: 40px;
+  --master-header-wrapper-bg-color: #fff9;
+  --master-header-wrapper-padding-y: 10px;
+  --master-header-popup-height: 50px;
+
+  --logo-color-1: #fff;
+  --logo-color-2: #fff;
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode { // for-CSS-VARS--dark
+}
+
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  position: fixed;
+  top: 0;
+  opacity: 1;
+  display: block;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.comp-wrapper--isDarkMode {
+}
+
+.comp-wrapper--isOnWrapper {
+  background-color: var(--master-header-wrapper-bg-color);
+  transition: all 0.3s ease-out;
+
+  --logo-color-1: #05519b;
+  --logo-color-2: #e5232b;
+}
+
+.comp-inner {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  // background-color: red;
+  padding: var(--master-header-wrapper-padding-y) 0;
+}
+
+
+.header-logo-wrapper {
+  height: var(--master-header-wrapper-height);
+
+  .header-logo {
+    margin: 0 var(--master-header-wrapper-padding-y);
+    height: var(--master-header-wrapper-height);
+  }
+}
+
+.header-menu-button {
+  // flex: 1;
+  margin: 0 var(--master-header-wrapper-padding-y);
+}
+
+.nav-menu-button-icon {
+  font-size: 24px;
+  color: #fff;
+}
+
+.nav-menu-drawer {
+}
+
+.nav-menu-drawer-wrapper {
+  background-color: yellow;
+}
+
+.nav-menu-drawer-header {
+  display: none !important;
+
+}
+
+.nav-menu-drawer-body {
+  // background-color: #f4f4ff;
+  padding: 2px !important;
+}
+
+.nav-menu-drawer-footer {
+  background-color: greenyellow;
+}
+
+
+.nav-menu-close-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  .nav-menu-close-icon {
+    color: #333;
+    font-size: 24px;
+  }
+
+}
+
+
+.nav-menu-drawer-menu {
+  border: none 0 !important;
+  border-inline-end: none !important;
+  margin-top: 30px;
+}

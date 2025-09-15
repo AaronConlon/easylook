@@ -1,3 +1,5 @@
+import { safeParseJsonStr } from '----pkg-uni/uni-utils/json-util';
+
 export interface IEnvBuildInfo {
   PKG_NAME?: string; // 'name',
   AUTHOR?: string; // '-'
@@ -17,10 +19,8 @@ export interface IEnvBuildInfo {
 //
 //
 
-// const BUILDINFO_STR = getDocumentBuildInfo();
-const BUILDINFO_STR = '{}';
-// const BUILDINFO = safeParseJsonStr(BUILDINFO_STR);
-const BUILDINFO = {};
+const BUILDINFO_STR = document.getElementById('buildinfo')?.textContent || '';
+const BUILDINFO = safeParseJsonStr(BUILDINFO_STR);
 
 export const DEFAULT_BUILDINFO = {
   VERSION: '0.0.0',
@@ -34,6 +34,8 @@ const __BUILDINFO__: IEnvBuildInfo = {
   ...DEFAULT_BUILDINFO,
   ...BUILDINFO,
 };
+
+console.log(4444444, __BUILDINFO__);
 
 //@ts-ignore
 window.__BUILDINFO__ = __BUILDINFO__;

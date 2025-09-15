@@ -22,8 +22,10 @@
     "nuke-all": "yarn clear-all-node-modules-dir && yarn install",
     "prepare": "husky",
     "dev__COMMENT__": "确保在 monoreop 顶层目录也能 dev",
-    "dev": "cd ./packages/app-website && yarn dev"
+    "dev": "cd ./packages/app-website && yarn dev",
+    "gencss": "cd ./packages/----pkg-uni && yarn gencss"
   },
+  "dependencies": {},
   "devDependencies": {
     "husky": "^9.1.7",
     "rimraf": "^6.0.1"

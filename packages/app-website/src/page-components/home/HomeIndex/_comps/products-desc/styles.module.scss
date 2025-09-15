@@ -1,0 +1,31 @@
+@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss'
+as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper {
+  // for-CSS-VARS--light
+  --master-header-wrapper-height: 50px;
+  --master-header-wrapper-bg-color: #fff9;
+  --master-header-wrapper-padding-y: 10px;
+  --master-header-popup-height: 50px;
+
+  --logo-color-1: #fff;
+  --logo-color-2: #fff;
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode {
+  // for-CSS-VARS--dark
+}
+
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  min-height: 600px;
+}

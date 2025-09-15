@@ -1,0 +1,29 @@
+@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss'
+  as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper { // for-CSS-VARS--light
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode { // for-CSS-VARS--dark
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  width: 100%;
+
+  @media (min-width: $screen-xl) {
+    margin: 0 auto;
+    width: $screen-xl;
+  }
+}
+
+.comp-wrapper--isDarkMode {
+}

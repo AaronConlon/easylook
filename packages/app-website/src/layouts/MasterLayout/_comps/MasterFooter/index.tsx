@@ -1,0 +1,1 @@
+export { MasterFooter } from './MasterFooter';

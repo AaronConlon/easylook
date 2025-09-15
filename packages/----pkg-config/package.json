@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "author": "Jason Feng <solidzoro@live.com>",
+  "scripts": {},
   "ignoreLintStaged": true,
+  "peerDependencies": {},
+  "dependencies": {},
   "devDependencies": {
     "@typescript-eslint/utils": "*"
   }

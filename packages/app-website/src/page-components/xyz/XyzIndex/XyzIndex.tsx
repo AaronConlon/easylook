@@ -6,7 +6,7 @@ import { cx } from '----pkg-uni/uni-utils/cx-util';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
-import { routeTree } from '@/components/AppGlobalStackRouter/AppGlobalStackRouter';
+import { routeTree } from '@/components/AppGlobalMasterRouter/AppGlobalMasterRouter';
 
 import styles from './styles.module.scss';
 

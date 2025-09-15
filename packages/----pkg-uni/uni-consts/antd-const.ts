@@ -42,7 +42,11 @@ const ANTD_PROVIDER_TOKEN: Partial<AliasToken> = {
   fontFamily: `'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '\\5FAE\\8F6F\\96C5\\9ED1', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, sans-serif`,
   fontFamilyCode: `'Source Code Pro', 'Liberation Mono', Menlo, Consolas, monospace`,
   //
-  colorPrimary: '#2b00ea',
+  // colorPrimary: '#2b00ea',
+  colorPrimary: '#0052d9',
+  colorError: '#d54941',
+  colorSuccess: '#2ba471',
+  colorWarning: '#e37318',
 };
 
 //

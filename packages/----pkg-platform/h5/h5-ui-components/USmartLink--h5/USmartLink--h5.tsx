@@ -39,7 +39,7 @@ export const USmartLink = forwardRef<
           styles['comp-wrapper'],
           className,
         )}
-        //{...restProps}
+        {...restProps}
       >
         {children}
       </RRLink>

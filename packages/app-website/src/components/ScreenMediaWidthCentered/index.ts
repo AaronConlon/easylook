@@ -1,0 +1,1 @@
+export { ScreenMediaWidthCentered } from './ScreenMediaWidthCentered';

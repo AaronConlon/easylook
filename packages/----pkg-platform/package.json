@@ -18,18 +18,18 @@
     "react-native": "*"
   },
   "dependencies": {
-    "----pkg-config": "*",
-    "----pkg-platform": "*",
-    "----pkg-uni": "*",
     "@ant-design/static-style-extract": "*",
-    "@asteasolutions/zod-to-openapi": "*",
     "antd": "*",
     "http-status": "*",
+    "----pkg-uni": "*",
+    "----pkg-platform": "*",
+    "----pkg-config": "*",
     "prettier": "*",
     "react-use": "*",
     "typescript": "*",
     "url": "*",
-    "zod": "*"
+    "zod": "*",
+    "@asteasolutions/zod-to-openapi": "*"
   },
   "devDependencies": {
     "@eslint/eslintrc": "*",

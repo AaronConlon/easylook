@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Spin as AntdSpin } from 'antd';
 import { Helmet } from 'react-helmet';
 import { IntlProvider } from 'use-intl';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { DndContext } from '@dnd-kit/core';
-
-import { UButton } from '----pkg-platform/h5/h5-ui-components/UButton--h5';
 
 import { USpinLoading } from '----pkg-uni/uni-ui-components/USpinLoading';
 
@@ -14,12 +12,9 @@ import { rqClient } from '----pkg-uni/uni-libs/rq-lib';
 
 import { AppErrorBoundary } from '@/components/AppErrorBoundary';
 import { AppGlobal__DEBUG__ } from '@/components/AppGlobal__DEBUG__';
-import { AppGlobalStackRouter } from '@/components/AppGlobalStackRouter';
+import { AppGlobalMasterRouter } from '@/components/AppGlobalMasterRouter';
 
 import messages_zhCN from '@/locales/zh-CN.json';
-import messages_enUS from '@/locales/en-US.json';
-
-console.log('messages_zhCN', messages_zhCN);
 
 AntdSpin.setDefaultIndicator(<USpinLoading />);
 
@@ -27,8 +22,6 @@ export const App = () => {
   // forSTORE
   const html$_title = useHtmlStore((s) => s.html$_title); // prettier-ignore
   // forSTORE
-
-  const [lang, setLang] = useState(messages_enUS);
 
   return (
     <AppErrorBoundary>
@@ -38,32 +31,14 @@ export const App = () => {
             <title>{html$_title}</title>
           </Helmet>
 
-          <div>
-            <UButton
-              onClick={() => {
-                setLang(messages_zhCN);
-              }}
-            >
-              messages_zhCN
-            </UButton>
-
-            <UButton
-              onClick={() => {
-                setLang(messages_enUS);
-              }}
-            >
-              messages_enUS
-            </UButton>
-          </div>
-
           <IntlProvider
-            // messages={messages_zhCN}
-            messages={lang}
+            messages={messages_zhCN}
+            // messages={lang}
             locale=""
             // locale="zh-CN"
             // locale="en-US"
           >
-            <AppGlobalStackRouter />
+            <AppGlobalMasterRouter />
           </IntlProvider>
 
           <AppGlobal__DEBUG__ />

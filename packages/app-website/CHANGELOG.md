@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/profit-projects/weiai-website/compare/app-website@0.0.3...app-website@0.0.4) (2025-09-13)
+
+
+### Features
+
+* 测试 i18n 和 i18n 路由 ([7837a9d](https://github.com/profit-projects/weiai-website/commit/7837a9df269892046fba08d704aa2289d5d51b4b))
+* 添加 Master Layout Header （MB+PC） ([243b593](https://github.com/profit-projects/weiai-website/commit/243b593368de384026c85b4feb234c7e3bfe302e))
+* 添加 nav menu ([39f3ff0](https://github.com/profit-projects/weiai-website/commit/39f3ff0af40f6e03b38935bcd62754c7cab8c561))
+
+
+### Bug Fixes
+
+* 修复 code，langP 保证可用 ([c043773](https://github.com/profit-projects/weiai-website/commit/c043773bb3ed95a9f2851aa15f0f2df7b3bc4839))
+
+
+### Refactor
+
+* debugbar 现在开启和关闭不用刷新页面 ([eae78bc](https://github.com/profit-projects/weiai-website/commit/eae78bcbe20f4339f3e147a3deb66bd422123d29))
+
 ### [0.0.3](https://github.com/SolidZORO/hyx-h5/compare/app-website@0.0.2...app-website@0.0.3) (2025-09-06)
 
 

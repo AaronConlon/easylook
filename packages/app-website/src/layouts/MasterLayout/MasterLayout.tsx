@@ -3,6 +3,7 @@ import { Outlet, useParams } from '@tanstack/react-router';
 import { NuqsAdapter } from 'nuqs/adapters/tanstack-router';
 
 import { DebugReactQueryDevtools } from '----pkg-platform/h5/h5-components/__Debug__/DebugReactQueryDevtools--h5';
+import { useScreenMedia } from '----pkg-platform/h5/h5-hooks/useScreenMedia--h5';
 
 import { DebugBarButton } from '----pkg-uni/uni-components/DebugBarButton';
 import { DebugCssMediaLabel } from '----pkg-uni/uni-components/DebugCssMediaLabel';
@@ -13,7 +14,9 @@ import { AppGlobalEvent } from '@/components/AppGlobalEvent';
 import { AppGlobalFetch } from '@/components/AppGlobalFetch';
 import { AppGlobalAntdConfig } from '@/components/AppGlobalAntdConfig';
 
-import { MasterHeader } from '@/layouts/MasterLayout/_comps/MasterHeader';
+import { MasterHeaderPc } from '@/layouts/MasterLayout/_comps/MasterHeaderPc';
+import { MasterFooter } from '@/layouts/MasterLayout/_comps/MasterFooter';
+import { MasterHeaderMb } from '@/layouts/MasterLayout/_comps/MasterHeaderMb';
 
 export const MasterLayout = () => {
   // forSTORE
@@ -22,9 +25,9 @@ export const MasterLayout = () => {
 
   useEffect(() => {}, []);
 
-  const params = useParams({ strict: false });
+  const { screenMedia, windowSize } = useScreenMedia();
 
-  console.log(444444444444, params);
+  // const params = useParams({ strict: false });
 
   return (
     <AppGlobalAntdConfig>
@@ -32,7 +35,7 @@ export const MasterLayout = () => {
       <AppGlobalEvent />
       <AppGlobalFetch />
 
-      <MasterHeader />
+      {screenMedia['>md'] ? <MasterHeaderPc /> : <MasterHeaderMb />}
 
       <NuqsAdapter>
         <Outlet />
@@ -45,6 +48,8 @@ export const MasterLayout = () => {
           <DebugReactQueryDevtools />
         </>
       ) : null}
+
+      <MasterFooter />
     </AppGlobalAntdConfig>
   );
 };

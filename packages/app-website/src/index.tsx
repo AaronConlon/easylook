@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-// for RN
 import 'globalthis/auto';
 
 // // polyfill

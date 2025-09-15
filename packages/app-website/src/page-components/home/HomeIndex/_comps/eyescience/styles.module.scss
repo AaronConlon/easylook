@@ -1,0 +1,350 @@
+@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss'
+as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper {
+  // for-CSS-VARS--light
+  --section-bg: #f8fafc;
+  --card-bg: #ffffff;
+  // --card-shadow: 0 2px 1px var(--uni-abs-color-primary-for-light, #3b82f6);
+  --card-shadow-hover: 0 6px 10px #3b82f65e;
+  --subtitle-color: #64748b;
+  --highlight-color: #ef4444;
+  --highlight-bg: rgba(239, 68, 68, 0.1);
+  --description-color: #475569;
+  --border-color: #e2e8f0;
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode {
+  // for-CSS-VARS--dark
+  --section-bg: #0f172a;
+  --card-bg: #1e293b;
+  // --card-shadow: 0 2px 1px var(--uni-abs-color-primary-for-light, #3b82f6);
+  --card-shadow-hover: 0 6px 10px #3b82f65e;
+  --subtitle-color: #94a3b8;
+  --highlight-color: #f87171;
+  --highlight-bg: rgba(248, 113, 113, 0.2);
+  --description-color: #cbd5e1;
+  --border-color: #334155;
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+.comp-wrapper {
+  padding: 80px 0;
+  min-height: 600px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--uni-abs-color-primary-for-light, red);
+  margin: 0 0 20px 0;
+  background-clip: text;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--subtitle-color);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 0 20px;
+  }
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 60px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 16px;
+  }
+
+  // 大屏幕下的特殊边框圆角处理
+  @media (min-width: 1200px) {
+    max-width: 1400px;
+    padding: 40px 80px;
+
+    // 第一个卡片 - 左上角
+    .science-card--myopia-population {
+      border-top-left-radius: 36px;
+      border-bottom-left-radius: 0;
+    }
+
+    // 第一个右下角
+    .science-card--myopia-population {
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 0;
+    }
+
+    // 第二个卡片 - 右上角
+    .science-card--myopia-patients {
+      border-top-right-radius: 36px;
+      border-bottom-right-radius: 0;
+    }
+
+    // 第二个卡片 - 左下角
+    .science-card--myopia-patients {
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 0;
+    }
+
+    // 第三个卡片 - 左下角
+    .science-card--children-amblyopia {
+      border-bottom-left-radius: 36px;
+      border-top-left-radius: 0;
+    }
+
+    // 第三个卡片 - 右上角
+    .science-card--children-amblyopia {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 0;
+    }
+
+    // 第四个卡片 - 右下角
+    .science-card--vision-fatigue {
+      border-bottom-right-radius: 36px;
+      border-top-right-radius: 0;
+    }
+
+    // 第四个卡片 - 左上角
+    .science-card--vision-fatigue {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+
+.science-card {
+  background: var(--card-bg);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--card-shadow-hover);
+
+    img {
+      transform: scale(1.05);
+    }
+  }
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: cardSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+}
+
+
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(29, 78, 216, 0.2) 100%);
+}
+
+.card-content {
+  padding: 24px;
+}
+
+.card-header {
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--uni-abs-color-primary-for-light);
+  // margin: 0 8px 8px 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.card-subtitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  background-clip: text;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  margin-bottom: 4px;
+  text-align: center;
+
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.card-highlight {
+  font-size: 0.9rem;
+  font-weight: 600;
+  // color: var(--highlight-color);
+  // background: var(--highlight-bg);
+  // padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  text-align: center;
+  position: relative;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: var(--description-color);
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+
+}
+
+// -----------------------------------------------------------------------------
+// 🎬 ANIMATIONS
+//
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+
+  60% {
+    opacity: 0.8;
+    transform: translateY(-5px) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// 悬浮动画
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+// 脉冲动画
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// 渐变动画
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
+
+// 响应式优化
+@media (max-width: 480px) {
+  .comp-wrapper {
+    padding: 60px 0;
+  }
+
+  .content-grid {
+    padding: 0 16px;
+    gap: 16px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+}
