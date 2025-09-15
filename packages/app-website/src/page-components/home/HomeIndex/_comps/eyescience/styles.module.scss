@@ -51,7 +51,7 @@ as *;
 .section-title {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--uni-abs-color-primary-for-light, red);
+  // color: var(--uni-abs-color-primary-for-light);
   margin: 0 0 20px 0;
   background-clip: text;
   // -webkit-background-clip: text;
@@ -81,7 +81,7 @@ as *;
   gap: 12px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 60px;
+  padding: 20px 0;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -156,10 +156,10 @@ as *;
   border: 1px solid var(--border-color);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
-  transform: translateY(40px) scale(0.95);
+  transform: translateY(40px);
 
   &:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-8px);
     box-shadow: var(--card-shadow-hover);
 
     img {
@@ -167,10 +167,26 @@ as *;
     }
   }
 
-  &--visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    animation: cardSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  // 使用 data-in-view 属性触发动画
+  &[data-in-view="true"] {
+    animation: cardSlideInNoScale 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    
+    // 根据索引设置动画延迟
+    &[data-animation-index="0"] {
+      animation-delay: 0ms;
+    }
+    
+    &[data-animation-index="1"] {
+      animation-delay: 200ms;
+    }
+    
+    &[data-animation-index="2"] {
+      animation-delay: 400ms;
+    }
+    
+    &[data-animation-index="3"] {
+      animation-delay: 600ms;
+    }
   }
 
 }
@@ -211,19 +227,20 @@ as *;
 }
 
 .card-title {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  color: var(--uni-abs-color-primary-for-light);
+  // color: var(--uni-abs-color-primary-for-light);
   // margin: 0 8px 8px 0;
   line-height: 1.4;
   text-align: center;
 }
 
-.card-subtitle {
-  font-size: 1.8rem;
+.card-amount {
+  font-size: 2.2rem;
   font-weight: 700;
   background: var(--primary-gradient);
   background-clip: text;
+  color: var(--uni-abs-color-primary-for-light);
   // -webkit-background-clip: text;
   // -webkit-text-fill-color: transparent;
   margin-bottom: 4px;
@@ -287,6 +304,23 @@ as *;
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cardSlideInNoScale {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  60% {
+    opacity: 0.8;
+    transform: translateY(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

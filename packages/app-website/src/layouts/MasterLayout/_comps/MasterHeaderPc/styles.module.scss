@@ -9,7 +9,7 @@
 // prettier-ignore
 .comp-wrapper {
   // for-CSS-VARS--light
-  --master-header-wrapper-height: 50px;
+  --master-header-wrapper-height: 70px;
   --master-header-wrapper-bg-color: #fff9;
   --master-header-wrapper-padding-y: 10px;
   --master-header-popup-height: 80px;
@@ -81,10 +81,12 @@
 
 .header-logo-wrapper {
   height: var(--master-header-wrapper-height);
+  display: flex;
+  align-items: center;
 
   .header-logo {
     margin: 0 var(--master-header-wrapper-padding-y);
-    height: var(--master-header-wrapper-height);
+    height: calc(var(--master-header-wrapper-height) - 20px);
   }
 }
 
@@ -169,7 +171,7 @@
     display: flex;
     justify-content: center;
     border-top: 1px solid #eee;
-    padding-top: 12px;
+    padding-top: 24px;
     // background-color: #333;
   }
 
@@ -199,32 +201,6 @@
       transition: transform 0.3s ease-out;
       z-index: -1;
 
-      // 使用 clip-path 绘制右侧箭头形状
-      // clip-path: polygon(
-      //   0% 0%,
-      //   // 左上角
-      //   85% 0%,
-      //   // 右侧直线部分的上边
-      //   100% 50%,
-      //   // 箭头尖端
-      //   85% 100%,
-      //   // 右侧直线部分的下边
-      //   0% 100% // 左下角
-      // );
-
-      // 备选箭头样式（更尖锐的箭头）
-      // clip-path: polygon(
-      //   0% 0%,
-      //   // 左上角
-      //   80% 0%,
-      //   // 右侧直线部分的上边
-      //   100% 50%,
-      //   // 箭头尖端
-      //   80% 100%,
-      //   // 右侧直线部分的下边
-      //   0% 100% // 左下角
-      // );
-
       // 备选箭头样式（更宽的箭头）
       clip-path: polygon(
         0% 0%,
@@ -248,7 +224,7 @@
 }
 
 .header-nav-popup-wrapper--open {
-  height: var(--master-header-popup-height);
+  height: calc(var(--master-header-popup-height) + 20px);
   // background-color: yellow;
   opacity: 1;
 }

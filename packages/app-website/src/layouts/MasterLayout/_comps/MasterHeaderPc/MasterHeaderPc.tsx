@@ -25,10 +25,8 @@ export const MasterHeaderPc = (props: IProps) => {
   const { className } = props;
 
   const router = useRouter();
-  const [curItem, setCurItem] = useState<IMenuItem | null>(
-    MASTER_HEADER_MENUS[1],
-  );
-  const [isOnWrapper, setIsOnWrapper] = useState(!false);
+  const [curItem, setCurItem] = useState<IMenuItem | null>(null);
+  const [isOnWrapper, setIsOnWrapper] = useState(false);
   const [keepShowHeader, setKeepShowHeader] = useState(
     router.latestLocation.pathname === '/' ? false : true,
   );

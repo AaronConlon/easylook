@@ -1,0 +1,79 @@
+@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss'
+  as *;
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper {
+  // for-CSS-VARS--light
+  --subtitle-color: #64748b;
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode {
+  // for-CSS-VARS--dark
+  --subtitle-color: #94a3b8;
+}
+
+// -----------------------------------------------------------------------------
+// 🎬 ANIMATIONS
+//
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+.comp-wrapper {
+  text-align: center;
+
+  h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.3s ease-out;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--subtitle-color);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.3s ease-out;
+    transition-delay: 0.1s;
+
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+      padding: 0 20px;
+    }
+  }
+
+  // 使用 data-in-view 属性触发动画
+  &[data-in-view='true'] {
+    h2 {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    p {
+      animation: fadeInUp 0.8s ease-out forwards;
+      animation-delay: 0.2s;
+    }
+  }
+}

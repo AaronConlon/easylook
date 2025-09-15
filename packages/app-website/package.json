@@ -90,6 +90,7 @@
     "lottie-react": "^2.4.1",
     "nuqs": "^2.6.0",
     "react": "19.1.0",
+    "react-countup": "^6.5.3",
     "react-dom": "19.1.0",
     "react-error-boundary": "^6.0.0",
     "react-fast-marquee": "^1.6.5",
@@ -157,5 +158,8 @@
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0",
     "url": "^0.11.4"
+  },
+  "animateConfig": {
+    "prefix": "easylook_"
   }
 }
