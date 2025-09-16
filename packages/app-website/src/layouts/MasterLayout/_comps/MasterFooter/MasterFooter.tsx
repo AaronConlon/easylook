@@ -5,6 +5,7 @@ import { cx } from '----pkg-uni/uni-utils/cx-util';
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
 import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
+import { WechatContact } from '@/components/WechatContact';
 
 import { MASTER_ROUTER_PATHS } from '@/consts/master-router-paths';
 
@@ -64,6 +65,9 @@ export const MasterFooter = (props: IProps) => {
       '我们致力于提供高品质、专业化的视功能产品，加速视健康为全民带来优质的美好生活！作为近视防控的最佳“伴侣”，视立优与近视防控产品的结合与联合使用能够进一步提升近视防控效果。',
   };
 
+  const wechatUrl =
+    'https://www.easylook.com.cn/wp-content/uploads/2025/01/qrcode_for_gh_4fa8321d06c4_1280-1.jpg';
+
   return (
     <footer
       className={cx(
@@ -107,6 +111,12 @@ export const MasterFooter = (props: IProps) => {
                   )}
                 </a>
               ))}
+              {/* 微信公众号 */}
+              <WechatContact
+                qrCodeUrl={wechatUrl}
+                title={`扫码关注"视立优"`}
+                description="获取使用教程"
+              />
             </div>
           </div>
 

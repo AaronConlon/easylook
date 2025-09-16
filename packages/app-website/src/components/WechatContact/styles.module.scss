@@ -1,0 +1,192 @@
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.wechat-contact {
+  // for-CSS-VARS--light
+  --icon-bg: #f3f4f6;
+  --icon-bg-hover: rgba(255, 255, 255, 0.2);
+  --icon-color: #64748b;
+  --popup-bg: #ffffff;
+  --popup-border: #e2e8f0;
+  --popup-shadow: rgba(0, 0, 0, 0.1);
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --accent-color: #07c160; // 微信绿色
+}
+
+// prettier-ignore
+.wechat-contact--isDarkMode {
+  // for-CSS-VARS--dark
+  --icon-bg: rgba(15, 23, 42, 0.8);
+  --icon-bg-hover: rgba(30, 41, 59, 0.9);
+  --icon-color: #94a3b8;
+  --popup-bg: #1e293b;
+  --popup-border: #334155;
+  --popup-shadow: rgba(0, 0, 0, 0.3);
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --accent-color: #07c160;
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+.wechat-contact {
+  position: relative;
+  display: inline-block;
+}
+
+// 微信图标样式 - 继承社交媒体icon样式
+.wechat-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--icon-bg);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color);
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  img {
+    width: 32px;
+    height: 32px;
+    transition: all 0.2s ease;
+  }
+
+  &:hover {
+    background: var(--icon-bg-hover);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    width: 48px;
+    height: 48px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+// 弹出层样式
+.popup-overlay {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  animation: popupFadeIn 0.3s ease-out;
+
+  @media (max-width: 768px) {
+    bottom: calc(100% + 8px);
+  }
+}
+
+.popup-content {
+  background: var(--popup-bg);
+  border: 1px solid var(--popup-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px var(--popup-shadow);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 280px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    min-width: 260px;
+    padding: 14px;
+    gap: 12px;
+  }
+}
+
+.popup-qr-section {
+  flex-shrink: 0;
+}
+
+.popup-qr-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--popup-border);
+
+  @media (max-width: 768px) {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.popup-text-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.popup-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
+}
+
+.popup-description {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+  }
+}
+
+// 箭头指示器
+.popup-arrow {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--popup-bg);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: -6px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff;
+  }
+}
+
+// 弹出动画
+@keyframes popupFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

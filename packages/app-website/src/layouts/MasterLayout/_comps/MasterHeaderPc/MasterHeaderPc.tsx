@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import _, { debounce } from 'lodash';
-import { RiArrowDownSLine } from 'react-icons/ri';
 import { useRouter } from '@tanstack/react-router';
+import _, { debounce } from 'lodash';
+import { useEffect, useRef, useState } from 'react';
+import { RiArrowDownSLine } from 'react-icons/ri';
 
 import { cx } from '----pkg-platform/h5/h5-utils/cx-util--h5';
 
@@ -11,9 +11,9 @@ import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
 import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
 
+import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
 import type { IMenuItem } from '@/consts/master-router-paths';
 import { MASTER_HEADER_MENUS } from '@/consts/master-router-paths';
-import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
 
 import { ContextNavItem } from './ContextNavItem';
 

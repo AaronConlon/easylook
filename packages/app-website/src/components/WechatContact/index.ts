@@ -1,0 +1,1 @@
+export { WechatContact } from './WechatContact';

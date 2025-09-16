@@ -1,0 +1,1 @@
+export { UniversalImage } from './UniversalImage';

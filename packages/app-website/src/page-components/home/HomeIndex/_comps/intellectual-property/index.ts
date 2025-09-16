@@ -1,0 +1,1 @@
+export { IntellectualProperty } from './IntellectualProperty';

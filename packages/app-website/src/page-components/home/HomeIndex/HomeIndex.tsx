@@ -6,7 +6,13 @@ import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
 import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
 
-import { Carousel, EyeScience, Partners, ProductDesc } from './_comps';
+import {
+  Carousel,
+  EyeScience,
+  IntellectualProperty,
+  Partners,
+  ProductDesc,
+} from './_comps';
 
 import styles from './styles.module.scss';
 
@@ -33,6 +39,8 @@ export const HomeIndex = forwardRef<HTMLDivElement, IUViewProps>(
           <EyeScience />
           {/* 合作伙伴 */}
           <Partners />
+          {/* 知识产权 */}
+          <IntellectualProperty />
         </ScreenMediaWidthCentered>
       </div>
     );
