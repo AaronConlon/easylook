@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import _, { debounce } from 'lodash';
 import {
   RiArrowDownSLine,
   RiCloseLine,
@@ -6,6 +7,7 @@ import {
   RiMenuLine,
 } from 'react-icons/ri';
 import { Drawer, Menu } from 'antd';
+import { useRouter } from '@tanstack/react-router';
 
 import { cx } from '----pkg-platform/h5/h5-utils/cx-util--h5';
 import { USmartLink } from '----pkg-platform/h5/h5-ui-components/USmartLink--h5';
@@ -28,18 +30,48 @@ interface IProps extends IUiCompBaseProps {}
 export const MasterHeaderMb = (props: IProps) => {
   const { className } = props;
 
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   // const [open, setOpen] = useState(true);
+  const [keepShowHeader, setKeepShowHeader] = useState(
+    router.latestLocation.pathname === '/' ? false : true,
+  );
   const navigate = useNavigate();
+
+  // 滚动监听逻辑 - 与PC端相同
+  const handleScrollRef = useRef(
+    debounce(() => {
+      // 如果不是首页，则不需要这个机制
+      if (router.latestLocation.pathname !== '/') return;
+
+      // 检查当前滚动位置
+      const scrollTop = window.scrollY;
+      // 窗口高度
+      const windowHeight = window.innerHeight;
+      if (scrollTop >= windowHeight) {
+        setKeepShowHeader(true);
+      } else {
+        setKeepShowHeader(false);
+      }
+    }, 100),
+  );
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScrollRef.current);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollRef.current);
+    };
+  }, []);
 
   return (
     <div
       className={cx(
         styles['comp-wrapper'],
-
         className,
-        'g-uni-comp--MasterHeaderPc',
+        'g-uni-comp--MasterHeaderMb',
       )}
+      data-keep-show-header={keepShowHeader}
     >
       <div className={cx(styles['comp-inner'])}>
         <div className={cx(styles['header-logo-wrapper'])}>

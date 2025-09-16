@@ -49,7 +49,7 @@
   }
 
   p {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: var(--subtitle-color);
     max-width: 800px;
     margin: 0 auto;
@@ -60,7 +60,7 @@
     transition-delay: 0.1s;
 
     @media (max-width: 768px) {
-      font-size: 0.8rem;
+      font-size: 1.1rem;
       padding: 0 20px;
     }
   }

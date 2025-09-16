@@ -17,8 +17,6 @@ as *;
   --text-secondary: #4a5568;
   --accent-color: #1890ff;
   --feature-bg: rgba(24, 144, 255, 0.05);
-  --notice-bg: #fff7e6;
-  --notice-border: #ffd591;
 }
 
 // prettier-ignore
@@ -92,6 +90,9 @@ as *;
   padding: 80px 0;
   background: var(--section-bg);
   min-height: 600px;
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
 }
 
 .content-grid {
@@ -381,8 +382,8 @@ as *;
 }
 
 .notice-content {
-  background: var(--notice-bg);
-  border: 2px solid var(--notice-border);
+  // background: var(--notice-bg);
+  // border: 2px solid var(--notice-border);
   border-radius: 16px;
   padding: 32px;
   margin: 32px;

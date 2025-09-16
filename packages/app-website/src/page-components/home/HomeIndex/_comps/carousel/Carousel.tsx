@@ -28,11 +28,6 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
       'https://cdn.yun.sooce.cn/6/48873/gif/1750396791830bc80c675a20edf07c96ec3527d2c19a8.gif?version=0';
 
     const items: CarouselItem[] = [
-      // {
-      //   title: 'EasyLook · 视力优',
-      //   type: 'video',
-      //   sourceUrl: firstVideoUrl
-      // },
       {
         title: '视觉训练套盒',
         type: 'image',
@@ -46,6 +41,11 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
         sourceUrl: 'product-box6.jpg',
         subTitle:
           'The visual training box uses the most advanced visual training technology, mainly for visual training and visual recovery.',
+      },
+      {
+        title: 'EasyLook · 视力优',
+        type: 'video',
+        sourceUrl: firstVideoUrl,
       },
     ];
 
@@ -222,7 +222,7 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
           </button>
 
           {/* 轮播指示器 */}
-          <div className={cx(styles['carousel-indicators'])}>
+          {/* <div className={cx(styles['carousel-indicators'])}>
             {items.map((_, index) => (
               <button
                 key={index}
@@ -235,7 +235,7 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
                 aria-label={`切换到第${index + 1}张`}
               />
             ))}
-          </div>
+          </div> */}
 
           <div className={cx(styles['banner-title'])}>
             <h1>{items[currentIndex].title}</h1>

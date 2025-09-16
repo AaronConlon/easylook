@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { RiAlarmWarningFill, RiFileWarningFill } from 'react-icons/ri';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
@@ -110,7 +111,9 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
 
           <div className={cx(styles['notice-content-wrapper'])}>
             <div className={cx(styles['notice-content'])}>
-              <h3>💡 注意事项</h3>
+              <h3>
+                <RiAlarmWarningFill /> 注意事项
+              </h3>
               <ul>
                 <li>
                   视觉训练盒<strong>不能替代正规医疗</strong>
