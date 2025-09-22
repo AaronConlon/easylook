@@ -1,5 +1,5 @@
 @use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss'
-as *;
+  as *;
 
 // -----------------------------------------------------------------------------
 // 🌈 COMP CSS VARS
@@ -37,176 +37,60 @@ as *;
 .full-banner-wrapper {
   width: 100%;
   height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.carousel-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  z-index: 1;
-
-  &--active {
-    opacity: 1;
-    z-index: 2;
-  }
+  object-fit: cover;
 }
 
 .full-banner-image,
 .full-banner-video {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
-  object-position: center;
-}
-
-// 控制按钮样式
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--carousel-control-bg);
-  border: none;
-  border-radius: 50%;
-  width: var(--carousel-control-size);
-  height: var(--carousel-control-size);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  color: white;
-  backdrop-filter: blur(10px);
-
-  &:hover {
-    background: var(--carousel-control-bg-hover);
-    transform: translateY(-50%) scale(1.1);
-  }
-
-  &:active {
-    transform: translateY(-50%) scale(0.95);
-  }
-
-  svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  @media (max-width: 768px) {
-    width: var(--carousel-control-size-mobile);
-    height: var(--carousel-control-size-mobile);
-
-    svg {
-      width: 20px;
-      height: 20px;
-    }
-  }
-}
-
-.carousel-control--prev {
-  left: 20px;
-}
-
-.carousel-control--next {
-  right: 20px;
-}
-
-// 轮播指示器样式
-.carousel-indicators {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 12px;
-  z-index: 10;
-
-  @media (max-width: 768px) {
-    bottom: 20px;
-    gap: 8px;
-  }
-}
-
-.carousel-indicator {
-  width: var(--carousel-indicator-size);
-  height: var(--carousel-indicator-size);
-  border-radius: 50%;
-  border: none;
-  background: var(--carousel-indicator-bg);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-
-  &:hover {
-    background: var(--carousel-indicator-bg-hover);
-    transform: scale(1.2);
-  }
-
-  &--active {
-    background: var(--carousel-indicator-bg-active);
-    transform: scale(1.3);
-  }
-
-  @media (max-width: 768px) {
-    width: var(--carousel-indicator-size-mobile);
-    height: var(--carousel-indicator-size-mobile);
-  }
 }
 
 .banner-title {
   position: absolute;
-  bottom: 200px;
-  left: 70%;
-  transform: translate(-50%, 50%);
-  text-align: center;
-  z-index: 5;
-  width: 600px;
-
+  bottom: 48px;
+  right: 24px;
+  color: #fff;
   h1 {
-    color: white;
-    font-size: 4rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 48px;
+    font-weight: 700;
     margin: 0;
-    white-space: wrap;
-
-    @media (max-width: 768px) {
-      font-size: 2rem;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 1.5rem;
-    }
   }
-
   p {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 24px;
     margin: 0;
-    white-space: wrap;
+    max-width: 500px;
   }
+}
 
-  @media (max-width: 768px) {
-    bottom: 100px;
-    left: 50%;
-    width: 100%;
-    padding: 0 20px;
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
+/* 自定义 pagination */
+.custom-pagination {
+  position: absolute;
+  top: 50%!important;
+  left: unset!important; /* 靠右 */
+  right: 12px!important; /* 靠右 */
+  transform: translateY(-50%)!important;
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  gap: 12px!important;
+  z-index: 10;
+  max-width: 24px;
+  height: max-content;
+}
 
-    p {
-      font-size: 1rem;
-    }
-  }
+/* 默认小圆点 */
+:global(.custom-bullet) {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* 激活状态 */
+:global(.custom-bullet-active) {
+  background: #fff;
+  transform: scale(1.2);
 }

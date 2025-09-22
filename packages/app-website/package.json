@@ -100,6 +100,7 @@
     "react-rough-notation": "^1.0.5",
     "react-use": "^17.6.0",
     "reflect-metadata": "^0.2.2",
+    "swiper": "^12.0.2",
     "use-intl": "^4.3.6",
     "zod": "^4.1.5",
     "zod-openapi": "^5.4.0",

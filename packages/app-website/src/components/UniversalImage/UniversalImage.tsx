@@ -1,7 +1,11 @@
 import { forwardRef, useState } from 'react';
+
 import { cx } from '----pkg-uni/uni-utils/cx-util';
+
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
+
 import { ImageSkeleton } from '@/components/ImageSkeleton';
+
 import styles from './styles.module.scss';
 
 interface IUniversalImageProps extends IUiCompBaseProps {
