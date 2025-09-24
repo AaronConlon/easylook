@@ -5,15 +5,14 @@ import {
   RouterProvider,
 } from '@tanstack/react-router';
 
-import { UView } from '----pkg-uni/uni-ui-components/UView';
-import { UText } from '----pkg-uni/uni-ui-components/UText';
 import { USmartLink } from '----pkg-uni/uni-ui-components/USmartLink';
+import { UText } from '----pkg-uni/uni-ui-components/UText';
+import { UView } from '----pkg-uni/uni-ui-components/UView';
 
-import { AboutIndex } from '----pkg-uni/uni-page-components/about/AboutIndex';
-
-import { MasterLayout } from '@/layouts/MasterLayout';
-import { HomeIndex } from '@/page-components/home/HomeIndex';
 import { MASTER_ROUTER_PATHS } from '@/consts/master-router-paths';
+import { MasterLayout } from '@/layouts/MasterLayout';
+import { AboutIndex } from '@/page-components/about/AboutIndex';
+import { HomeIndex } from '@/page-components/home/HomeIndex';
 
 const rootRoute = createRootRouteWithContext<{}>()({
   component: MasterLayout,
@@ -30,6 +29,7 @@ const rootRoute = createRootRouteWithContext<{}>()({
 
 const routerMapping = [
   { path: MASTER_ROUTER_PATHS['/about'], component: AboutIndex },
+  { path: MASTER_ROUTER_PATHS['/about/company'], component: AboutIndex },
   { path: MASTER_ROUTER_PATHS['/'], component: HomeIndex },
   //
   //

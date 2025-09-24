@@ -27,6 +27,9 @@ export const MasterHeaderPc = (props: IProps) => {
   const router = useRouter();
   const [curItem, setCurItem] = useState<IMenuItem | null>(null);
   const [isOnWrapper, setIsOnWrapper] = useState(false);
+
+  console.log('pathname:', router.latestLocation.pathname);
+
   const [keepShowHeader, setKeepShowHeader] = useState(
     router.latestLocation.pathname === '/' ? false : true,
   );
@@ -96,6 +99,11 @@ export const MasterHeaderPc = (props: IProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    setCurItem(null);
+    // setKeepShowHeader(router.latestLocation.pathname === '/' ? false : true);
+  }, [router.latestLocation.pathname]);
+
   return (
     <div
       className={cx(
@@ -120,7 +128,7 @@ export const MasterHeaderPc = (props: IProps) => {
           <div className={cx(styles['nav-menu-list'])}>
             {MASTER_HEADER_MENUS?.map((item, index) => (
               <USmartLink
-                key={item?.key}
+                key={`${item?.key}-${index}`}
                 to={item?.key}
                 className={cx(styles['nav-menu-item'], {
                   [styles['nav-menu-item--isOnWrapper']]: isOnWrapper,

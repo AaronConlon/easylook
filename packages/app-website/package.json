@@ -88,6 +88,7 @@
     "keepalive-for-react-router": "^2.0.3",
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.1",
+    "motion": "^12.23.21",
     "nuqs": "^2.6.0",
     "react": "19.1.0",
     "react-countup": "^6.5.3",

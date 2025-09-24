@@ -1,12 +1,12 @@
 // 假如启用 i18n 需要加入这个 params
 // const LANG_PREFIX = '/{-$lang}';
-import type { MenuProps } from 'antd';
 
 const LANG_PREFIX = '';
 
 export const MASTER_ROUTER_PATHS = {
   '/': `${LANG_PREFIX}/`,
   '/about': `${LANG_PREFIX}/about`,
+  '/about/company': `${LANG_PREFIX}/about/company`,
   //
   '/news-weiai': `${LANG_PREFIX}/news-weiai`,
   '/news-kepu': `${LANG_PREFIX}/news-kepu`,
@@ -61,19 +61,19 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
     label: '关于我们',
     children: [
       {
-        key: MASTER_ROUTER_PATHS['/news-weiai'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '公司介绍',
       },
       {
-        key: MASTER_ROUTER_PATHS['/news-kepu'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '发展历程',
       },
       {
-        key: MASTER_ROUTER_PATHS['/news-kepu'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '合作伙伴',
       },
       {
-        key: MASTER_ROUTER_PATHS['/news-kepu'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '公司荣誉',
       },
     ],
@@ -83,11 +83,11 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
     label: '品牌产品',
     children: [
       {
-        key: MASTER_ROUTER_PATHS['/news-weiai'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '训练盒',
       },
       {
-        key: MASTER_ROUTER_PATHS['/news-kepu'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '眼科训练仪',
       },
     ],
@@ -97,15 +97,15 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
     label: '服务场景',
     children: [
       {
-        key: MASTER_ROUTER_PATHS['/news-weiai'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '视力优医疗',
       },
       {
-        key: MASTER_ROUTER_PATHS['/news-weiai'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '视力优健康',
       },
       {
-        key: MASTER_ROUTER_PATHS['/news-weiai'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '视力优教育',
       },
     ],
@@ -115,17 +115,17 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
     label: '公司动态',
     children: [
       {
-        key: MASTER_ROUTER_PATHS['/news-weiai'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '公司新闻',
       },
       {
-        key: MASTER_ROUTER_PATHS['/news-weiai'],
+        key: MASTER_ROUTER_PATHS['/about/company'],
         label: '行业资讯',
       },
     ],
   },
   {
-    key: MASTER_ROUTER_PATHS['/recruit'],
+    key: MASTER_ROUTER_PATHS['/about/company'],
     label: '招贤纳士',
   },
   {

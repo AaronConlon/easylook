@@ -1,10 +1,6 @@
 import type { ThemeConfig } from 'antd';
-import type {
-  AliasToken,
-  MappingAlgorithm,
-  OverrideToken,
-} from 'antd/es/theme/interface';
 import { theme } from 'antd/es';
+import type { AliasToken, MappingAlgorithm, OverrideToken } from 'antd/es/theme/interface';
 
 type IComponentsConfig = {
   [key in keyof OverrideToken]?: OverrideToken[key] & {
@@ -39,7 +35,7 @@ const ANTD_PROVIDER_TOKEN: Partial<AliasToken> = {
   borderRadius: 8,
   //
   // fontSize: 14,
-  fontFamily: `'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '\\5FAE\\8F6F\\96C5\\9ED1', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, sans-serif`,
+  fontFamily: `'PingFangSC-Light', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '\\5FAE\\8F6F\\96C5\\9ED1', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, sans-serif`,
   fontFamilyCode: `'Source Code Pro', 'Liberation Mono', Menlo, Consolas, monospace`,
   //
   // colorPrimary: '#2b00ea',
