@@ -23,12 +23,12 @@ export const AboutIndex = forwardRef<HTMLDivElement, IUViewProps>(
 
     const cardsData = [
       {
-        id: 2,
-        img: '/product-box6.jpg',
-      },
-      {
         id: 3,
         img: '/product-box1.jpg',
+      },
+      {
+        id: 2,
+        img: '/product-box6.jpg',
       },
       {
         id: 1,
