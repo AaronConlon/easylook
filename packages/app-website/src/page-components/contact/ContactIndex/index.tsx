@@ -1,0 +1,1 @@
+export { ContactIndex } from './ContactIndex';

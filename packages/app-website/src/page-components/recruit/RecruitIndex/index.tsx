@@ -1,0 +1,1 @@
+export { RecruitIndex } from './RecruitIndex';

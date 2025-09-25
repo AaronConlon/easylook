@@ -101,7 +101,7 @@ export const MasterHeaderPc = (props: IProps) => {
 
   useEffect(() => {
     setCurItem(null);
-    // setKeepShowHeader(router.latestLocation.pathname === '/' ? false : true);
+    setKeepShowHeader(router.latestLocation.pathname === '/' ? false : true);
   }, [router.latestLocation.pathname]);
 
   return (

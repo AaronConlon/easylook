@@ -65,15 +65,15 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
         label: '公司介绍',
       },
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        key: MASTER_ROUTER_PATHS['/story'],
         label: '发展历程',
       },
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        key: MASTER_ROUTER_PATHS['/partners'],
         label: '合作伙伴',
       },
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        key: MASTER_ROUTER_PATHS['/honor'],
         label: '公司荣誉',
       },
     ],
@@ -83,11 +83,11 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
     label: '品牌产品',
     children: [
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        key: MASTER_ROUTER_PATHS['/brand-easylook'],
         label: '训练盒',
       },
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        key: MASTER_ROUTER_PATHS['/brand-weiai'],
         label: '眼科训练仪',
       },
     ],
@@ -97,15 +97,15 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
     label: '服务场景',
     children: [
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        key: MASTER_ROUTER_PATHS['/service'],
         label: '视力优医疗',
       },
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        key: MASTER_ROUTER_PATHS['/service'],
         label: '视力优健康',
       },
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        key: MASTER_ROUTER_PATHS['/service'],
         label: '视力优教育',
       },
     ],
@@ -115,17 +115,17 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
     label: '公司动态',
     children: [
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        key: MASTER_ROUTER_PATHS['/news'],
         label: '公司新闻',
       },
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        key: MASTER_ROUTER_PATHS['/news-kepu'],
         label: '行业资讯',
       },
     ],
   },
   {
-    key: MASTER_ROUTER_PATHS['/about/company'],
+    key: MASTER_ROUTER_PATHS['/recruit'],
     label: '招贤纳士',
   },
   {
