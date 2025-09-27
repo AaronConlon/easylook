@@ -1,0 +1,112 @@
+name: Build Frontend and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  build-and-deploy:
+    # 只在推送到 main 分支或者 PR 合并到 main 分支时运行
+    if: github.ref == 'refs/heads/main' || (github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Node.js 环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+          cache-dependency-path: 'packages/app-website/yarn.lock'
+
+      - name: 安装依赖
+        run: |
+          cd packages/app-website
+          yarn install --frozen-lockfile
+
+      - name: 构建前端项目
+        run: |
+          cd packages/app-website
+          yarn build
+
+      - name: 验证构建产物
+        run: |
+          if [ ! -d "./packages/app-website/build" ]; then
+            echo "构建失败：找不到 build 目录"
+            exit 1
+          fi
+          echo "构建成功，产物大小："
+          du -sh ./packages/app-website/build
+
+      - name: 压缩构建产物
+        run: |
+          cd packages/app-website
+          zip -r build.zip build/
+          echo "✅ 构建产物已压缩"
+          echo "压缩文件大小："
+          ls -lh build.zip
+
+      - name: 推送构建产物到远程服务器
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.REMOTE_PORT || 22 }}
+          source: './packages/app-website/build.zip'
+          target: '${{ secrets.REMOTE_TARGET_PATH || "/root/easylook" }}'
+          overwrite: true
+
+      - name: 在远程服务器上部署
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.REMOTE_PORT || 22 }}
+          script: |
+            cd ${{ secrets.REMOTE_TARGET_PATH || "/root/easylook" }}
+
+            echo "📦 解压构建产物..."
+            # 删除旧的 build 目录
+            rm -rf build
+            unzip -o build.zip
+
+            echo "🐳 执行 Docker 重新构建脚本..."
+            # 执行您在 VPS 上准备的脚本
+            # 假设脚本名为 deploy.sh，请根据实际脚本名称修改
+            if [ -f "deploy.sh" ]; then
+              chmod +x deploy.sh
+              ./deploy.sh           
+            else
+              echo "⚠️  未找到部署脚本，请确保脚本存在"
+              echo "当前目录文件："
+              ls -la
+              exit 1
+            fi
+
+            # 清理压缩文件
+            rm -f build.zip
+
+            echo "✅ 部署完成！"
+
+      - name: 部署成功通知
+        if: success()
+        run: |
+          echo "🎉 部署成功！"
+          echo "应用已部署到 http://${{ secrets.REMOTE_HOST }}"
+          echo "Docker 容器正在运行，使用 Caddy 服务器提供 SPA 支持"
+
+      - name: 部署失败通知
+        if: failure()
+        run: |
+          echo "❌ 部署失败！请检查构建或网络连接。"
+          echo "请查看上面的日志获取详细错误信息。"
