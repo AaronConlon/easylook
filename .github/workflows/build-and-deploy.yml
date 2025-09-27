@@ -37,12 +37,34 @@ jobs:
           # 安装根目录依赖（这会自动安装所有 workspace 的依赖）
           yarn install --frozen-lockfile
 
+      - name: 生成版本信息
+        run: |
+          cd packages/app-website
+          # 手动创建 version.json 文件
+          mkdir -p public
+          BUILD_TIME=$(date -u '+%Y%m%d-%H%M%S')
+          cat > public/version.json << EOF
+          {
+            "data": {
+              "APP": {
+                "PKG_NAME": "app-website",
+                "VERSION": "${{ github.ref_name }}",
+                "AUTHOR": "Jason Feng <solidzoro@live.com>",
+                "NODE_ENV": "production",
+                "BUILD_TIME": "${BUILD_TIME}",
+                "BUILD_NUMBER": ${{ github.run_number }},
+                "COMMIT_HASH": "${{ github.sha }}"
+              }
+            }
+          }
+          EOF
+          echo "✅ 版本信息已生成："
+          cat public/version.json
+
       - name: 构建前端项目
         run: |
           cd packages/app-website
-          # prebuild 脚本会生成 version.json 文件
-          yarn prebuild
-          # 执行主要构建
+          # 直接构建（version.json 已经创建）
           yarn build
         env:
           # 基础环境配置
