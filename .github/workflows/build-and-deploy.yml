@@ -60,9 +60,9 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.REMOTE_PORT || 22 }}
+          port: 22
           source: './packages/app-website/build.zip'
-          target: '${{ secrets.REMOTE_TARGET_PATH || "/root/easylook" }}'
+          target: '${{ secrets.REMOTE_TARGET_PATH }}'
           overwrite: true
 
       - name: 在远程服务器上部署
@@ -71,9 +71,9 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.REMOTE_PORT || 22 }}
+          port: 22 
           script: |
-            cd ${{ secrets.REMOTE_TARGET_PATH || "/root/easylook" }}
+            cd ${{ secrets.REMOTE_TARGET_PATH }}
 
             echo "📦 解压构建产物..."
             # 删除旧的 build 目录
