@@ -32,14 +32,17 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: './yarn.lock'
 
-      - name: 安装依赖
+      - name: 安装 Monorepo 依赖
         run: |
-          cd packages/app-website
+          # 安装根目录依赖（这会自动安装所有 workspace 的依赖）
           yarn install --frozen-lockfile
 
       - name: 构建前端项目
         run: |
           cd packages/app-website
+          # prebuild 脚本会生成 version.json 文件
+          yarn prebuild
+          # 执行主要构建
           yarn build
         env:
           # 基础环境配置
