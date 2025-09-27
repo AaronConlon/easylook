@@ -15,11 +15,6 @@ jobs:
     # 只在推送到 main 分支或者 PR 合并到 main 分支时运行
     if: github.ref == 'refs/heads/main' || (github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main')
     runs-on: ubuntu-latest
-    
-    # Job 级别的环境变量（适用于整个 job 的所有步骤）
-    env:
-      NODE_ENV: production
-      CI: true
 
     steps:
       - name: 检出代码
@@ -32,70 +27,15 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: './yarn.lock'
 
-      - name: 安装 Monorepo 依赖
-        run: |
-          # 安装根目录依赖（这会自动安装所有 workspace 的依赖）
-          yarn install --frozen-lockfile
-
-      - name: 生成版本信息
+      - name: 安装依赖
         run: |
           cd packages/app-website
-          # 手动创建 version.json 文件
-          mkdir -p public
-          BUILD_TIME=$(date -u '+%Y%m%d-%H%M%S')
-          cat > public/version.json << EOF
-          {
-            "data": {
-              "APP": {
-                "PKG_NAME": "app-website",
-                "VERSION": "${{ github.ref_name }}",
-                "AUTHOR": "Jason Feng <solidzoro@live.com>",
-                "NODE_ENV": "production",
-                "BUILD_TIME": "${BUILD_TIME}",
-                "BUILD_NUMBER": ${{ github.run_number }},
-                "COMMIT_HASH": "${{ github.sha }}"
-              }
-            }
-          }
-          EOF
-          echo "✅ 版本信息已生成："
-          cat public/version.json
+          yarn install --frozen-lockfile
 
       - name: 构建前端项目
         run: |
           cd packages/app-website
-          # 直接构建（version.json 已经创建）
           yarn build
-        env:
-          # 基础环境配置
-          NODE_ENV: production
-          CI: true
-          GENERATE_SOURCEMAP: false
-          
-          # 应用基础信息
-          REACT_APP_NAME: ${{ secrets.REACT_APP_NAME || 'EasyLook Website' }}
-          
-          # API 配置
-          REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
-          REACT_APP_CDN_URL: ${{ secrets.REACT_APP_CDN_URL }}
-          REACT_APP_UPLOAD_URL: ${{ secrets.REACT_APP_UPLOAD_URL }}
-          REACT_APP_PAGE_CNAME: ${{ secrets.REACT_APP_PAGE_CNAME }}
-          
-          # 主题配置
-          REACT_APP_ENABLE_DARK_THEME: ${{ secrets.REACT_APP_ENABLE_DARK_THEME || 'true' }}
-          
-          # 调试配置
-          REACT_APP_DEBUG_BAR_PASSWORD_HASH: ${{ secrets.REACT_APP_DEBUG_BAR_PASSWORD_HASH }}
-          
-          # 构建信息（动态生成）
-          REACT_APP_VERSION: ${{ github.ref_name }}
-          REACT_APP_COMMIT_HASH: ${{ github.sha }}
-          REACT_APP_BUILD_TIME: ${{ github.run_number }}
-          REACT_APP_BUILD_TIMESTAMP: ${{ github.run_id }}
-          
-          # 部署环境标识
-          REACT_APP_ENVIRONMENT: production
-          REACT_APP_DEPLOY_TARGET: vps
 
       - name: 验证构建产物
         run: |
@@ -113,9 +53,6 @@ jobs:
           echo "✅ 构建产物已压缩"
           echo "压缩文件大小："
           ls -lh build.zip
-          
-          # 将压缩文件移动到根目录，避免传输时保留目录结构
-          mv build.zip ../../build.zip
 
       - name: 推送构建产物到远程服务器
         uses: appleboy/scp-action@v0.1.7
