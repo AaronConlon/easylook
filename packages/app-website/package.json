@@ -34,7 +34,7 @@
     "vvv": "RSDOCTOR=true DEBUG=rsbuild rsbuild dev --open",
     "build-vvv": "NODE_ENV=production RSDOCTOR=true GENERATE_SOURCEMAP=false rsbuild build",
     "-------------------------------- PROD ----": "----",
-    "prebuild": "node ./scripts/utils/output-version-json-to-public-dir.js",
+    "prebuild": "echo 'node ./scripts/utils/output-version-json-to-public-dir.js'",
     "build": "GENERATE_SOURCEMAP=false rsbuild build",
     "preview": "NODE_ENV=production rsbuild preview",
     "build-preview": "yarn build && yarn preview",
