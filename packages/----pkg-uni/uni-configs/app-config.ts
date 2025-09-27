@@ -1,6 +1,6 @@
 import { __ENV__ } from '----pkg-uni/__ENV__';
-import { lskv } from '----pkg-uni/uni-libs/lskv-lib';
 import { LS_CONST_KEYS } from '----pkg-uni/uni-consts/ls-const';
+import { lskv } from '----pkg-uni/uni-libs/lskv-lib';
 
 export const appConfig = {
   NODE_ENV: __ENV__.NODE_ENV,
@@ -13,4 +13,5 @@ export const appConfig = {
   __IS_DEBUG_MODE__: lskv.getItem(LS_CONST_KEYS.appDebugMode),
   //
   DEBUG_BAR_PASSWORD_HASH: __ENV__.REACT_APP_DEBUG_BAR_PASSWORD_HASH,
+  PAGE_CNAME: __ENV__.REACT_APP_PAGE_CNAME,
 };

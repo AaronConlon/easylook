@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 export interface IDotEnv {
   NODE_ENV?: 'development' | 'production' | 'test' | string;
   BASE_URL?: string;
@@ -12,6 +11,7 @@ export interface IDotEnv {
   REACT_APP_ENABLE_DARK_THEME?: 'always' | 'true' | 'false' | string;
   //
   REACT_APP_DEBUG_BAR_PASSWORD_HASH?: string;
+  REACT_APP_PAGE_CNAME?: string;
 }
 
 // 这里 process.env 只做 dotenv 的 mapping，rsbuild 打包的时候会替换成 string
@@ -27,4 +27,5 @@ export const __ENV__: IDotEnv = {
   REACT_APP_ENABLE_DARK_THEME: process.env.REACT_APP_ENABLE_DARK_THEME,
   //
   REACT_APP_DEBUG_BAR_PASSWORD_HASH: process.env.REACT_APP_DEBUG_BAR_PASSWORD_HASH, // prettier-ignore
+  REACT_APP_PAGE_CNAME: process.env.REACT_APP_PAGE_CNAME,
 };
