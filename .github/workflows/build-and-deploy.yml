@@ -130,8 +130,11 @@ jobs:
           script: |
             cd ${{ secrets.REMOTE_TARGET_PATH }}
 
+            echo "删除旧的 build 目录"
+            rm -rf build
+
             echo "📦 解压构建产物..."
-            unzip -o ${{ env.__PKG_BUILD_NAME__ }}.zip -d build
+            unzip -o ${{ env.__PKG_BUILD_NAME__ }}.zip -d .
 
 
             echo "🐳 执行 Docker 重新构建脚本..."
