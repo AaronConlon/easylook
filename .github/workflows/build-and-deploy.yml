@@ -43,6 +43,14 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: './yarn.lock'
 
+      - name: 'Get Package Version'
+        run: |
+          PKG_VERSION=$(echo $(node ./.github/workflows/ci-get-pkg-version.js))
+          echo $PKG_VERSION
+          echo __PKG_VERSION_NUM__=$PKG_VERSION >> $GITHUB_ENV
+          echo __PKG_VERSION_STR__=v$PKG_VERSION >> $GITHUB_ENV
+          echo __PKG_BUILD_NAME__=build-v$PKG_VERSION >> $GITHUB_ENV
+
       - name: 安装依赖
         if: ${{ steps.STEP_CACHE.outputs.cache-hit != 'true' }}
         run: |
@@ -76,13 +84,7 @@ jobs:
           cat .env
           mv .env packages/app-website/.env
 
-      - name: 'Get Package Version'
-        run: |
-          PKG_VERSION=$(echo $(node ./.github/workflows/ci-get-pkg-version.js))
-          echo $PKG_VERSION
-          echo __PKG_VERSION_NUM__=$PKG_VERSION >> $GITHUB_ENV
-          echo __PKG_VERSION_STR__=v$PKG_VERSION >> $GITHUB_ENV
-          echo __PKG_BUILD_NAME__=build-v$PKG_VERSION >> $GITHUB_ENV
+      
 
       - name: 构建前端项目
         run: |
