@@ -45,7 +45,7 @@ jobs:
 
       - name: 'Get Package Version'
         run: |
-          PKG_VERSION=$(echo $(node ./.github/workflows/scripts/ci-get-pkg-version.js))
+          PKG_VERSION=$(echo $(node ./.github/scripts/ci-get-pkg-version.js))
           echo $PKG_VERSION
           echo __PKG_VERSION_NUM__=$PKG_VERSION >> $GITHUB_ENV
           echo __PKG_VERSION_STR__=v$PKG_VERSION >> $GITHUB_ENV
