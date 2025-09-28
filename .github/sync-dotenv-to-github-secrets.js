@@ -3,10 +3,10 @@ const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
 
-const __ROOT_DIR__ = path.resolve(__dirname, '../packages/app-website');
+const __ROOT_DIR__ = path.resolve(__dirname, '..');
 
 
-const DOTENV_FILE = `${__ROOT_DIR__}/.env`;
+const DOTENV_FILE = `${__ROOT_DIR__}/packages/app-website/.env`;
 const DOTENV_CONTENT = fs.readFileSync(DOTENV_FILE, 'utf8');
 
 console.log('');
@@ -54,24 +54,24 @@ DOTENV_CONTENT.split('\n').forEach((line) => {
 //
 //
 // 02 write `.env` to deploy.yml
-// const DEPLOY_FILE = `${__ROOT_DIR__}/.github/workflows/build-and-deploy.yml`;
-// const DEPLOY_CONTENT = fs.readFileSync(DEPLOY_FILE, 'utf8');
+const DEPLOY_FILE = `${__ROOT_DIR__}/.github/workflows/build-and-deploy.yml`;
+const DEPLOY_CONTENT = fs.readFileSync(DEPLOY_FILE, 'utf8');
 
-// const REGEX_S = `echo "---- DOTENV-PLACEHOLDER-S ----"`;
-// const REGEX_E = 'echo "---- DOTENV-PLACEHOLDER-E ----"';
+const REGEX_S = `echo "---- DOTENV-PLACEHOLDER-S ----"`;
+const REGEX_E = 'echo "---- DOTENV-PLACEHOLDER-E ----"';
 
-// const REGEX = new RegExp(String.raw`${REGEX_S}[\s\S]*?${REGEX_E}`, 'ig');
+const REGEX = new RegExp(String.raw`${REGEX_S}[\s\S]*?${REGEX_E}`, 'ig');
 
-// const REPLACE_CONTENT = `${REGEX_S}\n${dotenvVariables}${REGEX_E}`
-//   .split('\n')
-//   .map((line) => {
-//     // skip 1st line
-//     if (line === REGEX_S) return line;
+const REPLACE_CONTENT = `${REGEX_S}\n${dotenvVariables}${REGEX_E}`
+  .split('\n')
+  .map((line) => {
+    // skip 1st line
+    if (line === REGEX_S) return line;
 
-//     return `${' '.padEnd(10)}${line}`;
-//   })
-//   .join('\n');
+    return `${' '.padEnd(10)}${line}`;
+  })
+  .join('\n');
 
-// const NEXT_DEPLOY_CONTENT = DEPLOY_CONTENT.replace(REGEX, REPLACE_CONTENT);
+const NEXT_DEPLOY_CONTENT = DEPLOY_CONTENT.replace(REGEX, REPLACE_CONTENT);
 
-// fs.writeFileSync(DEPLOY_FILE, NEXT_DEPLOY_CONTENT, 'utf8');
+fs.writeFileSync(DEPLOY_FILE, NEXT_DEPLOY_CONTENT, 'utf8');

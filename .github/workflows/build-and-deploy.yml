@@ -32,42 +32,37 @@ jobs:
           cd packages/app-website
           yarn install --frozen-lockfile
 
+      #
+      # GEN .env
+      # ---------------------------------------------------------
+      - name: 'Gen All Github Secrets to `.env`'
+        run: |
+          echo "" > .env
+          echo "---- DOTENV-PLACEHOLDER-S ----"
+          echo SKIP_PREFLIGHT_CHECK=${{ secrets.SKIP_PREFLIGHT_CHECK }} >> .env
+          echo GENERATE_SOURCEMAP=${{ secrets.GENERATE_SOURCEMAP }} >> .env
+          echo PORT=${{ secrets.PORT }} >> .env
+          echo CODE_EDITOR=${{ secrets.CODE_EDITOR }} >> .env
+          echo REACT_APP_NAME=${{ secrets.REACT_APP_NAME }} >> .env
+          echo REACT_APP_PAGE_CNAME=${{ secrets.REACT_APP_PAGE_CNAME }} >> .env
+          echo REACT_APP_API_BASE_URL=${{ secrets.REACT_APP_API_BASE_URL }} >> .env
+          echo REACT_APP_CDN_URL=${{ secrets.REACT_APP_CDN_URL }} >> .env
+          echo REACT_APP_UPLOAD_URL=${{ secrets.REACT_APP_UPLOAD_URL }} >> .env
+          echo REACT_APP_ENABLE_AXIOS_CATCH_ERROR_MSG=${{ secrets.REACT_APP_ENABLE_AXIOS_CATCH_ERROR_MSG }} >> .env
+          echo REACT_APP_ENABLE_DARK_THEME=${{ secrets.REACT_APP_ENABLE_DARK_THEME }} >> .env
+          echo CI_CDN_ACCESS_KEY=${{ secrets.CI_CDN_ACCESS_KEY }} >> .env
+          echo CI_CDN_SECRET_KEY=${{ secrets.CI_CDN_SECRET_KEY }} >> .env
+          echo CI_CDN_BUCKET=${{ secrets.CI_CDN_BUCKET }} >> .env
+          echo CI_GITHUB_TOKEN=${{ secrets.CI_GITHUB_TOKEN }} >> .env
+          echo REACT_APP_DEBUG_BAR_PASSWORD_HASH=${{ secrets.REACT_APP_DEBUG_BAR_PASSWORD_HASH }} >> .env
+          echo "---- DOTENV-PLACEHOLDER-E ----"
+          cat .env
+          mv .env packages/app-website/.env
+
       - name: 构建前端项目
         run: |
           cd packages/app-website
-          yarn build
-        env: 
-          # gh secret set REACT_APP_API_BASE_URL -b "xxx" --repo AaronConlon/easylook
-          # gh secret set CI_CDN_SECRET_KEY -b "xxx" --repo AaronConlon/easylook
-          # gh secret set REACT_APP_UPLOAD_URL -b "xxx" --repo AaronConlon/easylook
-          # gh secret set GENERATE_SOURCEMAP -b "false" --repo AaronConlon/easylook
-          # gh secret set REACT_APP_NAME -b "NAME" --repo AaronConlon/easylook
-          # gh secret set SKIP_PREFLIGHT_CHECK -b "true" --repo AaronConlon/easylook
-          # gh secret set CI_CDN_BUCKET -b "xxx" --repo AaronConlon/easylook
-          # gh secret set PORT -b "9922" --repo AaronConlon/easylook
-          # gh secret set REACT_APP_CDN_URL -b "xxx" --repo AaronConlon/easylook
-          # gh secret set REACT_APP_DEBUG_BAR_PASSWORD_HASH -b "3d459da5af079e2f5ec5ae7f99193446" --repo AaronConlon/easylook
-          # gh secret set CI_CDN_ACCESS_KEY -b "xxx" --repo AaronConlon/easylook
-          # gh secret set REACT_APP_ENABLE_DARK_THEME -b "false" --repo AaronConlon/easylook
-          # gh secret set REACT_APP_ENABLE_AXIOS_CATCH_ERROR_MSG -b "false" --repo AaronConlon/easylook
-          # gh secret set CI_GITHUB_TOKEN -b "xxx" --repo AaronConlon/easylook
-          # gh secret set REACT_APP_PAGE_CNAME -b "PAGE_CNAME" --repo AaronConlon/easylook
-          REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
-          CI_CDN_SECRET_KEY: ${{ secrets.CI_CDN_SECRET_KEY }}
-          REACT_APP_UPLOAD_URL: ${{ secrets.REACT_APP_UPLOAD_URL }}
-          GENERATE_SOURCEMAP: ${{ secrets.GENERATE_SOURCEMAP }}
-          REACT_APP_NAME: ${{ secrets.REACT_APP_NAME }}
-          SKIP_PREFLIGHT_CHECK: ${{ secrets.SKIP_PREFLIGHT_CHECK }}
-          CI_CDN_BUCKET: ${{ secrets.CI_CDN_BUCKET }}
-          PORT: ${{ secrets.PORT }}
-          REACT_APP_CDN_URL: ${{ secrets.REACT_APP_CDN_URL }}
-          REACT_APP_DEBUG_BAR_PASSWORD_HASH: ${{ secrets.REACT_APP_DEBUG_BAR_PASSWORD_HASH }}
-          CI_CDN_ACCESS_KEY: ${{ secrets.CI_CDN_ACCESS_KEY }}
-          REACT_APP_ENABLE_DARK_THEME: ${{ secrets.REACT_APP_ENABLE_DARK_THEME }}
-          REACT_APP_ENABLE_AXIOS_CATCH_ERROR_MSG: ${{ secrets.REACT_APP_ENABLE_AXIOS_CATCH_ERROR_MSG }}
-          CI_GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
-          REACT_APP_PAGE_CNAME: ${{ secrets.REACT_APP_PAGE_CNAME }}
-
+          yarn build  
 
       - name: 验证构建产物
         run: |
