@@ -1,14 +1,13 @@
-import React from 'react';
+import { DndContext } from '@dnd-kit/core';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { Spin as AntdSpin } from 'antd';
 import { Helmet } from 'react-helmet';
 import { IntlProvider } from 'use-intl';
-import { QueryClientProvider } from '@tanstack/react-query';
-import { DndContext } from '@dnd-kit/core';
 
 import { USpinLoading } from '----pkg-uni/uni-ui-components/USpinLoading';
 
-import { useHtmlStore } from '----pkg-uni/uni-stores/useHtmlStore';
 import { rqClient } from '----pkg-uni/uni-libs/rq-lib';
+import { useHtmlStore } from '----pkg-uni/uni-stores/useHtmlStore';
 
 import { AppErrorBoundary } from '@/components/AppErrorBoundary';
 import { AppGlobal__DEBUG__ } from '@/components/AppGlobal__DEBUG__';
@@ -37,6 +36,7 @@ export const App = () => {
             locale=""
             // locale="zh-CN"
             // locale="en-US"
+            // locale="fr-FR"
           >
             <AppGlobalMasterRouter />
           </IntlProvider>

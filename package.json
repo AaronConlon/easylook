@@ -23,7 +23,8 @@
     "prepare": "husky",
     "dev__COMMENT__": "确保在 monoreop 顶层目录也能 dev",
     "dev": "cd ./packages/app-website && yarn dev",
-    "gencss": "cd ./packages/----pkg-uni && yarn gencss"
+    "gencss": "cd ./packages/----pkg-uni && yarn gencss",
+    "versionup": "cd ./packages/app-website && yarn versionup"
   },
   "dependencies": {},
   "devDependencies": {
