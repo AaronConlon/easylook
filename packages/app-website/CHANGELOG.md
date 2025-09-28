@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.5 (2025-09-28)
+
+
+### Features
+
+* about page ([7c89515](https://github.com/profit-projects/easylook-website/commit/7c89515733d23c435a3efb3e56ff9955d31d96d6))
+* add multiple page ([8285d13](https://github.com/profit-projects/easylook-website/commit/8285d13209512052168363de0b062c22144db04a))
+
 ### [0.0.4](https://github.com/profit-projects/weiai-website/compare/app-website@0.0.3...app-website@0.0.4) (2025-09-13)
 
 
