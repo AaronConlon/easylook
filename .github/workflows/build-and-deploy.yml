@@ -58,6 +58,14 @@ jobs:
           echo "---- DOTENV-PLACEHOLDER-E ----"
           cat .env
           mv .env packages/app-website/.env
+      
+      - name: 'Get Package Version'
+        run: |
+          PKG_VERSION=$(echo $(node ./.github/workflows/ci-get-pkg-version.js))
+          echo $PKG_VERSION
+          echo __PKG_VERSION_NUM__=$PKG_VERSION >> $GITHUB_ENV
+          echo __PKG_VERSION_STR__=v$PKG_VERSION >> $GITHUB_ENV
+          echo __PKG_BUILD_NAME__=build-v$PKG_VERSION >> $GITHUB_ENV
 
       - name: 构建前端项目
         run: |
@@ -82,7 +90,7 @@ jobs:
           ls -lh build.zip
           
           # 将压缩文件移动到根目录，避免传输时保留目录结构
-          mv build.zip ../../build.zip
+          mv build.zip ../../${{ env.__PKG_BUILD_NAME__ }}.zip
 
       - name: 推送构建产物到远程服务器
         uses: appleboy/scp-action@v0.1.7
@@ -91,7 +99,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          source: 'build.zip'
+          source: '${{ env.__PKG_BUILD_NAME__ }}.zip'
           target: '${{ secrets.REMOTE_TARGET_PATH }}'
           overwrite: true
 
@@ -106,9 +114,8 @@ jobs:
             cd ${{ secrets.REMOTE_TARGET_PATH }}
 
             echo "📦 解压构建产物..."
-            # 删除旧的 build 目录
-            rm -rf build
-            unzip -o build.zip
+            unzip -o ${{ env.__PKG_BUILD_NAME__ }}.zip -d build
+
 
             echo "🐳 执行 Docker 重新构建脚本..."
             # 执行您在 VPS 上准备的脚本
@@ -121,10 +128,7 @@ jobs:
               echo "当前目录文件："
               ls -la
               exit 1
-            fi
-
-            # 清理压缩文件
-            rm -f build.zip
+            fi           
 
             echo "✅ 部署完成！"
 

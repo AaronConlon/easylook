@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
 
-const __ROOT_DIR__ = path.resolve(__dirname, '..');
+const __ROOT_DIR__ = path.resolve(__dirname, '../..');
 
 
 const DOTENV_FILE = `${__ROOT_DIR__}/packages/app-website/.env`;
@@ -16,6 +16,26 @@ console.log('');
 console.log('');
 
 let dotenvVariables = '';
+
+const argv = process.argv
+
+console.log('argv:', argv);
+
+const args = process.argv.slice(2); // 移除前两个不相关的参数（node 路径和脚本路径）
+
+let repoName = null;
+let secretName = null; // 如果你需要解析更多参数，可以继续添加
+
+for (let i = 0; i < args.length; i++) {
+  // 检查是否是 --repo 标志
+  if (args[i] === '--repo') {
+    // 确保下一个参数存在，并且不是另一个标志
+    if (i + 1 < args.length && !args[i + 1].startsWith('-')) {
+      repoName = args[i + 1];
+      break; // 找到后就可以跳出循环
+    }
+  }
+}
 
 //
 //
@@ -37,8 +57,10 @@ DOTENV_CONTENT.split('\n').forEach((line) => {
   if (!k || !v) return; // filte empty value
 
   // e.g. gh secret set PORT -b "8080"
-  const execStr = `gh secret set ${k} -b "${v}" --repo AaronConlon/easylook`;
-  // console.log(execStr);
+  let execStr = `gh secret set ${k} -b "${v}"`;
+  if (repoName) {
+    execStr += ` --repo ${repoName}`;
+  }
 
   exec(execStr, (err, stdout) => {
     if (err) console.log('⚠️ ERR', err);
