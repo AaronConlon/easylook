@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.12...app-website@0.0.13) (2025-09-28)
+
+
+### Bug Fixes
+
+* homepage nav bug ([d1d58ed](https://github.com/profit-projects/easylook-website/commit/d1d58ed88f85d4584211ed89a7fc9633c6777878))
+
 ### [0.0.12](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.11...app-website@0.0.12) (2025-09-28)
 
 ### [0.0.11](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.10...app-website@0.0.11) (2025-09-28)
