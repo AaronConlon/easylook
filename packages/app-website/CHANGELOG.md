@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.10...app-website@0.0.11) (2025-09-28)
+
 ### [0.0.10](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.9...app-website@0.0.10) (2025-09-28)
 
 ### [0.0.9](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.8...app-website@0.0.9) (2025-09-28)
