@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
-import { RoughNotation } from 'react-rough-notation';
 import CountUp from 'react-countup';
+import { RoughNotation } from 'react-rough-notation';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
@@ -69,8 +69,8 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
           });
         },
         {
-          threshold: 0.2, // 当卡片20%可见时触发
-          rootMargin: '50px', // 提前50px触发
+          threshold: 0.2, // 当卡片 20% 可见时触发
+          rootMargin: '50px', // 提前 50px 触发
         },
       );
 
@@ -113,7 +113,7 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
               <RoughNotation
                 type="highlight"
                 show={showNotation}
-                color="#a0d91125"
+                color="#0052d923"
                 animationDuration={800}
               >
                 {item.title}

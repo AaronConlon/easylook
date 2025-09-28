@@ -41,7 +41,7 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
         type: 'image',
         sourceUrl: 'product-box2.jpg',
         subTitle:
-          '视力优训练盒是视力优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
+          '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
       },
       {
         title: 'Visual Training Box',
@@ -51,7 +51,7 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
           'The visual training box uses the most advanced visual training technology, mainly for visual training and visual recovery.',
       },
       {
-        title: 'EasyLook · 视力优',
+        title: 'EasyLook · 视立优',
         type: 'video',
         sourceUrl: firstVideoUrl,
       },

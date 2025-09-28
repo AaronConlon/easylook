@@ -10,17 +10,17 @@ export const ServiceIndex = () => {
         <UText className={styles.title}>服务场景</UText>
         <UView className={styles.content}>
           <UView className={styles.serviceSection}>
-            <UText className={styles.serviceTitle}>视力优医疗</UText>
+            <UText className={styles.serviceTitle}>视立优医疗</UText>
             <UText className={styles.serviceDesc}>
               专业的医疗级视力服务...
             </UText>
           </UView>
           <UView className={styles.serviceSection}>
-            <UText className={styles.serviceTitle}>视力优健康</UText>
+            <UText className={styles.serviceTitle}>视立优健康</UText>
             <UText className={styles.serviceDesc}>全面的健康管理服务...</UText>
           </UView>
           <UView className={styles.serviceSection}>
-            <UText className={styles.serviceTitle}>视力优教育</UText>
+            <UText className={styles.serviceTitle}>视立优教育</UText>
             <UText className={styles.serviceDesc}>科学的教育训练方案...</UText>
           </UView>
         </UView>

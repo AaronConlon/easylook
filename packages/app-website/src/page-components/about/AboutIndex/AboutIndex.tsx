@@ -99,7 +99,7 @@ export const AboutIndex = forwardRef<HTMLDivElement, IUViewProps>(
               <div className={styles['intro-text']}>
                 <h2>公司简介</h2>
                 <p className={styles.lead}>
-                  EasyLook（视力优）是一家专注于视力保护和视觉训练技术的创新型科技公司。
+                  EasyLook（视立优）是一家专注于视力保护和视觉训练技术的创新型科技公司。
                   我们致力于通过先进的技术手段，为用户提供科学、有效的视力改善解决方案。
                 </p>
                 <p>

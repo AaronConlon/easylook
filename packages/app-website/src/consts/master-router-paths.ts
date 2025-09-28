@@ -18,6 +18,9 @@ export const MASTER_ROUTER_PATHS = {
   //
   '/contact': `${LANG_PREFIX}/contact`,
   '/service': `${LANG_PREFIX}/service`,
+  '/service/medical': `${LANG_PREFIX}/service/medical`,
+  '/service/health': `${LANG_PREFIX}/service/health`,
+  '/service/education': `${LANG_PREFIX}/service/education`,
   '/story': `${LANG_PREFIX}/story`,
   '/honor': `${LANG_PREFIX}/honor`,
   '/recruit': `${LANG_PREFIX}/recruit`,
@@ -97,16 +100,16 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
     label: '服务场景',
     children: [
       {
-        key: MASTER_ROUTER_PATHS['/service'],
-        label: '视力优医疗',
+        key: MASTER_ROUTER_PATHS['/service/medical'],
+        label: '视立优医疗',
       },
       {
-        key: MASTER_ROUTER_PATHS['/service'],
-        label: '视力优健康',
+        key: MASTER_ROUTER_PATHS['/service/health'],
+        label: '视立优健康',
       },
       {
-        key: MASTER_ROUTER_PATHS['/service'],
-        label: '视力优教育',
+        key: MASTER_ROUTER_PATHS['/service/education'],
+        label: '视立优教育',
       },
     ],
   },

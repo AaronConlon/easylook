@@ -1,6 +1,6 @@
 import { useRouter } from '@tanstack/react-router';
 import _, { debounce } from 'lodash';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 import { cx } from '----pkg-platform/h5/h5-utils/cx-util--h5';
@@ -13,7 +13,10 @@ import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered'
 
 import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
 import type { IMenuItem } from '@/consts/master-router-paths';
-import { MASTER_HEADER_MENUS } from '@/consts/master-router-paths';
+import {
+  MASTER_HEADER_MENUS,
+  MASTER_ROUTER_PATHS,
+} from '@/consts/master-router-paths';
 
 import { ContextNavItem } from './ContextNavItem';
 
@@ -36,12 +39,15 @@ export const MasterHeaderPc = (props: IProps) => {
   // const [keepShowHeader, setKeepShowHeader] = useState(false);
 
   // 用 debounce 控制延迟隐藏
-  const hideNavItem = _.debounce(() => {
-    // 如果有 children 不要关闭
-    if (curItem?.children) return;
+  const hideNavItem = useCallback(
+    _.debounce((itemToCheck?: IMenuItem | null) => {
+      // 如果有 children 不要关闭
+      if (itemToCheck?.children) return;
 
-    setCurItem(null);
-  }, 100);
+      setCurItem(null);
+    }, 100),
+    [],
+  );
 
   const onNavItemEnter = (item?: IMenuItem | null) => {
     if (!item) return undefined;
@@ -51,16 +57,19 @@ export const MasterHeaderPc = (props: IProps) => {
   };
 
   const onNavItemLeave = (item?: IMenuItem | null) => {
-    hideNavItem();
+    hideNavItem(item);
   };
 
   // 用 debounce 控制延迟隐藏
-  const hideHeaderWrapper = _.debounce(() => {
-    setIsOnWrapper(false);
+  const hideHeaderWrapper = useCallback(
+    _.debounce(() => {
+      setIsOnWrapper(false);
 
-    // 如果离开了 wrapper，就不要选中任何 item
-    setCurItem(null);
-  }, 200);
+      // 如果离开了 wrapper，就不要选中任何 item
+      setCurItem(null);
+    }, 200),
+    [],
+  );
 
   const onHeaderWrapperEnter = () => {
     hideHeaderWrapper.cancel(); // 取消隐藏
@@ -95,14 +104,26 @@ export const MasterHeaderPc = (props: IProps) => {
     window.addEventListener('scroll', handleScrollRef.current);
 
     return () => {
+      handleScrollRef.current.cancel();
       window.removeEventListener('scroll', handleScrollRef.current);
     };
   }, []);
 
   useEffect(() => {
-    setCurItem(null);
+    // 只在非首页时重置导航状态，避免与用户交互冲突
+    if (router.latestLocation.pathname !== '/') {
+      setCurItem(null);
+    }
     setKeepShowHeader(router.latestLocation.pathname === '/' ? false : true);
   }, [router.latestLocation.pathname]);
+
+  // 组件卸载时清理所有防抖函数
+  useEffect(() => {
+    return () => {
+      hideNavItem.cancel();
+      hideHeaderWrapper.cancel();
+    };
+  }, [hideNavItem, hideHeaderWrapper]);
 
   return (
     <div
@@ -135,12 +156,10 @@ export const MasterHeaderPc = (props: IProps) => {
 
                   [styles['nav-menu-item--active']]: item?.key === curItem?.key,
                 })}
-                // @ts-ignore
                 onMouseEnter={() => onNavItemEnter(item)}
-                // @ts-ignore
                 onMouseLeave={() => onNavItemLeave(item)}
               >
-                {item.key === '/contact' ? (
+                {item.key === MASTER_ROUTER_PATHS['/contact'] ? (
                   <ContextNavItem />
                 ) : (
                   <span>{item?.label}</span>

@@ -16,6 +16,8 @@ interface IUSmartLinkProps extends IUiCompBaseProps {
   lang?: string;
   alt?: string;
   onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 export const USmartLink = forwardRef<
