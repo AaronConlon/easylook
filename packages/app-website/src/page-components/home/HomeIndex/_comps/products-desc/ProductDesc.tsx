@@ -96,8 +96,8 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
             </div>
           </div>
           {/* 一行四个视频，hover 到不同的产品，展示不同的视频卡片，使用图片模拟可播放效果的视频卡片 */}
-          <ProductVideos />
         </div>
+        <ProductVideos />
       </div>
     );
   },
