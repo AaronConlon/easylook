@@ -39,7 +39,7 @@
   display: inline-block;
 }
 
-// 微信图标样式 - 继承社交媒体icon样式
+// 微信图标样式 - 继承社交媒体 icon 样式
 .wechat-icon {
   width: 40px;
   height: 40px;
@@ -92,13 +92,18 @@
   background: var(--popup-bg);
   border: 1px solid var(--popup-border);
   border-radius: 12px;
-  padding: 16px;
+  padding: 12px;
   box-shadow: 0 8px 24px var(--popup-shadow);
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 4px;
   min-width: 280px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
   @media (max-width: 768px) {
     min-width: 260px;

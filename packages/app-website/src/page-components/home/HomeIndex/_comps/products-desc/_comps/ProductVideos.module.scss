@@ -1,0 +1,333 @@
+@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss'
+  as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.videos-container {
+  // for-CSS-VARS--light
+  --video-bg: #ffffff;
+  --video-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --video-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.2);
+  --video-border: #e2e8f0;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --accent-color: #1890ff;
+  --play-button-bg: rgba(24, 144, 255, 0.9);
+  --play-button-hover: #1890ff;
+  --overlay-bg: rgba(0, 0, 0, 0.3);
+  --overlay-hover: rgba(0, 0, 0, 0.2);
+  --category-bg: rgba(24, 144, 255, 0.1);
+  --category-color: #1890ff;
+}
+
+// prettier-ignore
+.videos-container--isDarkMode {
+  // for-CSS-VARS--dark
+  --video-bg: #1e293b;
+  --video-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --video-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --video-border: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent-color: #60a5fa;
+  --play-button-bg: rgba(96, 165, 250, 0.9);
+  --play-button-hover: #60a5fa;
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+  --overlay-hover: rgba(0, 0, 0, 0.3);
+  --category-bg: rgba(96, 165, 250, 0.2);
+  --category-color: #60a5fa;
+}
+
+// -----------------------------------------------------------------------------
+// 🎬 ANIMATIONS
+//
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes playButtonPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+.videos-container {
+  margin-top: 60px;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    margin-top: 40px;
+    padding: 0 16px;
+  }
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1400px;
+    gap: 32px;
+  }
+}
+
+.video-card {
+  background: var(--video-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--video-shadow);
+  border: 1px solid var(--video-border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  animation: fadeInUp 0.6s ease-out;
+  opacity: 1;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--video-shadow-hover);
+
+    .play-button {
+      background: var(--play-button-hover);
+      animation: playButtonPulse 1s infinite;
+    }
+
+    .video-thumbnail img {
+      transform: scale(1.05);
+    }
+
+    .play-overlay {
+      background: var(--overlay-hover);
+    }
+  }
+
+  &--hovered {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--video-shadow-hover);
+    z-index: 10;
+
+    .play-button {
+      background: var(--play-button-hover);
+      animation: playButtonPulse 1s infinite;
+    }
+
+    .video-thumbnail img {
+      transform: scale(1.05);
+    }
+
+    .play-overlay {
+      background: var(--overlay-hover);
+    }
+  }
+
+  &--dimmed {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+}
+
+.video-thumbnail {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 180px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.play-button {
+  width: 60px;
+  height: 60px;
+  background: var(--play-button-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 2px; // 视觉居中调整
+
+    @media (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.video-duration {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.video-category {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--category-bg);
+  color: var(--category-color);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.video-content {
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
+}
+
+.video-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.video-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+}
+
+// 加载状态动画
+.video-card--loading {
+  .video-thumbnail {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+// 特殊效果：视频卡片的光晕效果
+.video-card--hovered::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--accent-color),
+    transparent,
+    var(--accent-color)
+  );
+  border-radius: 18px;
+  z-index: -1;
+  opacity: 0.3;
+}

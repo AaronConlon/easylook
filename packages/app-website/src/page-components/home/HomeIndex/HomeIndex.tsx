@@ -7,10 +7,11 @@ import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
 
 import {
+  AboutUs,
   Carousel,
+  Encyclopedia,
   EyeScience,
-  IntellectualProperty,
-  Partners,
+  Partnership,
   ProductDesc,
 } from './_comps';
 
@@ -33,14 +34,22 @@ export const HomeIndex = forwardRef<HTMLDivElement, IUViewProps>(
         {/* 轮播图 */}
         <Carousel />
         <ScreenMediaWidthCentered>
-          {/* 产品介绍 */}
-          <ProductDesc />
           {/* 眼界科普 */}
           <EyeScience />
+          {/* 产品介绍 */}
+          <ProductDesc />
+
+          {/* 眼界百科，展示三条内容 */}
+          <Encyclopedia />
+          {/* 合作加盟 */}
+          <Partnership />
+
+          {/* 关于我们 */}
+          <AboutUs />
           {/* 合作伙伴 */}
-          <Partners />
+          {/* <Partners /> */}
           {/* 知识产权 */}
-          <IntellectualProperty />
+          {/* <IntellectualProperty /> */}
         </ScreenMediaWidthCentered>
       </div>
     );

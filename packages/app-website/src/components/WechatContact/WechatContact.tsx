@@ -41,7 +41,7 @@ export const WechatContact = forwardRef<HTMLDivElement, IWechatContactProps>(
           <img src={wechatIcon} alt="微信" />
         </div>
 
-        {/* Hover弹出层 */}
+        {/* Hover 弹出层 */}
         {isHovered && (
           <div className={cx(styles['popup-overlay'])}>
             <div className={cx(styles['popup-content'])}>
