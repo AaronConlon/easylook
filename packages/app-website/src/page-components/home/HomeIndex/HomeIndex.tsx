@@ -4,8 +4,6 @@ import { cx } from '----pkg-uni/uni-utils/cx-util';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
-import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
-
 import {
   AboutUs,
   Carousel,
@@ -33,24 +31,36 @@ export const HomeIndex = forwardRef<HTMLDivElement, IUViewProps>(
       >
         {/* 轮播图 */}
         <Carousel />
-        <ScreenMediaWidthCentered>
-          {/* 眼界科普 */}
+
+        {/* 眼界科普 - 奇数（白色背景） */}
+        <div className={cx(styles['section'], styles['section--odd'])}>
           <EyeScience />
-          {/* 产品介绍 */}
+        </div>
+
+        {/* 产品介绍 - 偶数（灰色背景） */}
+        <div className={cx(styles['section'], styles['section--even'])}>
           <ProductDesc />
+        </div>
 
-          {/* 眼界百科，展示三条内容 */}
+        {/* 眼界百科 - 奇数（白色背景） */}
+        <div className={cx(styles['section'], styles['section--odd'])}>
           <Encyclopedia />
-          {/* 合作加盟 */}
-          <Partnership />
+        </div>
 
-          {/* 关于我们 */}
+        {/* 合作加盟 - 偶数（灰色背景） */}
+        <div className={cx(styles['section'], styles['section--even'])}>
+          <Partnership />
+        </div>
+
+        {/* 关于我们 - 奇数（白色背景） */}
+        <div className={cx(styles['section'], styles['section--odd'])}>
           <AboutUs />
-          {/* 合作伙伴 */}
-          {/* <Partners /> */}
-          {/* 知识产权 */}
-          {/* <IntellectualProperty /> */}
-        </ScreenMediaWidthCentered>
+        </div>
+
+        {/* 合作伙伴 */}
+        {/* <Partners /> */}
+        {/* 知识产权 */}
+        {/* <IntellectualProperty /> */}
       </div>
     );
   },

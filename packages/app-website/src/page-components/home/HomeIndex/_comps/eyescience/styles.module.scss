@@ -45,7 +45,10 @@ as *;
 .section-header {
   text-align: center;
   margin-bottom: 60px;
-  animation: fadeInUp 0.8s ease-out;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
 .section-title {
@@ -81,7 +84,7 @@ as *;
   gap: 12px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 20px 20px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -155,8 +158,6 @@ as *;
   box-shadow: var(--card-shadow);
   border: 1px solid var(--border-color);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-  transform: translateY(40px);
 
   &:hover {
     transform: translateY(-8px);
@@ -166,29 +167,6 @@ as *;
       transform: scale(1.05);
     }
   }
-
-  // 使用 data-in-view 属性触发动画
-  &[data-in-view="true"] {
-    animation: cardSlideInNoScale 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    
-    // 根据索引设置动画延迟
-    &[data-animation-index="0"] {
-      animation-delay: 0ms;
-    }
-    
-    &[data-animation-index="1"] {
-      animation-delay: 200ms;
-    }
-    
-    &[data-animation-index="2"] {
-      animation-delay: 400ms;
-    }
-    
-    &[data-animation-index="3"] {
-      animation-delay: 600ms;
-    }
-  }
-
 }
 
 
@@ -241,8 +219,7 @@ as *;
   background: var(--primary-gradient);
   background-clip: text;
   color: var(--uni-abs-color-primary-for-light);
-  // -webkit-background-clip: text;
-  // -webkit-text-fill-color: transparent;
+
   margin-bottom: 4px;
   text-align: center;
 
@@ -255,9 +232,6 @@ as *;
 .card-highlight {
   font-size: 0.9rem;
   font-weight: 600;
-  // color: var(--highlight-color);
-  // background: var(--highlight-bg);
-  // padding: 8px 12px;
   border-radius: 8px;
   margin-bottom: 16px;
   line-height: 1.4;
@@ -267,7 +241,7 @@ as *;
 
 .card-description {
   font-size: 0.9rem;
-  color: var(--description-color);
+  color: var(--app-text-secondary);
   line-height: 1.6;
   margin: 0;
   text-align: center;
@@ -278,55 +252,8 @@ as *;
 // 🎬 ANIMATIONS
 //
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes cardSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-  }
-
-  60% {
-    opacity: 0.8;
-    transform: translateY(-5px) scale(1.02);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes cardSlideInNoScale {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-
-  60% {
-    opacity: 0.8;
-    transform: translateY(-5px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 // 悬浮动画
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0);
@@ -339,7 +266,6 @@ as *;
 
 // 脉冲动画
 @keyframes pulse {
-
   0%,
   100% {
     transform: scale(1);

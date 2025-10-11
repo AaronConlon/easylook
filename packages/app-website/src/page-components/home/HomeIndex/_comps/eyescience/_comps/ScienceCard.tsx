@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useRef } from 'react';
 import CountUp from 'react-countup';
 import { RoughNotation } from 'react-rough-notation';
 
@@ -25,63 +25,7 @@ interface ScienceCardProps {
 
 export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
   ({ item, index, className, styles, startAmount }, ref) => {
-    const [isInView, setIsInView] = useState(false);
-    const [hasAnimated, setHasAnimated] = useState(false);
-    const [showNotation, setShowNotation] = useState(false);
-    const [startCountUp, setStartCountUp] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
-    const observerRef = useRef<IntersectionObserver | null>(null);
-
-    useEffect(() => {
-      const currentCard = cardRef.current;
-      if (!currentCard) return;
-
-      // 创建 Intersection Observer
-      observerRef.current = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !hasAnimated) {
-              // 设置 data-in-view 属性，触发 CSS 动画
-              setIsInView(true);
-              setHasAnimated(true);
-
-              // 延迟启动 RoughNotation 动画
-              setTimeout(
-                () => {
-                  setShowNotation(true);
-                },
-                300 + index * 200,
-              );
-
-              // 延迟启动 CountUp 动画
-              setTimeout(
-                () => {
-                  setStartCountUp(true);
-                },
-                600 + index * 200,
-              );
-
-              // 动画完成后断开观察器
-              if (observerRef.current) {
-                observerRef.current.unobserve(entry.target);
-              }
-            }
-          });
-        },
-        {
-          threshold: 0.2, // 当卡片 20% 可见时触发
-          rootMargin: '50px', // 提前 50px 触发
-        },
-      );
-
-      observerRef.current.observe(currentCard);
-
-      return () => {
-        if (observerRef.current) {
-          observerRef.current.disconnect();
-        }
-      };
-    }, [hasAnimated, index]);
 
     return (
       <div
@@ -94,8 +38,6 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
           }
         }}
         id={item.id}
-        data-in-view={isInView}
-        data-animation-index={index}
         className={cx(
           styles['science-card'],
           styles[`science-card--${item.id}`],
@@ -112,7 +54,6 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
             <h3 className={cx(styles['card-title'])}>
               <RoughNotation
                 type="highlight"
-                show={showNotation}
                 color="#0052d923"
                 animationDuration={800}
               >
@@ -124,7 +65,7 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
               {item.amount === 0 ? null : (
                 <CountUp
                   start={startAmount}
-                  end={startCountUp ? item.amount : 0}
+                  end={startAmount ? item.amount : 0}
                   duration={2} // 动画时长 2 秒
                   separator="," // 千分位分隔符
                   decimal="." // 小数点符号，可选
