@@ -8,6 +8,8 @@ import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
 import { ContainerTitle } from '@/components/ContainerTitle';
 
+import { MASTER_ROUTER_PATHS } from '@/consts/master-router-paths';
+
 import { ProductVideos } from './_comps/ProductVideos';
 
 import styles from './styles.module.scss';
@@ -24,9 +26,9 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
     ) => {
       // 跳转到对应的产品详情页
       if (productType === 'training-box') {
-        navigate({ to: '/brand-easylook' });
+        navigate({ to: MASTER_ROUTER_PATHS['/product-1'] });
       } else {
-        navigate({ to: '/brand-weiai' });
+        navigate({ to: MASTER_ROUTER_PATHS['/product-2'] });
       }
     };
 
@@ -47,19 +49,16 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
 
         <br />
         <br />
+        <br />
 
         <div className={cx(styles['products-container'])}>
           {/* 视觉训练套盒 */}
           <div
-            className={cx(
-              styles['product-card'],
-              styles['product-card--training-box'],
-            )}
+            className={cx(styles['product-card'])}
             onClick={() => handleCardClick('training-box')}
           >
             <div className={cx(styles['card-image'])}>
               <img src="product-box2.jpg" alt="视觉训练套盒" />
-              <div className={cx(styles['image-overlay'])} />
             </div>
             <div className={cx(styles['card-content'])}>
               <h3 className={cx(styles['card-title'])}>视觉训练套盒</h3>
@@ -70,10 +69,7 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
           </div>
           {/* 集合训练器 */}
           <div
-            className={cx(
-              styles['product-card'],
-              styles['product-card--integrated-trainer'],
-            )}
+            className={cx(styles['product-card'])}
             onClick={() => handleCardClick('integrated-trainer')}
           >
             <div className={cx(styles['card-image'])}>
@@ -81,7 +77,6 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/eye-with-warm-tones-and-circular-scanning-patterns-VPs8gh06LzUJQvBF66TDXa9mCaWDye.jpg"
                 alt="集合训练器"
               />
-              <div className={cx(styles['image-overlay'])} />
             </div>
             <div className={cx(styles['card-content'])}>
               <h3 className={cx(styles['card-title'])}>集合训练器</h3>
