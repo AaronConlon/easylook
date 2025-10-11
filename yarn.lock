@@ -4953,6 +4953,13 @@ functions-have-names@^1.2.3:
   resolved "https://registry.yarnpkg.com/functions-have-names/-/functions-have-names-1.2.3.tgz#0404fe4ee2ba2f607f0e0ec3c80bae994133b834"
   integrity sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==
 
+gasp@^0.0.2:
+  version "0.0.2"
+  resolved "https://mirrors.cloud.tencent.com/npm/gasp/-/gasp-0.0.2.tgz#ba48a71546aaad75fe1162dd74c2fc15bedffb11"
+  integrity sha512-cJGS8HkASZXLtYnS7CHDUCutYdeV2OXW/P+SU03+allNY26GiYOfstziPjnsMW8bbdf6hoQ3caVHYNZ0YLuFCA==
+  dependencies:
+    q "^1.0.0"
+
 gen-buildinfo-webpack-plugin@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/gen-buildinfo-webpack-plugin/-/gen-buildinfo-webpack-plugin-1.7.0.tgz#5c4509c8176106099238f5dfdf06ef4c06cf7796"
@@ -7108,6 +7115,11 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.1.tgz#027422e2faec0b25e1549c3e1bd8309b9133b6e5"
   integrity sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==
 
+q@^1.0.0:
+  version "1.5.1"
+  resolved "https://mirrors.cloud.tencent.com/npm/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
+  integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
+
 qiniu-cdn-sync@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/qiniu-cdn-sync/-/qiniu-cdn-sync-1.1.0.tgz#e658b850251a4ba9e25001a6303c087b7ffaf1aa"
@@ -7568,11 +7580,6 @@ react-fast-compare@^3.1.1:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.2.tgz#929a97a532304ce9fee4bcae44234f1ce2c21d49"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
-
-react-fast-marquee@^1.6.5:
-  version "1.6.5"
-  resolved "https://registry.yarnpkg.com/react-fast-marquee/-/react-fast-marquee-1.6.5.tgz#98929ae93eef087a607a71e9d45ab76bba97dc16"
-  integrity sha512-swDnPqrT2XISAih0o74zQVE2wQJFMvkx+9VZXYYNSLb/CUcAzU9pNj637Ar2+hyRw6b4tP6xh4GQZip2ZCpQpg==
 
 react-helmet@^6.1.0:
   version "6.1.0"

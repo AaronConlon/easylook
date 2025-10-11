@@ -1,0 +1,94 @@
+// 右侧信息区域
+.info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.info-item {
+  .info-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #05519b;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .info-value {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+// 二维码区域
+.qrcode-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 0;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  flex: 0 0 auto;
+}
+
+.qrcode-item {
+  text-align: center;
+  flex: 0 0 auto;
+
+  .qrcode-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+  }
+
+  .qrcode-label {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+  }
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+  .info-section {
+    gap: 20px;
+  }
+
+  .info-item {
+    .info-label {
+      font-size: 14px;
+    }
+
+    .info-value {
+      font-size: 16px;
+    }
+  }
+
+  .qrcode-section {
+    gap: 20px;
+  }
+
+  .qrcode-item {
+    .qrcode-image {
+      width: 110px;
+      height: 110px;
+    }
+
+    .qrcode-label {
+      font-size: 12px;
+    }
+  }
+}

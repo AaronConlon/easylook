@@ -49,7 +49,7 @@
         color: var(--uni-abs-color-primary-for-light) !important;
       }
 
-      &[data-status='active'] {
+      &[data-status='active']:not([data-href='/contact']) {
         font-weight: 600;
         color: var(--uni-abs-color-primary-for-light) !important;
         border-radius: 0;
@@ -230,6 +230,7 @@
 }
 
 .context-nav-item {
+  --uni-abs-color-primary-for-light: transparent;
   overflow: hidden;
   height: 48px;
 

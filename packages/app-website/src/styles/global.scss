@@ -40,3 +40,53 @@ html.theme-dark {
   position: relative;
   // top: -0.1em;
 }
+
+// macOS 风格滚动条
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  &:active {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+// 深色模式滚动条
+html.theme-dark {
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+// Firefox 滚动条样式
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+html.theme-dark * {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}

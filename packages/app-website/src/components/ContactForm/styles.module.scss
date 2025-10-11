@@ -1,87 +1,10 @@
-.contact-index-wrapper {
-  min-height: 100vh;
-  background-color: #fff;
-}
-
-.contact-content {
-  padding: 80px 20px;
-}
-
-.form-section {
-  padding: 60px 20px 80px;
-}
-
-.content-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: stretch;
-}
-
-// 左侧地图区域
-.map-section {
-  display: flex;
-  align-items: stretch;
-
-  .map-image {
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-    transition: all 0.3s ease;
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-      transform: translateY(-4px);
-    }
-  }
-}
-
-// 右侧信息区域样式已移至 ContactInfoSection 组件
-
-// 响应式设计
-@media (max-width: 1024px) {
-  .content-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .map-section {
-    order: 2;
-
-    .map-image {
-      height: 400px;
-    }
-  }
-
-  .info-section {
-    order: 1;
-    gap: 24px;
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-content {
-    padding: 40px 16px;
-  }
-
-  .map-section {
-    .map-image {
-      height: 300px;
-    }
-  }
-
-}
-
-// 表单样式
 .contact-form {
   width: 100%;
+  margin: 0 auto;
   padding: 40px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  // background: #fff;
+  // border-radius: 12px;
+  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 // 第一行：姓名、电话、邮箱
@@ -95,6 +18,10 @@
 .form-group {
   display: flex;
   flex-direction: column;
+
+  &:not(.form-row > &) {
+    margin-bottom: 24px;
+  }
 }
 
 .form-label {
@@ -246,7 +173,7 @@
   }
 }
 
-// 响应式设计 - 表单
+// 响应式设计
 @media (max-width: 768px) {
   .contact-form {
     padding: 24px 20px;

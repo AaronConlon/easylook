@@ -1,0 +1,105 @@
+// GSAP 控制动画，不需要 CSS keyframes
+
+.scroll-bg-bar-wrapper {
+  margin-top: 70px;
+  position: relative;
+  width: 100%;
+  padding: 100px 40px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.background-scroll-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  display: flex;
+  width: max-content;
+  z-index: 1;
+  opacity: 0.15;
+  pointer-events: none;
+  will-change: transform;
+
+  .scroll-text-item {
+    font-size: 160px;
+    font-weight: 700;
+    color: transparent;
+    padding: 0 40px;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
+    font-style: italic;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #05519b;
+  }
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title-wrapper {
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+  line-height: 1.2;
+
+  .char {
+    display: inline-block;
+    transform-origin: bottom center;
+  }
+}
+
+.subtitle-wrapper {
+  overflow: hidden;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+
+  .char {
+    display: inline-block;
+    transform-origin: bottom center;
+  }
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+  .scroll-bg-bar-wrapper {
+    padding: 40px 16px;
+  }
+
+  .background-scroll-text {
+    .scroll-text-item {
+      font-size: 60px;
+      padding: 0 20px;
+    }
+  }
+
+  .title-wrapper {
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+}

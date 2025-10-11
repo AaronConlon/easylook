@@ -136,7 +136,7 @@ export const MasterHeaderPc = (props: IProps) => {
         'g-uni-comp--MasterHeaderPc',
       )}
       data-keep-show-header={keepShowHeader}
-      data-cur-path={curItem?.key}
+      data-cur-path={curItem?.path}
       onMouseEnter={onHeaderWrapperEnter}
       onMouseLeave={onHeaderWrapperLeave}
     >
@@ -149,17 +149,19 @@ export const MasterHeaderPc = (props: IProps) => {
           <div className={cx(styles['nav-menu-list'])}>
             {MASTER_HEADER_MENUS?.map((item, index) => (
               <USmartLink
-                key={`${item?.key}-${index}`}
-                to={item?.key}
+                key={`${item?.path}-${index}`}
+                to={item?.path}
                 className={cx(styles['nav-menu-item'], {
                   [styles['nav-menu-item--isOnWrapper']]: isOnWrapper,
 
-                  [styles['nav-menu-item--active']]: item?.key === curItem?.key,
+                  [styles['nav-menu-item--active']]:
+                    item?.path === curItem?.path,
                 })}
+                data-href={item?.path}
                 onMouseEnter={() => onNavItemEnter(item)}
                 onMouseLeave={() => onNavItemLeave(item)}
               >
-                {item.key === MASTER_ROUTER_PATHS['/contact'] ? (
+                {item.path === MASTER_ROUTER_PATHS['/contact'] ? (
                   <ContextNavItem />
                 ) : (
                   <span>{item?.label}</span>
@@ -183,8 +185,8 @@ export const MasterHeaderPc = (props: IProps) => {
               {curItem?.children
                 ? curItem?.children.map((item) => (
                     <USmartLink
-                      key={item?.key}
-                      to={item?.key}
+                      key={item?.path}
+                      to={item?.path}
                       className={cx(
                         styles['header-nav-popup-sub-item-link'],
                         'hvr-shutter-out-vertical',

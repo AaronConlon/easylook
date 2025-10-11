@@ -58,10 +58,7 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
             onClick={() => handleCardClick('training-box')}
           >
             <div className={cx(styles['card-image'])}>
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/images/gen1-eye-detection-HEYPPLhKQdNU6DoakhLLrBCayRGvKQ.jpg"
-                alt="视觉训练套盒"
-              />
+              <img src="product-box2.jpg" alt="视觉训练套盒" />
               <div className={cx(styles['image-overlay'])} />
             </div>
             <div className={cx(styles['card-content'])}>

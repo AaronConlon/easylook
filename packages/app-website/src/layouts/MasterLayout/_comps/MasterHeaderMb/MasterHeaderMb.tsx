@@ -1,24 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
-import _, { debounce } from 'lodash';
-import {
-  RiArrowDownSLine,
-  RiCloseLine,
-  RiMenu4Line,
-  RiMenuLine,
-} from 'react-icons/ri';
-import { Drawer, Menu } from 'antd';
 import { useRouter } from '@tanstack/react-router';
+import { Drawer, Menu } from 'antd';
+import { debounce } from 'lodash';
+import { useEffect, useRef, useState } from 'react';
+import { RiCloseLine, RiMenuLine } from 'react-icons/ri';
 
 import { cx } from '----pkg-platform/h5/h5-utils/cx-util--h5';
-import { USmartLink } from '----pkg-platform/h5/h5-ui-components/USmartLink--h5';
 
 import { UEventButton } from '----pkg-uni/uni-ui-components/UEventButton';
 
 import { useNavigate } from '----pkg-uni/uni-hooks/useNavigate';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
-
-import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
 
 import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
 import { MASTER_HEADER_MENUS } from '@/consts/master-router-paths';
@@ -38,7 +30,7 @@ export const MasterHeaderMb = (props: IProps) => {
   );
   const navigate = useNavigate();
 
-  // 滚动监听逻辑 - 与PC端相同
+  // 滚动监听逻辑 - 与 PC 端相同
   const handleScrollRef = useRef(
     debounce(() => {
       // 如果不是首页，则不需要这个机制

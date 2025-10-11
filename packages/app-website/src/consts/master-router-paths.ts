@@ -5,25 +5,18 @@ const LANG_PREFIX = '';
 
 export const MASTER_ROUTER_PATHS = {
   '/': `${LANG_PREFIX}/`,
-  '/about': `${LANG_PREFIX}/about`,
-  '/about/company': `${LANG_PREFIX}/about/company`,
+  // about us
+  '/about/company': `${LANG_PREFIX}/about/company`, // 公司介绍
+  '/about/story': `${LANG_PREFIX}/about/story`, // 发展历程
+  '/about/partners': `${LANG_PREFIX}/about/partners`, // 合作伙伴
+  '/about/honor': `${LANG_PREFIX}/about/honor`, // 公司荣誉
   //
-  '/news-weiai': `${LANG_PREFIX}/news-weiai`,
-  '/news-kepu': `${LANG_PREFIX}/news-kepu`,
-  '/news': `${LANG_PREFIX}/news`,
+  '/product-1': `${LANG_PREFIX}/product-1`, // 视觉训练套盒
+  '/product-2': `${LANG_PREFIX}/product-2`, // 眼视光训练器
   //
-  '/brand': `${LANG_PREFIX}/brand`,
-  '/brand-easylook': `${LANG_PREFIX}/brand-easylook`,
-  '/brand-weiai': `${LANG_PREFIX}/brand-weiai`,
-  //
-  '/contact': `${LANG_PREFIX}/contact`,
-  '/service': `${LANG_PREFIX}/service`,
-  '/service/medical': `${LANG_PREFIX}/service/medical`,
-  '/service/health': `${LANG_PREFIX}/service/health`,
-  '/service/education': `${LANG_PREFIX}/service/education`,
-  '/story': `${LANG_PREFIX}/story`,
-  '/honor': `${LANG_PREFIX}/honor`,
-  '/recruit': `${LANG_PREFIX}/recruit`,
+  '/contact': `${LANG_PREFIX}/contact`, // 联系我们
+  '/cooperation': `${LANG_PREFIX}/cooperation`, // 合作加盟
+
   //
   // 产品相关路径
   '/features': `${LANG_PREFIX}/features`,
@@ -31,108 +24,72 @@ export const MASTER_ROUTER_PATHS = {
   '/integrations': `${LANG_PREFIX}/integrations`,
   '/changelog': `${LANG_PREFIX}/changelog`,
   //
-  // 资源相关路径
-  '/documentation': `${LANG_PREFIX}/documentation`,
-  '/tutorials': `${LANG_PREFIX}/tutorials`,
-  '/blog': `${LANG_PREFIX}/blog`,
-  '/support': `${LANG_PREFIX}/support`,
-  //
-  // 公司相关路径
-  '/careers': `${LANG_PREFIX}/careers`,
-  '/partners': `${LANG_PREFIX}/partners`,
-  //
   // 法律相关路径
   '/privacy': `${LANG_PREFIX}/privacy`,
   '/terms': `${LANG_PREFIX}/terms`,
   '/cookies': `${LANG_PREFIX}/cookies`,
+
+  // 眼界百科
+  '/encyclopedia': `${LANG_PREFIX}/encyclopedia`,
 };
 
 export type IMenuItem = {
-  key?: string; // 'home',
   label?: React.ReactNode; // '首页',
-
+  path?: string;
   children?: IMenuItem[];
 };
 
 export const MASTER_HEADER_MENUS: IMenuItem[] = [
   {
-    key: MASTER_ROUTER_PATHS['/'],
     label: '首页',
+    path: MASTER_ROUTER_PATHS['/'],
   },
   {
-    key: MASTER_ROUTER_PATHS['/about'],
+    label: '产品介绍',
+    path: MASTER_ROUTER_PATHS['/product-1'],
+    children: [
+      {
+        path: MASTER_ROUTER_PATHS['/product-1'],
+        label: '视觉训练套盒',
+      },
+      {
+        path: MASTER_ROUTER_PATHS['/product-2'],
+        label: '眼视光训练器',
+      },
+    ],
+  },
+  {
+    path: MASTER_ROUTER_PATHS['/encyclopedia'],
+    label: '眼界百科',
+  },
+  {
+    path: MASTER_ROUTER_PATHS['/about/company'],
     label: '关于我们',
     children: [
       {
-        key: MASTER_ROUTER_PATHS['/about/company'],
+        path: MASTER_ROUTER_PATHS['/about/company'],
         label: '公司介绍',
       },
       {
-        key: MASTER_ROUTER_PATHS['/story'],
+        path: MASTER_ROUTER_PATHS['/about/story'],
         label: '发展历程',
       },
       {
-        key: MASTER_ROUTER_PATHS['/partners'],
+        path: MASTER_ROUTER_PATHS['/about/partners'],
         label: '合作伙伴',
       },
       {
-        key: MASTER_ROUTER_PATHS['/honor'],
+        path: MASTER_ROUTER_PATHS['/about/honor'],
         label: '公司荣誉',
       },
     ],
   },
   {
-    key: MASTER_ROUTER_PATHS['/brand'],
-    label: '品牌产品',
-    children: [
-      {
-        key: MASTER_ROUTER_PATHS['/brand-easylook'],
-        label: '训练盒',
-      },
-      {
-        key: MASTER_ROUTER_PATHS['/brand-weiai'],
-        label: '眼科训练仪',
-      },
-    ],
+    path: MASTER_ROUTER_PATHS['/cooperation'],
+    label: '合作加盟',
   },
   {
-    key: MASTER_ROUTER_PATHS['/service'],
-    label: '服务场景',
-    children: [
-      {
-        key: MASTER_ROUTER_PATHS['/service/medical'],
-        label: '视立优医疗',
-      },
-      {
-        key: MASTER_ROUTER_PATHS['/service/health'],
-        label: '视立优健康',
-      },
-      {
-        key: MASTER_ROUTER_PATHS['/service/education'],
-        label: '视立优教育',
-      },
-    ],
-  },
-  {
-    key: MASTER_ROUTER_PATHS['/story'],
-    label: '公司动态',
-    children: [
-      {
-        key: MASTER_ROUTER_PATHS['/news'],
-        label: '公司新闻',
-      },
-      {
-        key: MASTER_ROUTER_PATHS['/news-kepu'],
-        label: '行业资讯',
-      },
-    ],
-  },
-  {
-    key: MASTER_ROUTER_PATHS['/recruit'],
-    label: '招贤纳士',
-  },
-  {
-    key: MASTER_ROUTER_PATHS['/contact'],
+    path: MASTER_ROUTER_PATHS['/contact'],
     label: '联系我们',
   },
 ];
