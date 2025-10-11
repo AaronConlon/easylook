@@ -81,7 +81,9 @@ export const ProductVideos = forwardRef<HTMLDivElement, IProductVideosProps>(
               className={cx(
                 styles['video-card'],
                 hoveredVideo === video.id && styles['video-card--hovered'],
-                hoveredVideo && hoveredVideo !== video.id && styles['video-card--dimmed'],
+                hoveredVideo &&
+                  hoveredVideo !== video.id &&
+                  styles['video-card--dimmed'],
               )}
               onMouseEnter={() => handleVideoHover(video.id)}
               onMouseLeave={handleVideoLeave}
@@ -98,21 +100,18 @@ export const ProductVideos = forwardRef<HTMLDivElement, IProductVideosProps>(
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        d="M8 5V19L19 12L8 5Z"
-                        fill="currentColor"
-                      />
+                      <path d="M8 5V19L19 12L8 5Z" fill="currentColor" />
                     </svg>
                   </div>
                 </div>
                 <div className={cx(styles['video-duration'])}>
                   {video.duration}
                 </div>
-                <div className={cx(styles['video-category'])}>
+                {/* <div className={cx(styles['video-category'])}>
                   {video.category}
-                </div>
+                </div> */}
               </div>
-              
+
               <div className={cx(styles['video-content'])}>
                 <h3 className={cx(styles['video-title'])}>{video.title}</h3>
                 <p className={cx(styles['video-description'])}>
