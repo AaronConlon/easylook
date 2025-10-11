@@ -46,7 +46,6 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
   },
   {
     label: '产品介绍',
-    path: MASTER_ROUTER_PATHS['/product-1'],
     children: [
       {
         path: MASTER_ROUTER_PATHS['/product-1'],
@@ -63,7 +62,6 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
     label: '眼界百科',
   },
   {
-    path: MASTER_ROUTER_PATHS['/about/company'],
     label: '关于我们',
     children: [
       {

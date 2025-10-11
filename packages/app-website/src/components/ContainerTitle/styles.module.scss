@@ -7,13 +7,9 @@
 // prettier-ignore
 .comp-wrapper {
   // for-CSS-VARS--light
-  --subtitle-color: #64748b;
 }
 
-// prettier-ignore
 .comp-wrapper--isDarkMode {
-  // for-CSS-VARS--dark
-  --subtitle-color: #94a3b8;
 }
 
 // -----------------------------------------------------------------------------
@@ -33,6 +29,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin: 0;
+  color: var(--app-text-primary);
 
   .char {
     display: inline-block;
@@ -46,7 +43,7 @@
 
 .comp-wrapper p {
   font-size: 1.2rem;
-  color: var(--subtitle-color);
+  color: var(--app-text-secondary);
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;

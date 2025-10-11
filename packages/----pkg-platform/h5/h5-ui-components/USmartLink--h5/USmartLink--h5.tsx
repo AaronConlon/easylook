@@ -68,5 +68,14 @@ export const USmartLink = forwardRef<
   }
 
   console.error('ERROR LINK');
-  return null;
+  return (
+    <span
+      style={{
+        userSelect: 'none',
+      }}
+      className={cx(styles['comp-wrapper'], className)}
+    >
+      {children}
+    </span>
+  );
 });

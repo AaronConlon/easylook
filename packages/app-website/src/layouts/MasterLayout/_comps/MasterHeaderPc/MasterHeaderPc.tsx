@@ -1,6 +1,3 @@
-import { useRouter } from '@tanstack/react-router';
-import _, { debounce } from 'lodash';
-import { useCallback, useEffect, useRef, useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 import { cx } from '----pkg-platform/h5/h5-utils/cx-util--h5';
@@ -12,7 +9,6 @@ import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
 
 import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
-import type { IMenuItem } from '@/consts/master-router-paths';
 import {
   MASTER_HEADER_MENUS,
   MASTER_ROUTER_PATHS,
@@ -27,118 +23,13 @@ interface IProps extends IUiCompBaseProps {}
 export const MasterHeaderPc = (props: IProps) => {
   const { className } = props;
 
-  const router = useRouter();
-  const [curItem, setCurItem] = useState<IMenuItem | null>(null);
-  const [isOnWrapper, setIsOnWrapper] = useState(false);
-
-  console.log('pathname:', router.latestLocation.pathname);
-
-  const [keepShowHeader, setKeepShowHeader] = useState(
-    router.latestLocation.pathname === '/' ? false : true,
-  );
-  // const [keepShowHeader, setKeepShowHeader] = useState(false);
-
-  // 用 debounce 控制延迟隐藏
-  const hideNavItem = useCallback(
-    _.debounce((itemToCheck?: IMenuItem | null) => {
-      // 如果有 children 不要关闭
-      if (itemToCheck?.children) return;
-
-      setCurItem(null);
-    }, 100),
-    [],
-  );
-
-  const onNavItemEnter = (item?: IMenuItem | null) => {
-    if (!item) return undefined;
-
-    hideNavItem.cancel(); // 取消隐藏
-    setCurItem(item);
-  };
-
-  const onNavItemLeave = (item?: IMenuItem | null) => {
-    hideNavItem(item);
-  };
-
-  // 用 debounce 控制延迟隐藏
-  const hideHeaderWrapper = useCallback(
-    _.debounce(() => {
-      setIsOnWrapper(false);
-
-      // 如果离开了 wrapper，就不要选中任何 item
-      setCurItem(null);
-    }, 200),
-    [],
-  );
-
-  const onHeaderWrapperEnter = () => {
-    hideHeaderWrapper.cancel(); // 取消隐藏
-    setIsOnWrapper(true);
-  };
-
-  const onHeaderWrapperLeave = () => {
-    hideHeaderWrapper();
-    // setIsOnWrapper(false);
-    //
-    // // 如果离开了 wrapper，就不要选中任何 item
-    // setCurItem(null);
-  };
-  const handleScrollRef = useRef(
-    debounce(() => {
-      // 如果不是首页，则不需要这个机制
-      if (router.latestLocation.pathname !== '/') return;
-
-      // 检查当前滚动位置
-      const scrollTop = window.scrollY;
-      // 窗口高度
-      const windowHeight = window.innerHeight;
-      if (scrollTop >= windowHeight) {
-        setKeepShowHeader(true);
-      } else {
-        setKeepShowHeader(false);
-      }
-    }, 100),
-  );
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScrollRef.current);
-
-    return () => {
-      handleScrollRef.current.cancel();
-      window.removeEventListener('scroll', handleScrollRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    // 只在非首页时重置导航状态，避免与用户交互冲突
-    if (router.latestLocation.pathname !== '/') {
-      setCurItem(null);
-    }
-    setKeepShowHeader(router.latestLocation.pathname === '/' ? false : true);
-  }, [router.latestLocation.pathname]);
-
-  // 组件卸载时清理所有防抖函数
-  useEffect(() => {
-    return () => {
-      hideNavItem.cancel();
-      hideHeaderWrapper.cancel();
-    };
-  }, [hideNavItem, hideHeaderWrapper]);
-
   return (
     <div
       className={cx(
         styles['comp-wrapper'],
-        {
-          [styles['comp-wrapper--isOnWrapper']]: isOnWrapper,
-        },
         className,
         'g-uni-comp--MasterHeaderPc',
       )}
-      data-keep-show-header={keepShowHeader}
-      data-cur-path={curItem?.path}
-      onMouseEnter={onHeaderWrapperEnter}
-      onMouseLeave={onHeaderWrapperLeave}
     >
       <ScreenMediaWidthCentered className={cx(styles['comp-inner'])}>
         <div className={cx(styles['header-logo-wrapper'])}>
@@ -151,15 +42,8 @@ export const MasterHeaderPc = (props: IProps) => {
               <USmartLink
                 key={`${item?.path}-${index}`}
                 to={item?.path}
-                className={cx(styles['nav-menu-item'], {
-                  [styles['nav-menu-item--isOnWrapper']]: isOnWrapper,
-
-                  [styles['nav-menu-item--active']]:
-                    item?.path === curItem?.path,
-                })}
+                className={cx(styles['nav-menu-item'])}
                 data-href={item?.path}
-                onMouseEnter={() => onNavItemEnter(item)}
-                onMouseLeave={() => onNavItemLeave(item)}
               >
                 {item.path === MASTER_ROUTER_PATHS['/contact'] ? (
                   <ContextNavItem />
@@ -172,31 +56,22 @@ export const MasterHeaderPc = (props: IProps) => {
                     className={cx(styles['nav-menu-down-icon'])}
                   />
                 ) : null}
+
+                {/* Children Navigation */}
+                {item?.children?.length ? (
+                  <div className={cx(styles['nav-menu-children-wrapper'])}>
+                    {item?.children?.map((child, idx) => (
+                      <USmartLink
+                        key={`${child?.path}-${idx}`}
+                        to={child?.path}
+                      >
+                        {child?.label}
+                      </USmartLink>
+                    ))}
+                  </div>
+                ) : null}
               </USmartLink>
             ))}
-          </div>
-          <div
-            className={cx(styles['header-nav-popup-wrapper'], {
-              [styles['header-nav-popup-wrapper--open']]:
-                isOnWrapper && curItem?.children,
-            })}
-          >
-            <div className={cx(styles['header-nav-popup-inner'])}>
-              {curItem?.children
-                ? curItem?.children.map((item) => (
-                    <USmartLink
-                      key={item?.path}
-                      to={item?.path}
-                      className={cx(
-                        styles['header-nav-popup-sub-item-link'],
-                        'hvr-shutter-out-vertical',
-                      )}
-                    >
-                      {item?.label}
-                    </USmartLink>
-                  ))
-                : null}
-            </div>
           </div>
         </div>
       </ScreenMediaWidthCentered>

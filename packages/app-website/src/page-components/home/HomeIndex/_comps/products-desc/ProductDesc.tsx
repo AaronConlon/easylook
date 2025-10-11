@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
@@ -10,8 +10,6 @@ import { ContainerTitle } from '@/components/ContainerTitle';
 
 import { MASTER_ROUTER_PATHS } from '@/consts/master-router-paths';
 
-import { ProductVideos } from './_comps/ProductVideos';
-
 import styles from './styles.module.scss';
 
 interface IProductDescProps extends IUiCompBaseProps {}
@@ -20,6 +18,8 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
   (props, ref) => {
     const { className } = props;
     const navigate = useNavigate();
+
+    const [opacity, setOpacity] = useState(1);
 
     const handleCardClick = (
       productType: 'training-box' | 'integrated-trainer',
@@ -56,6 +56,7 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
           <div
             className={cx(styles['product-card'])}
             onClick={() => handleCardClick('training-box')}
+            style={{ opacity }}
           >
             <div className={cx(styles['card-image'])}>
               <img src="product-box2.jpg" alt="视觉训练套盒" />
@@ -71,6 +72,8 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
           <div
             className={cx(styles['product-card'])}
             onClick={() => handleCardClick('integrated-trainer')}
+            onMouseEnter={() => setOpacity(0.5)}
+            onMouseLeave={() => setOpacity(1)}
           >
             <div className={cx(styles['card-image'])}>
               <img
@@ -87,9 +90,7 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
               </p>
             </div>
           </div>
-          {/* 一行四个视频，hover 到不同的产品，展示不同的视频卡片，使用图片模拟可播放效果的视频卡片 */}
         </div>
-        <ProductVideos />
       </div>
     );
   },
