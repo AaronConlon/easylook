@@ -1,8 +1,6 @@
-import { forwardRef, useRef } from 'react';
-import {
-  MdOutlineKeyboardArrowLeft,
-  MdOutlineKeyboardArrowRight,
-} from 'react-icons/md';
+import { Button } from 'antd';
+import { forwardRef, useRef, useState } from 'react';
+import { CgDetailsMore } from 'react-icons/cg';
 import type { Swiper as SwiperType } from 'swiper';
 import { Autoplay, Mousewheel, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -29,6 +27,13 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
     const { className } = props;
     const navigate = useNavigate();
     const swiperRef = useRef<SwiperType | null>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleNavClick = (index: number) => {
+      if (swiperRef.current) {
+        swiperRef.current.slideTo(index);
+      }
+    };
 
     return (
       <div
@@ -79,6 +84,14 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
+            onSlideChange={(swiper: any) => {
+              console.log(
+                'swiperRef.current?.activeIndex',
+                swiperRef.current?.activeIndex,
+              );
+              console.log('swiper:', swiper);
+              setActiveIndex(swiperRef.current?.activeIndex || 0);
+            }}
           >
             {encyclopediaData.map((item) => (
               <SwiperSlide key={item.id} className={cx(styles['swiper-slide'])}>
@@ -93,7 +106,6 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
                 >
                   <div className={cx(styles['card-image'])}>
                     <img src={item.cover} alt={item.title} />
-                    <div className={cx(styles['card-overlay'])} />
                   </div>
 
                   <div className={cx(styles['card-content'])}>
@@ -107,11 +119,11 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
 
                     <h3 className={cx(styles['card-title'])}>{item.title}</h3>
 
-                    <p className={cx(styles['card-description'])}>
+                    {/* <p className={cx(styles['card-description'])}>
                       {item.description}
-                    </p>
+                    </p> */}
 
-                    <div className={cx(styles['card-footer'])}>
+                    {/* <div className={cx(styles['card-footer'])}>
                       <span className={cx(styles['card-date'])}>
                         {item.date}
                       </span>
@@ -120,7 +132,7 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
                           {item.source}
                         </span>
                       )}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </SwiperSlide>
@@ -130,22 +142,31 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
           {/* 导航控制器和查看更多按钮 */}
           <div className={cx(styles['controls-wrapper'])}>
             {/* 左侧导航按钮 */}
-            <div className={cx(styles['nav-buttons'])}>
-              <div className={styles['encyclopedia-prev']}>
-                <MdOutlineKeyboardArrowLeft />
-              </div>
-              <div className={styles['encyclopedia-next']}>
-                <MdOutlineKeyboardArrowRight />
-              </div>
-            </div>
+            {/* <div className={cx(styles['nav-buttons'])}>
+              {encyclopediaData.map((item, index) => (
+                <div
+                  key={item.id}
+                  data-active={index === activeIndex}
+                  className={cx(styles['nav-button'])}
+                  onClick={() => handleNavClick(index)}
+                ></div>
+              ))}
+            </div> */}
 
             {/* 右侧查看更多按钮 */}
-            <button
+            {/* <button
               className={cx(styles['more-button'])}
               onClick={() => navigate({ to: '/encyclopedia' })}
             >
-              查看更多百科文章
-            </button>
+              <CgDetailsMore className={cx(styles['more-button-icon'])} />
+              查看更多
+            </button> */}
+            <Button
+              icon={<CgDetailsMore />}
+              onClick={() => navigate({ to: '/encyclopedia' })}
+            >
+              查看更多
+            </Button>
           </div>
         </div>
       </div>

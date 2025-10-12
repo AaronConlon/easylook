@@ -18,7 +18,6 @@
   --accent-color: #1890ff;
   --category-bg: rgba(24, 144, 255, 0.1);
   --category-color: #1890ff;
-  --overlay-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(29, 78, 216, 0.2) 100%);
   --nav-btn-bg: rgba(255, 255, 255, 0.9);
   --nav-btn-border: #e2e8f0;
   --pagination-bullet: #1890ff;
@@ -28,22 +27,12 @@
 // prettier-ignore
 .comp-wrapper--isDarkMode {
   // for-CSS-VARS--dark
-  --section-bg: #0f172a;
-  --card-bg: #1e293b;
-  --card-border: #334155;
-  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  --card-shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.4);
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --accent-color: #60a5fa;
-  --category-bg: rgba(96, 165, 250, 0.2);
-  --category-color: #60a5fa;
-  --overlay-bg: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(59, 130, 246, 0.2) 100%);
-  --nav-btn-bg: rgba(30, 41, 59, 0.9);
-  --nav-btn-border: #334155;
-  --pagination-bullet: #60a5fa;
-  --pagination-bullet-active: #60a5fa;
+  --section-bg: #1a1a1a;
+  --card-bg: #2d2d2d;
+  --card-border: #404040;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-muted: #808080;
 }
 
 // -----------------------------------------------------------------------------
@@ -51,52 +40,48 @@
 //
 
 .comp-wrapper {
-  padding: 80px 0;
+  padding: 60px 0;
 
-  @media (max-width: 768px) {
-    padding: 60px 0;
+  @media (min-width: $screen-md) {
+    padding: 80px 0;
   }
 }
 
 .swiper-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 16px;
   position: relative;
 
-  @media (max-width: 768px) {
-    padding: 0 16px;
+  @media (min-width: $screen-md) {
+    padding: 0 40px;
   }
 }
 
 .encyclopedia-swiper {
-  padding: 40px 0;
+  padding: 30px 0;
 
-  @media (max-width: 768px) {
-    padding: 30px 0;
+  @media (min-width: $screen-md) {
+    padding: 40px 0;
   }
 }
 
 .swiper-slide {
-  width: 480px;
+  width: 280px;
   height: auto;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:not(:hover) {
-    transform: scale(0.95);
+    transform: scale(0.95); 
   }
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1);
     z-index: 10;
-  }
+  }  
 
-  @media (max-width: 768px) {
-    width: 280px;
-  }
-
-  @media (max-width: 480px) {
-    width: 260px;
+  @media (min-width: $screen-md) {
+    width: 480px;
   }
 }
 
@@ -112,66 +97,48 @@
   flex-direction: column;
   cursor: pointer;
 
+  .card-image {
+      height: 160px;
+      position: relative;
+    overflow: hidden;
+  
+    @media (min-width: $screen-md) {
+      height: 240px;
+    }
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease-out;
+    }
+  }
+
   &:hover {
     box-shadow: var(--card-shadow-hover);
-
     .card-image img {
-      transform: scale(1.08);
+      transform: scale(1.02);     
     }
 
-    .card-title {
-      color: var(--accent-color);
-    }
 
     .category-badge {
       background: var(--accent-color);
       color: white;
     }
-
-    .card-overlay {
-      opacity: 1;
-    }
   }
 }
 
-.card-image {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
-
-  @media (max-width: 768px) {
-    height: 160px;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-}
-
-.card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--overlay-bg);
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
 
 .card-content {
-  padding: 20px;
+  padding: 16px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 
-  @media (max-width: 768px) {
-    padding: 16px;
-    gap: 10px;
+  @media (min-width: $screen-md) {
+    padding: 20px;
+    gap: 12px;
   }
 }
 
@@ -184,22 +151,22 @@
 .category-badge {
   display: inline-flex;
   align-items: center;
-  padding: 6px 12px;
+  padding: 4px 10px;
   background: var(--category-bg);
   color: var(--category-color);
   border-radius: 12px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
   transition: all 0.3s ease;
 
-  @media (max-width: 768px) {
-    font-size: 0.7rem;
-    padding: 4px 10px;
+  @media (min-width: $screen-md) {
+    font-size: 0.75rem;
+    padding: 6px 12px;
   }
 }
 
 .card-title {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
   line-height: 1.4;
@@ -207,151 +174,132 @@
   transition: color 0.3s ease;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    -webkit-line-clamp: 2;
+  @media (min-width: $screen-md) {
+    font-size: 1.125rem;
   }
 }
 
 .card-description {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex: 1;
 
-  @media (max-width: 768px) {
-    font-size: 0.85rem;
-    -webkit-line-clamp: 2;
+  @media (min-width: $screen-md) {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 }
 
 .card-footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
   margin-top: auto;
-  padding-top: 8px;
+  padding-top: 6px;
   border-top: 1px solid var(--card-border);
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    padding-top: 6px;
+  @media (min-width: $screen-md) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
   }
 }
 
 .card-date {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   font-weight: 500;
 
-  @media (max-width: 768px) {
-    font-size: 0.75rem;
+  @media (min-width: $screen-md) {
+    font-size: 0.8rem;
   }
 }
 
 .card-source {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   font-weight: 400;
 
-  @media (max-width: 768px) {
-    font-size: 0.75rem;
+  @media (min-width: $screen-md) {
+    font-size: 0.8rem;
   }
 }
 
 // 控制器和按钮容器
 .controls-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-top: 48px;
-  padding: 0 40px;
+  margin-top: 40px;
+  padding: 0 16px;
+  gap: 24px;
 
-  @media (max-width: 768px) {
-    margin-top: 40px;
-    padding: 0 16px;
-    flex-direction: column;
-    gap: 24px;
+  @media (min-width: $screen-md) {
+    margin-top: 48px;
+    padding-left: 12px;
   }
 }
 
 // 导航按钮组
 .nav-buttons {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
-}
-
-.encyclopedia-prev,
-.encyclopedia-next {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--nav-btn-bg);
-  border: 1px solid var(--nav-btn-border);
-  color: var(--accent-color);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-  svg {
-    font-size: 28px;
+  max-width: 960px;
+  .nav-button {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #1e3c9922;
     transition: all 0.3s ease;
-  }
-
-  &:hover {
-    background: var(--accent-color);
-    color: white;
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-
-    svg {
-      color: white;
+    width: 80%;
+    transform-origin: center;
+    &:hover {
+      background-color: #1e3c99;
+      width: 100%;
+      transform: scaleY(1.2);
     }
-  }
-
-  &.swiper-button-disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-
-    svg {
-      font-size: 24px;
+    &[data-active='true'] {
+      background-color: #1e3c99;
+      width: 100%;
+      transform: scaleY(1.2);
     }
   }
 }
+
+
 
 // 查看更多按钮
 .more-button {
-  background: #1e3c99;
-  color: white;
+  background: transparent;
+  // color: white;
   border: none;
-  padding: 14px 32px;
+  padding: 12px 28px;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(30, 60, 153, 0.2);
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 
   &:hover {
     background: #1e3c99;
@@ -365,30 +313,36 @@
     box-shadow: 0 2px 8px rgba(30, 60, 153, 0.2);
   }
 
-  @media (max-width: 768px) {
-    padding: 12px 28px;
-    font-size: 0.9rem;
-    width: 100%;
-  }
-}
-
-// 响应式优化
-@media (max-width: 768px) {
-  .swiper-container {
-    padding: 0 12px;
+  @media (min-width: $screen-md) {
+    padding: 14px 24px;
+    font-size: 1rem;
+    width: auto;
   }
 
-  .encyclopedia-swiper {
-    padding: 16px 0 16px 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .comp-wrapper {
-    padding: 40px 0;
+  .more-button-icon {
+    transition: all 0.3s ease;
+    font-size: 24px;
   }
 
-  .swiper-container {
-    padding: 0 8px;
+  &:after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #adadad1f;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    .more-button-icon {
+      scale: 1;
+    }
+    &:after {
+      top: -10px;
+      right: -10px;
+    }
   }
 }

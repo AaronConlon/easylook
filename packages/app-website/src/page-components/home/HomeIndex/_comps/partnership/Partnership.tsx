@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import CountUp from 'react-countup';
+import { LuAward, LuHandshake, LuTrendingUp, LuUsers } from 'react-icons/lu';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
@@ -17,62 +18,21 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
 
     const marketData = [
       {
-        icon: (
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M3 3v18h18" />
-            <path d="m19 9-5 5-4-4-3 3" />
-          </svg>
-        ),
+        icon: <LuTrendingUp />,
         number: 1500,
         suffix: '万',
         title: '弱视儿童市场',
         subtitle: '不足 1% 的治疗率',
       },
       {
-        icon: (
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-          </svg>
-        ),
+        icon: <LuUsers />,
         number: 1000,
         suffix: '亿',
         title: '视力康复市场容量',
         subtitle: '持续增长，潜力无限',
       },
       {
-        icon: (
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
-            <circle cx="12" cy="8" r="6" />
-          </svg>
-        ),
+        icon: <LuAward />,
         number: 100,
         suffix: '%',
         title: '政策支持力度',
@@ -217,21 +177,7 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
               <div className={cx(styles['benefits-header'])}>
                 <div className={cx(styles['benefits-title-wrapper'])}>
                   <div className={cx(styles['benefits-title-icon'])}>
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
+                    <LuHandshake />
                   </div>
                   <h2 className={cx(styles['benefits-title'])}>
                     成为我们的合作伙伴
@@ -249,9 +195,9 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
                       {benefit.number}
                     </div>
                     <div className={cx(styles['benefit-content'])}>
-                      <h3 className={cx(styles['benefit-title'])}>
+                      <h4 className={cx(styles['benefit-title'])}>
                         {benefit.title}
-                      </h3>
+                      </h4>
                       <p className={cx(styles['benefit-description'])}>
                         {benefit.description}
                       </p>
@@ -264,8 +210,8 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
             {/* 右侧握手图片 */}
             <div className={cx(styles['benefits-image'])}>
               <img
-                src="https://images.unsplash.com/photo-1744843806143-42f4599e29fe?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1200"
-                alt="合作伙伴握手"
+                src="https://de4965e.webp.li/blog-images/2025/10/9f46fae74442e8cb7e83d891e9c3029a.png"
+                alt="合作伙伴"
               />
             </div>
           </div>
@@ -273,7 +219,7 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
 
         {/* 底部政策横幅 */}
         <div className={cx(styles['policy-banner'])}>
-          国家科技部创新基金支持项目 · 医疗器械国产化政策扶持 · 专业团队全程指导
+          国家政策大力支持——医疗器械国产化加速
         </div>
       </div>
     );

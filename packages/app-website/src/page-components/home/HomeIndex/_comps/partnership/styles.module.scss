@@ -16,10 +16,7 @@
   --text-secondary: #6b7280;
   --text-white: #ffffff;
   --accent-blue: #3b82f6;
-  --accent-yellow: #fbbf24;
-  --accent-yellow-dark: #f59e0b;
-  --policy-bg: #fbbf24;
-  --policy-text: #1f2937;
+  --accent-yellow: #fdc700;
 }
 
 // -----------------------------------------------------------------------------
@@ -27,10 +24,9 @@
 //
 
 .comp-wrapper {
-  padding: 0;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding-bottom: 48px;
+  padding: 0 0 48px 0;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -39,14 +35,14 @@
 .hero-banner {
   position: relative;
   background: var(--hero-bg);
-  min-height: 600px;
+  min-height: 400px;
   overflow: hidden;
   background-image: url('https://images.unsplash.com/photo-1744843806143-42f4599e29fe?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1200');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  // 添加深色遮罩层，降低背景图片的亮度，让背景稍微可见
+
   &::before {
     content: '';
     position: absolute;
@@ -54,17 +50,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(30, 60, 153, 0.7) 0%,
-      rgba(30, 60, 153, 0.5) 50%,
-      rgba(30, 60, 153, 0.6) 100%
-    );
+    // background: linear-gradient(to right, color-mix(in oklab, oklch(48.8% .243 264.376) 80%, transparent) 0%, oklch(0.61 0.17 254.62 / 0.85) 100%);
+    background: linear-gradient(to right, lab(36.9089% 35.0961 -85.6871 / .8) 0%, lab(56 4.38 -68.14 / 0.85) 100%);
     z-index: 1;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: $screen-md) {
     min-height: 500px;
+    border-radius: 1.5rem;
   }
 }
 
@@ -87,98 +80,93 @@
 
 .top-badge {
   display: inline-block;
-  padding: 8px 24px; // px-6 py-2
-  background: rgba(255, 255, 255, 0.2); // bg-white/20
-  backdrop-filter: blur(4px); // backdrop-blur-sm
-  border-radius: 9999px; // rounded-full
-  margin-bottom: 24px; // mb-6
-  border: 1px solid rgba(255, 255, 255, 0.3); // border border-white/30
+  padding: 6px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   
   span {
-    font-size: 0.875rem; // text-sm
-    font-weight: 500; // font-medium
+    font-size: 0.8rem;
+    font-weight: 500;
     color: white;
   }
 
-  @media (max-width: 768px) {
-    padding: 6px 20px;
-    font-size: 0.8rem;
+  @media (min-width: $screen-md) {
+    padding: 8px 24px;
+
+    span {
+      font-size: 0.875rem;
+    }
   }
 }
 
 .main-title {
-  font-size: 3rem; // text-3xl
-  font-weight: 700; // font-bold
-  margin-bottom: 16px; // mb-4
-  text-align: center; // text-center
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
   color: white;
   line-height: 1.2;
 
-  @media (min-width: 768px) {
-    font-size: 3rem; // md:text-5xl
+  @media (min-width: $screen-md) {
+    font-size: 3rem;
   }
 
   @media (min-width: 1024px) {
-    font-size: 3.75rem; // lg:text-6xl
-  }
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-    margin-bottom: 16px;
+    font-size: 3.75rem;
   }
 }
 
 .subtitle {
-  font-size: 1.5rem; // text-2xl
-  font-weight: 600; // font-semibold
-  margin: 12px 0;
-  text-align: center; // text-center
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
   color: white;
+  margin: 0;
 
-  @media (min-width: 768px) {
-    font-size: 1.875rem; // md:text-3xl
+  @media (min-width: $screen-md) {
+    font-size: 1.5rem;
   }
 
-  @media (max-width: 768px) {
-    font-size: 1.25rem;
+  @media (min-width: 1024px) {
+    font-size: 1.875rem;
   }
 }
 
 .highlight {
-  color: #fde047; // text-yellow-300
+  color: #fde047;
   font-weight: 600;
 }
 
 .cta-text {
-  font-size: 1.25rem; // text-xl
-  margin: 20px 0; // mb-8
-  text-align: center; // text-center
+  font-size: 1rem;
+  margin: 16px 0;
+  text-align: center;
   color: white;
   opacity: 0.9;
 
-  @media (min-width: 768px) {
-    font-size: 1.5rem; // md:text-2xl
+  @media (min-width: $screen-md) {
+    font-size: 1.25rem;
+    margin: 20px 0;
   }
 
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    margin: 16px 0;
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
   }
 }
 
 .button-group {
   display: flex;
-  flex-direction: column; // flex-col
-  gap: 16px; // gap-4
+  flex-direction: column;
+  gap: 16px;
   align-items: center;
+  width: 100%;
 
   @media (min-width: 640px) {
-    flex-direction: row; // sm:flex-row
-    gap: 16px;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
+    flex-direction: row;
+    width: auto;
   }
 }
 
@@ -191,17 +179,18 @@
   font-weight: 500;
   transition: all 0.3s ease;
   outline: none;
-  height: 40px; // h-10
-  border-radius: 6px; // rounded-md
-  font-size: 1.125rem; // text-lg
-  padding: 0 32px; // px-8
-  background: white; // bg-white
-  color: #2563eb; // text-blue-600
+  height: 40px;
+  border-radius: 6px;
+  font-size: 1.125rem;
+  padding: 0 24px;
+  background: white;
+  color: #2563eb;
   border: none;
   cursor: pointer;
+  width: 100%;
 
   &:hover {
-    background: #eff6ff; // hover:bg-blue-50
+    background: #eff6ff;
   }
 
   &:focus-visible {
@@ -209,37 +198,38 @@
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
   }
 
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 0 24px;
+  @media (min-width: $screen-md) {
+    width: auto;
+    padding: 0 32px;
   }
 }
 
 .phone-button {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
-  background: rgba(255, 255, 255, 0.1); // bg-white/10
-  backdrop-filter: blur(4px); // backdrop-blur-sm
-  padding: 12px 24px; // px-6 py-3
-  border-radius: 8px; // rounded-lg
-  border: 1px solid rgba(255, 255, 255, 0.3); // border border-white/30
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
 
   &:hover {
-    color: #fde047; // hover:text-yellow-300
+    color: #fde047;
   }
 
-  @media (max-width: 768px) {
-    width: 100%;
-    justify-content: center;
+  @media (min-width: $screen-md) {
+    width: auto;
   }
 }
 
 .phone-label {
-  font-size: 0.875rem; // text-sm
+  font-size: 0.875rem;
   color: white;
 }
 
@@ -250,19 +240,19 @@
 
 .decoration-icon {
   position: absolute;
-  top: 32px; // top-8
-  right: 32px; // right-8
-  z-index: 20; // 确保在最顶层
-  display: none; // hidden
+  top: 32px;
+  right: 32px;
+  z-index: 20;
+  display: none;
 
   @media (min-width: 1024px) {
-    display: block; // lg:block
+    display: block;
   }
 
   svg {
-    width: 96px; // w-24
-    height: 96px; // h-24
-    color: #fde047; // text-yellow-300
+    width: 96px;
+    height: 96px;
+    color: #fde047;
     opacity: 0.8;
   }
 }
@@ -270,62 +260,68 @@
 // 市场数据副标题
 .market-data-subtitle {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #1f2937;
-  margin: 24px 0;
+  margin: 20px 0 10px 0;
+  padding: var(--app-page-padding);
   
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-    margin: 20px 0;
+  @media (min-width: $screen-md) {
+    font-size: 2rem;
+    margin: 24px 0;
   }
 }
 
 // 市场数据卡片区域
 .market-data-section {
-  padding: 40px 40px;
+  padding: 30px 20px;
 
-  @media (max-width: 768px) {
-    padding: 30px 20px;
+  @media (min-width: $screen-md) {
+    padding: 40px 0px;
+    margin: 24px 0;
   }
 }
 
 .data-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  @media (min-width: $screen-md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
   }
 }
 
 .data-card {
-  background: #1e3c99; // 设计图中的蓝色背景
+  // background: #1e3c99;
   color: white;
-  padding: 40px 32px;
   border-radius: 16px;
+  padding: 32px 24px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(30, 60, 153, 0.2);
   transition: all 0.3s ease;
+  // background-image: linear-gradient(to right bottom, oklch(0.488 0.243 264.376) 0px, oklch(0.424 0.199 265.638) 100%);
+  background-image: linear-gradient(to right bottom, oklch(0.623 0.214 259.815) 0px, oklch(0.546 0.245 262.881) 100%);
+
+  @media (min-width: $screen-md) {
+    padding: 24px 24px;
+  }
 
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 30px rgba(30, 60, 153, 0.3);
   }
 
-  @media (max-width: 768px) {
-    padding: 32px 24px;
-  }
+  
 }
 
 .card-icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 24px;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 20px;
   color: white;
   display: flex;
   align-items: center;
@@ -336,15 +332,15 @@
     height: 100%;
   }
 
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 20px;
+  @media (min-width: $screen-md) {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
   }
 }
 
 .card-number {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 16px;
   line-height: 1;
@@ -353,50 +349,49 @@
   align-items: baseline;
   justify-content: center;
   gap: 4px;
+  font-family: GeistSans, "GeistSans Fallback", sans-serif;
 
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
+  @media (min-width: $screen-md) {
+    font-size: 3rem;
   }
 }
 
 .card-suffix {
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
+  font-size: 1.5rem;
+  color: #ffffff;
 
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
+  @media (min-width: $screen-md) {
+    font-size: 2rem;
   }
 }
 
 .card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 18px;
   margin-bottom: 8px;
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
 
-  @media (max-width: 768px) {
-    font-size: 1.125rem;
+  @media (min-width: $screen-md) {
+    font-size: 1.25rem;
   }
 }
 
 .card-subtitle {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
 
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
+  @media (min-width: $screen-md) {
+    font-size: 14px;
   }
 }
 
 // 合作伙伴权益区域
 .benefits-section {
-  padding: 40px 0;
-  background: #1e3c99; // 设计图中的蓝色背景
-  color: white;
+  color: white;  
+  // background: linear-gradient(to right, lab(36.9089% 35.0961 -85.6871 / .8) 0%, lab(56 4.38 -68.14 / 0.85) 100%);
+  background: linear-gradient(to right, lab(31 52.12 -99.24 / 0.79) 0%, lab(35 58.17 -109.01 / 0.99) 100%);
 
-  @media (max-width: 768px) {
-    padding: 30px 0;
+  @media (min-width: $screen-md) {
+    border-radius: 24px;
   }
 }
 
@@ -405,14 +400,15 @@
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   gap: 0;
-  min-height: 600px;
+  min-height: auto;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 0;
-    min-height: auto;
+  @media (min-width: $screen-md) {
+    flex-direction: row;
+    min-height: 600px;
+    padding: 48px;
   }
 }
 
@@ -421,12 +417,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px;
-  gap: 24px;
+  padding-right: 50px;
+  gap: 20px;
 
-  @media (max-width: 768px) {
-    gap: 20px;
-    padding: 30px 20px;
+  @media (min-width: $screen-md) {
+    gap: 24px;
   }
 }
 
@@ -444,7 +439,7 @@
 .benefits-title-icon {
   width: 32px;
   height: 32px;
-  color: white;
+  color: #ffdf20;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -456,25 +451,26 @@
 }
 
 .benefits-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
   color: white;
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
+  @media (min-width: $screen-md) {
+    font-size: 36px;
   }
 }
 
-.benefits-subtitle {
-  font-size: 1.125rem;
-  opacity: 0.9;
-  margin: 0 0 40px 0;
+.benefits-subtitle { 
+  margin: 0 0 30px 0;
+  text-align: center;
+  color: #bedbff;
 
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    margin-bottom: 30px;
+  @media (min-width: $screen-md) {
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 40px;
   }
 }
 
@@ -487,30 +483,36 @@
 .benefit-item {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 16px;
+  border: 1px solid;
+  border-color: color-mix(in oklab, #fff 20%, transparent);
+  border-radius: 14px;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
 
-  @media (max-width: 768px) {
-    gap: 16px;
+
+  @media (min-width: $screen-md) {
+    font-style: 16px;
+    gap: 20px;
   }
 }
 
 .benefit-number {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  background: #ff8c00; // 设计图中的橙色
-  color: white;
+  width: 40px;
+  height: 40px;
+  background: var(--accent-yellow);
+  color: #1c398e;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 800;
 
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-    font-size: 1.125rem;
+  @media (min-width: $screen-md) {
+    width: 36px;
+    height: 36px;
   }
 }
 
@@ -519,36 +521,37 @@
 }
 
 .benefit-title {
-  font-size: 1.25rem;
+  font-size: 14px;
   font-weight: 600;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
   color: white;
 
-  @media (max-width: 768px) {
-    font-size: 1.125rem;
+  @media (min-width: $screen-md) {
+    font-size: 16px;
   }
 }
 
 .benefit-description {
-  font-size: 1rem;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
   line-height: 1.6;
 
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
+  @media (min-width: $screen-md) {
+    font-size: 14px;
   }
 }
 
 .benefits-image {
-  flex: 1;
-  height: 100%;
+  flex: none;
+  margin: 24px auto;
   overflow: hidden;
-
-  @media (max-width: 768px) {
-    flex: none;
+  border-radius: 18px;
+  
+  @media (min-width: $screen-md) {
+    flex: 1;
     width: 100%;
-    height: 300px;
+    margin: 0;
   }
 
   img {
@@ -560,17 +563,20 @@
 
 // 底部政策横幅
 .policy-banner {
-  background: var(--policy-bg);
-  color: var(--policy-text);
-  padding: 16px 40px;
+  margin-top: 30px;
+  padding: 16px 20px;
   text-align: center;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   margin: 0;
+  color: #1c398e;
 
-  @media (max-width: 768px) {
-    padding: 16px 20px;
-    font-size: 1rem;
-    margin: 0;
+  @media (min-width: $screen-md) {
+    margin-top: 3rem; // mt-12 = 3rem
+    background-image: linear-gradient(to right, #facc15, #eab308); // from-yellow-400 to-yellow-500
+    border-radius: 18px;
+    padding: 18px;
+    text-align: center;
+    font-size: 30px;
   }
 }

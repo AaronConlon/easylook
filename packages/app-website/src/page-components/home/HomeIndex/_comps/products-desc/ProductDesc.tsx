@@ -59,7 +59,10 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
             style={{ opacity }}
           >
             <div className={cx(styles['card-image'])}>
-              <img src="product-box2.jpg" alt="视觉训练套盒" />
+              <img
+                src="https://de4965e.webp.li/blog-images/2025/10/0e5a5c241bd10258b63347226baeb359.png"
+                alt="视觉训练套盒"
+              />
             </div>
             <div className={cx(styles['card-content'])}>
               <h3 className={cx(styles['card-title'])}>视觉训练套盒</h3>
@@ -77,7 +80,7 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
           >
             <div className={cx(styles['card-image'])}>
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/eye-with-warm-tones-and-circular-scanning-patterns-VPs8gh06LzUJQvBF66TDXa9mCaWDye.jpg"
+                src="https://de4965e.webp.li/blog-images/2025/10/563cfdd6e3d71c15e1f71882e252379a.png"
                 alt="集合训练器"
               />
             </div>

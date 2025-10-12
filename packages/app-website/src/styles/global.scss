@@ -1,7 +1,18 @@
+@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss' as *;
+
 :root {
   --app-text-primary: var(--uni-abs-color-gray-black, #1f1f22);
   --app-text-secondary: var(--uni-abs-color-B7-for-light, #6f7174);
+  --app-mask-color: #f2f2f222;
+  --app-page-padding: 20px;
 }
+
+@media (min-width: $screen-md) {
+  :root {
+    --app-page-padding: 24px;
+  }
+}
+
 // html
 html,
 body {
