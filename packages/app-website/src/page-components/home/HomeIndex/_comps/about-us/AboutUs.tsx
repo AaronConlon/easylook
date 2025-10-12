@@ -87,7 +87,7 @@ export const AboutUs = forwardRef<HTMLDivElement, IAboutUsProps>(
                 {'从 2018 年成立至今，持续创新，服务用户超百万'}
               </p>
             </div>
-            <div className={cx(styles['chart-decoration'])}>
+            {/* <div className={cx(styles['chart-decoration'])}>
               <div className={cx(styles['chart-line'])} />
               <div className={cx(styles['chart-points'])}>
                 <span className={cx(styles['chart-point'])}>151</span>
@@ -95,7 +95,7 @@ export const AboutUs = forwardRef<HTMLDivElement, IAboutUsProps>(
                 <span className={cx(styles['chart-point'])}>50</span>
                 <span className={cx(styles['chart-point'])}>37</span>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* 合作伙伴 - 左下 */}

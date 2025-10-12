@@ -26,9 +26,12 @@
 .comp-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 0 48px 0;
   border-radius: 12px;
   overflow: hidden;
+  
+  @media (min-width: $screen-md) {
+    padding: 0 0 48px 0;
+  }
 }
 
 // 主横幅区域
@@ -389,8 +392,9 @@
   color: white;  
   // background: linear-gradient(to right, lab(36.9089% 35.0961 -85.6871 / .8) 0%, lab(56 4.38 -68.14 / 0.85) 100%);
   background: linear-gradient(to right, lab(31 52.12 -99.24 / 0.79) 0%, lab(35 58.17 -109.01 / 0.99) 100%);
-
+  padding: var(--app-page-padding);
   @media (min-width: $screen-md) {
+    padding: 0;
     border-radius: 24px;
   }
 }
@@ -417,10 +421,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-right: 50px;
   gap: 20px;
-
+  
   @media (min-width: $screen-md) {
+    padding-right: 50px;
     gap: 24px;
   }
 }
@@ -433,7 +437,13 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-top: 16px;
   margin-bottom: 16px;
+  flex-direction: column;
+  @media (min-width: $screen-md) {
+    flex-direction: row;
+    margin-top: 0;
+  }
 }
 
 .benefits-title-icon {
@@ -443,11 +453,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
   svg {
     width: 100%;
     height: 100%;
   }
+
 }
 
 .benefits-title {
@@ -489,6 +499,7 @@
   border-radius: 14px;
   padding: 1rem;
   backdrop-filter: blur(8px);
+  background: #ffffff17;
 
 
   @media (min-width: $screen-md) {
@@ -570,11 +581,14 @@
   font-weight: 600;
   margin: 0;
   color: #1c398e;
+  margin: 12px;
+  background-image: linear-gradient(to right, #facc15, #eab308); // from-yellow-400 to-yellow-500
+  border-radius: 18px;
+
 
   @media (min-width: $screen-md) {
+    border-radius: 8px;
     margin-top: 3rem; // mt-12 = 3rem
-    background-image: linear-gradient(to right, #facc15, #eab308); // from-yellow-400 to-yellow-500
-    border-radius: 18px;
     padding: 18px;
     text-align: center;
     font-size: 30px;

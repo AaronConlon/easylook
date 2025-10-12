@@ -14,6 +14,7 @@ interface IProps {
    * @default 50
    */
   scrollSpeed?: number;
+  bgImage?: string;
 }
 
 export const ScrollBgBar = (props: IProps) => {

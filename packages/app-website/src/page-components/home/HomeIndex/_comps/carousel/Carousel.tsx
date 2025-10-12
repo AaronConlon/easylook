@@ -1,9 +1,9 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from 'react-icons/md';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
@@ -27,17 +27,13 @@ export interface CarouselItem {
 
 interface ICarouselProps extends IUiCompBaseProps {
   autoPlayInterval?: number;
-  onUserInteract?: () => void;
 }
 
 export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
   (props, ref) => {
-    const { className, autoPlayInterval = 10000, onUserInteract } = props;
+    const { className, autoPlayInterval = 10000 } = props;
 
-    const firstVideoUrl =
-      'https://www.easylook.com.cn/wp-content/uploads/2025/01/b6a4094be7fc37fd298d687a6e2d6aab-1.mp4';
-    const imgSourceUrl =
-      'https://cdn.yun.sooce.cn/6/48873/gif/1750396791830bc80c675a20edf07c96ec3527d2c19a8.gif?version=0';
+    const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
     const items: CarouselItem[] = [
       {
@@ -56,6 +52,22 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
         subTitle:
           '从儿童到成年，从近视到弱视，从散光到远视，从眼底病变到眼压过高，视立优专业视力保护方案，为您和您的家人提供全方位的视力保护。',
       },
+      {
+        title: '视觉训练套盒',
+        type: 'image',
+        sourceUrl:
+          'https://sly-2025-10-10.i5lin.top/professional-eye-care-technology-blue-tones-medica.jpg',
+        subTitle:
+          '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
+      },
+      {
+        title: '视觉训练套盒',
+        type: 'image',
+        sourceUrl:
+          'https://sly-2025-10-10.i5lin.top/eye-refraction-disorder-vision-problem.jpg',
+        subTitle:
+          '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
+      },
       // {
       //   title: 'EasyLook · 视立优',
       //   type: 'video',
@@ -73,31 +85,19 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
         )}
       >
         <Swiper
-          modules={[Autoplay, Pagination, Navigation]}
+          modules={[Autoplay, Pagination, Navigation, Thumbs]}
+          thumbs={{ swiper: thumbsSwiper }}
           spaceBetween={0}
           slidesPerView={1}
           autoplay={{
             delay: autoPlayInterval,
             disableOnInteraction: false,
           }}
-          // pagination={{
-          //   clickable: true,
-          //   el: `.${styles['custom-pagination']}`,
-          //   bulletClass: 'custom-bullet',
-          //   bulletActiveClass: 'custom-bullet-active',
-          // }}
           navigation={{
             prevEl: `.${styles['carousel-prev']}`,
             nextEl: `.${styles['carousel-next']}`,
           }}
-          loop
           className={cx(styles['full-banner-wrapper'])}
-          onSlideChange={() => {
-            onUserInteract?.();
-          }}
-          onTouchStart={() => {
-            onUserInteract?.();
-          }}
         >
           {items.map((item, index) => (
             <SwiperSlide key={index} className={cx(styles['carousel-item'])}>
@@ -121,13 +121,33 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
                   autoPlay
                 />
               )}
-              <div className={cx(styles['banner-title'])}>
-                <h1>{item.title}</h1>
-                {item.subTitle && <p>{item.subTitle}</p>}
+              <div className={cx(styles['banner-info'])}>
+                <div className={styles['banner-title']}>{item.title}</div>
+                {item.subTitle ? (
+                  <p className={styles['banner-subtitle']}>{item.subTitle}</p>
+                ) : null}
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* 镜像 swiper */}
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          modules={[Thumbs]}
+          spaceBetween={6}
+          slidesPerView={items.length}
+          watchSlidesProgress
+          className={styles['thumbs']}
+        >
+          {items.map((_, idx) => (
+            <SwiperSlide
+              className={styles['thumb']}
+              key={`${idx}-${_.title}`}
+            ></SwiperSlide>
+          ))}
+        </Swiper>
+
         <div className={styles['carousel-prev']}>
           <MdOutlineKeyboardArrowLeft />
         </div>

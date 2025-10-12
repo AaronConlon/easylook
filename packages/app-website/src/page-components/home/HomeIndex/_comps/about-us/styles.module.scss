@@ -103,44 +103,34 @@
 //
 
 .comp-wrapper {
-  padding: 80px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 0;
 
-  @media (max-width: 768px) {
-    padding: 60px 0;
+  @media (min-width: $screen-md) {
+    padding: 80px 0;
   }
 }
 
 .about-grid {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 300px 300px;
-  gap: 30px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 var(--app-page-padding);
 
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 280px);
-    gap: 24px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0 16px;
-    grid-template-rows: repeat(4, 250px);
-    gap: 20px;
-  }
-
-  @media (min-width: 1200px) {
-    max-width: 1200px;
-    padding: 0 40px;
-    gap: 40px;
+  @media (min-width: $screen-md) {
+    padding: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 300px;
+    gap: 30px;
   }
 }
 
 .grid-item {
   position: relative;
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -149,8 +139,8 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  @media (max-width: 768px) {
-    border-radius: 20px;
+  @media (min-width: $screen-md) {
+    border-radius: 24px;
   }
 
   &:hover {
@@ -230,88 +220,88 @@
 .card-content {
   position: relative;
   z-index: 2;
-  padding: 32px;
+  padding: 24px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
-  @media (max-width: 768px) {
-    padding: 24px;
+  @media (min-width: $screen-md) {
+    padding: 32px;
   }
 }
 
 .card-header {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 
-  @media (max-width: 768px) {
-    margin-bottom: 12px;
+  @media (min-width: $screen-md) {
+    margin-bottom: 16px;
   }
 }
 
 .card-subtitle {
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-    margin-bottom: 6px;
+  @media (min-width: $screen-md) {
+    font-size: 0.875rem;
+    margin-bottom: 8px;
   }
 }
 
 .card-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0;
   transition: transform 0.3s ease;
   line-height: 1.2;
 
-  @media (max-width: 768px) {
+  @media (min-width: $screen-md) {
     font-size: 1.75rem;
   }
 
-  @media (max-width: 480px) {
-    font-size: 1.5rem;
+  @media (min-width: 1200px) {
+    font-size: 2rem;
   }
 }
 
 .card-description {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
-  max-width: 280px;
+  max-width: 240px;
 
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
-    max-width: 240px;
+  @media (min-width: $screen-md) {
+    font-size: 1rem;
+    max-width: 280px;
   }
 }
 
 // Chart decoration for development section
 .chart-decoration {
   position: absolute;
-  top: 40px;
-  right: 40px;
-  width: 200px;
-  height: 120px;
+  top: 30px;
+  right: 30px;
+  width: 150px;
+  height: 90px;
   z-index: 2;
-
-  @media (max-width: 768px) {
-    top: 30px;
-    right: 30px;
-    width: 150px;
-    height: 90px;
-  }
 
   @media (max-width: 480px) {
     display: none;
+  }
+
+  @media (min-width: $screen-md) {
+    top: 40px;
+    right: 40px;
+    width: 200px;
+    height: 120px;
   }
 }
 
@@ -351,15 +341,15 @@
 .chart-point {
   background: rgba(255, 255, 255, 0.9);
   color: #0891b2;
-  padding: 4px 8px;
+  padding: 3px 6px;
   border-radius: 12px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   position: relative;
 
-  @media (max-width: 768px) {
-    padding: 3px 6px;
-    font-size: 0.7rem;
+  @media (min-width: $screen-md) {
+    padding: 4px 8px;
+    font-size: 0.75rem;
   }
 
   &::before {

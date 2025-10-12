@@ -20,7 +20,6 @@
 .comp-wrapper--isDarkMode { // for-CSS-VARS--dark
 }
 
-
 // -----------------------------------------------------------------------------
 // 💅 COMP CSS PROPERTY
 //
@@ -33,27 +32,16 @@
   transition: all 0.3s ease-in-out;
   z-index: 999;
 
-  // 默认首页状态：透明背景，不可见
-  &:not([data-keep-show-header="true"]) {
-    background-color: transparent;
-    // opacity: 0;
-    pointer-events: none;
-    // z-index: -1; // 确保不阻挡轮播组件
-  }
+  background-color: var(--master-header-wrapper-bg-color);
+  opacity: 1;
+  pointer-events: auto;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 
-  // 滚动后或非首页状态：显示背景，可见
-  &[data-keep-show-header="true"] {
-    background-color: var(--master-header-wrapper-bg-color);
-    opacity: 1;
-    pointer-events: auto;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  --logo-color-1: #05519b;
+  --logo-color-2: #e5232b;
 
-    --logo-color-1: #05519b;
-    --logo-color-2: #e5232b;
-
-    .nav-menu-button-icon {
-      color: #333;
-    }
+  .nav-menu-button-icon {
+    color: #333;
   }
 }
 
@@ -74,9 +62,7 @@
   place-items: center;
   // background-color: red;
   padding: var(--master-header-wrapper-padding-y) 0;
-
 }
-
 
 .header-logo-wrapper {
   height: var(--master-header-wrapper-height);
@@ -106,7 +92,6 @@
 
 .nav-menu-drawer-header {
   display: none !important;
-
 }
 
 .nav-menu-drawer-body {
@@ -118,7 +103,6 @@
   background-color: greenyellow;
 }
 
-
 .nav-menu-close-button {
   position: absolute;
   right: 10px;
@@ -128,9 +112,7 @@
     color: #333;
     font-size: 24px;
   }
-
 }
-
 
 .nav-menu-drawer-menu {
   border: none 0 !important;
