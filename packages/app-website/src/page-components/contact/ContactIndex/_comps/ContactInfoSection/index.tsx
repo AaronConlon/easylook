@@ -45,6 +45,7 @@ export const ContactInfoSection = (props: IProps) => {
       </div>
 
       {/* 二维码区域 */}
+      <div className={cx(styles['qrcode-section-title'])}>二维码</div>
       <div className={cx(styles['qrcode-section'])}>
         <div className={cx(styles['qrcode-item'])}>
           <img

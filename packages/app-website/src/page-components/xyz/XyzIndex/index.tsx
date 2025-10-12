@@ -1,1 +1,0 @@
-export { XyzIndex } from './XyzIndex';

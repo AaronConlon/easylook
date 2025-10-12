@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { DebugReactQueryDevtools } from '----pkg-platform/h5/h5-components/__Debug__/DebugReactQueryDevtools--h5';
 import { useScreenMedia } from '----pkg-platform/h5/h5-hooks/useScreenMedia--h5';
 
+import { useScrollAnimation } from '----pkg-uni/uni-hooks/useScrollAnimation';
+
 import { DebugBarButton } from '----pkg-uni/uni-components/DebugBarButton';
 import { DebugCssMediaLabel } from '----pkg-uni/uni-components/DebugCssMediaLabel';
 import { use__DebugStore__ } from '----pkg-uni/uni-stores/use__Debug__Store';
@@ -27,6 +29,14 @@ export const MasterLayout = () => {
   useEffect(() => {}, []);
 
   const { screenMedia, windowSize } = useScreenMedia();
+
+  // 全局滚动动画
+  useScrollAnimation({
+    targetClassName: 'scroll-animate',
+    threshold: 200,
+    activeClassName: 'scroll-animate-in',
+    once: true,
+  });
 
   // const params = useParams({ strict: false });
 

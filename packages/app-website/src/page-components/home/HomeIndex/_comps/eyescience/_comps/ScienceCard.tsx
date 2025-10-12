@@ -1,18 +1,21 @@
-import { forwardRef, useRef } from 'react';
+import { forwardRef } from 'react';
 import CountUp from 'react-countup';
-import { RoughNotation } from 'react-rough-notation';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
+
+import { TrendLineChart } from './TrendLineChart';
 
 export interface EyeScienceItem {
   id: string;
   title: string;
-  amount: number;
-  startAmount: number;
-  subTitle?: string;
-  highlight: string;
+  enTitle: string;
   description: string;
-  image: string;
+  colorTheme: string;
+  amount?: number;
+  unit?: string;
+  style?: 'trend-line' | 'image' | 'default';
+  trendData?: number[];
+  image?: string;
 }
 
 interface ScienceCardProps {
@@ -20,76 +23,66 @@ interface ScienceCardProps {
   index: number;
   className?: string;
   styles: Record<string, string>;
-  startAmount: number;
 }
 
 export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
-  ({ item, index, className, styles, startAmount }, ref) => {
-    const cardRef = useRef<HTMLDivElement>(null);
+  ({ item, index, className, styles }, ref) => {
+    const isTrendLine = item.style === 'trend-line';
+    const isImage = item.style === 'image';
+    const showCounter = !isTrendLine && !isImage && item.amount !== undefined;
 
     return (
       <div
-        ref={(node) => {
-          cardRef.current = node;
-          if (typeof ref === 'function') {
-            ref(node);
-          } else if (ref) {
-            ref.current = node;
-          }
-        }}
+        ref={ref}
         id={item.id}
         className={cx(
           styles['science-card'],
-          styles[`science-card--${item.id}`],
+          styles[`science-card-${index + 1}`],
+          isTrendLine && styles['science-card--trend-line'],
+          isImage && styles['science-card--image'],
           className,
+          'scroll-animate',
         )}
+        data-number={isTrendLine || isImage ? '' : `0${index + 1}`}
       >
-        <div className={cx(styles['card-image'])}>
-          <img src={item.image} alt={item.title} />
-          <div className={cx(styles['image-overlay'])} />
-        </div>
-
-        <div className={cx(styles['card-content'])}>
-          <div className={cx(styles['card-header'])}>
-            <h3 className={cx(styles['card-title'])}>
-              <RoughNotation
-                type="highlight"
-                color="#0052d923"
-                animationDuration={800}
-              >
-                {item.title}
-              </RoughNotation>
-            </h3>
-            <br />
-            <div className={cx(styles['card-amount'])}>
-              {item.amount === 0 ? null : (
-                <CountUp
-                  start={startAmount}
-                  end={startAmount ? item.amount : 0}
-                  duration={2} // 动画时长 2 秒
-                  separator="," // 千分位分隔符
-                  decimal="." // 小数点符号，可选
-                  decimals={0} // 小数位数
-                />
-              )}
-              {item.subTitle && (
-                <span
-                  className={cx(styles['card-subTitle'])}
-                  style={{
-                    fontSize: '1.2rem',
-                    marginLeft: '4px',
-                  }}
-                >
-                  {item.subTitle}
-                </span>
-              )}
-            </div>
+        {/* 右上角数字 Counter */}
+        {showCounter && item.amount !== undefined && (
+          <div className={cx(styles['card-counter'])}>
+            <CountUp
+              start={0}
+              end={item.amount}
+              duration={2.5}
+              separator=","
+              decimals={item.amount < 100 ? 1 : 0}
+              decimal="."
+            />
+            {item.unit && (
+              <span className={cx(styles['card-unit'])}>{item.unit}</span>
+            )}
           </div>
+        )}
 
-          <div className={cx(styles['card-highlight'])}>{item.highlight}</div>
+        {/* 右上角图片 */}
+        {isImage && item.image && (
+          <div className={cx(styles['card-image'])}>
+            <img src={item.image} alt={item.title} />
+          </div>
+        )}
 
-          <p className={cx(styles['card-description'])}>{item.description}</p>
-        </div>
+        {/* 趋势线图表 */}
+        {isTrendLine && (
+          <div className={cx(styles['card-chart'])}>
+            <TrendLineChart
+              data={item.trendData}
+              className={cx(styles['trend-chart'])}
+              color="rgba(255, 255, 255, 0.95)"
+            />
+          </div>
+        )}
+
+        <h3 className={cx(styles['card-title'])}>{item.title}</h3>
+        <p className={cx(styles['card-subtitle'])}>{item.enTitle}</p>
+        <p className={cx(styles['card-description'])}>{item.description}</p>
       </div>
     );
   },

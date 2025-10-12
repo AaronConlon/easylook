@@ -5,6 +5,8 @@
   --app-text-secondary: var(--uni-abs-color-B7-for-light, #6f7174);
   --app-mask-color: #f2f2f222;
   --app-page-padding: 20px;
+  --app-brand-color: #05519b;
+  --app-brand-color-rgb: 5, 81, 155;
 }
 
 @media (min-width: $screen-md) {
@@ -104,4 +106,154 @@ html.theme-dark {
 
 html.theme-dark * {
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+// -----------------------------------------------------------------------------
+// 🎬 滚动动画系统
+// -----------------------------------------------------------------------------
+
+// 动画关键帧
+@keyframes scrollFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollFadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scrollFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scrollFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scrollScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// 基础动画类 - 默认隐藏
+.scroll-animate {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+// 激活类 - 显示动画
+.scroll-animate-in {
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+// 默认动画效果（从下往上淡入）
+.scroll-animate.scroll-animate-in {
+  animation-name: scrollFadeInUp;
+}
+
+// 不同方向的动画变体
+.scroll-animate-up.scroll-animate-in {
+  animation-name: scrollFadeInUp;
+}
+
+.scroll-animate-down.scroll-animate-in {
+  animation-name: scrollFadeInDown;
+}
+
+.scroll-animate-left.scroll-animate-in {
+  animation-name: scrollFadeInLeft;
+}
+
+.scroll-animate-right.scroll-animate-in {
+  animation-name: scrollFadeInRight;
+}
+
+.scroll-animate-fade.scroll-animate-in {
+  animation-name: scrollFadeIn;
+}
+
+.scroll-animate-scale.scroll-animate-in {
+  animation-name: scrollScaleIn;
+}
+
+// 动画速度变体
+.scroll-animate-fast.scroll-animate-in {
+  animation-duration: 0.4s;
+}
+
+.scroll-animate-slow.scroll-animate-in {
+  animation-duration: 1.2s;
+}
+
+// 延迟变体（可以通过 data-delay 属性自定义）
+.scroll-animate-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.scroll-animate-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.scroll-animate-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.scroll-animate-delay-4 {
+  animation-delay: 0.4s;
+}
+
+.scroll-animate-delay-5 {
+  animation-delay: 0.5s;
 }

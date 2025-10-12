@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// 💅 SCSS IMPORTS
+//
+@import '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss';
+
+// -----------------------------------------------------------------------------
+// 💅 CSS VARS
+//
+
+:root {
+  --card-bg: #ffffff;
+}
+
+:root[data-theme='dark'] {
+  --card-bg: #262626;
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+.comp-wrapper {
+  min-height: 100vh;
+  background-color: var(--card-bg);
+}

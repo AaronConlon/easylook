@@ -1,0 +1,166 @@
+// -----------------------------------------------------------------------------
+// 💅 SCSS IMPORTS
+//
+@import '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss';
+
+// -----------------------------------------------------------------------------
+// 💅 CSS VARS
+//
+
+:root {
+  --primary-color: var(--app-brand-color, #05519b);
+  --text-primary: var(--app-text-primary, #1f1f22);
+  --text-secondary: var(--app-text-secondary, #6b6b6b);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+:root[data-theme='dark'] {
+  --text-primary: #e5e5e5;
+  --text-secondary: #a3a3a3;
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+// 容器
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media (min-width: $screen-md) {
+    padding: 0 24px;
+  }
+}
+
+// 区域标题
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+
+  @media (min-width: $screen-md) {
+    margin-bottom: 64px;
+  }
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+
+  @media (min-width: $screen-md) {
+    font-size: 36px;
+  }
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0;
+
+  @media (min-width: $screen-md) {
+    font-size: 18px;
+  }
+}
+
+// 四大特点区域
+.features-section {
+  padding: 64px 0;
+
+  @media (min-width: $screen-md) {
+    padding: 96px 0;
+  }
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  @media (min-width: $screen-md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+.feature-card {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 246, 255, 0.8),
+    rgba(219, 234, 254, 0.8)
+  );
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  @media (min-width: $screen-md) {
+    padding: 32px;
+  }
+}
+
+:root[data-theme='dark'] .feature-card {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.8),
+    rgba(15, 23, 42, 0.8)
+  );
+}
+
+.feature-icon-wrapper {
+  flex-shrink: 0;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background-color: var(--primary-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+
+  @media (min-width: $screen-md) {
+    font-size: 20px;
+  }
+}
+
+.feature-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+
+  @media (min-width: $screen-md) {
+    font-size: 15px;
+  }
+}
+

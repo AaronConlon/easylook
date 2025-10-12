@@ -40,7 +40,12 @@ export const AboutUs = forwardRef<HTMLDivElement, IAboutUsProps>(
       <div
         ref={ref}
         id="about-us"
-        className={cx(styles['comp-wrapper'], className, 'g-uni-comp--AboutUs')}
+        className={cx(
+          styles['comp-wrapper'],
+          className,
+          'g-uni-comp--AboutUs',
+          'scroll-animate',
+        )}
       >
         <ContainerTitle
           title="关于我们"

@@ -1,0 +1,194 @@
+// -----------------------------------------------------------------------------
+// 💅 SCSS IMPORTS
+//
+@import '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss';
+
+// -----------------------------------------------------------------------------
+// 💅 CSS VARS
+//
+
+:root {
+  --primary-color: var(--app-brand-color, #05519b);
+  --text-primary: var(--app-text-primary, #1f1f22);
+  --text-secondary: var(--app-text-secondary, #6b6b6b);
+  --bg-gradient-from: #eff6ff;
+  --card-bg: #ffffff;
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+:root[data-theme='dark'] {
+  --text-primary: #e5e5e5;
+  --text-secondary: #a3a3a3;
+  --bg-gradient-from: #1e293b;
+  --card-bg: #262626;
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+// 容器
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media (min-width: $screen-md) {
+    padding: 0 24px;
+  }
+}
+
+// 产品介绍区域
+.hero-section {
+  padding: 64px 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-gradient-from),
+    var(--card-bg)
+  );
+
+  @media (min-width: $screen-md) {
+    padding: 96px 0;
+  }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+
+  @media (min-width: $screen-md) {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.hero-content {
+  order: 1;
+
+  @media (min-width: $screen-md) {
+    order: 0;
+  }
+}
+
+.hero-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+
+  @media (min-width: $screen-md) {
+    font-size: 48px;
+  }
+}
+
+.hero-description {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0 0 32px 0;
+
+  @media (min-width: $screen-md) {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+}
+
+// 购买按钮
+.buy-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 14px 32px;
+  background-color: white;
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(5, 81, 155, 0.15);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 6px 20px rgba(5, 81, 155, 0.4);
+    transform: translateY(-2px);
+    gap: 8px;
+
+    .cart-icon {
+      width: 20px;
+      opacity: 1;
+
+      @media (min-width: $screen-md) {
+        width: 22px;
+      }
+    }
+
+    span {
+      margin-left: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(5, 81, 155, 0.3);
+  }
+
+  span {
+    transition: margin-left 0.3s ease;
+    margin-left: 0;
+  }
+
+  @media (min-width: $screen-md) {
+    padding: 16px 40px;
+    font-size: 18px;
+  }
+}
+
+// 购物车图标
+.cart-icon {
+  width: 0;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  @media (min-width: $screen-md) {
+    height: 22px;
+  }
+}
+
+// 图片容器
+.hero-image-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-2xl);
+  order: 0;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+
+  &:hover {
+    box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.3);
+  }
+
+  @media (min-width: $screen-md) {
+    order: 1;
+  }
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}

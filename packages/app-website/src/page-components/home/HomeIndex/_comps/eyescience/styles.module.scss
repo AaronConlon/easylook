@@ -37,22 +37,31 @@ as *;
 // 💅 COMP CSS PROPERTY
 //
 
+// Mobile-first styles
 .comp-wrapper {
-  padding: 80px 0;
+  padding: 60px 0;
   min-height: 600px;
+
+  @media (min-width: $screen-md) {
+    padding: 80px 0;
+  }
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 20px;
+
+  @media (min-width: $screen-md) {
+    margin-bottom: 60px;
+  }
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   // color: var(--uni-abs-color-primary-for-light);
   margin: 0 0 20px 0;
@@ -60,192 +69,310 @@ as *;
   // -webkit-background-clip: text;
   // -webkit-text-fill-color: transparent;
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
+  @media (min-width: $screen-md) {
+    font-size: 3rem;
   }
 }
 
 .section-subtitle {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--subtitle-color);
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
+  padding: 0 20px;
 
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-    padding: 0 20px;
+  @media (min-width: $screen-md) {
+    font-size: 0.9rem;
+    padding: 0;
   }
 }
 
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  max-width: 1200px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 20px 20px;
+  padding: 0 16px;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 30px 20px;
+  @media (min-width: $screen-md) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
   }
 
-  @media (max-width: 480px) {
-    padding: 20px 16px;
-  }
-
-  // 大屏幕下的特殊边框圆角处理
   @media (min-width: 1200px) {
-    max-width: 1200px;
-    padding: 40px 80px;
-
-    // 第一个卡片 - 左上角
-    .science-card--myopia-population {
-      border-top-left-radius: 36px;
-      border-bottom-left-radius: 0;
-    }
-
-    // 第一个右下角
-    .science-card--myopia-population {
-      border-bottom-right-radius: 10px;
-      border-top-right-radius: 0;
-    }
-
-    // 第二个卡片 - 右上角
-    .science-card--myopia-patients {
-      border-top-right-radius: 36px;
-      border-bottom-right-radius: 0;
-    }
-
-    // 第二个卡片 - 左下角
-    .science-card--myopia-patients {
-      border-bottom-left-radius: 10px;
-      border-top-left-radius: 0;
-    }
-
-    // 第三个卡片 - 左下角
-    .science-card--children-amblyopia {
-      border-bottom-left-radius: 36px;
-      border-top-left-radius: 0;
-    }
-
-    // 第三个卡片 - 右上角
-    .science-card--children-amblyopia {
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 0;
-    }
-
-    // 第四个卡片 - 右下角
-    .science-card--vision-fatigue {
-      border-bottom-right-radius: 36px;
-      border-top-right-radius: 0;
-    }
-
-    // 第四个卡片 - 左上角
-    .science-card--vision-fatigue {
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 0;
-    }
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 
 .science-card {
-  background: var(--card-bg);
+  position: relative;
+  padding: 28px 20px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--card-shadow);
-  border: 1px solid var(--border-color);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  // 数字背景
+  &::after {
+    content: attr(data-number);
+    position: absolute;
+    right: -8px;
+    bottom: -16px;
+    font-size: 100px;
+    font-weight: 900;
+    opacity: 0.15;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 
-    img {
-      transform: scale(1.05);
+    // 数字向左上角移动
+    &::after {
+      right: 16px;
+      bottom: 16px;
+      opacity: 0.25;
+    }
+  }
+
+  @media (min-width: $screen-md) {
+    padding: 32px 24px;
+    min-height: 240px;
+
+    &::after {
+      font-size: 120px;
+      right: -10px;
+      bottom: -20px;
+    }
+
+    &:hover::after {
+      right: 20px;
+      bottom: 20px;
     }
   }
 }
 
+// 颜色主题 - 基于主题色 #05519b，往前递减 0.05 的透明度
+// rgb(5, 81, 155) = #05519b
+.science-card-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 81, 155, 0.95) 0%,
+    rgba(5, 81, 155, 0.98) 100%
+  );
+  border: 1px solid rgba(5, 81, 155, 1);
+}
 
-.card-image {
+.science-card-2 {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 81, 155, 0.90) 0%,
+    rgba(5, 81, 155, 0.93) 100%
+  );
+  border: 1px solid rgba(5, 81, 155, 0.95);
+}
+
+.science-card-3 {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 81, 155, 0.85) 0%,
+    rgba(5, 81, 155, 0.88) 100%
+  );
+  border: 1px solid rgba(5, 81, 155, 0.90);
+}
+
+.science-card-4 {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 81, 155, 0.80) 0%,
+    rgba(5, 81, 155, 0.83) 100%
+  );
+  border: 1px solid rgba(5, 81, 155, 0.85);
+}
+
+.science-card-5 {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 81, 155, 0.75) 0%,
+    rgba(5, 81, 155, 0.78) 100%
+  );
+  border: 1px solid rgba(5, 81, 155, 0.80);
+}
+
+.science-card-6 {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 81, 155, 0.70) 0%,
+    rgba(5, 81, 155, 0.73) 100%
+  );
+  border: 1px solid rgba(5, 81, 155, 0.75);
+}
+
+// Trend-line 样式 - 隐藏背景数字
+.science-card--trend-line {
+  &::after {
+    display: none;
+  }
+}
+
+// Image 样式 - 隐藏背景数字
+.science-card--image {
+  &::after {
+    display: none;
+  }
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
   position: relative;
-  height: 200px;
+  z-index: 1;
+
+  @media (min-width: $screen-md) {
+    font-size: 1.5rem;
+  }
+}
+
+.card-subtitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 1.5px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+
+  @media (min-width: $screen-md) {
+    font-size: 0.75rem;
+  }
+}
+
+.card-description {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  max-width: 90%;  // 限制宽度，为右下角数字留出空间
+
+  @media (min-width: $screen-md) {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    max-width: 80%;
+  }
+}
+
+// 右上角 Counter 样式（字号增大 4px）
+.card-counter {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 1.75rem;  // 28px (原 24px + 4px)
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);  // 白色
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  z-index: 2;
+
+  @media (min-width: $screen-md) {
+    top: 20px;
+    right: 20px;
+    font-size: 2.05rem;  // 32.8px (原 28.8px + 4px)
+  }
+}
+
+// 单位样式（字号增大 4px）
+.card-unit {
+  font-size: 0.85rem;  // 13.6px (原 9.6px + 4px)
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);  // 白色稍淡
+  margin-left: 2px;
+
+  @media (min-width: $screen-md) {
+    font-size: 0.95rem;  // 15.2px (原 11.2px + 4px)
+  }
+}
+
+// 右上角图片样式
+.card-image {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 64px;
+  height: 64px;
+  z-index: 2;
+  border-radius: 50%;
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+
+  @media (min-width: $screen-md) {
+    top: 20px;
+    right: 20px;
+    width: 72px;
+    height: 72px;
+  }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    display: block;
   }
 
-
+  .science-card:hover & {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
 }
 
-.image-overlay {
+// 趋势图容器
+.card-chart {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg,
-      rgba(59, 130, 246, 0.1) 0%,
-      rgba(29, 78, 216, 0.2) 100%);
-}
+  right: 12px;
+  bottom: 12px;
+  width: 180px;
+  height: 80px;
+  z-index: 1;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 
-.card-content {
-  padding: 24px;
-}
+  @media (min-width: $screen-md) {
+    right: 20px;
+    bottom: 20px;
+    width: 180px;
+    height: 100px;
+  }
 
-.card-header {
-  margin-bottom: 16px;
-}
-
-.card-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  // color: var(--uni-abs-color-primary-for-light);
-  // margin: 0 8px 8px 0;
-  line-height: 1.4;
-  text-align: center;
-}
-
-.card-amount {
-  font-size: 2.2rem;
-  font-weight: 700;
-  background: var(--primary-gradient);
-  background-clip: text;
-  color: var(--uni-abs-color-primary-for-light);
-
-  margin-bottom: 4px;
-  text-align: center;
-
-
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
+  .science-card:hover & {
+    opacity: 1;
   }
 }
 
-.card-highlight {
-  font-size: 0.9rem;
-  font-weight: 600;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  line-height: 1.4;
-  text-align: center;
-  position: relative;
-}
-
-.card-description {
-  font-size: 0.9rem;
-  color: var(--app-text-secondary);
-  line-height: 1.6;
-  margin: 0;
-  text-align: center;
-
+// 趋势图 canvas
+.trend-chart {
+  display: block;
 }
 
 // -----------------------------------------------------------------------------
@@ -284,27 +411,5 @@ as *;
 
   100% {
     background-position: 200% 0;
-  }
-}
-
-
-
-// 响应式优化
-@media (max-width: 480px) {
-  .comp-wrapper {
-    padding: 60px 0;
-  }
-
-  .content-grid {
-    padding: 0 16px;
-    gap: 16px;
-  }
-
-  .card-content {
-    padding: 20px;
-  }
-
-  .section-header {
-    margin-bottom: 40px;
   }
 }

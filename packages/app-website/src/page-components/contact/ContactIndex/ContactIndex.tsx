@@ -3,11 +3,12 @@ import { RiMessageLine } from 'react-icons/ri';
 
 import { cx } from '----pkg-platform/h5/h5-utils/cx-util--h5';
 
+import { CommonPageHeader } from '@/components/CommonPageHeader';
 import { ContactForm } from '@/components/ContactForm';
 import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
-import { ScrollBgBar } from '@/components/ScrollBgBar';
 
 import { ContactInfoSection } from './_comps/ContactInfoSection';
+import mapImg from './_images/map.png';
 
 import styles from './styles.module.scss';
 
@@ -25,21 +26,27 @@ export const ContactIndex = () => {
 
   return (
     <div className={cx(styles['contact-index-wrapper'])}>
-      <ScrollBgBar
+      {/* <ScrollBgBar
         title="联系我们"
         subtitle="欢迎与我们联系，了解更多关于视立优的信息"
         backgroundText={
           'We are committed to providing high-quality and professional '
           // 'visual function products to accelerate visual health and bring a better life to all!'
         }
+      /> */}
+      <CommonPageHeader
+        title="联系我们"
+        subTitle="Contact Us"
+        bgImage="https://images.unsplash.com/photo-1526045612212-70caf35c14df?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070"
       />
 
       <ScreenMediaWidthCentered className={cx(styles['contact-content'])}>
         <div className={cx(styles['content-layout'])}>
           {/* 左侧地图 */}
           <div className={cx(styles['map-section'])}>
+            <div className={cx(styles['map-section-title'])}>公司位置</div>
             <img
-              src="https://img3.airdoc.com/staticResources/website/static/map_bj_1.png"
+              src={mapImg}
               alt="公司地图"
               className={cx(styles['map-image'])}
             />
@@ -53,9 +60,14 @@ export const ContactIndex = () => {
       <ScreenMediaWidthCentered className={cx(styles['form-section'])}>
         <Divider>
           <RiMessageLine
-            style={{ marginRight: 8, position: 'relative', top: 2 }}
+            style={{
+              marginRight: 8,
+              position: 'relative',
+              top: 2,
+              color: 'var(--app-brand-color)',
+            }}
           />
-          信息反馈
+          在线留言
         </Divider>
         <ContactForm />
       </ScreenMediaWidthCentered>

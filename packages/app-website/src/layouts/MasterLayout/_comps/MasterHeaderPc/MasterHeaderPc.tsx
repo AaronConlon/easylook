@@ -9,12 +9,7 @@ import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
 
 import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
-import {
-  MASTER_HEADER_MENUS,
-  MASTER_ROUTER_PATHS,
-} from '@/consts/master-router-paths';
-
-import { ContextNavItem } from './ContextNavItem';
+import { MASTER_HEADER_MENUS } from '@/consts/master-router-paths';
 
 import styles from './styles.module.scss';
 
@@ -22,6 +17,19 @@ interface IProps extends IUiCompBaseProps {}
 
 export const MasterHeaderPc = (props: IProps) => {
   const { className } = props;
+
+  const renderIcon = (icon?: React.ComponentType | React.ReactNode) => {
+    if (!icon) return null;
+
+    // 如果是函数组件，则渲染它
+    if (typeof icon === 'function') {
+      const IconComponent = icon as React.ComponentType;
+      return <IconComponent />;
+    }
+
+    // 否则直接返回（已经是 ReactNode）
+    return icon;
+  };
 
   return (
     <div
@@ -45,11 +53,9 @@ export const MasterHeaderPc = (props: IProps) => {
                 className={cx(styles['nav-menu-item'])}
                 data-href={item?.path}
               >
-                {item.path === MASTER_ROUTER_PATHS['/contact'] ? (
-                  <ContextNavItem />
-                ) : (
-                  <span>{item?.label}</span>
-                )}
+                {/* 主菜单 Icon */}
+                {renderIcon(item?.icon)}
+                <span>{item?.label}</span>
 
                 {item?.children ? (
                   <RiArrowDownSLine
@@ -65,6 +71,8 @@ export const MasterHeaderPc = (props: IProps) => {
                         key={`${child?.path}-${idx}`}
                         to={child?.path}
                       >
+                        {/* 子菜单 Icon */}
+                        {renderIcon(child?.icon)}
                         {child?.label}
                       </USmartLink>
                     ))}

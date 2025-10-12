@@ -13,7 +13,12 @@ import { MASTER_ROUTER_PATHS } from '@/consts/master-router-paths';
 import { MasterLayout } from '@/layouts/MasterLayout';
 import { AboutIndex } from '@/page-components/about/AboutIndex';
 import { ContactIndex } from '@/page-components/contact/ContactIndex';
+import EncyclopediaIndex from '@/page-components/encyclopedia';
 import { HomeIndex } from '@/page-components/home/HomeIndex';
+import { Partners } from '@/page-components/home/HomeIndex/_comps';
+import { HonorIndex } from '@/page-components/honor/HonorIndex';
+import { Product1Index } from '@/page-components/product/product1';
+import { Product2Index } from '@/page-components/product/product2';
 import { StoryIndex } from '@/page-components/story/StoryIndex';
 
 const rootRoute = createRootRouteWithContext<{}>()({
@@ -34,17 +39,17 @@ const routerMapping = [
   { path: MASTER_ROUTER_PATHS['/'], component: HomeIndex },
 
   // product
-  { path: MASTER_ROUTER_PATHS['/product-1'], component: AboutIndex },
-  { path: MASTER_ROUTER_PATHS['/product-2'], component: AboutIndex },
+  { path: MASTER_ROUTER_PATHS['/product-1'], component: Product1Index },
+  { path: MASTER_ROUTER_PATHS['/product-2'], component: Product2Index },
 
   // encyclopedia
-  { path: MASTER_ROUTER_PATHS['/encyclopedia'], component: AboutIndex },
+  { path: MASTER_ROUTER_PATHS['/encyclopedia'], component: EncyclopediaIndex },
 
   // about us
   { path: MASTER_ROUTER_PATHS['/about/company'], component: AboutIndex },
   { path: MASTER_ROUTER_PATHS['/about/story'], component: StoryIndex },
-  { path: MASTER_ROUTER_PATHS['/about/partners'], component: AboutIndex },
-  { path: MASTER_ROUTER_PATHS['/about/honor'], component: AboutIndex },
+  { path: MASTER_ROUTER_PATHS['/about/partners'], component: Partners },
+  { path: MASTER_ROUTER_PATHS['/about/honor'], component: HonorIndex },
 
   // cooperation
   { path: MASTER_ROUTER_PATHS['/cooperation'], component: AboutIndex },

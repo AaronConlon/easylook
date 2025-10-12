@@ -20,9 +20,6 @@
 
 // 左侧地图区域
 .map-section {
-  display: flex;
-  align-items: stretch;
-
   .map-image {
     width: 100%;
     height: 100%;
@@ -36,6 +33,13 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
       transform: translateY(-4px);
     }
+  }
+
+  .map-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--app-brand-color);
   }
 }
 

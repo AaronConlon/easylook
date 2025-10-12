@@ -1,6 +1,8 @@
 // 假如启用 i18n 需要加入这个 params
 // const LANG_PREFIX = '/{-$lang}';
 
+import { LuPhone } from 'react-icons/lu';
+
 const LANG_PREFIX = '';
 
 export const MASTER_ROUTER_PATHS = {
@@ -37,6 +39,7 @@ export type IMenuItem = {
   label?: React.ReactNode; // '首页',
   path?: string;
   children?: IMenuItem[];
+  icon?: React.ComponentType | React.ReactNode; // 支持组件或元素
 };
 
 export const MASTER_HEADER_MENUS: IMenuItem[] = [
@@ -89,5 +92,6 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
   {
     path: MASTER_ROUTER_PATHS['/contact'],
     label: '联系我们',
+    icon: LuPhone,
   },
 ];

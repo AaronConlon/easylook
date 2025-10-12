@@ -1,15 +1,19 @@
+@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss' as *;
+
 // -----------------------------------------------------------------------------
 // 🌈 COMP CSS VARS
 //
 
 // prettier-ignore
 .comp-wrapper {
-  --primary-color: #2563eb;
-  --primary-color-hover: #1d4ed8;
+  --primary-color: #1b52ac;
+  --primary-color-hover: #154489;
+  --primary-color-light: rgba(27, 82, 172, 0.1);
   --secondary-color: #64748b;
   --text-primary: #1e293b;
   --text-secondary: #475569;
   --text-light: #64748b;
+  --text-muted: #6b7280;
   --bg-light: #f8fafc;
   --bg-white: #ffffff;
   --border-color: #e2e8f0;
@@ -17,7 +21,7 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --border-radius: 12px;
-  --container-max-width: 1200px;
+  --container-max-width: 1024px;
 }
 
 // prettier-ignore
@@ -422,5 +426,124 @@
     background: white;
     color: var(--primary-color);
     transform: translateY(-2px);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 🎯 公司介绍内容区域
+//
+
+.company-intro-section {
+  padding: 80px 0;
+  background: var(--bg-white);
+
+  @media (min-width: $screen-md) {
+    padding: 80px 0;
+  }
+}
+
+.intro-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media (min-width: $screen-md) {
+    padding: 0;
+  }
+}
+
+.intro-header {
+  text-align: center;
+  margin-bottom: 48px;
+
+  @media (min-width: $screen-md) {
+    margin-bottom: 56px;
+  }
+}
+
+.intro-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+
+  @media (min-width: $screen-md) {
+    font-size: 36px;
+  }
+}
+
+.title-divider {
+  width: 80px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.intro-paragraph {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  text-indent: 2em;
+  margin: 0;
+
+  @media (min-width: $screen-md) {
+    font-size: 18px;
+  }
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @media (min-width: $screen-md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.feature-card {
+  background: linear-gradient(135deg, var(--primary-color-light) 0%, rgba(45, 111, 216, 0.05) 100%);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(27, 82, 172, 0.15);
+  }
+
+  @media (min-width: $screen-md) {
+    padding: 24px;
+  }
+}
+
+.feature-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+
+  @media (min-width: $screen-md) {
+    font-size: 28px;
+  }
+}
+
+.feature-description {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+
+  @media (min-width: $screen-md) {
+    font-size: 14px;
   }
 }

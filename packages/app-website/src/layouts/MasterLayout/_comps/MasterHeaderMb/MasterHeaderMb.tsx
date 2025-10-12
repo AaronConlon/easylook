@@ -79,6 +79,7 @@ export const MasterHeaderMb = (props: IProps) => {
 
         <Drawer
           open={open}
+          destroyOnHidden={true}
           onClose={() => setOpen(false)}
           width={300}
           placement="right"

@@ -1,7 +1,7 @@
 export interface EncyclopediaItem {
   id: string;
   title: string;
-  date: string;
+  date: number;
   description?: string;
   link?: string;
   cover?: string;
@@ -14,7 +14,7 @@ export const encyclopediaData: EncyclopediaItem[] = [
   {
     id: 'milk-tea-eye-health',
     title: '隐形眼镜过夜戴 你的眼睛答应吗？',
-    date: '2025 年 09 月 21 日',
+    date: Date.now(),
     description:
       '很多人都有过类似体验：隐形眼镜佩戴几小时后，眼睛突然出现刺痛、瘙痒和异物感，甚至迅速发红。',
     link: 'https://mp.weixin.qq.com/s/OflLi98aHmvZ3DSAzse2FQ',
@@ -27,7 +27,7 @@ export const encyclopediaData: EncyclopediaItem[] = [
   {
     id: 'myopia-surgery-peak',
     title: '十大伤眼行为 你中了几个？',
-    date: '2025 年 06 月 10 日',
+    date: Date.now() - 1000 * 60 * 60 * 24 * 1,
     description:
       '必须严肃提醒大家：生活中很多看似不起眼的习惯，正在悄悄伤害你的眼睛！这 10 个行为尤其要注意...',
     link: 'https://mp.weixin.qq.com/s/4rDQ-mbCilaJMlZFwsbyIQ',
@@ -39,7 +39,7 @@ export const encyclopediaData: EncyclopediaItem[] = [
   {
     id: 'taopu-new-sight',
     title: '大国小工匠｜桃浦新"视"力，系列科普活动第一期精彩回顾！',
-    date: '2025 年 06 月 10 日',
+    date: Date.now() - 1000 * 60 * 60 * 24 * 2,
     description:
       '"大国小工匠 桃浦新视力——小小眼科医生职业体验"系列活动在普陀区桃浦镇党群服务中心顺利举办。',
     link: 'https://mp.weixin.qq.com/s/vH5E34G0YNnd1UeSxwLtPQ',
@@ -51,7 +51,7 @@ export const encyclopediaData: EncyclopediaItem[] = [
   {
     id: 'double-vision-function',
     title: '揭秘双眼视功能：为何双眼看物能合二为一？​',
-    date: '2025 年 06 月 10 日',
+    date: Date.now() - 1000 * 60 * 60 * 24 * 3,
     description:
       '双眼视功能是指两只眼睛协同工作的能力，包括同时聚焦、融合图像和感知立体空间，从而形成清晰、立体的视觉。',
     link: 'https://mp.weixin.qq.com/s/HlTcTUITOZ_z5FsYOEK_vw',
@@ -63,7 +63,7 @@ export const encyclopediaData: EncyclopediaItem[] = [
   {
     id: 'prevent-myopia-and-strabismus',
     title: '警惕！近视和斜视可能在恶性循环！',
-    date: '2025 年 08 月 31 日',
+    date: Date.now() - 1000 * 60 * 60 * 24 * 4,
     description:
       '近视和斜视可能存在恶性循环，近视会导致眼睛调节能力下降，从而更容易出现斜视。',
     link: 'https://mp.weixin.qq.com/s/E4m__6mIzIhAa7lKtBOj9Q',
