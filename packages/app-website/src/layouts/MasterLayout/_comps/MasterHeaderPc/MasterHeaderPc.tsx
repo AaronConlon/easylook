@@ -40,9 +40,9 @@ export const MasterHeaderPc = (props: IProps) => {
       )}
     >
       <ScreenMediaWidthCentered className={cx(styles['comp-inner'])}>
-        <div className={cx(styles['header-logo-wrapper'])}>
+        <USmartLink to="/" className={cx(styles['header-logo-wrapper'])}>
           <LogoSvg className={cx(styles['header-logo'])} />
-        </div>
+        </USmartLink>
 
         <div className={cx(styles['header-nav-wrapper'])}>
           <div className={cx(styles['nav-menu-list'])}>

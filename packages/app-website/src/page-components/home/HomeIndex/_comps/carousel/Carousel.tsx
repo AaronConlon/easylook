@@ -97,6 +97,7 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
             prevEl: `.${styles['carousel-prev']}`,
             nextEl: `.${styles['carousel-next']}`,
           }}
+          loop
           className={cx(styles['full-banner-wrapper'])}
         >
           {items.map((item, index) => (
@@ -139,6 +140,7 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
           slidesPerView={items.length}
           watchSlidesProgress
           className={styles['thumbs']}
+          loop
         >
           {items.map((_, idx) => (
             <SwiperSlide
