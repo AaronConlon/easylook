@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.27](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.26...app-website@0.0.27) (2025-10-13)
+
+
+### Bug Fixes
+
+* update product iamge ([c4f8642](https://github.com/profit-projects/easylook-website/commit/c4f864281fc18617640096a45a13e09a51c15353))
+
 ### [0.0.26](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.25...app-website@0.0.26) (2025-10-13)
 
 
