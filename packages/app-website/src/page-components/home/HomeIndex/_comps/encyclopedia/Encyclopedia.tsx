@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
-import { forwardRef, useRef, useState } from 'react';
-import { LuCalendar, LuExternalLink, LuEye } from 'react-icons/lu';
+import { forwardRef, useRef } from 'react';
+import { CgDetailsMore } from 'react-icons/cg';
+import { LuCalendar, LuExternalLink } from 'react-icons/lu';
 import type { Swiper as SwiperType } from 'swiper';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
@@ -29,13 +30,6 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
     const { className } = props;
     const navigate = useNavigate();
     const swiperRef = useRef<SwiperType | null>(null);
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const handleNavClick = (index: number) => {
-      if (swiperRef.current) {
-        swiperRef.current.slideTo(index);
-      }
-    };
 
     return (
       <div
@@ -85,10 +79,10 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
                 {/* </div> */}
                 {/* read more button */}
                 <button className={styles['item-read-more']}>
-                  <div className={styles['item-read-more-text']}>
+                  <a href={i.link} className={styles['item-read-more-text']}>
                     阅读更多
                     <LuExternalLink />
-                  </div>
+                  </a>
                 </button>
               </div>
             </UCard>
@@ -96,27 +90,7 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
 
           {/* 导航控制器和查看更多按钮 */}
           <div className={cx(styles['controls-wrapper'])}>
-            {/* 左侧导航按钮 */}
-            {/* <div className={cx(styles['nav-buttons'])}>
-              {encyclopediaData.map((item, index) => (
-                <div
-                  key={item.id}
-                  data-active={index === activeIndex}
-                  className={cx(styles['nav-button'])}
-                  onClick={() => handleNavClick(index)}
-                ></div>
-              ))}
-            </div> */}
-
-            {/* 右侧查看更多按钮 */}
-            {/* <button
-              className={cx(styles['more-button'])}
-              onClick={() => navigate({ to: '/encyclopedia' })}
-            >
-              <CgDetailsMore className={cx(styles['more-button-icon'])} />
-              查看更多
-            </button> */}
-            <UButton
+            <Button
               className={cx(styles['more-button'])}
               icon={<LuEye />}
               size="large"

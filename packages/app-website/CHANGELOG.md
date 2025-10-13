@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.27](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.26...app-website@0.0.27) (2025-10-13)
+
+
+### Bug Fixes
+
+* update product iamge ([c4f8642](https://github.com/profit-projects/easylook-website/commit/c4f864281fc18617640096a45a13e09a51c15353))
+
+### [0.0.26](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.25...app-website@0.0.26) (2025-10-13)
+
+
+### Features
+
+* 更新 deps，eslint max-len 80 ([3627c2c](https://github.com/profit-projects/easylook-website/commit/3627c2c1b6391a1556bed502d04df0d57307fd53))
+
+
+### Bug Fixes
+
+* contact us page ([5f1bcf4](https://github.com/profit-projects/easylook-website/commit/5f1bcf480c0d5d43cd8225a2f8ddb7ecaf766ea8))
+* product page style ([e4247ce](https://github.com/profit-projects/easylook-website/commit/e4247cef41acb597eff857cf7ea0ff0e1303674f))
+
 ### [0.0.25](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.24...app-website@0.0.25) (2025-10-13)
 
 

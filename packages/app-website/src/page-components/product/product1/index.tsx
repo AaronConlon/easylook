@@ -51,26 +51,26 @@ export const Product1Index = () => {
   const videos: Video[] = [
     {
       id: '1',
-      title: '产品介绍与使用指南',
-      thumbnail: '/product-box1.jpg',
+      title: '近视防控训练',
+      thumbnail: '/product-box2.jpg',
       duration: '5:12',
     },
     {
       id: '2',
-      title: '小程序操作教程',
-      thumbnail: '/product-box1.jpg',
+      title: '斜弱视训练',
+      thumbnail: '/product-box2.jpg',
       duration: '4:45',
     },
     {
       id: '3',
-      title: '训练计划定制',
-      thumbnail: '/product-box1.jpg',
+      title: '眼保健训练',
+      thumbnail: '/product-box2.jpg',
       duration: '6:30',
     },
     {
       id: '4',
-      title: '效果评估与跟踪',
-      thumbnail: '/product-box1.jpg',
+      title: '学习力提升训练',
+      thumbnail: '/product-box2.jpg',
       duration: '4:18',
     },
   ];
@@ -80,13 +80,13 @@ export const Product1Index = () => {
       <CommonPageHeader
         title="视觉训练套盒"
         subTitle="Vision Training Kit"
-        bgImage="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2070"
+        bgImage="/product-box2.jpg"
       />
 
       <ProductHeroSection
         title="视觉训练套盒"
         description="视立优·视觉训练套盒是一款集成式一体化的通用视觉训练方案。基于调节滞后引发近视学说，将专家共识与自主训练体系相结合，为近视防控提供新解决方案。"
-        imageSrc="/product-box1.jpg"
+        imageSrc="/product-box2.jpg"
         imageAlt="视觉训练套盒"
       />
 

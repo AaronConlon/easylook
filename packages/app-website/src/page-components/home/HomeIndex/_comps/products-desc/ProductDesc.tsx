@@ -64,10 +64,7 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
             // style={{ opacity }}
             cover={
               <div className={cx(styles['card-image'])}>
-                <img
-                  src="https://de4965e.webp.li/blog-images/2025/10/0e5a5c241bd10258b63347226baeb359.png"
-                  alt="视觉训练套盒"
-                />
+                <img src="/product-box2.jpg" alt="视觉训练套盒" />
               </div>
             }
           >

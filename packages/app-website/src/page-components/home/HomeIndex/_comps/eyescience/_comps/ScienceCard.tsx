@@ -28,6 +28,18 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
     const showCounter = !isIcon && item.amount !== undefined;
     const IconComponent = item.icon;
 
+    const calcStartAmount = () => {
+      const amount = item.amount || 0;
+      // 过亿
+      if (amount > 1000 * 10000) {
+        return amount - 1000 * 10000;
+      } else if (amount > 10000) {
+        return amount - 10000;
+      } else {
+        return 0;
+      }
+    };
+
     return (
       <div
         ref={ref}
@@ -45,7 +57,7 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
         {showCounter && item.amount !== undefined && (
           <div className={cx(styles['card-counter'])}>
             <CountUp
-              start={0}
+              start={calcStartAmount()}
               end={item.amount}
               duration={2.5}
               separator=","

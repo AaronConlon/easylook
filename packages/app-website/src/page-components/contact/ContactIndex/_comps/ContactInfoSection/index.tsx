@@ -1,3 +1,5 @@
+import { LuMail, LuMapPin, LuPhone } from 'react-icons/lu';
+
 import { cx } from '----pkg-platform/h5/h5-utils/cx-util--h5';
 
 import styles from './styles.module.scss';
@@ -22,25 +24,49 @@ export const ContactInfoSection = (props: IProps) => {
 
   return (
     <div className={cx(styles['info-section'])}>
+      {/* 联系方式标题 */}
+      <div className={cx(styles['info-section-title'])}>联系方式</div>
+
+      {/* 联系方式卡片列表 */}
       <div className={cx(styles['info-list'])}>
-        <div className={cx(styles['info-item'])}>
-          <h3 className={cx(styles['info-label'])}>电话</h3>
-          <p className={cx(styles['info-value'])}>{contactInfo.phone}</p>
+        {/* 电话卡片 */}
+        <div className={cx(styles['info-card'])}>
+          <div className={cx(styles['icon-wrapper'])}>
+            <LuPhone className={cx(styles['icon'])} />
+          </div>
+          <div className={cx(styles['card-content'])}>
+            <h3 className={cx(styles['card-title'])}>电话咨询</h3>
+            <p className={cx(styles['card-text'])}>
+              客服热线：{contactInfo.phone}
+            </p>
+          </div>
         </div>
 
-        <div className={cx(styles['info-item'])}>
-          <h3 className={cx(styles['info-label'])}>邮箱</h3>
-          <p className={cx(styles['info-value'])}>{contactInfo.email}</p>
+        {/* 邮箱卡片 */}
+        <div className={cx(styles['info-card'])}>
+          <div className={cx(styles['icon-wrapper'])}>
+            <LuMail className={cx(styles['icon'])} />
+          </div>
+          <div className={cx(styles['card-content'])}>
+            <h3 className={cx(styles['card-title'])}>邮箱联系</h3>
+            <p className={cx(styles['card-text'])}>
+              业务咨询：{contactInfo.email}
+            </p>
+          </div>
         </div>
 
-        <div className={cx(styles['info-item'])}>
-          <h3 className={cx(styles['info-label'])}>地址</h3>
-          <p className={cx(styles['info-value'])}>{contactInfo.address}</p>
-        </div>
-
-        <div className={cx(styles['info-item'])}>
-          <h3 className={cx(styles['info-label'])}>邮编</h3>
-          <p className={cx(styles['info-value'])}>{contactInfo.zipCode}</p>
+        {/* 地址卡片 */}
+        <div className={cx(styles['info-card'])}>
+          <div className={cx(styles['icon-wrapper'])}>
+            <LuMapPin className={cx(styles['icon'])} />
+          </div>
+          <div className={cx(styles['card-content'])}>
+            <h3 className={cx(styles['card-title'])}>公司地址</h3>
+            <p className={cx(styles['card-text'])}>{contactInfo.address}</p>
+            <p className={cx(styles['card-text'])}>
+              邮编：{contactInfo.zipCode}
+            </p>
+          </div>
         </div>
       </div>
 

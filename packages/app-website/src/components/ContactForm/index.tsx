@@ -99,7 +99,7 @@ export const ContactForm = () => {
       >
         {/* 第一行：姓名、电话、邮箱 */}
         <Row gutter={[16, 16]}>
-          <Col xs={24} md={12} lg={8}>
+          <Col xs={24} md={12} lg={6}>
             <Form.Item
               name="name"
               label="您的姓名"
@@ -109,7 +109,7 @@ export const ContactForm = () => {
             </Form.Item>
           </Col>
 
-          <Col xs={24} md={12} lg={8}>
+          <Col xs={24} md={12} lg={6}>
             <Form.Item
               name="phone"
               label="您的电话"
@@ -119,13 +119,13 @@ export const ContactForm = () => {
             </Form.Item>
           </Col>
 
-          <Col xs={24} md={12} lg={8}>
+          <Col xs={24} md={12} lg={6}>
             <Form.Item name="email" label="您的邮箱（可选）">
               <Input placeholder="请输入您的邮箱（可选）" />
             </Form.Item>
           </Col>
 
-          <Col xs={24} md={12} lg={8}>
+          <Col xs={24} md={12} lg={6}>
             <Form.Item name="type" label="诉求分类（可选）">
               {/* select */}
               <Select
@@ -153,14 +153,17 @@ export const ContactForm = () => {
           </Col>
 
           {/* submit */}
-          <Col xs={24} md={3}>
-            <Form.Item>
+          <Col span={24}>
+            <Form.Item
+              style={{ marginBottom: 0 }}
+              className={cx(styles['submit-wrapper'])}
+            >
               <Button
-                block
                 type="primary"
                 htmlType="submit"
                 icon={<FaRegPaperPlane />}
                 loading={isPending}
+                className={cx(styles['submit-button'])}
               >
                 提交留言
               </Button>
