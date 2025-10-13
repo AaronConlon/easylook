@@ -16,16 +16,16 @@ import 'globalthis/auto';
 import '@ant-design/v5-patch-for-react-19';
 
 // css vars (once ONLY, ⚠️ 为了兼容跨平台，后缀都是 scss，但这里只导入 css-vars)
-import 'antd/es/style/reset.css';
 import '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-css-vars-antd-media.scss';
 import '----pkg-uni/uni-styles/uni-style-antd-token/by-gen-uni-style-css-vars-antd-token.scss';
 import '----pkg-uni/uni-styles/uni-style-app/by-gen-uni-css-vars-app.scss';
+import 'antd/es/style/reset.css';
 
 // scss
-import '@/styles/global.scss';
-import '@/styles/libs.scss';
 import '@/styles/antd-overwrite.scss';
 import '@/styles/font.scss';
+import '@/styles/global.scss';
+import '@/styles/libs.scss';
 
 import { createRoot } from 'react-dom/client';
 

@@ -1,18 +1,28 @@
+@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss' as *;
+
 .contact-form {
   width: 100%;
   margin: 0 auto;
-  padding: 40px;
+  padding: 24px 20px;
   // background: #fff;
   // border-radius: 12px;
   // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  @media (min-width: $screen-md) {
+    padding: 40px;
+  }
 }
 
 // 第一行：姓名、电话、邮箱
 .form-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
   margin-bottom: 24px;
+
+  @media (min-width: $screen-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .form-group {
@@ -26,11 +36,15 @@
 
 .form-label {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #1f2937;
   margin-bottom: 8px;
   letter-spacing: 0.01em;
+
+  @media (min-width: $screen-md) {
+    font-size: 14px;
+  }
 
   .required {
     color: #ef4444;
@@ -41,8 +55,8 @@
 // Input 样式
 .form-input {
   width: 100%;
-  padding: 12px 16px;
-  font-size: 15px;
+  padding: 10px 14px;
+  font-size: 14px;
   line-height: 1.5;
   color: #1f2937;
   background-color: #fff;
@@ -51,6 +65,11 @@
   outline: none;
   transition: all 0.2s ease;
   font-family: inherit;
+
+  @media (min-width: $screen-md) {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
 
   &::placeholder {
     color: #9ca3af;
@@ -78,8 +97,8 @@
 // Textarea 样式
 .form-textarea {
   width: 100%;
-  padding: 12px 16px;
-  font-size: 15px;
+  padding: 10px 14px;
+  font-size: 14px;
   line-height: 1.6;
   color: #1f2937;
   background-color: #fff;
@@ -90,6 +109,11 @@
   resize: vertical;
   min-height: 120px;
   font-family: inherit;
+
+  @media (min-width: $screen-md) {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
 
   &::placeholder {
     color: #9ca3af;
@@ -142,61 +166,30 @@
   margin-top: 32px;
 }
 
-.submit-button {
-  position: relative;
-  padding: 14px 48px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #05519b;
-  background-color: #fff;
-  border: 2px solid #05519b;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  overflow: hidden;
+// 提交按钮容器（响应式对齐）
+.submit-wrapper {
+  // 移动端：居中对齐
+  text-align: center;
 
-  &:hover:not(:disabled) {
-    color: #fff;
-    background-color: #05519b;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(5, 81, 155, 0.3);
-  }
-
-  &:active:not(:disabled) {
-    transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(5, 81, 155, 0.2);
-  }
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  // 桌面端：靠右对齐
+  @media (min-width: $screen-md) {
+    text-align: right;
   }
 }
 
-// 响应式设计
-@media (max-width: 768px) {
-  .contact-form {
-    padding: 24px 20px;
-  }
+.submit-button {
+  position: relative;
+  padding: 12px 40px;
+  font-size: 15px;
+  font-weight: 600;
+  width: 100%;
+  min-width: 140px;
+  transition: all 0.3s ease;
 
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .form-label {
-    font-size: 13px;
-  }
-
-  .form-input,
-  .form-textarea {
-    padding: 10px 14px;
-    font-size: 14px;
-  }
-
-  .submit-button {
-    padding: 12px 40px;
-    font-size: 15px;
-    width: 100%;
+  // 桌面端：自适应宽度
+  @media (min-width: $screen-md) {
+    width: auto;
+    padding: 14px 48px;
+    font-size: 16px;
   }
 }

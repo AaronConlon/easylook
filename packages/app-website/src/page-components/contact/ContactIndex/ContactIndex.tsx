@@ -15,9 +15,9 @@ import styles from './styles.module.scss';
 export const ContactIndex = () => {
   const contactInfo = {
     phone: '400-901-83138',
-    email: 'contact@easylook.com',
-    address: '北京市朝阳区某某街道某某大厦某某层',
-    zipCode: '100000',
+    email: 'easylook.business@weiaihealthcare.com',
+    address: '上海市普陀区交通路 4711 号李子园大厦 1308 室',
+    zipCode: '200300',
     qrCode1: '/qr-code.jpg',
     qrCode1Label: '扫码联系我们',
     qrCode2: '/gzh.jpg',

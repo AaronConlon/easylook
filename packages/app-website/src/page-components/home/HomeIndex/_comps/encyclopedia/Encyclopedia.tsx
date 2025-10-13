@@ -87,26 +87,6 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
 
           {/* 导航控制器和查看更多按钮 */}
           <div className={cx(styles['controls-wrapper'])}>
-            {/* 左侧导航按钮 */}
-            {/* <div className={cx(styles['nav-buttons'])}>
-              {encyclopediaData.map((item, index) => (
-                <div
-                  key={item.id}
-                  data-active={index === activeIndex}
-                  className={cx(styles['nav-button'])}
-                  onClick={() => handleNavClick(index)}
-                ></div>
-              ))}
-            </div> */}
-
-            {/* 右侧查看更多按钮 */}
-            {/* <button
-              className={cx(styles['more-button'])}
-              onClick={() => navigate({ to: '/encyclopedia' })}
-            >
-              <CgDetailsMore className={cx(styles['more-button-icon'])} />
-              查看更多
-            </button> */}
             <Button
               className={cx(styles['more-button'])}
               icon={<CgDetailsMore />}
