@@ -21,7 +21,7 @@ export const eslintConfigUniRules: SharedConfig.RulesRecord = {
   'max-len': [
     WARN,
     {
-      code: 150, // (default 120) enforces a maximum line length
+      code: 80, // (default 120) enforces a maximum line length
       ignoreComments: true, // ignores all trailing comments and comments on their own line
       ignoreTrailingComments: true, // ignores only trailing comments
       ignoreUrls: true, // ignores lines that contain a URL
