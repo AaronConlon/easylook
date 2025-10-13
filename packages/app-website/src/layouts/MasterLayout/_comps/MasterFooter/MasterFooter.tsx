@@ -17,10 +17,10 @@ export const MasterFooter = (props: IProps) => {
   const { className } = props;
 
   const quickLinks = [
-    { label: '产品介绍', href: '#products' },
-    { label: '眼界百科', href: '#encyclopedia' },
-    { label: '合作加盟', href: '#partnership' },
-    { label: '关于我们', href: '#about' },
+    { label: '产品介绍', href: '/product-1' },
+    { label: '眼界百科', href: '/encyclopedia' },
+    { label: '合作加盟', href: '/cooperation' },
+    { label: '关于我们', href: '/about/company' },
   ];
 
   const contactInfo = [
@@ -29,18 +29,18 @@ export const MasterFooter = (props: IProps) => {
       icon: <LuPhone />,
     },
     {
-      label: 'contact@shiliyou.com',
+      label: 'easylook.business@weiaihealthcare.com',
       icon: <LuMail />,
     },
     {
-      label: '中国上海市浦东新区 XX 路 XX 号',
+      label: '上海市普陀区交通路 4711 号李子园大厦 1308 室',
       icon: <LuMapPin />,
     },
   ];
 
   const companyInfo = {
     name: '视立优',
-    icp: '沪 ICP 备 XXXXXXXX 号',
+    icp: '沪ICP备2023018740号-3',
     description: '专业的视力保护解决方案提供商，守护您的视界健康。',
   };
   return (

@@ -118,22 +118,22 @@ as *;
   flex-direction: column;
   gap: 12px;
 
-  // 数字背景
-  &::after {
-    content: attr(data-number);
-    position: absolute;
-    right: -8px;
-    bottom: -16px;
-    font-size: 100px;
-    font-weight: 900;
-    opacity: 0.15;
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-    font-family: Arial, sans-serif;
-    color: rgba(255, 255, 255, 0.8);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  // // 数字背景
+  // &::after {
+  //   content: attr(data-number);
+  //   position: absolute;
+  //   right: -8px;
+  //   bottom: -16px;
+  //   font-size: 100px;
+  //   font-weight: 900;
+  //   opacity: 0.15;
+  //   line-height: 1;
+  //   pointer-events: none;
+  //   user-select: none;
+  //   font-family: Arial, sans-serif;
+  //   color: rgba(255, 255, 255, 0.8);
+  //   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  // }
 
   &:hover {
     transform: translateY(-4px);
@@ -220,15 +220,8 @@ as *;
   border: 1px solid rgba(5, 81, 155, 0.75);
 }
 
-// Trend-line 样式 - 隐藏背景数字
-.science-card--trend-line {
-  &::after {
-    display: none;
-  }
-}
-
-// Image 样式 - 隐藏背景数字
-.science-card--image {
+// Icon 样式 - 隐藏背景数字
+.science-card--icon {
   &::after {
     display: none;
   }
@@ -274,7 +267,7 @@ as *;
   @media (min-width: $screen-md) {
     font-size: 0.9rem;
     line-height: 1.7;
-    max-width: 80%;
+    // max-width: 80%;
   }
 }
 
@@ -311,68 +304,45 @@ as *;
   }
 }
 
-// 右上角图片样式
-.card-image {
+// 右上角图标样式
+.card-icon {
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   z-index: 2;
   border-radius: 50%;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  // border: 2px solid rgba(255, 255, 255, 0.3);
+  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 
   @media (min-width: $screen-md) {
     top: 20px;
     right: 20px;
-    width: 72px;
-    height: 72px;
   }
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .icon {
+    width: 32px;
+    height: 32px;
+    color: rgba(255, 255, 255, 0.95);
+
+    @media (min-width: $screen-md) {
+      width: 36px;
+      height: 36px;
+    }
   }
 
   .science-card:hover & {
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.2);
   }
-}
-
-// 趋势图容器
-.card-chart {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  width: 180px;
-  height: 80px;
-  z-index: 1;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-
-  @media (min-width: $screen-md) {
-    right: 20px;
-    bottom: 20px;
-    width: 180px;
-    height: 100px;
-  }
-
-  .science-card:hover & {
-    opacity: 1;
-  }
-}
-
-// 趋势图 canvas
-.trend-chart {
-  display: block;
 }
 
 // -----------------------------------------------------------------------------

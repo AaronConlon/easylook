@@ -61,10 +61,6 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
     ],
   },
   {
-    path: MASTER_ROUTER_PATHS['/encyclopedia'],
-    label: '眼界百科',
-  },
-  {
     label: '关于我们',
     children: [
       {
@@ -84,6 +80,10 @@ export const MASTER_HEADER_MENUS: IMenuItem[] = [
         label: '公司荣誉',
       },
     ],
+  },
+  {
+    path: MASTER_ROUTER_PATHS['/encyclopedia'],
+    label: '眼界百科',
   },
   {
     path: MASTER_ROUTER_PATHS['/cooperation'],

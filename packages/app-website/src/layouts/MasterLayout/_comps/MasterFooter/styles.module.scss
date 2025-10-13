@@ -173,7 +173,7 @@
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   color: var(--footer-link-color);
   font-size: 14px;

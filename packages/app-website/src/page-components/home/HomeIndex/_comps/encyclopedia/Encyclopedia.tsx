@@ -1,9 +1,9 @@
 import { Button } from 'antd';
+import dayjs from 'dayjs';
 import { forwardRef, useRef, useState } from 'react';
 import { CgDetailsMore } from 'react-icons/cg';
+import { LuCalendar, LuExternalLink } from 'react-icons/lu';
 import type { Swiper as SwiperType } from 'swiper';
-import { Autoplay, Mousewheel, Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
@@ -56,88 +56,34 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
         />
 
         {/* 横向滚动的内容区域，采用 Swiper 组件来实现 */}
-        <div className={cx(styles['swiper-container'])}>
-          <Swiper
-            modules={[Autoplay, Mousewheel, Navigation]}
-            spaceBetween={24}
-            slidesPerView="auto"
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            mousewheel={{
-              enabled: true,
-              forceToAxis: true,
-              sensitivity: 1,
-              releaseOnEdges: false,
-              thresholdDelta: 10,
-              thresholdTime: 300,
-            }}
-            navigation={{
-              prevEl: `.${styles['encyclopedia-prev']}`,
-              nextEl: `.${styles['encyclopedia-next']}`,
-            }}
-            loop={true}
-            speed={600}
-            className={cx(styles['encyclopedia-swiper'])}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-            }}
-            onSlideChange={(swiper: any) => {
-              console.log(
-                'swiperRef.current?.activeIndex',
-                swiperRef.current?.activeIndex,
-              );
-              console.log('swiper:', swiper);
-              setActiveIndex(swiperRef.current?.activeIndex || 0);
-            }}
-          >
-            {encyclopediaData.map((item) => (
-              <SwiperSlide key={item.id} className={cx(styles['swiper-slide'])}>
-                <div
-                  className={cx(styles['encyclopedia-card'])}
-                  onMouseEnter={() => {
-                    swiperRef.current?.autoplay?.stop();
-                  }}
-                  onMouseLeave={() => {
-                    swiperRef.current?.autoplay?.start();
-                  }}
-                >
-                  <div className={cx(styles['card-image'])}>
-                    <img src={item.cover} alt={item.title} />
-                  </div>
-
-                  <div className={cx(styles['card-content'])}>
-                    <div className={cx(styles['card-header'])}>
-                      {item.category && (
-                        <span className={cx(styles['category-badge'])}>
-                          {item.category}
-                        </span>
-                      )}
-                    </div>
-
-                    <h3 className={cx(styles['card-title'])}>{item.title}</h3>
-
-                    {/* <p className={cx(styles['card-description'])}>
-                      {item.description}
-                    </p> */}
-
-                    {/* <div className={cx(styles['card-footer'])}>
-                      <span className={cx(styles['card-date'])}>
-                        {item.date}
-                      </span>
-                      {item.source && (
-                        <span className={cx(styles['card-source'])}>
-                          {item.source}
-                        </span>
-                      )}
-                    </div> */}
-                  </div>
+        <div className={cx(styles['encyclopedia-container'])}>
+          {encyclopediaData.slice(0, 4).map((i) => (
+            <div key={i.id} className={styles['item']}>
+              <div className={styles['item-cover']}>
+                <img src={i.cover} alt={i.title} />
+              </div>
+              {/* date */}
+              <div className={styles['item-content']}>
+                <div className={styles['item-date']}>
+                  <LuCalendar />
+                  {dayjs(i.date).format('YYYY-MM-DD')}
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                {/* title */}
+                <div className={styles['item-title']}>{i.title}</div>
+                {/* description */}
+                <div className={styles['item-description']}>
+                  {i.description}
+                </div>
+                {/* read more button */}
+                <button className={styles['item-read-more']}>
+                  <div className={styles['item-read-more-text']}>
+                    阅读更多
+                    <LuExternalLink />
+                  </div>
+                </button>
+              </div>
+            </div>
+          ))}
 
           {/* 导航控制器和查看更多按钮 */}
           <div className={cx(styles['controls-wrapper'])}>
@@ -162,6 +108,7 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
               查看更多
             </button> */}
             <Button
+              className={cx(styles['more-button'])}
               icon={<CgDetailsMore />}
               onClick={() => navigate({ to: '/encyclopedia' })}
             >

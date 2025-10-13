@@ -67,7 +67,9 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
             <div className={cx(styles['card-content'])}>
               <h3 className={cx(styles['card-title'])}>视觉训练套盒</h3>
               <p className={cx(styles['card-description'])}>
-                {'视立优 - 视觉训练套盒是一款集成式一体化的通用视觉训练方案。'}
+                {
+                  '视立优·视觉训练套盒是一款集成式一体化通用视觉训练方案，可用于屈光不正人群；弱视、斜视、斜视术后康复人群；眼保健人群；视疲劳、阅读障碍、学习困难等非斜视性双眼视功能异常人群。'
+                }
               </p>
             </div>
           </div>

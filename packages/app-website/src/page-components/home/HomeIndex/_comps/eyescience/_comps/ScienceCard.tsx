@@ -3,8 +3,6 @@ import CountUp from 'react-countup';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
-import { TrendLineChart } from './TrendLineChart';
-
 export interface EyeScienceItem {
   id: string;
   title: string;
@@ -13,9 +11,8 @@ export interface EyeScienceItem {
   colorTheme: string;
   amount?: number;
   unit?: string;
-  style?: 'trend-line' | 'image' | 'default';
-  trendData?: number[];
-  image?: string;
+  style?: 'icon' | 'default';
+  icon?: React.ComponentType<{ className?: string }>;
 }
 
 interface ScienceCardProps {
@@ -27,9 +24,9 @@ interface ScienceCardProps {
 
 export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
   ({ item, index, className, styles }, ref) => {
-    const isTrendLine = item.style === 'trend-line';
-    const isImage = item.style === 'image';
-    const showCounter = !isTrendLine && !isImage && item.amount !== undefined;
+    const isIcon = item.style === 'icon';
+    const showCounter = !isIcon && item.amount !== undefined;
+    const IconComponent = item.icon;
 
     return (
       <div
@@ -38,12 +35,11 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
         className={cx(
           styles['science-card'],
           styles[`science-card-${index + 1}`],
-          isTrendLine && styles['science-card--trend-line'],
-          isImage && styles['science-card--image'],
+          isIcon && styles['science-card--icon'],
           className,
           'scroll-animate',
         )}
-        data-number={isTrendLine || isImage ? '' : `0${index + 1}`}
+        data-number={isIcon ? '' : `0${index + 1}`}
       >
         {/* 右上角数字 Counter */}
         {showCounter && item.amount !== undefined && (
@@ -62,21 +58,10 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
           </div>
         )}
 
-        {/* 右上角图片 */}
-        {isImage && item.image && (
-          <div className={cx(styles['card-image'])}>
-            <img src={item.image} alt={item.title} />
-          </div>
-        )}
-
-        {/* 趋势线图表 */}
-        {isTrendLine && (
-          <div className={cx(styles['card-chart'])}>
-            <TrendLineChart
-              data={item.trendData}
-              className={cx(styles['trend-chart'])}
-              color="rgba(255, 255, 255, 0.95)"
-            />
+        {/* 右上角图标 */}
+        {isIcon && IconComponent && (
+          <div className={cx(styles['card-icon'])}>
+            <IconComponent className={cx(styles['icon'])} />
           </div>
         )}
 
