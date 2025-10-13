@@ -51,25 +51,25 @@ export const Product2Index = () => {
     {
       id: '1',
       title: '基础训练教程',
-      thumbnail: '/product-box2.jpg',
+      thumbnail: '/product-box6.jpg',
       duration: '4:32',
     },
     {
       id: '2',
       title: '进阶训练技巧',
-      thumbnail: '/product-box2.jpg',
+      thumbnail: '/product-box6.jpg',
       duration: '6:15',
     },
     {
       id: '3',
       title: '儿童训练指南',
-      thumbnail: '/product-box2.jpg',
+      thumbnail: '/product-box6.jpg',
       duration: '5:48',
     },
     {
       id: '4',
       title: '日常保健训练',
-      thumbnail: '/product-box2.jpg',
+      thumbnail: '/product-box6.jpg',
       duration: '3:20',
     },
   ];
@@ -85,7 +85,7 @@ export const Product2Index = () => {
       <ProductHeroSection
         title="集合训练器"
         description="视立优·集合训练器是一类专为视力保护与改善设计的智能硬件设备，广泛应用于近视防控、弱视训练、视功能提升等场景，尤其适合儿童和青少年用户。"
-        imageSrc="/product-box2.jpg"
+        imageSrc="/product-box6.jpg"
         imageAlt="集合训练器"
       />
 
