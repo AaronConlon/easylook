@@ -1,7 +1,10 @@
-import { forwardRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import CountUp from 'react-countup';
+import { InView } from 'react-intersection-observer';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
+
+import styles from '../styles.module.scss';
 
 export interface EyeScienceItem {
   id: string;
@@ -10,6 +13,7 @@ export interface EyeScienceItem {
   description: string;
   colorTheme: string;
   amount?: number;
+  duration?: number;
   unit?: string;
   style?: 'icon' | 'default';
   icon?: React.ComponentType<{ className?: string }>;
@@ -18,18 +22,22 @@ export interface EyeScienceItem {
 interface ScienceCardProps {
   item: EyeScienceItem;
   index: number;
+  duration?: number;
+  threshold?: number;
   className?: string;
-  styles: Record<string, string>;
+  // styles: Record<string, string>;
 }
 
 export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
-  ({ item, index, className, styles }, ref) => {
+  ({ item, index, className, ...restProps }, ref) => {
     const isIcon = item.style === 'icon';
     const showCounter = !isIcon && item.amount !== undefined;
     const IconComponent = item.icon;
+    const onStartRef = useRef<any>(null);
 
     const calcStartAmount = () => {
       const amount = item.amount || 0;
+
       // 过亿
       if (amount > 1000 * 10000) {
         return amount - 1000 * 10000;
@@ -55,19 +63,43 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
       >
         {/* 右上角数字 Counter */}
         {showCounter && item.amount !== undefined && (
-          <div className={cx(styles['card-counter'])}>
-            <CountUp
-              start={calcStartAmount()}
-              end={item.amount}
-              duration={2.5}
-              separator=","
-              decimals={item.amount < 100 ? 1 : 0}
-              decimal="."
-            />
-            {item.unit && (
-              <span className={cx(styles['card-unit'])}>{item.unit}</span>
+          <InView
+            threshold={restProps.threshold || 1}
+            triggerOnce
+            onChange={(v) => {
+              if (v) {
+                onStartRef?.current();
+              }
+            }}
+          >
+            {({ ref: inViewRef, inView }) => (
+              <div className={cx(styles['card-counter'])} ref={inViewRef}>
+                <CountUp
+                  // startOnMount={false}
+                  // start={calcStartAmount()}
+                  end={item.amount || 0}
+                  duration={restProps?.duration || 2.5}
+                  separator=","
+                  decimals={(item?.amount || 0) < 100 ? 1 : 0}
+                  decimal="."
+                >
+                  {({ countUpRef, start: onStart }) => {
+                    onStartRef.current = onStart;
+
+                    return (
+                      <div>
+                        <span ref={countUpRef} />
+                      </div>
+                    );
+                  }}
+                </CountUp>
+
+                {item.unit && (
+                  <span className={cx(styles['card-unit'])}>{item.unit}</span>
+                )}
+              </div>
             )}
-          </div>
+          </InView>
         )}
 
         {/* 右上角图标 */}

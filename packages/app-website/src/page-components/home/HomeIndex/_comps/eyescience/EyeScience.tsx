@@ -24,8 +24,10 @@ export const EyeScience = forwardRef<HTMLDivElement, IEyeScienceProps>(
         description:
           '我国屈光不正人群约 7 亿人，儿童青少年总体近视率高达 52.7%，已成为影响国民视觉健康的重大公共卫生问题',
         colorTheme: 'blue',
-        amount: 700000000,
-        unit: '人',
+        // amount: 700000000,
+        // unit: '人',
+        amount: 7,
+        unit: '亿人',
       },
       {
         id: 'strabismus-population',
@@ -34,8 +36,10 @@ export const EyeScience = forwardRef<HTMLDivElement, IEyeScienceProps>(
         description:
           '我国斜视人数约 1.43 亿人，斜视患病率为 3%，约 51% 的近视防控患者存在斜视问题，不仅影响外观，更会导致双眼视功能异常',
         colorTheme: 'purple',
-        amount: 143000000,
-        unit: '人',
+        // amount: 143000000,
+        amount: 1.43,
+        duration: 5,
+        unit: '亿人',
       },
       {
         id: 'amblyopia-children',
@@ -44,8 +48,9 @@ export const EyeScience = forwardRef<HTMLDivElement, IEyeScienceProps>(
         description:
           '我国儿童弱视患者预计约 487.2 万人，弱视是儿童常见的视觉发育性疾病，早期发现和治疗是关键，3-12 岁是最佳治疗期',
         colorTheme: 'green',
-        amount: 4872000,
-        unit: '人',
+        // amount: 4872000,
+        amount: 4.87,
+        unit: '万人',
       },
       // {
       //   id: 'visual-fatigue',
@@ -98,10 +103,11 @@ export const EyeScience = forwardRef<HTMLDivElement, IEyeScienceProps>(
         <div className={cx(styles['content-grid'])}>
           {eyeScienceData.map((item, index) => (
             <ScienceCard
+              duration={item.duration || 5}
               key={item.id}
               item={item}
               index={index}
-              styles={styles}
+              // styles={styles}
             />
           ))}
         </div>

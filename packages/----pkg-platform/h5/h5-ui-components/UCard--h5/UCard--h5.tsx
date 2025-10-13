@@ -14,9 +14,7 @@ interface IUCardProps extends IUiCompBaseProps, CardProps {
   children?: React.ReactNode;
 }
 
-type IUCardRef = unknown;
-
-export const UCard = forwardRef<IUCardRef, IUCardProps>((props) => {
+export const UCard = (props: IUCardProps) => {
   const { isDarkMode } = useIsDarkMode();
 
   const { className, style, ...restProps } = props;
@@ -35,4 +33,4 @@ export const UCard = forwardRef<IUCardRef, IUCardProps>((props) => {
       {...restProps}
     />
   );
-});
+};

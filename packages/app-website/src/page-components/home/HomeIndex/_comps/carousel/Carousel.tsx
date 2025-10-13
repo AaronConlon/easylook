@@ -102,26 +102,14 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
         >
           {items.map((item, index) => (
             <SwiperSlide key={index} className={cx(styles['carousel-item'])}>
-              {item.type === 'image' ? (
-                <div className={styles['carousel-image-wrapper']}>
-                  <div className={styles['carousel-mask']} />
-                  <img
-                    src={item.sourceUrl}
-                    alt={item.title}
-                    className={cx(styles['full-banner-image'])}
-                  />
-                </div>
-              ) : (
-                <video
+              <div className={styles['carousel-image-wrapper']}>
+                <div className={styles['carousel-mask']} />
+                <img
                   src={item.sourceUrl}
-                  className={cx(styles['full-banner-video'])}
-                  poster="first_frame.jpg"
-                  muted
-                  loop
-                  playsInline
-                  autoPlay
+                  alt={item.title}
+                  className={cx(styles['full-banner-image'])}
                 />
-              )}
+              </div>
               <div className={cx(styles['banner-info'])}>
                 <div className={styles['banner-title']}>{item.title}</div>
                 {item.subTitle ? (

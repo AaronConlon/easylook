@@ -15,6 +15,9 @@ import 'globalthis/auto';
 // libs
 import '@ant-design/v5-patch-for-react-19';
 
+// Import Swiper styles
+import 'swiper/swiper-bundle.css';
+
 // css vars (once ONLY, ⚠️ 为了兼容跨平台，后缀都是 scss，但这里只导入 css-vars)
 import '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-css-vars-antd-media.scss';
 import '----pkg-uni/uni-styles/uni-style-antd-token/by-gen-uni-style-css-vars-antd-token.scss';

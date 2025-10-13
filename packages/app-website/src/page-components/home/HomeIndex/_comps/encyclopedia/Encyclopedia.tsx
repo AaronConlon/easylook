@@ -1,7 +1,6 @@
 import dayjs from 'dayjs';
 import { forwardRef, useRef } from 'react';
-import { CgDetailsMore } from 'react-icons/cg';
-import { LuCalendar, LuExternalLink } from 'react-icons/lu';
+import { LuCalendar, LuExternalLink, LuEye } from 'react-icons/lu';
 import type { Swiper as SwiperType } from 'swiper';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
@@ -19,9 +18,6 @@ import { ScreenWidthLimitAndCentered } from '@/components/ScreenWidthLimitAndCen
 import { encyclopediaData } from '@/consts/encyclopedia.data';
 
 import styles from './styles.module.scss';
-
-// Import Swiper styles
-import 'swiper/swiper-bundle.css';
 
 interface IEncyclopediaProps extends IUiCompBaseProps {}
 
@@ -90,7 +86,7 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
 
           {/* 导航控制器和查看更多按钮 */}
           <div className={cx(styles['controls-wrapper'])}>
-            <Button
+            <UButton
               className={cx(styles['more-button'])}
               icon={<LuEye />}
               size="large"
