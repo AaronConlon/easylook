@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.28](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.27...app-website@0.0.28) (2025-10-13)
+
+
+### Features
+
+* 新增 card ([f42dc23](https://github.com/profit-projects/easylook-website/commit/f42dc235c78d8703c2e0da31db307650e31bfc39))
+
+
+### Bug Fixes
+
+* clear useless code ([c41cc34](https://github.com/profit-projects/easylook-website/commit/c41cc34fbe9e9763c221b9253c4c160e96ba7a6f))
+* 修复 Home 关于我们 link ([0106884](https://github.com/profit-projects/easylook-website/commit/01068846d1b8ffaebe7b16bcadd0a85490627041))
+* 修复你知道吗数字还没看到就滚动 ([1f2eb85](https://github.com/profit-projects/easylook-website/commit/1f2eb85f2ca4ca6354c9c8f6f94728bdfae0660f))
+* 修复冲突product-box2.jpg ([c3b7196](https://github.com/profit-projects/easylook-website/commit/c3b71966937bcc596cd1051d3f7ed69d8edb0044))
+
 ### [0.0.27](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.26...app-website@0.0.27) (2025-10-13)
 
 
