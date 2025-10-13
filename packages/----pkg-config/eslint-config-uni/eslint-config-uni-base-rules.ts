@@ -12,18 +12,17 @@ export const eslintConfigUniRules: SharedConfig.RulesRecord = {
   'no-underscore-dangle': OFF,
   'arrow-body-style': OFF,
   'no-restricted-exports': OFF,
-  'no-restricted-syntax': [
-    ERROR,
-    'ForInStatement',
-    'LabeledStatement',
-    'WithStatement',
-  ],
+  'no-restricted-syntax': [ERROR, 'ForInStatement', 'LabeledStatement', 'WithStatement'],
   'max-len': [
     WARN,
     {
       code: 80, // (default 120) enforces a maximum line length
-      ignoreComments: true, // ignores all trailing comments and comments on their own line
+      ignoreComments: true,
+      ignoreStrings: true,
+      ignoreTemplateLiterals: true, // ignores lines that contain a template literal
+      ignoreRegExpLiterals: true, // ignores lines that contain a RegExp literal
       ignoreTrailingComments: true, // ignores only trailing comments
+
       ignoreUrls: true, // ignores lines that contain a URL
       // tabWidth: 4, // (default 4) specifies the character width for tab characters
       // comments: 80, // enforces a maximum line length for comments; defaults to value of code
@@ -33,9 +32,14 @@ export const eslintConfigUniRules: SharedConfig.RulesRecord = {
         // "(^(import|export)\\s.+\\sfrom\\s.+)|.*prettier-ignore",
         // /pragma|ignore|prettier-ignore|webpack\w+:|c8/.source,
         // ignoreStrings: true, // ignores lines that contain a double-quoted or single-quoted string
-        '^import [^,]+ from |' + '^export |' + 'implements|' + '\\[styles\\[', // 用在 forCX
-      ignoreTemplateLiterals: true, // ignores lines that contain a template literal
-      ignoreRegExpLiterals: true, // ignores lines that contain a RegExp literal
+
+        // '^import\\s+["\'].*["\'];|' + // 忽略纯路径 import，比如 import 'xxx';
+        // '^import\\s+[^,]+\\sfrom\\s+["\'].*["\'];|' + // 忽略带 from 的 import
+        // '^export\\s|implements|\\[styles\\[', // 其他你已有的规则
+
+        // 忽略 <p> ... </p>、<div>...</div> 等一整行 JSX
+        '<[^>]+>.*</[^>]+>|' + '^import\\s+["\'].*["\'];|' + '^export |' + 'implements|' + '\\[styles\\[', // 用在 forCX
+      // 用在 forCX
     },
   ],
   'prefer-const': WARN,

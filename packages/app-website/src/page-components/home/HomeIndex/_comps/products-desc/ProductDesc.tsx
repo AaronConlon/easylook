@@ -2,11 +2,14 @@ import { forwardRef, useState } from 'react';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
+import { UCard } from '----pkg-uni/uni-ui-components/UCard';
+
 import { useNavigate } from '----pkg-uni/uni-hooks/useNavigate';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
 import { ContainerTitle } from '@/components/ContainerTitle';
+import { ScreenWidthLimitAndCentered } from '@/components/ScreenWidthLimitAndCentered';
 
 import { MASTER_ROUTER_PATHS } from '@/consts/master-router-paths';
 
@@ -51,19 +54,29 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
         <br />
         <br />
 
-        <div className={cx(styles['products-container'])}>
+        <ScreenWidthLimitAndCentered
+          className={cx(styles['products-container'])}
+        >
           {/* 视觉训练套盒 */}
-          <div
+          <UCard
             className={cx(styles['product-card'])}
             onClick={() => handleCardClick('training-box')}
-            style={{ opacity }}
+            // style={{ opacity }}
+            cover={
+              <div className={cx(styles['card-image'])}>
+                <img
+                  src="https://de4965e.webp.li/blog-images/2025/10/0e5a5c241bd10258b63347226baeb359.png"
+                  alt="视觉训练套盒"
+                />
+              </div>
+            }
           >
-            <div className={cx(styles['card-image'])}>
-              <img
-                src="https://de4965e.webp.li/blog-images/2025/10/0e5a5c241bd10258b63347226baeb359.png"
-                alt="视觉训练套盒"
-              />
-            </div>
+            {/* <div className={cx(styles['card-image'])}> */}
+            {/*   <img */}
+            {/*     src="https://de4965e.webp.li/blog-images/2025/10/0e5a5c241bd10258b63347226baeb359.png" */}
+            {/*     alt="视觉训练套盒" */}
+            {/*   /> */}
+            {/* </div> */}
             <div className={cx(styles['card-content'])}>
               <h3 className={cx(styles['card-title'])}>视觉训练套盒</h3>
               <p className={cx(styles['card-description'])}>
@@ -72,20 +85,22 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
                 }
               </p>
             </div>
-          </div>
+          </UCard>
           {/* 集合训练器 */}
-          <div
+          <UCard
             className={cx(styles['product-card'])}
             onClick={() => handleCardClick('integrated-trainer')}
-            onMouseEnter={() => setOpacity(0.5)}
-            onMouseLeave={() => setOpacity(1)}
+            // onMouseEnter={() => setOpacity(0.5)}
+            // onMouseLeave={() => setOpacity(1)}
+            cover={
+              <div className={cx(styles['card-image'])}>
+                <img
+                  src="https://de4965e.webp.li/blog-images/2025/10/563cfdd6e3d71c15e1f71882e252379a.png"
+                  alt="集合训练器"
+                />
+              </div>
+            }
           >
-            <div className={cx(styles['card-image'])}>
-              <img
-                src="https://de4965e.webp.li/blog-images/2025/10/563cfdd6e3d71c15e1f71882e252379a.png"
-                alt="集合训练器"
-              />
-            </div>
             <div className={cx(styles['card-content'])}>
               <h3 className={cx(styles['card-title'])}>集合训练器</h3>
               <p className={cx(styles['card-description'])}>
@@ -94,8 +109,8 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
                 }
               </p>
             </div>
-          </div>
-        </div>
+          </UCard>
+        </ScreenWidthLimitAndCentered>
       </div>
     );
   },

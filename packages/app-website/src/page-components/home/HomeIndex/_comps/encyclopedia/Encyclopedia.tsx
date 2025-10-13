@@ -1,17 +1,19 @@
-import { Button } from 'antd';
 import dayjs from 'dayjs';
 import { forwardRef, useRef, useState } from 'react';
-import { CgDetailsMore } from 'react-icons/cg';
-import { LuCalendar, LuExternalLink } from 'react-icons/lu';
+import { LuCalendar, LuExternalLink, LuEye } from 'react-icons/lu';
 import type { Swiper as SwiperType } from 'swiper';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
+
+import { UCard } from '----pkg-uni/uni-ui-components/UCard';
+import { UButton } from '----pkg-uni/uni-ui-components/UButton';
 
 import { useNavigate } from '----pkg-uni/uni-hooks/useNavigate';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
 import { ContainerTitle } from '@/components/ContainerTitle';
+import { ScreenWidthLimitAndCentered } from '@/components/ScreenWidthLimitAndCentered';
 
 import { encyclopediaData } from '@/consts/encyclopedia.data';
 
@@ -56,12 +58,19 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
         />
 
         {/* 横向滚动的内容区域，采用 Swiper 组件来实现 */}
-        <div className={cx(styles['encyclopedia-container'])}>
+
+        <ScreenWidthLimitAndCentered
+          className={cx(styles['encyclopedia-container'])}
+        >
           {encyclopediaData.slice(0, 4).map((i) => (
-            <div key={i.id} className={styles['item']}>
-              <div className={styles['item-cover']}>
-                <img src={i.cover} alt={i.title} />
-              </div>
+            <UCard
+              key={i.id}
+              className={styles['item']}
+              cover={<img src={i.cover} alt={i.title} />}
+            >
+              {/* <div className={styles['item-cover']}> */}
+              {/*   <img src={i.cover} alt={i.title} /> */}
+              {/* </div> */}
               {/* date */}
               <div className={styles['item-content']}>
                 <div className={styles['item-date']}>
@@ -71,9 +80,9 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
                 {/* title */}
                 <div className={styles['item-title']}>{i.title}</div>
                 {/* description */}
-                <div className={styles['item-description']}>
-                  {i.description}
-                </div>
+                {/* <div className={styles['item-description']}> */}
+                {/*   {i.description} */}
+                {/* </div> */}
                 {/* read more button */}
                 <button className={styles['item-read-more']}>
                   <div className={styles['item-read-more-text']}>
@@ -82,7 +91,7 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
                   </div>
                 </button>
               </div>
-            </div>
+            </UCard>
           ))}
 
           {/* 导航控制器和查看更多按钮 */}
@@ -107,15 +116,16 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
               <CgDetailsMore className={cx(styles['more-button-icon'])} />
               查看更多
             </button> */}
-            <Button
+            <UButton
               className={cx(styles['more-button'])}
-              icon={<CgDetailsMore />}
+              icon={<LuEye />}
+              size="large"
               onClick={() => navigate({ to: '/encyclopedia' })}
             >
               查看更多
-            </Button>
+            </UButton>
           </div>
-        </div>
+        </ScreenWidthLimitAndCentered>
       </div>
     );
   },

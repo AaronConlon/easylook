@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 interface IProps extends IUiCompBaseProps {}
 
-export const ScreenMediaWidthCentered: React.FC<IProps> = (props) => {
+export const ScreenWidthLimitAndCentered: React.FC<IProps> = (props) => {
   return (
     <div
       className={cx(

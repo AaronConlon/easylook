@@ -5,7 +5,7 @@ import { cx } from '----pkg-platform/h5/h5-utils/cx-util--h5';
 
 import { CommonPageHeader } from '@/components/CommonPageHeader';
 import { ContactForm } from '@/components/ContactForm';
-import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
+import { ScreenWidthLimitAndCentered } from '@/components/ScreenWidthLimitAndCentered';
 
 import { ContactInfoSection } from './_comps/ContactInfoSection';
 import mapImg from './_images/map.png';
@@ -40,7 +40,7 @@ export const ContactIndex = () => {
         bgImage="https://images.unsplash.com/photo-1526045612212-70caf35c14df?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070"
       />
 
-      <ScreenMediaWidthCentered className={cx(styles['contact-content'])}>
+      <ScreenWidthLimitAndCentered className={cx(styles['contact-content'])}>
         <div className={cx(styles['content-layout'])}>
           {/* 左侧地图 */}
           <div className={cx(styles['map-section'])}>
@@ -55,9 +55,9 @@ export const ContactIndex = () => {
           {/* 右侧联系信息 */}
           <ContactInfoSection contactInfo={contactInfo} />
         </div>
-      </ScreenMediaWidthCentered>
+      </ScreenWidthLimitAndCentered>
 
-      <ScreenMediaWidthCentered className={cx(styles['form-section'])}>
+      <ScreenWidthLimitAndCentered className={cx(styles['form-section'])}>
         <Divider>
           <RiMessageLine
             style={{
@@ -70,7 +70,7 @@ export const ContactIndex = () => {
           在线留言
         </Divider>
         <ContactForm />
-      </ScreenMediaWidthCentered>
+      </ScreenWidthLimitAndCentered>
     </div>
   );
 };

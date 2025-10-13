@@ -6,7 +6,7 @@ import { USmartLink } from '----pkg-uni/uni-ui-components/USmartLink';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
-import { ScreenMediaWidthCentered } from '@/components/ScreenMediaWidthCentered';
+import { ScreenWidthLimitAndCentered } from '@/components/ScreenWidthLimitAndCentered';
 
 import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
 import { MASTER_HEADER_MENUS } from '@/consts/master-router-paths';
@@ -39,7 +39,7 @@ export const MasterHeaderPc = (props: IProps) => {
         'g-uni-comp--MasterHeaderPc',
       )}
     >
-      <ScreenMediaWidthCentered className={cx(styles['comp-inner'])}>
+      <ScreenWidthLimitAndCentered className={cx(styles['comp-inner'])}>
         <USmartLink to="/" className={cx(styles['header-logo-wrapper'])}>
           <LogoSvg className={cx(styles['header-logo'])} />
         </USmartLink>
@@ -82,7 +82,7 @@ export const MasterHeaderPc = (props: IProps) => {
             ))}
           </div>
         </div>
-      </ScreenMediaWidthCentered>
+      </ScreenWidthLimitAndCentered>
     </div>
   );
 };

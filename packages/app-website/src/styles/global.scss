@@ -1,4 +1,5 @@
-@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss' as *;
+@use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss'
+  as *;
 
 :root {
   --app-text-primary: var(--uni-abs-color-gray-black, #1f1f22);
@@ -7,6 +8,9 @@
   --app-page-padding: 20px;
   --app-brand-color: #05519b;
   --app-brand-color-rgb: 5, 81, 155;
+  --app-card-shadow: 0 1px 3px 0 #0000000a, 0 1px 2px -1px #0000000a;
+  --app-card-shadow--hover: 0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a;
+  --app-font-family-number: GeistSans, 'GeistSans Fallback', sans-serif;
 }
 
 @media (min-width: $screen-md) {
@@ -30,7 +34,12 @@ html {
 
 body {
   font-size: 14px;
-  font-family: var(--app-font-family, '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Source Han Sans CN,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'), sans-serif;
+  font-family:
+    var(
+      --app-font-family,
+      '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Source Han Sans CN,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol'
+    ),
+    sans-serif;
 
   // 对标 iOS 的渲染效果
   // -webkit-font-smoothing: antialiased;

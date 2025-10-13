@@ -1,12 +1,18 @@
+
 @font-face {
   font-family: 'GeistSans';
-  font-weight: normal;
-  // src: url('../assets/fonts/Geist-Regular.woff2') format('woff2');
+  font-weight: 400;
+  src: url('../assets/fonts/Geist-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'GeistSans';
+  font-weight: 500;
   src: url('../assets/fonts/Geist-Medium.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'GeistSans';
-  font-weight: bold;
+  font-weight: 700;
   src: url('../assets/fonts/Geist-Bold.woff2') format('woff2');
 }
