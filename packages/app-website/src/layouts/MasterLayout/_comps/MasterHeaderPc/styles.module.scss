@@ -34,6 +34,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    font-weight: 400;
 
     &:hover {
       color: var(--app-brand-color) !important;
@@ -149,7 +150,7 @@
 
         &:hover {
           background: #f5f5f5;
-          color: var(--app-brand-color);          
+          color: var(--app-brand-color);
         }
       }
 
@@ -199,5 +200,3 @@
     transform: translateY(-48px);
   }
 }
-
-

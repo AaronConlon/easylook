@@ -59,7 +59,12 @@ export default function EncyclopediaIndex() {
             <LuBookOpen className={cx(styles['title-icon'])} />
             <h2>所有文章</h2>
           </div>
-          <div className={cx(styles['section-controls'])}>
+
+          <div
+            className={cx(styles['section-controls'])}
+            // 暂时去掉
+            style={{ display: 'none' }}
+          >
             {/* 背景 mask */}
             <div className={cx(styles['control-mask'])} />
 
@@ -76,6 +81,7 @@ export default function EncyclopediaIndex() {
               )}
             </button>
             {/* 布局切换按钮 */}
+
             <button
               className={cx(
                 styles['control-btn'],

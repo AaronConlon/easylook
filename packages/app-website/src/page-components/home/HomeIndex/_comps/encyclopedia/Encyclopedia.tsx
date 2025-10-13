@@ -7,6 +7,8 @@ import { cx } from '----pkg-uni/uni-utils/cx-util';
 
 import { UCard } from '----pkg-uni/uni-ui-components/UCard';
 import { UButton } from '----pkg-uni/uni-ui-components/UButton';
+import { UEventButton } from '----pkg-uni/uni-ui-components/UEventButton';
+import { USmartLink } from '----pkg-uni/uni-ui-components/USmartLink';
 
 import { useNavigate } from '----pkg-uni/uni-hooks/useNavigate';
 
@@ -74,12 +76,12 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
                 {/*   {i.description} */}
                 {/* </div> */}
                 {/* read more button */}
-                <button className={styles['item-read-more']}>
-                  <a href={i.link} className={styles['item-read-more-text']}>
+                <USmartLink href={i.link} className={styles['item-read-more']}>
+                  <span className={styles['item-read-more-text']}>
                     阅读更多
                     <LuExternalLink />
-                  </a>
-                </button>
+                  </span>
+                </USmartLink>
               </div>
             </UCard>
           ))}

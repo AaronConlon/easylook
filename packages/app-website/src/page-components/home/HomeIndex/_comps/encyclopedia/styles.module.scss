@@ -1,5 +1,6 @@
 @use '----pkg-uni/uni-styles/uni-style-antd-media/by-gen-uni-style-scss-vars-antd-media.scss'
   as *;
+@use '----pkg-uni/uni-styles/uni-style-mixin/uni-style-mixin-base.scss' as *;
 
 // -----------------------------------------------------------------------------
 // 🌈 COMP CSS VARS
@@ -97,22 +98,25 @@
       }
 
       .item-title {
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 700;
         color: var(--app-primary-color);
         line-height: 1.4;
-        height: 45px;
+        // height: 45px;
         margin: 12px 0;
 
         @media (min-width: $screen-md) {
           font-size: 17px;
+          min-height: 47px;
+          @include limit-text-n-line(2);
+
           // 两行
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          // display: -webkit-box;
+          // -webkit-line-clamp: 2;
+          // line-clamp: 2;
+          // -webkit-box-orient: vertical;
+          // overflow: hidden;
+          // text-overflow: ellipsis;
         }
       }
 
@@ -141,6 +145,8 @@
         cursor: pointer;
         padding: 0;
         margin: 0;
+        color: var(--app-text-secondary);
+        font-weight: 400;
       }
 
       .item-read-more-text {
@@ -148,7 +154,7 @@
         align-items: center;
         gap: 4px;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 400;
         opacity: 0.2;
         transition: all 0.3s;
 

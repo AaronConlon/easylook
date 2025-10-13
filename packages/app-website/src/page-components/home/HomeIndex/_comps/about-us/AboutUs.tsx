@@ -8,6 +8,8 @@ import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
 import { ContainerTitle } from '@/components/ContainerTitle';
 
+import { MASTER_ROUTER_PATHS } from '@/consts/master-router-paths';
+
 import styles from './styles.module.scss';
 
 interface IAboutUsProps extends IUiCompBaseProps {}
@@ -20,16 +22,16 @@ export const AboutUs = forwardRef<HTMLDivElement, IAboutUsProps>(
     const handleCardClick = (section: string) => {
       switch (section) {
         case 'company':
-          navigate({ to: '/about/company' });
+          navigate({ to: MASTER_ROUTER_PATHS['/about/company'] });
           break;
         case 'development':
-          navigate({ to: '/about' });
+          navigate({ to: MASTER_ROUTER_PATHS['/about/story'] });
           break;
         case 'partners':
-          navigate({ to: '/partners' });
+          navigate({ to: MASTER_ROUTER_PATHS['/about/partners'] });
           break;
         case 'honors':
-          navigate({ to: '/honor' });
+          navigate({ to: MASTER_ROUTER_PATHS['/about/honor'] });
           break;
         default:
           break;
