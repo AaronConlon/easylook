@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.32](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.31...app-website@0.0.32) (2025-10-14)
+
+
+### Bug Fixes
+
+* replace map png ([4579ced](https://github.com/profit-projects/easylook-website/commit/4579ced2b1ce89f19f9eb374f813671e6c1d61a0))
+
 ### [0.0.31](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.30...app-website@0.0.31) (2025-10-14)
 
 
