@@ -43,33 +43,27 @@ export const AboutIndex = forwardRef<HTMLDivElement, IUViewProps>(
               <div className={cx(styles['title-divider'])} />
             </div>
 
-            <div className={cx(styles['intro-content'])}>
-              {page$_about.company.paragraphs.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className={cx(styles['intro-paragraph'], 'scroll-animate')}
-                  data-delay={`${(index + 1) * 100}`}
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-
-            <div className={cx(styles['feature-cards'])}>
-              {page$_about.company.features.map((feature, index) => (
-                <div
-                  key={index}
-                  className={cx(styles['feature-card'], 'scroll-animate')}
-                  data-delay={`${400 + index * 100}`}
-                >
-                  <div className={cx(styles['feature-title'])}>
-                    {feature.title}
-                  </div>
-                  <p className={cx(styles['feature-description'])}>
-                    {feature.description}
+            <div className="scroll-animate" data-delay={`100`}>
+              <div className={cx(styles['intro-content'])}>
+                {page$_about.company.paragraphs.map((paragraph, index) => (
+                  <p key={index} className={cx(styles['intro-paragraph'])}>
+                    {paragraph}
                   </p>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              <div className={cx(styles['feature-cards'])}>
+                {page$_about.company.features.map((feature, index) => (
+                  <div key={index} className={cx(styles['feature-card'])}>
+                    <div className={cx(styles['feature-title'])}>
+                      {feature.title}
+                    </div>
+                    <p className={cx(styles['feature-description'])}>
+                      {feature.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

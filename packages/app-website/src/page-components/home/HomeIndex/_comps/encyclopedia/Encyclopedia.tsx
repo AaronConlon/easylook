@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { forwardRef } from 'react';
-import { LuCalendar, LuExternalLink, LuEye } from 'react-icons/lu';
+import { CgDetailsMore } from 'react-icons/cg';
+import { LuCalendar, LuExternalLink } from 'react-icons/lu';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
@@ -16,6 +17,7 @@ import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
 
 import { ContainerTitle } from '@/components/ContainerTitle';
 import { ScreenWidthLimitAndCentered } from '@/components/ScreenWidthLimitAndCentered';
+
 
 import styles from './styles.module.scss';
 
@@ -93,9 +95,15 @@ export const Encyclopedia = forwardRef<HTMLDivElement, IEncyclopediaProps>(
           <div className={cx(styles['controls-wrapper'])}>
             <UButton
               className={cx(styles['more-button'])}
-              icon={<LuEye />}
+              icon={<CgDetailsMore />}
               size="large"
               onClick={() => navigate({ to: '/encyclopedia' })}
+              style={{
+                ['--ant-button-default-hover-color' as any]:
+                  'var(--app-brand-color)',
+                ['--ant-button-default-hover-border-color' as any]:
+                  'var(--app-brand-color)',
+              }}
             >
               {encyclopediaConfig.moreButtonText}
             </UButton>

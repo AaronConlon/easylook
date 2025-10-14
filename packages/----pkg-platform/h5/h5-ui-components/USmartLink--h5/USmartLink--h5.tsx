@@ -27,20 +27,14 @@ export const USmartLink = forwardRef<
   IUSmartLinkProps
   // @ts-ignore
 >((props, ref) => {
-  const { className, href, lang, openInNewTab, to, children, ...restProps } =
-    props;
+  const { className, href, lang, openInNewTab, to, children, ...restProps } = props;
 
   if (typeof to !== 'undefined') {
     return (
       <RRLink
         to={to}
         // ref={ref as any}
-        className={cx(
-          'g-uni-comp--USmartLink',
-          'g-uni-comp--USmartLink--RRLink',
-          styles['comp-wrapper'],
-          className,
-        )}
+        className={cx('g-uni-comp--USmartLink', 'g-uni-comp--USmartLink--RRLink', styles['comp-wrapper'], className)}
         {...restProps}
       >
         {children}
@@ -53,12 +47,7 @@ export const USmartLink = forwardRef<
       <a
         ref={ref as any}
         href={href}
-        className={cx(
-          'g-uni-comp--USmartLink',
-          'g-uni-comp--USmartLink--a',
-          styles['comp-wrapper'],
-          className,
-        )}
+        className={cx('g-uni-comp--USmartLink', 'g-uni-comp--USmartLink--a', styles['comp-wrapper'], className)}
         target={openInNewTab ? '_blank' : '_self'}
         {...restProps}
       >
@@ -67,7 +56,6 @@ export const USmartLink = forwardRef<
     );
   }
 
-  console.error('ERROR LINK');
   return (
     <span
       style={{

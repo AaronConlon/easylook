@@ -74,7 +74,7 @@ export const ExpertTestimonials = forwardRef<HTMLDivElement, IUViewProps>(
           {/* 标题区域 */}
           <div className={cx(styles['header'], 'scroll-animate')}>
             <ContainerTitle
-              title="专家寄语"
+              title="专家寄语123"
               subtitle="来自行业专家的认可与支持"
             />
           </div>

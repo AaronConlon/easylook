@@ -35,7 +35,7 @@ const __BUILDINFO__: IEnvBuildInfo = {
   ...BUILDINFO,
 };
 
-console.log(4444444, __BUILDINFO__);
+console.log('DEBUG BUILDINFO:', __BUILDINFO__);
 
 //@ts-ignore
 window.__BUILDINFO__ = __BUILDINFO__;

@@ -8,12 +8,12 @@ export const pageShareData = {
     zipCode: '200300',
     qrCode1: '/qr-code.jpg',
     qrCode1Label: '扫码联系我们',
-    qrCode2: '/qr-code-wechat.jpg',
+    qrCode2: '/gzh.jpg',
     qrCode2Label: '关注公众号',
     mapImage: '/map.png'
   },
   company: {
-    name: '视立优',
+    name: '上海惟爱医疗科技有限公司',
     icp: '沪 ICP 备 2023018740 号 -3',
     description: '专业的视力保护解决方案提供商，守护您的视界健康。',
   },
@@ -67,7 +67,7 @@ export const pageShareData = {
         ]
       },
       qrcode: {
-        title: '二维码'
+        title: '服务二维码'
       },
       form: {
         title: '在线留言'

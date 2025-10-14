@@ -30,6 +30,8 @@
 
   @media (min-width: $screen-md) {
     padding: 96px 0;
+    margin-bottom: -96px;
+    margin-top: -64px;
   }
 }
 

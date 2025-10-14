@@ -32,6 +32,7 @@
 
 .comp-wrapper {
   padding: 64px 0;
+  padding-bottom: 0;
   background-color: var(--bg-light);
 
   @media (min-width: $screen-md) {

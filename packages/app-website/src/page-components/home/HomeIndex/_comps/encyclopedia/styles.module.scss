@@ -147,6 +147,9 @@
         margin: 0;
         color: var(--app-text-secondary);
         font-weight: 400;
+        &:hover .item-read-more-text {
+          opacity: 1;
+        }
       }
 
       .item-read-more-text {
@@ -155,12 +158,8 @@
         gap: 4px;
         font-size: 14px;
         font-weight: 400;
-        opacity: 0.2;
-        transition: all 0.3s;
-
-        // &:hover {
-        //   opacity: 0.6;
-        // }
+        opacity: 0.7;
+        transition: all 0.3s;        
       }
     }
 
