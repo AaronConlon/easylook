@@ -1,0 +1,1 @@
+export { PartnersIndex } from './PartnersIndex';

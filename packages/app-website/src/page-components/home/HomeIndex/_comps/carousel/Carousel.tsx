@@ -10,13 +10,11 @@ import { cx } from '----pkg-uni/uni-utils/cx-util';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
+
 import styles from './styles.module.scss';
 
 import 'swiper/swiper-bundle.css';
-
-// import 'swiper/css';
-// import 'swiper/css/pagination';
-// import 'swiper/css/autoplay';
 
 export interface CarouselItem {
   title: string;
@@ -35,45 +33,7 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
 
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
-    const items: CarouselItem[] = [
-      {
-        title: '视觉训练套盒',
-        type: 'image',
-        sourceUrl:
-          'https://sly-2025-10-10.i5lin.top/professional-eye-care-technology-blue-tones-medica.jpg',
-        subTitle:
-          '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
-      },
-      {
-        title: '专业视力保护方案',
-        type: 'image',
-        sourceUrl:
-          'https://sly-2025-10-10.i5lin.top/modern-eye-health-equipment-medical-device.jpg',
-        subTitle:
-          '从儿童到成年，从近视到弱视，从散光到远视，从眼底病变到眼压过高，视立优专业视力保护方案，为您和您的家人提供全方位的视力保护。',
-      },
-      {
-        title: '视觉训练套盒',
-        type: 'image',
-        sourceUrl:
-          'https://sly-2025-10-10.i5lin.top/professional-eye-care-technology-blue-tones-medica.jpg',
-        subTitle:
-          '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
-      },
-      {
-        title: '视觉训练套盒',
-        type: 'image',
-        sourceUrl:
-          'https://sly-2025-10-10.i5lin.top/eye-refraction-disorder-vision-problem.jpg',
-        subTitle:
-          '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
-      },
-      // {
-      //   title: 'EasyLook · 视立优',
-      //   type: 'video',
-      //   sourceUrl: firstVideoUrl,
-      // },
-    ];
+    const homeData = usePageStore((s) => s.page$_pageItem.home);
 
     return (
       <div
@@ -100,7 +60,7 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
           loop
           className={cx(styles['full-banner-wrapper'])}
         >
-          {items.map((item, index) => (
+          {homeData.carousel.map((item, index) => (
             <SwiperSlide key={index} className={cx(styles['carousel-item'])}>
               <div className={styles['carousel-image-wrapper']}>
                 <div className={styles['carousel-mask']} />
@@ -125,12 +85,12 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
           onSwiper={setThumbsSwiper}
           modules={[Thumbs]}
           spaceBetween={6}
-          slidesPerView={items.length}
+          slidesPerView={homeData.carousel.length}
           watchSlidesProgress
           className={styles['thumbs']}
           loop
         >
-          {items.map((_, idx) => (
+          {homeData.carousel.map((_, idx) => (
             <SwiperSlide
               className={styles['thumb']}
               key={`${idx}-${_.title}`}

@@ -1,26 +1,34 @@
 import { UText } from '----pkg-uni/uni-ui-components/UText';
 import { UView } from '----pkg-uni/uni-ui-components/UView';
 
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
+
 import styles from './styles.module.scss';
 
 export const RecruitIndex = () => {
+  const page$_share = usePageStore((s) => s.page$_share);
+  const recruitConfig = page$_share.recruit;
+
   return (
     <UView className={styles.recruitIndex}>
       <UView className={styles.container}>
-        <UText className={styles.title}>招贤纳士</UText>
+        <UText className={styles.title}>{recruitConfig.title}</UText>
         <UView className={styles.content}>
-          <UText className={styles.subtitle}>加入我们，共创未来</UText>
+          <UText className={styles.subtitle}>{recruitConfig.subtitle}</UText>
           <UView className={styles.jobSection}>
-            <UText className={styles.jobTitle}>我们正在寻找优秀的人才</UText>
+            <UText className={styles.jobTitle}>
+              {recruitConfig.sections.intro.title}
+            </UText>
             <UText className={styles.jobDesc}>
-              我们致力于为员工提供良好的工作环境和发展机会，
-              如果您对视力健康行业充满热情，欢迎加入我们的团队。
+              {recruitConfig.sections.intro.description}
             </UText>
           </UView>
           <UView className={styles.contactInfo}>
-            <UText className={styles.contactTitle}>联系方式</UText>
+            <UText className={styles.contactTitle}>
+              {recruitConfig.sections.contact.title}
+            </UText>
             <UText className={styles.contactDesc}>
-              请将简历发送至：hr@easylook.com
+              {recruitConfig.sections.contact.description}
             </UText>
           </UView>
         </UView>

@@ -4,10 +4,9 @@ import { cx } from '----pkg-uni/uni-utils/cx-util';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
-import { AppLogo } from '@/components/AppLogo';
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
 
-import gzhImg from '@/assets/images/gzh.jpg';
-import wechatImg from '@/assets/images/qr-code.jpg';
+import { AppLogo } from '@/components/AppLogo';
 
 import styles from './styles.module.scss';
 
@@ -15,6 +14,10 @@ interface IProps extends IUiCompBaseProps {}
 
 export const MasterFooter = (props: IProps) => {
   const { className } = props;
+
+  const page$_share = usePageStore((s) => s.page$_share);
+  const siteInfo = page$_share.site;
+  const companyInfo = page$_share.company;
 
   const quickLinks = [
     { label: '产品介绍', href: '/product-1' },
@@ -25,24 +28,18 @@ export const MasterFooter = (props: IProps) => {
 
   const contactInfo = [
     {
-      label: '400-901-83138',
+      label: siteInfo.phone,
       icon: <LuPhone />,
     },
     {
-      label: 'easylook.business@weiaihealthcare.com',
+      label: siteInfo.email,
       icon: <LuMail />,
     },
     {
-      label: '上海市普陀区交通路 4711 号李子园大厦 1308 室',
+      label: siteInfo.address,
       icon: <LuMapPin />,
     },
   ];
-
-  const companyInfo = {
-    name: '视立优',
-    icp: '沪ICP备2023018740号-3',
-    description: '专业的视力保护解决方案提供商，守护您的视界健康。',
-  };
   return (
     <footer
       className={cx(
@@ -95,8 +92,8 @@ export const MasterFooter = (props: IProps) => {
           <div className={cx(styles['follow-section'])}>
             <h4 className={cx(styles['follow-title'])}>关注我们</h4>
             <div className={cx(styles['qr-container'])}>
-              <img src={wechatImg} alt="微信二维码" />
-              <img src={gzhImg} alt="公众号二维码" />
+              <img src={siteInfo.qrCode1} alt={siteInfo.qrCode1Label} />
+              <img src={siteInfo.qrCode2} alt={siteInfo.qrCode2Label} />
             </div>
           </div>
         </div>

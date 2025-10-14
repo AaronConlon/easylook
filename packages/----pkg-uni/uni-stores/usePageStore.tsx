@@ -3,6 +3,8 @@ import { combine, devtools } from 'zustand/middleware';
 
 import { pageAboutData } from '----pkg-uni/__uni-mock__/page-about-mock';
 import { pageHomeData } from '----pkg-uni/__uni-mock__/page-home-mock';
+import { pageProductData } from '----pkg-uni/__uni-mock__/page-product-mock';
+import { pageShareData } from '----pkg-uni/__uni-mock__/page-share-mock';
 
 const INIT_STATE = {
   // 默认 load MOCK JSOM
@@ -10,7 +12,9 @@ const INIT_STATE = {
   page$_pageItem: {
     home: pageHomeData,
     about: pageAboutData,
+    product: pageProductData,
   },
+  page$_share: pageShareData,
 };
 
 const PageStore = combine(INIT_STATE, (set, get) => ({}));

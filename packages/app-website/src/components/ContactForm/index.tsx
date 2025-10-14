@@ -14,23 +14,16 @@ import { FaRegPaperPlane } from 'react-icons/fa';
 
 import { cx } from '----pkg-platform/h5/h5-utils/cx-util--h5';
 
-import styles from './styles.module.scss';
-interface IFormData {
-  name: string;
-  phone: string;
-  email: string;
-  details: string;
-}
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
 
-interface IFormErrors {
-  name?: string;
-  phone?: string;
-  email?: string;
-  details?: string;
-}
+import styles from './styles.module.scss';
 
 export const ContactForm = () => {
   const [form] = Form.useForm();
+
+  const page$_share = usePageStore((s) => s.page$_share);
+  const formConfig = page$_share.contactForm;
+  const siteInfo = page$_share.site;
 
   const { mutate, isPending } = useMutation({
     mutationKey: ['contact-form'],
@@ -38,11 +31,11 @@ export const ContactForm = () => {
     onSuccess: () => {
       // confirm
       Modal.confirm({
-        title: '提交成功',
+        title: formConfig.messages.submitSuccess.title,
         content: (
           <div>
-            <p>我们已收到您的留言，将尽快与您联系！</p>
-            <p>如有紧急情况，请拨打我们的客服电话：</p>
+            <p>{formConfig.messages.submitSuccess.content}</p>
+            <p>{formConfig.messages.submitSuccess.urgentText}</p>
             <a
               style={{
                 color: '#05519b',
@@ -50,11 +43,11 @@ export const ContactForm = () => {
                 fontWeight: 'bold',
                 marginBottom: '16px',
               }}
-              href="tel:400-901-83138"
+              href={`tel:${siteInfo.phone}`}
             >
-              400-901-83138
+              {siteInfo.phone}
             </a>
-            <p>感谢您的支持与信任！</p>
+            <p>{formConfig.messages.submitSuccess.thankText}</p>
           </div>
         ),
         footer: null,
@@ -68,7 +61,7 @@ export const ContactForm = () => {
       });
     },
     onError: () => {
-      message.error('提交失败');
+      message.error(formConfig.messages.submitError);
     },
   });
 
@@ -102,51 +95,53 @@ export const ContactForm = () => {
           <Col xs={24} md={12} lg={6}>
             <Form.Item
               name="name"
-              label="您的姓名"
-              rules={[{ required: true, message: '请输入您的姓名' }]}
+              label={formConfig.fields.name.label}
+              rules={[
+                {
+                  required: formConfig.fields.name.required,
+                  message: formConfig.fields.name.errorMessage,
+                },
+              ]}
             >
-              <Input placeholder="请输入姓名" />
+              <Input placeholder={formConfig.fields.name.placeholder} />
             </Form.Item>
           </Col>
 
           <Col xs={24} md={12} lg={6}>
             <Form.Item
               name="phone"
-              label="您的电话"
-              rules={[{ required: true, message: '请输入您的联系电话' }]}
+              label={formConfig.fields.phone.label}
+              rules={[
+                {
+                  required: formConfig.fields.phone.required,
+                  message: formConfig.fields.phone.errorMessage,
+                },
+              ]}
             >
-              <Input placeholder="请输入联系电话" />
+              <Input placeholder={formConfig.fields.phone.placeholder} />
             </Form.Item>
           </Col>
 
           <Col xs={24} md={12} lg={6}>
-            <Form.Item name="email" label="您的邮箱（可选）">
-              <Input placeholder="请输入您的邮箱（可选）" />
+            <Form.Item name="email" label={formConfig.fields.email.label}>
+              <Input placeholder={formConfig.fields.email.placeholder} />
             </Form.Item>
           </Col>
 
           <Col xs={24} md={12} lg={6}>
-            <Form.Item name="type" label="诉求分类（可选）">
-              {/* select */}
+            <Form.Item name="type" label={formConfig.fields.type.label}>
               <Select
-                placeholder="请选择您的主要诉求（可选）"
-                options={[
-                  // 生产制造，行业采购，公共关系，营销代理，媒体宣传
-                  { label: '生产制造', value: 'production' },
-                  { label: '行业采购', value: 'industry' },
-                  { label: '公共关系', value: 'public' },
-                  { label: '营销代理', value: 'marketing' },
-                  { label: '媒体宣传', value: 'media' },
-                ]}
+                placeholder={formConfig.fields.type.placeholder}
+                options={formConfig.fields.type.options}
               />
             </Form.Item>
           </Col>
 
           <Col span={24}>
-            <Form.Item name="details" label="详情">
+            <Form.Item name="details" label={formConfig.fields.details.label}>
               <Input.TextArea
-                placeholder="请详细描述您的需求和建议，我们收到之后将第一时间和您联系(限制500字以内)"
-                rows={6}
+                placeholder={formConfig.fields.details.placeholder}
+                rows={formConfig.fields.details.rows}
                 showCount={false}
               />
             </Form.Item>
@@ -165,7 +160,7 @@ export const ContactForm = () => {
                 loading={isPending}
                 className={cx(styles['submit-button'])}
               >
-                提交留言
+                {formConfig.submitButton.text}
               </Button>
             </Form.Item>
           </Col>

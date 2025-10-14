@@ -1,0 +1,224 @@
+export const pageShareData = {
+  layout: {
+  },
+  site: {
+    phone: '400-901-83138',
+    email: 'easylook.business@weiaihealthcare.com',
+    address: '上海市普陀区交通路 4711 号李子园大厦 1308 室',
+    zipCode: '200300',
+    qrCode1: '/qr-code.jpg',
+    qrCode1Label: '扫码联系我们',
+    qrCode2: '/qr-code-wechat.jpg',
+    qrCode2Label: '关注公众号',
+    mapImage: '/map.png'
+  },
+  company: {
+    name: '视立优',
+    icp: '沪 ICP 备 2023018740 号 -3',
+    description: '专业的视力保护解决方案提供商，守护您的视界健康。',
+  },
+  // 眼界百科页面配置
+  encyclopedia: {
+    title: '眼界百科',
+    subtitle: 'Encyclopedia',
+    description: '专业眼科知识，科学护眼指南',
+    sectionTitle: '所有文章',
+    bgImage: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2074',
+    controls: {
+      sortAscTitle: '时间顺序',
+      sortDescTitle: '时间倒序',
+      listViewTitle: '列表视图',
+      gridViewTitle: '网格视图'
+    },
+    placeholders: {
+      noImage: '暂无图片',
+      noDescription: '暂无描述'
+    }
+  },
+  // 联系我们页面配置
+  contact: {
+    title: '联系我们',
+    subtitle: 'Contact Us',
+    description: '欢迎与我们联系，了解更多关于视立优的信息',
+    bgImage: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070',
+    sections: {
+      map: {
+        title: '公司位置',
+        alt: '公司地图'
+      },
+      info: {
+        title: '联系方式',
+        cards: [
+          {
+            icon: 'phone',
+            title: '电话咨询',
+            label: '客服热线：'
+          },
+          {
+            icon: 'email',
+            title: '邮箱联系',
+            label: '业务咨询：'
+          },
+          {
+            icon: 'address',
+            title: '公司地址',
+            zipLabel: '邮编：'
+          }
+        ]
+      },
+      qrcode: {
+        title: '二维码'
+      },
+      form: {
+        title: '在线留言'
+      }
+    }
+  },
+  // 联系表单配置
+  contactForm: {
+    fields: {
+      name: {
+        label: '您的姓名',
+        placeholder: '请输入姓名',
+        required: true,
+        errorMessage: '请输入您的姓名'
+      },
+      phone: {
+        label: '您的电话',
+        placeholder: '请输入联系电话',
+        required: true,
+        errorMessage: '请输入您的联系电话'
+      },
+      email: {
+        label: '您的邮箱（可选）',
+        placeholder: '请输入您的邮箱（可选）',
+        required: false
+      },
+      type: {
+        label: '诉求分类（可选）',
+        placeholder: '请选择您的主要诉求（可选）',
+        options: [
+          { label: '生产制造', value: 'production' },
+          { label: '行业采购', value: 'industry' },
+          { label: '公共关系', value: 'public' },
+          { label: '营销代理', value: 'marketing' },
+          { label: '媒体宣传', value: 'media' }
+        ]
+      },
+      details: {
+        label: '详情',
+        placeholder:
+          '请详细描述您的需求和建议，我们将第一时间联系您',
+        rows: 6
+      }
+    },
+    submitButton: {
+      text: '提交留言'
+    },
+    messages: {
+      submitSuccess: {
+        title: '提交成功',
+        content: '我们已收到您的留言，将尽快与您联系！',
+        urgentText: '如有紧急情况，请拨打我们的客服电话：',
+        thankText: '感谢您的支持与信任！'
+      },
+      submitError: '提交失败'
+    }
+  },
+  // 招贤纳士页面配置
+  recruit: {
+    title: '招贤纳士',
+    subtitle: '加入我们，共创未来',
+    sections: {
+      intro: {
+        title: '我们正在寻找优秀的人才',
+        description: '我们致力于为员工提供良好的工作环境和发展机会，如果您对视力健康行业充满热情，欢迎加入我们的团队。'
+      },
+      contact: {
+        title: '联系方式',
+        description: '请将简历发送至：hr@easylook.com'
+      }
+    }
+  },
+  // 服务场景页面配置
+  service: {
+    title: '服务场景',
+    sections: [
+      {
+        title: '视立优医疗',
+        description: '专业的医疗级视力服务，为医疗机构提供全面的视力检测和治疗解决方案'
+      },
+      {
+        title: '视立优健康',
+        description: '全面的健康管理服务，为个人和家庭提供专业的视力保护和健康咨询'
+      },
+      {
+        title: '视立优教育',
+        description: '科学的教育训练方案，为学校和教育机构提供专业的视力保护教育服务'
+      }
+    ]
+  },
+  articles: [
+    {
+      id: 'milk-tea-eye-health',
+      title: '隐形眼镜过夜戴 你的眼睛答应吗？',
+      date: Date.now(),
+      description:
+        '很多人都有过类似体验：隐形眼镜佩戴几小时后，眼睛突然出现刺痛、瘙痒和异物感，甚至迅速发红。',
+      link: 'https://mp.weixin.qq.com/s/OflLi98aHmvZ3DSAzse2FQ',
+      cover:
+        'https://de4965e.webp.li/blog-images/2025/10/2f6a0b55f60a69ba64b0c7e5bf97b5c7.jpg',
+      source: '视立优眼科',
+      tags: ['隐形眼镜', '护眼', '健康'],
+    },
+
+    {
+      id: 'myopia-surgery-peak',
+      title: '十大伤眼行为 你中了几个？',
+      date: Date.now() - 1000 * 60 * 60 * 24 * 1,
+      description:
+        '必须严肃提醒大家：生活中很多看似不起眼的习惯，正在悄悄伤害你的眼睛！这 10 个行为尤其要注意...',
+      link: 'https://mp.weixin.qq.com/s/4rDQ-mbCilaJMlZFwsbyIQ',
+      cover:
+        'https://de4965e.webp.li/blog-images/2025/10/d89cbd705e25b8c7ed4633435d2c9018.jpg',
+      source: '视立优眼科',
+      tags: ['护眼', '健康', '预防'],
+    },
+    {
+      id: 'taopu-new-sight',
+      title: '大国小工匠｜桃浦新"视"力，系列科普活动第一期精彩回顾！',
+      date: Date.now() - 1000 * 60 * 60 * 24 * 2,
+      description:
+        '"大国小工匠 桃浦新视力——小小眼科医生职业体验"系列活动在普陀区桃浦镇党群服务中心顺利举办。',
+      link: 'https://mp.weixin.qq.com/s/vH5E34G0YNnd1UeSxwLtPQ',
+      cover:
+        'https://de4965e.webp.li/blog-images/2025/10/d2ef59747813c40c6b1850900d8414c5.png',
+      source: '视立优眼科',
+      tags: ['科普活动', '儿童', '体验'],
+    },
+    {
+      id: 'double-vision-function',
+      title: '揭秘双眼视功能：为何双眼看物能合二为一？​',
+      date: Date.now() - 1000 * 60 * 60 * 24 * 3,
+      description:
+        '双眼视功能是指两只眼睛协同工作的能力，包括同时聚焦、融合图像和感知立体空间，从而形成清晰、立体的视觉。',
+      link: 'https://mp.weixin.qq.com/s/HlTcTUITOZ_z5FsYOEK_vw',
+      cover:
+        'https://de4965e.webp.li/blog-images/2025/10/750a08e613813151408136d78b5af9d8.png',
+      source: '视立优眼科',
+      tags: ['视功能', '科普', '专业'],
+    },
+    {
+      id: 'prevent-myopia-and-strabismus',
+      title: '警惕！近视和斜视可能在恶性循环！',
+      date: Date.now() - 1000 * 60 * 60 * 24 * 4,
+      description:
+        '近视和斜视可能存在恶性循环，近视会导致眼睛调节能力下降，从而更容易出现斜视。',
+      link: 'https://mp.weixin.qq.com/s/E4m__6mIzIhAa7lKtBOj9Q',
+      cover:
+        'https://de4965e.webp.li/blog-images/2025/10/8d1768840d4f6c5e1ec7a19ecc336ac2.png',
+      source: '视立优眼科',
+      tags: ['近视', '斜视', '预防'],
+    },
+  ]
+}

@@ -3,6 +3,8 @@ import { LuShoppingCart } from 'react-icons/lu';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
+
 import styles from './styles.module.scss';
 
 interface ProductHeroSectionProps {
@@ -15,6 +17,8 @@ interface ProductHeroSectionProps {
 
 export const ProductHeroSection = (props: ProductHeroSectionProps) => {
   const { title, description, imageSrc, imageAlt, onBuyClick } = props;
+  const page$_product = usePageStore((s) => s.page$_pageItem.product);
+
   const imageRef = useRef<HTMLDivElement>(null);
   const [imageTransform, setImageTransform] = useState({
     rotateX: 0,
@@ -63,7 +67,7 @@ export const ProductHeroSection = (props: ProductHeroSectionProps) => {
               onClick={handleBuyClick}
             >
               <LuShoppingCart className={cx(styles['cart-icon'])} />
-              <span>立即购买</span>
+              <span>{page$_product.share.buyNowText}</span>
             </button>
           </div>
           <div

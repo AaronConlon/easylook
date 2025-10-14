@@ -6,6 +6,8 @@ import { USmartLink } from '----pkg-uni/uni-ui-components/USmartLink';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
+
 import { ScreenWidthLimitAndCentered } from '@/components/ScreenWidthLimitAndCentered';
 
 import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
@@ -17,6 +19,8 @@ interface IProps extends IUiCompBaseProps {}
 
 export const MasterHeaderPc = (props: IProps) => {
   const { className } = props;
+
+  const page$_share = usePageStore((s) => s.page$_share);
 
   const renderIcon = (icon?: React.ComponentType | React.ReactNode) => {
     if (!icon) return null;

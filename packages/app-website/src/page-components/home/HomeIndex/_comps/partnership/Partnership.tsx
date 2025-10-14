@@ -6,6 +6,8 @@ import { cx } from '----pkg-uni/uni-utils/cx-util';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
+
 import { ContainerTitle } from '@/components/ContainerTitle';
 
 import styles from './styles.module.scss';
@@ -16,47 +18,15 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
   (props, ref) => {
     const { className } = props;
 
-    const marketData = [
-      {
-        icon: <LuTrendingUp />,
-        number: 1500,
-        suffix: '万',
-        title: '弱视儿童市场',
-        subtitle: '不足 1% 的治疗率',
-      },
-      {
-        icon: <LuUsers />,
-        number: 1000,
-        suffix: '亿',
-        title: '视力康复市场容量',
-        subtitle: '持续增长，潜力无限',
-      },
-      {
-        icon: <LuAward />,
-        number: 100,
-        suffix: '%',
-        title: '政策支持力度',
-        subtitle: '国家政策大力扶持',
-      },
-    ];
+    const page$_pageItem = usePageStore((s) => s.page$_pageItem);
 
-    const partnershipBenefits = [
-      {
-        number: '1',
-        title: '全方位市场推广支持',
-        description: '品牌宣传、营销物料、线上线下推广',
-      },
-      {
-        number: '2',
-        title: '成熟商业模式与利润空间',
-        description: '经过验证的盈利模式，丰厚回报',
-      },
-      {
-        number: '3',
-        title: '专业产品培训与运营指导',
-        description: '一对一培训，全程运营支持',
-      },
-    ];
+    const page$_share = usePageStore((s) => s.page$_share);
+
+    const iconMap = {
+      'amblyopia-children': <LuTrendingUp />,
+      'vision-recovery-market': <LuUsers />,
+      'policy-support': <LuAward />,
+    };
 
     return (
       <div
@@ -69,8 +39,8 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
         )}
       >
         <ContainerTitle
-          title="合作加盟"
-          subtitle="千亿视力康复市场，国家政策支持，专业团队指导，共创眼健康事业新蓝海"
+          title={page$_pageItem.home.partnership.title}
+          subtitle={page$_pageItem.home.partnership.subtitle}
           styles={{
             p: {
               marginBottom: '56px',
@@ -87,32 +57,37 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
           <div className={cx(styles['banner-overlay'])}>
             {/* 顶部标签 */}
             <div className={cx(styles['top-badge'])}>
-              国家科技部创新基金支持项目
+              {page$_pageItem.home.partnership.banner.topBadge}
             </div>
 
             {/* 主标题 */}
             <h1 className={cx(styles['main-title'])}>
-              1000 亿视力康复市场容量
+              {page$_pageItem.home.partnership.banner.mainTitle}
             </h1>
 
             {/* 副标题 */}
             <p className={cx(styles['subtitle'])}>
-              <span className={cx(styles['highlight'])}>加入我们</span>
+              <span className={cx(styles['highlight'])}>
+                {page$_pageItem.home.partnership.banner.subtitle}
+              </span>
             </p>
 
             {/* 行动召唤 */}
             <p className={cx(styles['cta-text'])}>
-              下一个千万精英代理，就是你！
+              {page$_pageItem.home.partnership.banner.ctaText}
             </p>
 
             {/* 按钮组 */}
             <div className={cx(styles['button-group'])}>
-              <a href="tel:4008-777-511" className={cx(styles['phone-button'])}>
+              <a
+                href={`tel:${page$_share.site.phone}`}
+                className={cx(styles['phone-button'])}
+              >
                 <span className={cx(styles['phone-label'])}>
-                  免费咨询热线：
+                  {page$_pageItem.home.partnership.banner.phoneLabel}
                 </span>
                 <span className={cx(styles['phone-number'])}>
-                  400-901-83138
+                  {page$_share.site.phone}
                 </span>
               </a>
             </div>
@@ -139,15 +114,17 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
 
         {/* 市场数据副标题 */}
         <div className={cx(styles['market-data-subtitle'])}>
-          金眼科，银外科——千亿市场等你发掘！
+          {page$_pageItem.home.partnership.secondTitle}
         </div>
 
         {/* 市场数据卡片 */}
         <div className={cx(styles['market-data-section'])}>
           <div className={cx(styles['data-cards'])}>
-            {marketData.map((data, index) => (
+            {page$_pageItem.home.partnership.market.map((data, index) => (
               <div key={index} className={cx(styles['data-card'])}>
-                <div className={cx(styles['card-icon'])}>{data.icon}</div>
+                <div className={cx(styles['card-icon'])}>
+                  {iconMap[data.slug as keyof typeof iconMap]}
+                </div>
                 <div className={cx(styles['card-number'])}>
                   <CountUp
                     start={0}
@@ -180,30 +157,32 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
                     <LuHandshake />
                   </div>
                   <h2 className={cx(styles['benefits-title'])}>
-                    成为我们的合作伙伴
+                    {page$_pageItem.home.partnership.benefitsTitle}
                   </h2>
                 </div>
                 <p className={cx(styles['benefits-subtitle'])}>
-                  专业培训支持·品牌授权体系·完善售后服务
+                  {page$_pageItem.home.partnership.benefitsSubtitle}
                 </p>
               </div>
 
               <div className={cx(styles['benefits-list'])}>
-                {partnershipBenefits.map((benefit, index) => (
-                  <div key={index} className={cx(styles['benefit-item'])}>
-                    <div className={cx(styles['benefit-number'])}>
-                      {benefit.number}
+                {page$_pageItem.home.partnership.benefits.map(
+                  (benefit, index) => (
+                    <div key={index} className={cx(styles['benefit-item'])}>
+                      <div className={cx(styles['benefit-number'])}>
+                        {index + 1}
+                      </div>
+                      <div className={cx(styles['benefit-content'])}>
+                        <h4 className={cx(styles['benefit-title'])}>
+                          {benefit.title}
+                        </h4>
+                        <p className={cx(styles['benefit-description'])}>
+                          {benefit.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className={cx(styles['benefit-content'])}>
-                      <h4 className={cx(styles['benefit-title'])}>
-                        {benefit.title}
-                      </h4>
-                      <p className={cx(styles['benefit-description'])}>
-                        {benefit.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  ),
+                )}
               </div>
             </div>
 
@@ -219,7 +198,7 @@ export const Partnership = forwardRef<HTMLDivElement, IPartnershipProps>(
 
         {/* 底部政策横幅 */}
         <div className={cx(styles['policy-banner'])}>
-          国家政策大力支持——医疗器械国产化加速
+          {page$_pageItem.home.partnership.policyBanner}
         </div>
       </div>
     );

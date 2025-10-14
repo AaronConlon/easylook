@@ -1,0 +1,133 @@
+export const pageProductData = {
+  share: {
+    buyNowText: '立即购买',
+  },
+  product1: {
+    title: '视觉训练套盒',
+    subtitle: 'Vision Training Kit',
+    description: '视立优·视觉训练套盒是一款集成式一体化的通用视觉训练方案。基于调节滞后引发近视学说，将专家共识与自主训练体系相结合，为近视防控提供新解决方案。',
+    image: '/product-box2.jpg',
+    feature: {
+      title: '四大特点',
+      subtitle: '科学训练 · 专业指导 · 智能管理',
+      features: [
+        {
+          slug: 'integrationDesign',
+          title: '集成式设计',
+          description: '一体化的通用视觉训练方案，集成多种训练模式，满足不同场景需求',
+        },
+        {
+          slug: 'expertConsensus',
+          title: '专家共识',
+          description: '基于调节滞后引发近视学说，融合专家共识与自主训练体系，科学有效',
+        },
+        {
+          slug: 'smartManagement',
+          title: '智能管理',
+          description: '智能化小程序联动训练，实现患者自主训练一体化操作管理',
+        },
+        {
+          slug: 'independentTraining',
+          title: '自主训练',
+          description: '支持患者在家自主训练，专业指导与便捷操作相结合，提升训练效果',
+        }
+      ]
+    },
+    video: {
+      headerTitle: '训练视频展示',
+      title: '近视防控训练',
+      description: '了解如何正确使用视觉训练设备，掌握基础训练方法',
+      thumbnail: '/product-box2.jpg',
+      videos: [
+        {
+          title: '近视防控训练',
+          thumbnail: '/product-box2.jpg',
+          duration: '5:12',
+          id: '1',
+        },
+        {
+          title: '斜弱视训练',
+          thumbnail: '/product-box2.jpg',
+          duration: '4:45',
+          id: '2',
+        },
+        {
+          title: '眼保健训练',
+          thumbnail: '/product-box2.jpg',
+          duration: '6:30',
+          id: '3',
+        },
+        {
+          title: '学习力提升训练',
+          thumbnail: '/product-box2.jpg',
+          duration: '4:18',
+          id: '4',
+        }
+      ]
+    }
+  },
+  product2: {
+    title: '集合训练器',
+    subtitle: 'Integrated Training Device',
+    description: '视立优·集合训练器是一类专为视力保护与改善设计的智能硬件设备，广泛应用于近视防控、弱视训练、视功能提升等场景，尤其适合儿童和青少年用户。',
+    image: '/product-box6.jpg',
+    feature: {
+      title: '四大特点',
+      subtitle: '智能科技赋能视力健康',
+      features: [
+        {
+          slug: 'smartInteraction',
+          title: '智能化交互',
+          description: '集成显示屏、摄像头与多功能按键，支持实时视觉引导与反馈',
+        },
+        {
+          slug: 'dataVisualization',
+          title: '数据可视化',
+          description: '可通过 APP 或云平台同步训练数据，便于家长与专业人员跟踪训练效果',
+        },
+        {
+          slug: 'portableConvenience',
+          title: '便携易用',
+          description: '体积小巧，便于收纳，于家庭及校内外随时随地使用',
+        },
+        {
+          slug: 'ergonomicDesign',
+          title: '人体工学设计',
+          description: '符合儿童手型及使用习惯，结构紧凑，重量轻便，提升操作舒适性和安全性',
+        }
+      ]
+    },
+    video: {
+      headerTitle: '训练视频展示',
+      title: '集合训练器',
+      description: '了解如何正确使用集合训练器，掌握基础训练方法',
+      thumbnail: '/product-box6.jpg',
+      videos: [
+        {
+          id: '1',
+          title: '基础训练教程',
+          thumbnail: '/product-box6.jpg',
+          duration: '4:32',
+        },
+        {
+          id: '2',
+          title: '进阶训练技巧',
+          thumbnail: '/product-box6.jpg',
+          duration: '6:15',
+        },
+        {
+          id: '3',
+          title: '儿童训练指南',
+          thumbnail: '/product-box6.jpg',
+          duration: '5:48',
+        },
+        {
+          id: '4',
+          title: '日常保健训练',
+          thumbnail: '/product-box6.jpg',
+          duration: '3:20',
+        }
+      ]
+    }
+  }
+}

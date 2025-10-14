@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
@@ -7,6 +7,8 @@ import { UCard } from '----pkg-uni/uni-ui-components/UCard';
 import { useNavigate } from '----pkg-uni/uni-hooks/useNavigate';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
+
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
 
 import { ContainerTitle } from '@/components/ContainerTitle';
 import { ScreenWidthLimitAndCentered } from '@/components/ScreenWidthLimitAndCentered';
@@ -22,7 +24,7 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
     const { className } = props;
     const navigate = useNavigate();
 
-    const [opacity, setOpacity] = useState(1);
+    const data = usePageStore((s) => s.page$_pageItem.home.productDesc);
 
     const handleCardClick = (
       productType: 'training-box' | 'integrated-trainer',
@@ -45,10 +47,7 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
           'g-uni-comp--ProductDesc',
         )}
       >
-        <ContainerTitle
-          title="产品介绍"
-          subtitle="专业的医疗级眼科检测设备，为眼健康提供精准筛查方案"
-        />
+        <ContainerTitle title={data.title} subtitle={data.subtitle} />
 
         <br />
         <br />
@@ -64,7 +63,7 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
             // style={{ opacity }}
             cover={
               <div className={cx(styles['card-image'])}>
-                <img src="/product-box2.jpg" alt="视觉训练套盒" />
+                <img src={data.items[0].image} alt="视觉训练套盒" />
               </div>
             }
           >
@@ -75,11 +74,11 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
             {/*   /> */}
             {/* </div> */}
             <div className={cx(styles['card-content'])}>
-              <h3 className={cx(styles['card-title'])}>视觉训练套盒</h3>
+              <h3 className={cx(styles['card-title'])}>
+                {data.items[0].title}
+              </h3>
               <p className={cx(styles['card-description'])}>
-                {
-                  '视立优·视觉训练套盒是一款集成式一体化通用视觉训练方案，可用于屈光不正人群；弱视、斜视、斜视术后康复人群；眼保健人群；视疲劳、阅读障碍、学习困难等非斜视性双眼视功能异常人群。'
-                }
+                {data.items[0].description}
               </p>
             </div>
           </UCard>
@@ -91,19 +90,16 @@ export const ProductDesc = forwardRef<HTMLDivElement, IProductDescProps>(
             // onMouseLeave={() => setOpacity(1)}
             cover={
               <div className={cx(styles['card-image'])}>
-                <img
-                  src="https://de4965e.webp.li/blog-images/2025/10/563cfdd6e3d71c15e1f71882e252379a.png"
-                  alt="集合训练器"
-                />
+                <img src={data.items[1].image} alt="集合训练器" />
               </div>
             }
           >
             <div className={cx(styles['card-content'])}>
-              <h3 className={cx(styles['card-title'])}>集合训练器</h3>
+              <h3 className={cx(styles['card-title'])}>
+                {data.items[1].title}
+              </h3>
               <p className={cx(styles['card-description'])}>
-                {
-                  '视立优 - 集合训练器是一类专为视力保护与改善设计的智能硬件设备，广泛应用于近视防控、弱视训练、视功能提升等场景，尤其适合儿童和青少年用户。'
-                }
+                {data.items[1].description}
               </p>
             </div>
           </UCard>

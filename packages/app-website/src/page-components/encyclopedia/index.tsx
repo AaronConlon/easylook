@@ -11,9 +11,9 @@ import {
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
-import { CommonPageHeader } from '@/components/CommonPageHeader';
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
 
-import { encyclopediaData } from '@/consts/encyclopedia.data';
+import { CommonPageHeader } from '@/components/CommonPageHeader';
 
 import styles from './styles.module.scss';
 
@@ -27,15 +27,19 @@ export default function EncyclopediaIndex() {
     parse: (value) => (value === 'grid' ? 'grid' : 'list'),
   });
 
+  const page$_share = usePageStore((s) => s.page$_share);
+  const articlesData = page$_share.articles;
+  const encyclopediaConfig = page$_share.encyclopedia;
+
   // 排序后的数据
   const sortedData = useMemo(() => {
-    const data = [...encyclopediaData];
+    const data = [...articlesData];
     return data.sort((a, b) => {
       const dateA = new Date(a.date).getTime();
       const dateB = new Date(b.date).getTime();
       return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
     });
-  }, [sortOrder]);
+  }, [articlesData, sortOrder]);
 
   const toggleSortOrder = () => {
     setSortOrder((prev) => (prev === 'desc' ? 'asc' : 'desc'));
@@ -48,16 +52,16 @@ export default function EncyclopediaIndex() {
   return (
     <div className={cx(styles['comp-wrapper'])}>
       <CommonPageHeader
-        title="眼界百科"
-        subTitle="Encyclopedia"
-        bgImage="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2074"
+        title={encyclopediaConfig.title}
+        subTitle={encyclopediaConfig.subtitle}
+        bgImage={encyclopediaConfig.bgImage}
       />
 
       <section className={cx(styles['encyclopedia-section'])}>
         <div className={cx(styles['section-header'])}>
           <div className={cx(styles['section-title'])}>
             <LuBookOpen className={cx(styles['title-icon'])} />
-            <h2>所有文章</h2>
+            <h2>{encyclopediaConfig.sectionTitle}</h2>
           </div>
 
           <div
@@ -72,7 +76,11 @@ export default function EncyclopediaIndex() {
             <button
               className={cx(styles['control-btn'], styles['sort-btn'])}
               onClick={toggleSortOrder}
-              title={sortOrder === 'desc' ? '时间倒序' : '时间顺序'}
+              title={
+                sortOrder === 'desc'
+                  ? encyclopediaConfig.controls.sortDescTitle
+                  : encyclopediaConfig.controls.sortAscTitle
+              }
             >
               {sortOrder === 'desc' ? (
                 <LuArrowDownWideNarrow />
@@ -89,7 +97,11 @@ export default function EncyclopediaIndex() {
                 styles['active'],
               )}
               onClick={toggleLayout}
-              title={layout === 'list' ? '列表视图' : '网格视图'}
+              title={
+                layout === 'list'
+                  ? encyclopediaConfig.controls.listViewTitle
+                  : encyclopediaConfig.controls.gridViewTitle
+              }
             >
               {layout === 'list' ? <LuList /> : <LuGrid3X3 />}
             </button>
@@ -123,20 +135,13 @@ export default function EncyclopediaIndex() {
                 </>
               ) : (
                 <div className={cx(styles['cover-placeholder'])}>
-                  <span>暂无图片</span>
+                  <span>{encyclopediaConfig.placeholders.noImage}</span>
                 </div>
               )}
             </div>
 
             {/* 内容区 */}
             <div className={cx(styles['item-content'])}>
-              {/* 分类标签 */}
-              {item.category && (
-                <div className={cx(styles['category-badge'])}>
-                  {item.category}
-                </div>
-              )}
-
               {/* 时间（Grid 布局显示） */}
               {/* <div className={cx(styles['item-date'])}>
                 <LuCalendar />
@@ -148,7 +153,8 @@ export default function EncyclopediaIndex() {
 
               {/* 描述 */}
               <p className={cx(styles['item-description'])}>
-                {item.description || '暂无描述'}
+                {item.description ||
+                  encyclopediaConfig.placeholders.noDescription}
               </p>
 
               {/* 底部信息（List 布局显示） */}

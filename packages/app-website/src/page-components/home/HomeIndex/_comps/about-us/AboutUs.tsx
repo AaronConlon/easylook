@@ -6,6 +6,8 @@ import { useNavigate } from '----pkg-uni/uni-hooks/useNavigate';
 
 import type { IUiCompBaseProps } from '----pkg-uni/uni-types/comp-type';
 
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
+
 import { ContainerTitle } from '@/components/ContainerTitle';
 
 import { MASTER_ROUTER_PATHS } from '@/consts/master-router-paths';
@@ -18,6 +20,8 @@ export const AboutUs = forwardRef<HTMLDivElement, IAboutUsProps>(
   (props, ref) => {
     const { className } = props;
     const navigate = useNavigate();
+
+    const page$_pageItem = usePageStore((s) => s.page$_pageItem);
 
     const handleCardClick = (section: string) => {
       switch (section) {
@@ -50,8 +54,8 @@ export const AboutUs = forwardRef<HTMLDivElement, IAboutUsProps>(
         )}
       >
         <ContainerTitle
-          title="关于我们"
-          subtitle="专业、创新、值得信赖的视力保护专家"
+          title={page$_pageItem.home.aboutUs.title}
+          subtitle={page$_pageItem.home.aboutUs.subtitle}
         />
 
         <br />
@@ -67,12 +71,14 @@ export const AboutUs = forwardRef<HTMLDivElement, IAboutUsProps>(
             <div className={cx(styles['card-content'])}>
               <div className={cx(styles['card-header'])}>
                 <span className={cx(styles['card-subtitle'])}>
-                  Company Introduction
+                  {page$_pageItem.home.aboutUs.sections[0].enTitle}
                 </span>
-                <h3 className={cx(styles['card-title'])}>企业介绍</h3>
+                <h3 className={cx(styles['card-title'])}>
+                  {page$_pageItem.home.aboutUs.sections[0].title}
+                </h3>
               </div>
               <p className={cx(styles['card-description'])}>
-                {'视立优成立于 2018 年，专注于视力保护领域的研发与创新'}
+                {page$_pageItem.home.aboutUs.sections[0].description}
               </p>
             </div>
           </div>
@@ -86,12 +92,14 @@ export const AboutUs = forwardRef<HTMLDivElement, IAboutUsProps>(
             <div className={cx(styles['card-content'])}>
               <div className={cx(styles['card-header'])}>
                 <span className={cx(styles['card-subtitle'])}>
-                  Development History
+                  {page$_pageItem.home.aboutUs.sections[1].enTitle}
                 </span>
-                <h3 className={cx(styles['card-title'])}>发展历程</h3>
+                <h3 className={cx(styles['card-title'])}>
+                  {page$_pageItem.home.aboutUs.sections[1].title}
+                </h3>
               </div>
               <p className={cx(styles['card-description'])}>
-                {'从 2018 年成立至今，持续创新，服务用户超百万'}
+                {page$_pageItem.home.aboutUs.sections[1].description}
               </p>
             </div>
             {/* <div className={cx(styles['chart-decoration'])}>
@@ -113,11 +121,15 @@ export const AboutUs = forwardRef<HTMLDivElement, IAboutUsProps>(
             <div className={cx(styles['card-overlay'])} />
             <div className={cx(styles['card-content'])}>
               <div className={cx(styles['card-header'])}>
-                <span className={cx(styles['card-subtitle'])}>Partners</span>
-                <h3 className={cx(styles['card-title'])}>合作伙伴</h3>
+                <span className={cx(styles['card-subtitle'])}>
+                  {page$_pageItem.home.aboutUs.sections[2].enTitle}
+                </span>
+                <h3 className={cx(styles['card-title'])}>
+                  {page$_pageItem.home.aboutUs.sections[2].title}
+                </h3>
               </div>
               <p className={cx(styles['card-description'])}>
-                {'与多家知名医疗机构建立长期合作，服务网络遍及全国'}
+                {page$_pageItem.home.aboutUs.sections[2].description}
               </p>
             </div>
           </div>
@@ -131,12 +143,14 @@ export const AboutUs = forwardRef<HTMLDivElement, IAboutUsProps>(
             <div className={cx(styles['card-content'])}>
               <div className={cx(styles['card-header'])}>
                 <span className={cx(styles['card-subtitle'])}>
-                  Honors & Qualifications
+                  {page$_pageItem.home.aboutUs.sections[3].enTitle}
                 </span>
-                <h3 className={cx(styles['card-title'])}>荣誉资质</h3>
+                <h3 className={cx(styles['card-title'])}>
+                  {page$_pageItem.home.aboutUs.sections[3].title}
+                </h3>
               </div>
               <p className={cx(styles['card-description'])}>
-                {'国家医疗器械认证、ISO 质量体系认证等多项荣誉'}
+                {page$_pageItem.home.aboutUs.sections[3].description}
               </p>
             </div>
           </div>

@@ -17,6 +17,7 @@ alwaysApply: true
 - 使用组合而非继承
 - 使用 TypeScript 实现适当的 prop 类型
 - 将大型组件拆分为更小、更专注的组件
+- 组件根目录下 index.ts 通过导入当前目录下的组件实现，组件命名约定为：moduleIndex.tsx
 
 ## Hooks
 - 遵循 Hooks 的规则
