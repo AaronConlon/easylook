@@ -14,6 +14,8 @@ export const UNI_STYLE_CSS_VARS_ANTD_TOKEN = {
   '--uni-motion-ease-in-quint': `cubic-bezier(0.755, 0.05, 0.855, 0.06)`,
   '--uni-motion-ease-out-quint': `cubic-bezier(0.23, 1, 0.32, 1)`,
   '--uni-border-radius': 8, // isNumber isPx
+  '--uni-size-unit': 4, // isNumber isPx
+  '--uni-size-step': 4, // isNumber isPx
   '--uni-size-popup-arrow': 16, // isNumber isPx
   '--uni-control-height': 32, // isNumber isPx
   '--uni-z-index-base': 0, // isNumber
@@ -39,6 +41,15 @@ export const UNI_STYLE_CSS_VARS_ANTD_TOKEN = {
   '--uni-line-height-heading-3': 1, // isNumber
   '--uni-line-height-heading-4': 1, // isNumber
   '--uni-line-height-heading-5': 1, // isNumber
+  '--uni-size-xxl': 48, // isNumber isPx
+  '--uni-size-xl': 32, // isNumber isPx
+  '--uni-size-lg': 24, // isNumber isPx
+  '--uni-size-md': 20, // isNumber isPx
+  '--uni-size-ms': 16, // isNumber isPx
+  '--uni-size': 16, // isNumber isPx
+  '--uni-size-sm': 12, // isNumber isPx
+  '--uni-size-xs': 8, // isNumber isPx
+  '--uni-size-xxs': 4, // isNumber isPx
   '--uni-control-height-sm': 24, // isNumber isPx
   '--uni-control-height-xs': 16, // isNumber isPx
   '--uni-control-height-lg': 40, // isNumber isPx
@@ -121,9 +132,12 @@ export const UNI_STYLE_CSS_VARS_ANTD_TOKEN = {
   '--uni-avatar-container-size': 32, // isNumber isPx
   '--uni-avatar-container-size-lg': 40, // isNumber isPx
   '--uni-avatar-container-size-sm': 24, // isNumber isPx
-  '--uni-avatar-text-font-size': 18, // isNumber isPx
-  '--uni-avatar-text-font-size-lg': 24, // isNumber isPx
+  '--uni-avatar-text-font-size': 14, // isNumber isPx
+  '--uni-avatar-text-font-size-lg': 14, // isNumber isPx
   '--uni-avatar-text-font-size-sm': 14, // isNumber isPx
+  '--uni-avatar-icon-font-size': 18, // isNumber isPx
+  '--uni-avatar-icon-font-size-lg': 24, // isNumber isPx
+  '--uni-avatar-icon-font-size-sm': 14, // isNumber isPx
   '--uni-avatar-group-space': 4, // isNumber isPx
   '--uni-avatar-group-overlapping': -8, // isNumber isPx
 
@@ -156,6 +170,7 @@ export const UNI_STYLE_CSS_VARS_ANTD_TOKEN = {
   '--uni-button-lime-shadow-color': `0 2px 0 rgba(225,255,5,0.1)`,
   '--uni-button-gold-shadow-color': `0 2px 0 rgba(255,215,5,0.1)`,
   '--uni-button-font-weight': 400, // isNumber
+  '--uni-button-icon-gap': 8, // isNumber isPx
   '--uni-button-default-shadow': `0 2px 0 rgba(0,0,0,0.02)`,
   '--uni-button-primary-shadow': `0 2px 0 rgba(5,145,255,0.1)`,
   '--uni-button-danger-shadow': `0 2px 0 rgba(255,55,5,0.06)`,

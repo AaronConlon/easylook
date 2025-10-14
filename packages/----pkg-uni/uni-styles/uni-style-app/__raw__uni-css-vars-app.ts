@@ -2,7 +2,18 @@
 //
 // ⚠️ 如果对此处文件有修改，请执行 yarn gencss
 export const UNI_STYLE_CSS_VARS_APP = {
-  'app-page-padding': 16, // gen-unit-px
+  'app-text-primary': 'var(--uni-abs-color-gray-black, #1f1f22)',
+  'app-text-secondary': 'var(--uni-abs-color-B7-for-light, #6f7174)',
+  'app-mask-color': '#f2f2f222',
+  'app-page-padding': 20, // gen-unit-px
+  'app-brand-color': '#05519b',
+  'app-brand-color-rgb': '5, 81, 155',
+  'app-card-border': '1px solid #0000000a',
+  'app-card-shadow': '0 1px 3px 0 #0000000a, 0 1px 2px -1px #0000000a',
+  'app-card-shadow--hover': '0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a',
+  // 'app-font-family-number': "GeistSans, 'GeistSans Fallback', sans-serif",
+
+  // 'app-page-padding': 16, // gen-unit-px
   'app-layout-padding': 16, // gen-unit-px
   //
   'app-ss-wc-header-height': 56, // gen-unit-px
@@ -39,7 +50,7 @@ export const UNI_STYLE_CSS_VARS_APP = {
   /* ---- font ---- */
   'app-font-family-chinese': `'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei'`, // add-prettier-ignore
   'app-font-family-sspui': `-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', Arial, sans-serif`, // add-prettier-ignore
-  'app-font-family-number': `-apple-system, BlinkMacSystemFont, 'Avenir Next', 'Avenir', 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, sans-serif`, // add-prettier-ignore
+  'app-font-family-number': `GeistSans, 'GeistSans Fallback', -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Avenir', 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, sans-serif`, // add-prettier-ignore
   'app-font-family-price': `Outfit, -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Avenir', 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, sans-serif`, // add-prettier-ignore
   'app-font-family': `-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',  sans-serif`, // add-prettier-ignore
   'app-font-family-for-android': `-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif`, // add-prettier-ignore

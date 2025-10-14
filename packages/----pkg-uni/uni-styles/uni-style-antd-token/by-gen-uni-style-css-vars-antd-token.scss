@@ -19,6 +19,8 @@ page {
   --uni-motion-ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
   --uni-motion-ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
   --uni-border-radius: 8px; /* isNumber isPx */
+  --uni-size-unit: 4px; /* isNumber isPx */
+  --uni-size-step: 4px; /* isNumber isPx */
   --uni-size-popup-arrow: 16px; /* isNumber isPx */
   --uni-control-height: 32px; /* isNumber isPx */
   --uni-z-index-base: 0; /* isNumber */
@@ -44,6 +46,15 @@ page {
   --uni-line-height-heading-3: 1.3333333333333333; /* isNumber */
   --uni-line-height-heading-4: 1.4; /* isNumber */
   --uni-line-height-heading-5: 1.5; /* isNumber */
+  --uni-size-xxl: 48px; /* isNumber isPx */
+  --uni-size-xl: 32px; /* isNumber isPx */
+  --uni-size-lg: 24px; /* isNumber isPx */
+  --uni-size-md: 20px; /* isNumber isPx */
+  --uni-size-ms: 16px; /* isNumber isPx */
+  --uni-size: 16px; /* isNumber isPx */
+  --uni-size-sm: 12px; /* isNumber isPx */
+  --uni-size-xs: 8px; /* isNumber isPx */
+  --uni-size-xxs: 4px; /* isNumber isPx */
   --uni-control-height-sm: 24px; /* isNumber isPx */
   --uni-control-height-xs: 16px; /* isNumber isPx */
   --uni-control-height-lg: 40px; /* isNumber isPx */
@@ -143,9 +154,12 @@ page {
   --uni-avatar-container-size: 32px; /* isNumber isPx */
   --uni-avatar-container-size-lg: 40px; /* isNumber isPx */
   --uni-avatar-container-size-sm: 24px; /* isNumber isPx */
-  --uni-avatar-text-font-size: 18px; /* isNumber isPx */
-  --uni-avatar-text-font-size-lg: 24px; /* isNumber isPx */
+  --uni-avatar-text-font-size: 14px; /* isNumber isPx */
+  --uni-avatar-text-font-size-lg: 14px; /* isNumber isPx */
   --uni-avatar-text-font-size-sm: 14px; /* isNumber isPx */
+  --uni-avatar-icon-font-size: 18px; /* isNumber isPx */
+  --uni-avatar-icon-font-size-lg: 24px; /* isNumber isPx */
+  --uni-avatar-icon-font-size-sm: 14px; /* isNumber isPx */
   --uni-avatar-group-space: 4px; /* isNumber isPx */
   --uni-avatar-group-overlapping: -8px; /* isNumber isPx */
 }
@@ -187,6 +201,7 @@ page {
   --uni-button-lime-shadow-color: 0 2px 0 rgba(225, 255, 5, 0.1);
   --uni-button-gold-shadow-color: 0 2px 0 rgba(255, 215, 5, 0.1);
   --uni-button-font-weight: 400; /* isNumber */
+  --uni-button-icon-gap: 8px; /* isNumber isPx */
   --uni-button-default-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
   --uni-button-primary-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
   --uni-button-danger-shadow: 0 2px 0 rgba(255, 55, 5, 0.06);
