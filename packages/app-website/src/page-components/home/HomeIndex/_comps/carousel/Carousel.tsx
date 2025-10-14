@@ -88,7 +88,7 @@ export const Carousel = forwardRef<HTMLDivElement, ICarouselProps>(
           slidesPerView={homeData.carousel.length}
           watchSlidesProgress
           className={styles['thumbs']}
-          loop
+          // loop
         >
           {homeData.carousel.map((_, idx) => (
             <SwiperSlide
