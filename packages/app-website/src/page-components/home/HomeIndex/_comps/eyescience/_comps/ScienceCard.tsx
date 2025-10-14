@@ -54,7 +54,7 @@ export const ScienceCard = forwardRef<HTMLDivElement, ScienceCardProps>(
         id={item.id}
         className={cx(
           styles['science-card'],
-          styles[`science-card-${index + 1}`],
+          // styles[`science-card-${index + 1}`],
           isIcon && styles['science-card--icon'],
           className,
           'scroll-animate',

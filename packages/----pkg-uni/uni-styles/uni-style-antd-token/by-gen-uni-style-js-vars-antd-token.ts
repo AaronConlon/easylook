@@ -1,6 +1,6 @@
 export const UNI_STYLE_CSS_VARS_ANTD_TOKEN = {
   /* ---- __global__ (NORMAL) ---- */
-  '--uni-font-family': `'PingFangSC-Light', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '\u5FAE\u8F6F\u96C5\u9ED1', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, sans-serif`,
+  '--uni-font-family': `'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '\u5FAE\u8F6F\u96C5\u9ED1', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, sans-serif`,
   '--uni-font-family-code': `'Source Code Pro', 'Liberation Mono', Menlo, Consolas, monospace`,
   '--uni-font-size': 14, // isNumber isPx
   '--uni-line-width': 1, // isNumber isPx

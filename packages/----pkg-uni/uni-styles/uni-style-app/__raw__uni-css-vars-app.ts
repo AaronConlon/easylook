@@ -6,7 +6,7 @@ export const UNI_STYLE_CSS_VARS_APP = {
   'app-text-secondary': 'var(--uni-abs-color-B7-for-light, #6f7174)',
   'app-mask-color': '#f2f2f222',
   'app-page-padding': 20, // gen-unit-px
-  'app-brand-color': '#05519b',
+  'app-brand-color': '#0052d9',
   'app-brand-color-rgb': '5, 81, 155',
   'app-card-border': '1px solid #0000000a',
   'app-card-shadow': '0 1px 3px 0 #0000000a, 0 1px 2px -1px #0000000a',
