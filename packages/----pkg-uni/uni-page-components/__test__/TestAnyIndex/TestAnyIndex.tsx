@@ -14,6 +14,7 @@ import { UView } from '----pkg-uni/uni-ui-components/UView';
 import { UText } from '----pkg-uni/uni-ui-components/UText';
 import { UScrollView } from '----pkg-uni/uni-ui-components/UScrollView';
 import { UIcon } from '----pkg-uni/uni-ui-components/UIcon';
+import { UBr } from '----pkg-uni/uni-ui-components/UBr';
 
 import { useIsDarkMode } from '----pkg-uni/uni-hooks/useIsDarkMode';
 
@@ -21,6 +22,7 @@ import { useThemeStore } from '----pkg-uni/uni-stores/useThemeStore';
 import { useUserStore } from '----pkg-uni/uni-stores/useUserStore';
 import { PageThemeSwitch } from '----pkg-uni/uni-page-components/__page-shared__/PageThemeSwitch/PageThemeSwitch';
 import { XAppVersionNumber } from '----pkg-uni/__uni-shared__/uni-x-components/XAppVersionNumber';
+import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
 
 import { TestThemeStoreAddFn } from './TestThemeStoreAddFn';
 import { TestStateAddFn } from './TestStateAddFn';
@@ -33,6 +35,7 @@ export const TestAnyIndex = () => {
 
   // forSTORE
   const theme$_appTheme = useThemeStore((s) => s.theme$_appTheme);
+  const page$_pageItem = usePageStore((s) => s.page$_pageItem);
 
   // ✅ zustand 官方推荐的写法，只有 Store 中用到的部分会 reRender
   const theme$_sysTheme = useThemeStore((s) => s.theme$_sysTheme);
@@ -71,6 +74,24 @@ export const TestAnyIndex = () => {
         'g-page-comp--TestAnyIndex',
       )}
     >
+      <UBr />
+      <UBr />
+      <UBr />
+      <UBr />
+      <UBr />
+      <UBr />
+      <UBr />
+      <UBr />
+      <UBr />
+      <UBr />
+      <UBr />
+      <UView>
+        <UBr />
+        <UText>A:{page$_pageItem.home.a}</UText>
+        <UBr />
+        <UText>Y:{page$_pageItem.about.y}</UText>
+      </UView>
+
       <UView row>
         <UText>TestAnyIndex</UText>
 
@@ -164,8 +185,8 @@ export const TestAnyIndex = () => {
           </UButton>
 
           <UText>
-            这是普通文字， 这是粗体文字 我在 ABCDEFGHIJK1234567项目
-            难道还有区别？？ 我在 React Native 项目 难道还有区别？？
+            这是普通文字， 这是粗体文字 我在 ABCDEFGHIJK1234567项目 难道还有区别？？ 我在 React Native 项目
+            难道还有区别？？
           </UText>
         </UView>
 

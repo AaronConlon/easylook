@@ -9,6 +9,8 @@ import { USmartLink } from '----pkg-uni/uni-ui-components/USmartLink';
 import { UText } from '----pkg-uni/uni-ui-components/UText';
 import { UView } from '----pkg-uni/uni-ui-components/UView';
 
+import { TestAnyIndex } from '----pkg-uni/uni-page-components/__test__/TestAnyIndex';
+
 import { MASTER_ROUTER_PATHS } from '@/consts/master-router-paths';
 import { MasterLayout } from '@/layouts/MasterLayout';
 import { AboutIndex } from '@/page-components/about/AboutIndex';
@@ -56,6 +58,7 @@ const routerMapping = [
 
   // contact
   { path: MASTER_ROUTER_PATHS['/contact'], component: ContactIndex },
+  { path: MASTER_ROUTER_PATHS['/test/any'], component: TestAnyIndex },
 ];
 
 export const routeTree = rootRoute.addChildren(

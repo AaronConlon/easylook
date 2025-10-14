@@ -1,6 +1,6 @@
 // 假如启用 i18n 需要加入这个 params
 // const LANG_PREFIX = '/{-$lang}';
-
+import type React from 'react';
 import { LuPhone } from 'react-icons/lu';
 
 const LANG_PREFIX = '';
@@ -33,6 +33,10 @@ export const MASTER_ROUTER_PATHS = {
 
   // 眼界百科
   '/encyclopedia': `${LANG_PREFIX}/encyclopedia`,
+  //
+  //
+  //
+  '/test/any': `${LANG_PREFIX}/test/any`,
 };
 
 export type IMenuItem = {
