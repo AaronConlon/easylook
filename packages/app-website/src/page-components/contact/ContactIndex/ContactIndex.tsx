@@ -10,7 +10,6 @@ import { ContactForm } from '@/components/ContactForm';
 import { ScreenWidthLimitAndCentered } from '@/components/ScreenWidthLimitAndCentered';
 
 import { ContactInfoSection } from './_comps/ContactInfoSection';
-import mapImg from './_images/map.png';
 
 import styles from './styles.module.scss';
 
@@ -54,7 +53,7 @@ export const ContactIndex = () => {
               {contactConfig.sections.map.title}
             </div>
             <img
-              src={mapImg}
+              src={contactConfig.sections.map.image}
               alt={contactConfig.sections.map.alt}
               className={cx(styles['map-image'])}
             />

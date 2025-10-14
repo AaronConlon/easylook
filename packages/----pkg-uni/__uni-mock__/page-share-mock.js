@@ -44,7 +44,8 @@ export const pageShareData = {
     sections: {
       map: {
         title: '公司位置',
-        alt: '公司地图'
+        alt: '公司地图',
+        image: '/map.png'
       },
       info: {
         title: '联系方式',
