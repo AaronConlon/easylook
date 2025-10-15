@@ -46,12 +46,12 @@ export const AppGlobalFetch: React.FC<IProps> = (props) => {
       console.log('1: v1 新，-1: v2 新，0: 相同');
       console.log('isUpdate', isUpdate);
 
-      if (isUpdate < 1) {
+      if (isUpdate === -1) {
         // 根据更新项目，拉取对应的 json，更新对应的 store
         for (const item of res.data.update_items) {
           const updateItemUrl = appConfig.__IS_DEV__
             ? `/${item}`
-            : `https://sanlian-server.oss-cn-beijing.aliyuncs.com/easylook/${item}`;
+            : `https://sanlian-server.oss-cn-beijing.aliyuncs.com/easylook/${item}?date=${Date.now()}`;
 
           const updateItemData: any = await axiosInst.get(updateItemUrl);
           const newData = updateItemData.data;
