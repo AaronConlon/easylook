@@ -35,8 +35,10 @@ export const AppGlobalFetch: React.FC<IProps> = (props) => {
 
       // 获取当前版本号
       const currentVersion = buildConfig.VERSION;
-      if (!currentVersion) return;
+
       console.log('currentVersion', currentVersion);
+
+      if (!currentVersion) return;
 
       const isUpdate = compareVersion(currentVersion, res.data.version);
       if (isUpdate < 1) {
