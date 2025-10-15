@@ -8,6 +8,8 @@ import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
 
 import { CommonPageHeader } from '@/components/CommonPageHeader';
 
+import { Partnership } from '@/page-components/home/HomeIndex/_comps';
+
 import styles from './styles.module.scss';
 
 interface IPartnersIndexProps extends IUiCompBaseProps {}
@@ -33,55 +35,7 @@ export const PartnersIndex = forwardRef<HTMLDivElement, IPartnersIndexProps>(
         />
 
         {/* 合作伙伴内容 */}
-        <section className={cx(styles['partners-section'])}>
-          <div className={cx(styles['partners-container'])}>
-            <div className={cx(styles['partners-header'], 'scroll-animate')}>
-              <p className={cx(styles['partners-description'])}>
-                {page$_about.partners.description}
-              </p>
-            </div>
-
-            {page$_about.partners.categories.map((category, categoryIndex) => (
-              <div
-                key={categoryIndex}
-                className={cx(styles['category-section'], 'scroll-animate')}
-                data-delay={`${categoryIndex * 200}`}
-              >
-                <h2 className={cx(styles['category-title'])}>
-                  {category.title}
-                </h2>
-
-                <div className={cx(styles['partners-grid'])}>
-                  {category.partners.map((partner, partnerIndex) => (
-                    <div
-                      key={partnerIndex}
-                      className={cx(styles['partner-card'], 'scroll-animate')}
-                      data-delay={`${categoryIndex * 200 + partnerIndex * 100}`}
-                    >
-                      <div className={cx(styles['partner-logo'])}>
-                        <img
-                          src={partner.logo}
-                          alt={partner.name}
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                          }}
-                        />
-                      </div>
-                      <div className={cx(styles['partner-info'])}>
-                        <h3 className={cx(styles['partner-name'])}>
-                          {partner.name}
-                        </h3>
-                        <p className={cx(styles['partner-description'])}>
-                          {partner.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Partnership />
       </div>
     );
   },
