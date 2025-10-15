@@ -36,15 +36,10 @@ export const AppGlobalFetch: React.FC<IProps> = (props) => {
       // 获取当前版本号
       const currentVersion = buildConfig.VERSION;
 
-      console.log('currentVersion', currentVersion);
 
       if (!currentVersion) return;
 
       const isUpdate = compareVersion(currentVersion, res.data.version);
-
-      console.log('res.data.version', res.data.version);
-      console.log('1: v1 新，-1: v2 新，0: 相同');
-      console.log('isUpdate', isUpdate);
 
       if (isUpdate === -1) {
         // 根据更新项目，拉取对应的 json，更新对应的 store
@@ -53,16 +48,9 @@ export const AppGlobalFetch: React.FC<IProps> = (props) => {
             ? `/${item}`
             : `https://sanlian-server.oss-cn-beijing.aliyuncs.com/easylook/${item}?date=${Date.now()}`;
 
-          const updateItemData: any = await axiosInst.get(updateItemUrl);
+          const updateItemData = await axiosInst.get(updateItemUrl);
 
-          let newData = updateItemData.data;
-
-          console.log('newData', newData);
-          console.log('new data type:', typeof newData);
-          // is json data
-          if (typeof newData === 'string') {
-            newData = JSON.parse(newData);
-          }
+          const newData = updateItemData.data;
 
           // 更新对应的 store
           switch (item) {

@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { create } from 'zustand';
 import { combine, devtools } from 'zustand/middleware';
 
@@ -26,25 +25,26 @@ const PageStore = combine(INIT_STATE, (set, get) => ({
     set(() => ({
       page$_pageItem: {
         ...get().page$_pageItem,
-        home: _.merge(v, get().page$_pageItem.home),
+        home: v,
       },
     }));
   },
   setPage$_pageItem_about: (v: IPageStore['page$_pageItem']['about']) => {
     set(() => ({
-      page$_pageItem: { ...get().page$_pageItem, about: _.merge(v, get().page$_pageItem.about) },
+      page$_pageItem: { ...get().page$_pageItem, about: v },
     }));
   },
   setPage$_pageItem_product: (v: IPageStore['page$_pageItem']['product']) => {
     set(() => ({
       page$_pageItem: {
         ...get().page$_pageItem,
-        product: _.merge(v, get().page$_pageItem.product),
+        product: v,
       },
     }));
   },
   setPage$_share: (v: IPageStore['page$_share']) => {
-    set(() => ({ page$_share: _.merge(v, get().page$_share) }));
+    // old data
+    set(() => ({ page$_share: v }));
   },
 }));
 
