@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.34](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.32...app-website@0.0.34) (2025-10-15)
+
+
+### Features
+
+* add dynamic data replace feature ([97b0ded](https://github.com/profit-projects/easylook-website/commit/97b0dedcbb70883d01f4c39979ce4ee14bfd12ee))
+
+
+### Bug Fixes
+
+* 修复 swiper loop 错误 ([8d24a28](https://github.com/profit-projects/easylook-website/commit/8d24a28c21288a1bdc6409ee2d47894d6dab7393))
+* 修改主题色 ([295e490](https://github.com/profit-projects/easylook-website/commit/295e490a56fa0edd77209c7429432acc8b9bcbb8))
+
 ### 0.0.33 (2025-10-14)
 
 
