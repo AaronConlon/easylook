@@ -9,6 +9,7 @@ import { pageShareData } from '----pkg-uni/__uni-mock__/page-share-mock';
 const INIT_STATE = {
   // 默认 load MOCK JSOM
   // page$_pageItem: null as any,
+  page$_pageHasFetch: false,
   page$_pageItem: {
     home: pageHomeData,
     about: pageAboutData,
@@ -25,6 +26,17 @@ export const usePageStore = create(
   }),
 );
 
+
+/*
+
+ 1. refresh-mock.js
+    version: '0.0.33-mod'
+    refresh-list: ['page-product-mock']
+    
+    usePageStore set page-product-mock ---> newData
+    
+
+*/
 
 //
 /*

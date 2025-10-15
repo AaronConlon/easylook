@@ -1,0 +1,6 @@
+{
+  "lockDevDeps": {
+    "antd": "5.27",
+    "antd__CONMIET__": "5.27+ 出现了 ConfigProvider 不生效问题"
+  }
+}

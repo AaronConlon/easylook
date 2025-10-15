@@ -2,36 +2,30 @@ export const pageHomeData = {
   carousel: [
     {
       title: '视觉训练套盒',
-      sourceUrl:
-        'https://sly-2025-10-10.i5lin.top/professional-eye-care-technology-blue-tones-medica.jpg',
-      subTitle:
-        '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
+      sourceUrl: 'https://sly-2025-10-10.i5lin.top/professional-eye-care-technology-blue-tones-medica.jpg',
+      subTitle: '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
     },
     {
       title: '专业视力保护方案',
-      sourceUrl:
-        'https://sly-2025-10-10.i5lin.top/modern-eye-health-equipment-medical-device.jpg',
+      sourceUrl: 'https://sly-2025-10-10.i5lin.top/modern-eye-health-equipment-medical-device.jpg',
       subTitle:
         '从儿童到成年，从近视到弱视，从散光到远视，从眼底病变到眼压过高，视立优专业视力保护方案，为您和您的家人提供全方位的视力保护。',
     },
     {
       title: '视觉训练套盒',
-      sourceUrl:
-        'https://sly-2025-10-10.i5lin.top/professional-eye-care-technology-blue-tones-medica.jpg',
-      subTitle:
-        '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
+      sourceUrl: 'https://sly-2025-10-10.i5lin.top/professional-eye-care-technology-blue-tones-medica.jpg',
+      subTitle: '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
     },
     {
       title: '视觉训练套盒',
-      sourceUrl:
-        'https://sly-2025-10-10.i5lin.top/eye-refraction-disorder-vision-problem.jpg',
-      subTitle:
-        '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
+      sourceUrl: 'https://sly-2025-10-10.i5lin.top/eye-refraction-disorder-vision-problem.jpg',
+      subTitle: '视立优训练盒是视立优品牌旗下的一款产品，主要用于视力训练和视力恢复。',
     },
   ],
   eyeScience: {
     title: '你知道吗？',
-    subtitle: '数据来源于《中国儿童斜弱视数字化治疗现状蓝皮书》、《"十四五"全国眼健康规划（2021-2025 年）》及截至全国家卫健委 2024 年公布数据统计',
+    subtitle:
+      '数据来源于《中国儿童斜弱视数字化治疗现状蓝皮书》、《"十四五"全国眼健康规划（2021-2025 年）》及截至全国家卫健委 2024 年公布数据统计',
     items: [
       {
         id: 'refraction-population',
@@ -66,7 +60,7 @@ export const pageHomeData = {
         amount: 4.87,
         unit: '万人',
       },
-    ]
+    ],
   },
   productDesc: {
     title: '产品介绍',
@@ -85,14 +79,14 @@ export const pageHomeData = {
         image: '/product-box6.jpg',
         description:
           '视立优 - 集合训练器是一类专为视力保护与改善设计的智能硬件设备，广泛应用于近视防控、弱视训练、视功能提升等场景，尤其适合儿童和青少年用户。',
-      }
-    ]
+      },
+    ],
   },
   encyclopedia: {
     title: '眼界百科',
     subtitle: '专业眼科知识，科学护眼指南',
     moreButtonText: '查看更多',
-    readMoreText: '阅读更多'
+    readMoreText: '阅读更多',
   },
   partnership: {
     title: '合作加盟',
@@ -112,17 +106,17 @@ export const pageHomeData = {
       {
         id: 'market-support',
         title: '全方位市场推广支持',
-        description: '品牌宣传、营销物料、线上线下推广'
+        description: '品牌宣传、营销物料、线上线下推广',
       },
       {
         id: 'brand-support',
         title: '成熟商业模式与利润空间',
-        description: '经过验证的盈利模式，丰厚回报'
+        description: '经过验证的盈利模式，丰厚回报',
       },
       {
         id: 'training-support',
         title: '培训支持',
-        description: '一对一培训，全程运营支持'
+        description: '一对一培训，全程运营支持',
       },
     ],
     market: [
@@ -148,7 +142,7 @@ export const pageHomeData = {
         slug: 'policy-support',
       },
     ],
-    policyBanner: '国家政策大力支持——医疗器械国产化加速'
+    policyBanner: '国家政策大力支持——医疗器械国产化加速',
   },
   aboutUs: {
     title: '关于我们',
@@ -158,26 +152,26 @@ export const pageHomeData = {
         id: 'company',
         enTitle: 'Company Introduction',
         title: '企业介绍',
-        description: '视立优成立于 2018 年，专注于视力保护领域的研发与创新'
+        description: '视立优成立于 2018 年，专注于视力保护领域的研发与创新',
       },
       {
         id: 'development',
         enTitle: 'Development History',
         title: '发展历程',
-        description: '从创立至今，不断突破创新，引领行业发展方向'
+        description: '从创立至今，不断突破创新，引领行业发展方向',
       },
       {
         id: 'partners',
         enTitle: 'Partners',
         title: '合作伙伴',
-        description: '与多家知名医疗机构建立长期合作，服务网络遍及全国'
+        description: '与多家知名医疗机构建立长期合作，服务网络遍及全国',
       },
       {
         id: 'honors',
         enTitle: 'Honors & Qualifications',
         title: '荣誉资质',
-        description: '国家医疗器械认证、ISO 质量体系认证等多项荣誉'
-      }
-    ]
-  }
+        description: '国家医疗器械认证、ISO 质量体系认证等多项荣誉',
+      },
+    ],
+  },
 };
