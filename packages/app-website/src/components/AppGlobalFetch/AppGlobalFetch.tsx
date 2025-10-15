@@ -41,6 +41,11 @@ export const AppGlobalFetch: React.FC<IProps> = (props) => {
       if (!currentVersion) return;
 
       const isUpdate = compareVersion(currentVersion, res.data.version);
+
+      console.log('res.data.version', res.data.version);
+      console.log('1: v1 新，-1: v2 新，0: 相同');
+      console.log('isUpdate', isUpdate);
+
       if (isUpdate < 1) {
         // 根据更新项目，拉取对应的 json，更新对应的 store
         for (const item of res.data.update_items) {
@@ -50,6 +55,8 @@ export const AppGlobalFetch: React.FC<IProps> = (props) => {
 
           const updateItemData: any = await axiosInst.get(updateItemUrl);
           const newData = updateItemData.data;
+
+          console.log('newData', newData);
 
           // 更新对应的 store
           switch (item) {
