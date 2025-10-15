@@ -1,0 +1,138 @@
+{
+  "site": {
+    "phone": "400-901-83138",
+    "email": "easylook.business@weiaihealthcare.com",
+    "address": "上海市普陀区交通路 4711 号李子园大厦 1308 室",
+    "zipCode": "200300",
+    "qrCode1": "/qr-code.jpg",
+    "qrCode1Label": "扫码联系我们",
+    "qrCode2": "/gzh.jpg",
+    "qrCode2Label": "关注公众号",
+    "mapImage": "/map.png"
+  },
+  "company": {
+    "name": "上海惟爱医疗科技有限公司",
+    "icp": "沪 ICP 备 2023018740 号 -3",
+    "description": "专业的视力保护解决方案提供商，守护您的视界健康。"
+  },
+  "encyclopedia": {
+    "title": "眼界百科",
+    "subtitle": "Encyclopedia",
+    "description": "专业眼科知识，科学护眼指南",
+    "sectionTitle": "所有文章",
+    "bgImage": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2074",
+    "controls": {
+      "sortAscTitle": "时间顺序",
+      "sortDescTitle": "时间倒序",
+      "listViewTitle": "列表视图",
+      "gridViewTitle": "网格视图"
+    },
+    "placeholders": {
+      "noImage": "暂无图片",
+      "noDescription": "暂无描述"
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "Contact Us",
+    "description": "欢迎与我们联系，了解更多关于视立优的信息",
+    "bgImage": "https://images.unsplash.com/photo-1526045612212-70caf35c14df?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070",
+    "sections": {
+      "map": {
+        "title": "公司位置",
+        "alt": "公司地图",
+        "image": "/map.png"
+      },
+      "info": {
+        "title": "联系方式",
+        "cards": [
+          {
+            "icon": "phone",
+            "title": "电话咨询",
+            "label": "客服热线："
+          },
+          {
+            "icon": "email",
+            "title": "邮箱联系",
+            "label": "业务咨询："
+          },
+          {
+            "icon": "address",
+            "title": "公司地址",
+            "zipLabel": "邮编："
+          }
+        ]
+      },
+      "qrcode": {
+        "title": "服务二维码"
+      },
+      "form": {
+        "title": "在线留言"
+      }
+    }
+  },
+  "contactForm": {
+    "fields": {
+      "name": {
+        "label": "您的姓名",
+        "placeholder": "请输入姓名",
+        "required": true,
+        "errorMessage": "请输入您的姓名"
+      },
+      "phone": {
+        "label": "您的电话",
+        "placeholder": "请输入联系电话",
+        "required": true,
+        "errorMessage": "请输入您的联系电话"
+      },
+      "email": {
+        "label": "您的邮箱（可选）",
+        "placeholder": "请输入您的邮箱（可选）",
+        "required": false
+      },
+      "type": {
+        "label": "诉求分类（可选）",
+        "placeholder": "请选择您的主要诉求（可选）",
+        "options": [
+          {
+            "label": "生产制造",
+            "value": "production"
+          },
+          {
+            "label": "行业采购",
+            "value": "industry"
+          },
+          {
+            "label": "公共关系",
+            "value": "public"
+          },
+          {
+            "label": "营销代理",
+            "value": "marketing"
+          },
+          {
+            "label": "媒体宣传",
+            "value": "media"
+          }
+        ]
+      },
+      "details": {
+        "label": "详情",
+        "placeholder": "请详细描述您的需求和建议，我们将第一时间联系您",
+        "rows": 6
+      }
+    },
+    "submitButton": {
+      "text": "提交留言"
+    },
+    "messages": {
+      "submitSuccess": {
+        "title": "提交成功",
+        "content": "我们已收到您的留言，将尽快与您联系！",
+        "urgentText": "如有紧急情况，请拨打我们的客服电话：",
+        "thankText": "感谢您的支持与信任！"
+      },
+      "submitError": "提交失败"
+    }
+  }
+}
