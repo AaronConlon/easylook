@@ -54,9 +54,15 @@ export const AppGlobalFetch: React.FC<IProps> = (props) => {
             : `https://sanlian-server.oss-cn-beijing.aliyuncs.com/easylook/${item}?date=${Date.now()}`;
 
           const updateItemData: any = await axiosInst.get(updateItemUrl);
-          const newData = updateItemData.data;
+
+          let newData = updateItemData.data;
 
           console.log('newData', newData);
+          console.log('new data type:', typeof newData);
+          // is json data
+          if (typeof newData === 'string') {
+            newData = JSON.parse(newData);
+          }
 
           // 更新对应的 store
           switch (item) {
