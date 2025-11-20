@@ -1,8 +1,8 @@
+import type { APITypes } from 'plyr-react';
+import { Plyr } from 'plyr-react';
+import 'plyr-react/plyr.css';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { LuChevronLeft, LuChevronRight } from 'react-icons/lu';
-import { Plyr } from 'plyr-react';
-import type { APITypes } from 'plyr-react';
-import 'plyr-react/plyr.css';
 
 import { cx } from '----pkg-uni/uni-utils/cx-util';
 
@@ -256,9 +256,7 @@ export const ProductVideosSection = (props: ProductVideosSectionProps) => {
             </div>
 
             <div className={cx(styles['video-info'])}>
-              <h3 className={cx(styles['video-title'])}>
-                {activeVideo.title}
-              </h3>
+              <h3 className={cx(styles['video-title'])}>{activeVideo.title}</h3>
               <p className={cx(styles['video-subtitle'])}>
                 {activeVideo.brief ||
                   '了解如何正确使用视觉训练设备，掌握基础训练方法'}
