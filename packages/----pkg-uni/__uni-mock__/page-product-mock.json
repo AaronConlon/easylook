@@ -9,27 +9,27 @@
           "image": "/product-box2.jpg",
             "feature": {
       "title": "四大特点",
-        "subtitle": "科学训练 · 专业指导 · 智能管理",
+        "subtitle": "科学训练·专业体系·分布教程·方便携带",
           "features": [
         {
           "slug": "integrationDesign",
-          "title": "集成式设计",
-          "description": "一体化的通用视觉训练方案，集成多种训练模式，满足不同场景需求"
+          "title": "专利技术 专业体系",
+          "description": "专利认证，科学体系，铸就产品专业保障。"
         },
         {
           "slug": "expertConsensus",
-          "title": "专家共识",
-          "description": "基于调节滞后引发近视学说，融合专家共识与自主训练体系，科学有效"
+          "title": "科学选品，可靠有效",
+          "description": "层层把关，凝练选择，训练方案可靠有效。"
         },
         {
           "slug": "smartManagement",
-          "title": "智能管理",
-          "description": "智能化小程序联动训练，实现患者自主训练一体化操作管理"
+          "title": "分步教程 轻松上手",
+          "description": "详细教学，快速上手，按步操作轻松高效。"
         },
         {
           "slug": "independentTraining",
-          "title": "自主训练",
-          "description": "支持患者在家自主训练，专业指导与便捷操作相结合，提升训练效果"
+          "title": "精致设计 方便携带",
+          "description": "匠心设计，便于收纳，随时随地轻松训练。"
         }
       ]
     },

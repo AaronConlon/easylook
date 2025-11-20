@@ -9,9 +9,9 @@ import { cx } from '----pkg-uni/uni-utils/cx-util';
 
 import { usePageStore } from '----pkg-uni/uni-stores/usePageStore';
 
-import { ProductFeaturesSection } from '../_comps/ProductFeaturesSection';
-import { ProductHeroSection } from '../_comps/ProductHeroSection';
-import { ProductVideosSection } from '../_comps/ProductVideosSection';
+import { ProductFeaturesSection } from './_comps/ProductFeaturesSection';
+import { ProductHeroSection } from './_comps/ProductHeroSection';
+import { ProductVideosSection } from './_comps/ProductVideosSection';
 
 import { CommonPageHeader } from '@/components/CommonPageHeader';
 

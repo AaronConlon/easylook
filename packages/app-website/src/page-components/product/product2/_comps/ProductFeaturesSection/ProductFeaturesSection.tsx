@@ -58,4 +58,3 @@ export const ProductFeaturesSection = (props: ProductFeaturesSectionProps) => {
     </section>
   );
 };
-
