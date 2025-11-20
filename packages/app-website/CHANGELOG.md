@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.43](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.42...app-website@0.0.43) (2025-11-20)
+
+
+### Bug Fixes
+
+* eslint error ([b30b158](https://github.com/profit-projects/easylook-website/commit/b30b1581b87abd1bba0d30c08c82412f849a1901))
+
 ### [0.0.42](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.41...app-website@0.0.42) (2025-11-20)
 
 
