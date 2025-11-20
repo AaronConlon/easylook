@@ -1,5 +1,5 @@
+import Plyr from 'plyr-react';
 import type { APITypes } from 'plyr-react';
-import { Plyr } from 'plyr-react';
 import 'plyr-react/plyr.css';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { LuChevronLeft, LuChevronRight } from 'react-icons/lu';
