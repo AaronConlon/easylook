@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.40](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.32...app-website@0.0.40) (2025-11-20)
+
+
+### Features
+
+* add dynamic data replace feature ([fd9dac5](https://github.com/profit-projects/easylook-website/commit/fd9dac5f3b6c41c578308fa8300a74cd8546f263))
+* homepage ui ([33a154a](https://github.com/profit-projects/easylook-website/commit/33a154aabf74351c006e45962eb15f707247604c))
+* product 1 ([2b16ef7](https://github.com/profit-projects/easylook-website/commit/2b16ef74a91d270cf1dc40aa827b9d89a344a1bd))
+* 添加fetch mock的伪代码 ([518c80e](https://github.com/profit-projects/easylook-website/commit/518c80e880400331cf80abf9b458eb374096dc5a))
+
+
+### Bug Fixes
+
+* reset article data ([0b55409](https://github.com/profit-projects/easylook-website/commit/0b55409a3064743560261608b59c8d7564453c7c))
+* reset article data ([6325333](https://github.com/profit-projects/easylook-website/commit/6325333b4b85cb1ccdbc16e5a73530b74d432889))
+* update store ([42ac1ef](https://github.com/profit-projects/easylook-website/commit/42ac1ef08b7a1e980bb4e26e09d840b70b1f8885))
+* 修复 swiper loop 错误 ([8d24a28](https://github.com/profit-projects/easylook-website/commit/8d24a28c21288a1bdc6409ee2d47894d6dab7393))
+* 修改主题色 ([295e490](https://github.com/profit-projects/easylook-website/commit/295e490a56fa0edd77209c7429432acc8b9bcbb8))
+
 ### [0.0.39](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.38...app-website@0.0.39) (2025-10-15)
 
 
