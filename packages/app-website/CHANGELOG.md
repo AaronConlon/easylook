@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.42](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.41...app-website@0.0.42) (2025-11-20)
+
+
+### Bug Fixes
+
+* plyr version ([1138004](https://github.com/profit-projects/easylook-website/commit/1138004bb38f70439c5ea82a661d7bf53d638dbb))
+
 ### [0.0.41](https://github.com/profit-projects/easylook-website/compare/app-website@0.0.40...app-website@0.0.41) (2025-11-20)
 
 
