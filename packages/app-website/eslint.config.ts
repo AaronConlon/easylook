@@ -26,7 +26,6 @@ export default defineConfig(
       parser: tseslint.parser,
       ecmaVersion: 2022,
       parserOptions: {
-        project: true,
         projectService: true,
         // @ts-ignore
         tsconfigRootDir: import.meta.dirname,
