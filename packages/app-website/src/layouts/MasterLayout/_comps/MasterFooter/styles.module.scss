@@ -7,16 +7,16 @@
 // prettier-ignore
 .comp-wrapper {
   // for-CSS-VARS--light
-  --footer-bg: #111827;
-  --footer-text: #f9fafb;
-  --footer-text-secondary: #d1d5db;
-  --footer-heading: #ffffff;
-  --footer-link-color: #d1d5db;
-  --footer-link-hover: #ffffff;
-  --brand-text: #ffffff;
-  --legal-text: #9ca3af;
-  --qr-bg: #ffffff;
-  --qr-container-bg: #ffffff;
+  --footer-bg: #f9fafb;
+  --footer-text: #000;
+  --footer-text-secondary: #333;
+  --footer-heading: #000;
+  --footer-link-color: #333;
+  --footer-link-hover: #000;
+  --brand-text: #000;
+  --legal-text: #333;
+  --qr-bg: #000;
+  --qr-container-bg: #000;
 }
 
 // prettier-ignore
@@ -173,16 +173,23 @@
 
 .contact-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
   color: var(--footer-link-color);
   font-size: 14px;
+
+  @media (min-width: $screen-md) {
+    align-items: flex-start;
+  }
 }
 
 .contact-icon {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
+  @media (min-width: $screen-md) {
+    padding-top: 2px;
+  }
 }
 
 // 第四列：关注我们

@@ -29,10 +29,8 @@ export const EyeScience = forwardRef<HTMLDivElement, IEyeScienceProps>(
           'g-uni-comp--EyeScience',
         )}
       >
-        <ContainerTitle title={homeData.title} subtitle={homeData.subtitle} />
-
+        <ContainerTitle title={homeData.title} />
         <br />
-
         <div className={cx(styles['content-grid'])}>
           {homeData.items.map((item, index) => (
             <ScienceCard
@@ -42,6 +40,9 @@ export const EyeScience = forwardRef<HTMLDivElement, IEyeScienceProps>(
               index={index}
             />
           ))}
+        </div>
+        <div style={{ margin: '24px auto' }}>
+          <p className={styles['section-subtitle']}>* {homeData.subtitle}</p>
         </div>
       </div>
     );

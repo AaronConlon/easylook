@@ -7,7 +7,6 @@ import stylesModule from './styles.module.scss';
 
 interface IContainerTitleProps {
   title: string;
-  subtitle: string;
   styles?: {
     h2?: CSSProperties;
     p?: CSSProperties;
@@ -17,7 +16,6 @@ interface IContainerTitleProps {
 
 export const ContainerTitle = ({
   title,
-  subtitle,
   styles = {},
   className,
 }: IContainerTitleProps) => {
@@ -116,11 +114,6 @@ export const ContainerTitle = ({
         <h2 ref={titleRef} style={styles?.h2}>
           {splitText(title)}
         </h2>
-      </div>
-      <div className={cx(stylesModule['subtitle-wrapper'])}>
-        <p ref={subtitleRef} style={styles?.p}>
-          {splitText(subtitle)}
-        </p>
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ export const MasterFooter = (props: IProps) => {
           {/* 第一列：品牌信息 */}
           <div className={cx(styles['brand-section'])}>
             {/* <h3 className={cx(styles['brand-title'])}>{companyInfo.name}</h3> */}
-            <AppLogo logoType="footer" className={styles['brand-logo']} />
+            <AppLogo className={styles['brand-logo']} />
             <p className={cx(styles['brand-description'])}>
               {companyInfo.description}
             </p>
