@@ -1,1 +1,0 @@
-export { UColorPicker } from './UColorPicker';

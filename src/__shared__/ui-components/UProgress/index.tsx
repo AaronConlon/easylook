@@ -1,1 +1,0 @@
-export { UProgress } from './UProgress';

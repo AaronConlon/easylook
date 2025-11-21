@@ -1,1 +1,0 @@
-export { UTypography } from './UTypography';

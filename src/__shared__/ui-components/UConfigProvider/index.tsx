@@ -1,1 +1,0 @@
-export { UConfigProvider } from './UConfigProvider';

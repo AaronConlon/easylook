@@ -1,1 +1,0 @@
-export { USwiperSlide } from './USwiperSlide';

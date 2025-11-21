@@ -1,1 +1,0 @@
-export { UCollapse } from './UCollapse';

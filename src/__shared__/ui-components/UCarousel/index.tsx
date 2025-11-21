@@ -1,1 +1,0 @@
-export { UCarousel } from './UCarousel';

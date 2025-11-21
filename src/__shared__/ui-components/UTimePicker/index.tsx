@@ -1,1 +1,0 @@
-export { UTimePicker } from './UTimePicker';

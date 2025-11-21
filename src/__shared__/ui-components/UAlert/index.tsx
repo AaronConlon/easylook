@@ -1,1 +1,0 @@
-export { UAlert } from './UAlert';

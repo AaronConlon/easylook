@@ -1,1 +1,0 @@
-export { UPopconfirm } from './UPopconfirm';

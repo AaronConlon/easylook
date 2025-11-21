@@ -1,1 +1,0 @@
-export { UAvatar } from './UAvatar';

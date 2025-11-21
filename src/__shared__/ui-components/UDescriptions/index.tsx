@@ -1,1 +1,0 @@
-export { UDescriptions } from './UDescriptions';

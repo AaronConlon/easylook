@@ -1,1 +1,0 @@
-export { UTabs } from './UTabs';
