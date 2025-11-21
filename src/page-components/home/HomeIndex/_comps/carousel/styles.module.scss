@@ -1,0 +1,240 @@
+@use '__shared__/styles/style-antd-media/style-scss-vars-antd-media.gen' as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper {
+  // for-CSS-VARS--light
+  --carousel-control-size: 50px;
+  --carousel-control-size-mobile: 40px;
+  --carousel-indicator-size: 12px;
+  --carousel-indicator-size-mobile: 10px;
+  --carousel-control-bg: rgba(255, 255, 255, 0.2);
+  --carousel-control-bg-hover: rgba(255, 255, 255, 0.3);
+  --carousel-indicator-bg: rgba(255, 255, 255, 0.4);
+  --carousel-indicator-bg-hover: rgba(255, 255, 255, 0.6);
+  --carousel-indicator-bg-active: rgba(255, 255, 255, 0.9);
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode {
+  // for-CSS-VARS--dark
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+.comp-wrapper {
+  width: 100%;
+  padding-top: 64px;
+  height: 70vh;
+  position: relative;
+  @media (min-width: $screen-md) {
+    height: 100vh;
+  }
+}
+
+.full-banner-wrapper {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-item {
+}
+
+.carousel-image-wrapper {
+  position: relative;
+  height: 70vh;
+  .carousel-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 1;
+  }
+
+  @media (min-width: $screen-md) {
+    height: 100%;
+  }
+}
+
+.full-banner-image,
+.full-banner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-info {
+  position: absolute;
+  color: #fff;
+  z-index: 2;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  width: calc(100vw - 24px);
+
+  @media (min-width: $screen-md) {
+    bottom: unset;
+    left: 130px;
+    top: 35vh;
+    transform: unset;
+    width: unset;
+  }
+
+  .banner-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+
+    @media (min-width: $screen-md) {
+      font-size: 48px;
+      text-align: left;
+    }
+  }
+
+  .banner-subtitle {
+    font-size: 16px;
+    margin: 0;
+    opacity: 0.8;
+    padding: 0 24px;
+
+    @media (min-width: $screen-md) {
+      padding: unset;
+      max-width: 500px;
+      font-size: 18px;
+      text-align: left;
+    }
+  }
+}
+
+.carousel-prev,
+.carousel-next {
+  opacity: 0;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: color-mix(in oklab, #fff 20%, transparent);
+  // 毛玻璃
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  svg {
+    color: #fff;
+    opacity: 0.7;
+    font-size: 32px;
+  }
+
+  &:hover {
+    opacity: 1;
+    transform-origin: center;
+    transition: all 0.3s ease;
+    svg {
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: $screen-md) {
+    width: 48px;
+    height: 48px;
+    opacity: 1;
+  }
+}
+
+.carousel-prev {
+  left: 12px;
+}
+
+.carousel-next {
+  right: 12px;
+}
+
+/* 自定义 pagination */
+.custom-pagination {
+  position: absolute;
+  top: 50% !important;
+  left: unset !important; /* 靠右 */
+  right: 12px !important; /* 靠右 */
+  transform: translateY(-50%) !important;
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  gap: 12px !important;
+  z-index: 10;
+  max-width: 24px;
+  height: max-content;
+}
+
+.thumbs {
+  position: absolute;
+  width: 100%;
+  height: 24px;
+  bottom: 10px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px;
+  z-index: 9;
+  margin: 0 auto;
+
+  @media (min-width: $screen-md) {
+    display: none;
+    bottom: 15px;
+  }
+
+  :global(.swiper-wrapper) {
+    z-index: 9999;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    :global(.swiper-slide-thumb-active) {
+      width: 24px !important;
+      background: #fff;
+    }
+  }
+
+  .thumb {
+    display: inline-block;
+    width: 8px !important;
+    transition: all 0.3s ease-in-out;
+    height: 8px;
+    border-radius: 8px;
+    background: gray;
+  }
+}
+
+/* 默认小圆点 */
+:global(.custom-bullet) {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* 激活状态 */
+:global(.custom-bullet-active) {
+  background: #fff;
+  transform: scale(1.2);
+}

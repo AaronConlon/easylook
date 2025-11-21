@@ -1,0 +1,26 @@
+@use '__shared__/styles/style-antd-media/style-scss-vars-antd-media.gen' as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper { // for-CSS-VARS--light
+
+}
+
+// prettier-ignore
+:global(.theme-dark) .comp-wrapper, .comp-wrapper--isDarkMode { // for-CSS-VARS--dark
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  padding: 5px var(--ui-app-layout-padding);
+  background-color: var(--ui-color-B3);
+}
+
+.nav-item {
+  margin-right: 10px;
+}

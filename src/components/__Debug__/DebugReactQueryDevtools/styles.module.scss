@@ -1,0 +1,16 @@
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS MIXIN VARS
+//
+// prettier-ignore
+.comp-wrapper { // for-CSS-VARS--light
+}
+
+// prettier-ignore
+:global(.theme-dark) .comp-wrapper, .comp-wrapper--isDarkMode { // for-CSS-VARS--dark
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+}

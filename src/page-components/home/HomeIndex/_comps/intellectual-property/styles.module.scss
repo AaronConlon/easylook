@@ -1,0 +1,368 @@
+@use '__shared__/styles/style-antd-media/style-scss-vars-antd-media.gen' as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper {
+  // for-CSS-VARS--light
+  --section-bg: #ffffff;
+  --ip-bg: #ffffff;
+  --ip-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --ip-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --border-color: #e2e8f0;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --popup-bg: #ffffff;
+  --popup-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --indicator-bg: rgba(0, 0, 0, 0.2);
+  --indicator-bg-active: rgba(0, 0, 0, 0.6);
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode {
+  // for-CSS-VARS--dark
+  --section-bg: #0f172a;
+  --ip-bg: #1e293b;
+  --ip-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --ip-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --border-color: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --popup-bg: #1e293b;
+  --popup-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  --indicator-bg: rgba(255, 255, 255, 0.2);
+  --indicator-bg-active: rgba(255, 255, 255, 0.6);
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+.comp-wrapper {
+  padding: 80px 0;
+  background: var(--section-bg);
+  overflow: hidden;
+  position: relative;
+}
+
+.ip-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 60px auto 0;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    margin: 40px auto 0;
+    padding: 0 16px;
+  }
+}
+
+.ip-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (max-width: 1200px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+.ip-item {
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  aspect-ratio: 3/4; // 保持证书的比例
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    border-radius: 12px;
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+.ip-image {
+  width: 100%;
+  height: 100%;
+}
+
+// 模态框背景遮罩
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9998;
+  cursor: pointer;
+  animation: backdropFadeIn 0.3s ease-out forwards;
+}
+
+// 模态框容器
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+// 模态框内容
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: modalFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+// 模态框图片容器
+.modal-image-wrapper {
+  width: 520px;
+  height: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    width: 80vw;
+    // height: 70vh;
+  }
+}
+
+// 模态框图片
+.modal-image {
+  width: 100%;
+  height: 100%;
+}
+
+// 模态框标题
+.modal-title {
+  margin-top: 20px;
+  padding: 0 20px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin-top: 16px;
+  }
+}
+
+// 关闭按钮
+.modal-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: #333;
+  z-index: 10;
+
+  &:hover {
+    background: #ffffff;
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    top: -10px;
+    right: -10px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+// 模态框背景动画
+@keyframes backdropFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// 模态框内容动画
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// 轮播控制器
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 768px) {
+    margin-top: 30px;
+    max-width: 250px;
+  }
+}
+
+.control-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.control-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--ip-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: var(--text-primary);
+    color: var(--ip-bg);
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+// 倒计时圆圈
+.countdown-circle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.countdown-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.countdown-background {
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 2;
+}
+
+.countdown-progress {
+  fill: none;
+  stroke: var(--text-primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.countdown-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+// 组切换动画
+.ip-grid {
+  .ip-item {
+    animation: itemFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+
+    // 错开动画时间（现在是5个一组）
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{($i - 1) * 0.1}s;
+      }
+    }
+  }
+}
+
+@keyframes itemFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 响应式调整
+@media (max-width: 1200px) {
+  .comp-wrapper {
+    padding: 60px 0;
+  }
+
+  .ip-container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .comp-wrapper {
+    padding: 50px 0;
+  }
+}

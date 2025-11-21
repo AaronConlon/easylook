@@ -1,0 +1,1 @@
+export { AppAntdConfigProvider } from './AppAntdConfigProvider';

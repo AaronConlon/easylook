@@ -1,1 +1,0 @@
-export { AppGlobalMasterRouter } from './AppGlobalMasterRouter';

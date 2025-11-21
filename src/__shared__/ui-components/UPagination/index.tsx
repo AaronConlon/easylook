@@ -1,0 +1,1 @@
+export { UPagination } from './UPagination';

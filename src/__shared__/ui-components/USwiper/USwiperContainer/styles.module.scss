@@ -1,0 +1,19 @@
+@use '__shared__/styles/style-antd-media/style-scss-vars-antd-media.gen' as *;
+@use '__shared__/styles/style-mixin/style-mixin-base' as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS MIXIN VARS
+//
+// prettier-ignore
+.comp-wrapper {
+}
+
+// prettier-ignore
+:global(.theme-dark) .comp-wrapper {
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+}

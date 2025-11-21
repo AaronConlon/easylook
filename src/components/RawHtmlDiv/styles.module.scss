@@ -1,0 +1,77 @@
+@use '__shared__/styles/style-antd-media/style-scss-vars-antd-media.gen' as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS MIXIN VARS
+//
+// prettier-ignore
+.comp-wrapper {
+}
+
+// prettier-ignore
+:global(.theme-dark) .comp-wrapper {
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  position: relative;
+}
+
+:global {
+  .g-css--text-division-line {
+    padding: 10px 0;
+    display: block;
+  }
+}
+
+.comp-wrapper--ignoreBrGap {
+  :global {
+    .g-css--text-division-line {
+      padding: 0;
+      display: block;
+    }
+  }
+}
+
+.comp-wrapper--RawHtmlDiv-htmlInview {
+  // background-color: yellow;
+}
+
+.comp-wrapper--RawHtmlDiv-lineAnimation {
+  :global(.g-css--raw-html-div-line) {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
+.comp-wrapper--RawHtmlDiv-lineAnimation-htmlInview {
+  @keyframes anim--RawHtmlDiv-lineAnimation-desc {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  //
+  // ⚠️ 注意看别的地方有没有 --comp-RawHtmlDiv-lineAnimation-htmlInview-delay
+  //
+  --comp-RawHtmlDiv-lineAnimation-htmlInview-delay: 0s;
+  --comp-RawHtmlDiv-lineAnimation-htmlInview-duration: 0.5s;
+  --comp-RawHtmlDiv-lineAnimation-htmlInview-line-diff: 0.04s;
+
+  // :global(.g-css-PageKitSectionCard--inview) {
+  :global(.g-css--raw-html-div-line) {
+    animation: anim--RawHtmlDiv-lineAnimation-desc
+      var(--comp-RawHtmlDiv-lineAnimation-htmlInview-duration) ease forwards;
+    animation-delay: calc(
+      var(--comp-RawHtmlDiv-lineAnimation-htmlInview-delay) +
+        var(--line-index) *
+        var(--comp-RawHtmlDiv-lineAnimation-htmlInview-line-diff)
+    );
+  }
+}

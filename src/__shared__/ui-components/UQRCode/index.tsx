@@ -1,0 +1,1 @@
+export { UQRCode } from './UQRCode';

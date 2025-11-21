@@ -1,1 +1,0 @@
-export { TestUniCompIndex } from './TestUniCompIndex';

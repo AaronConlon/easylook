@@ -1,39 +1,30 @@
-# hyx (means hybrid cross)
+## 该项目包函 submodule
 
-<img alt="hyx-logo" src="./packages/----pkg-uni/uni-assets/__RAW__/raw-logo/logo.svg" width="100" style="border-radius: 10%;" />
+### 一次性把 submodule 拉回来:
 
-The project avoids using any **CROSS-PLATFORM** frameworks and instead focuses
-on a **SINGLE** framework itself. However, we have shared common pages.
+`git clone --recursive git@github.com:SolidZORO/hyx-admin-3-single.git`
 
-## this is a monorepo.
+### 保持 submodule 同步:
 
-### shared
+`git pull --recurse-submodules && git submodule update --init --recursive`
 
-- ----pkg-config ......... 一些 eslint 配置
-- ----pkg-platform ....... 平台特有包，里面是 h5/rn
-- ----pkg-uni ............ 统一导出包，就是把 h5/rn 在这里统一导出
+## 如果项目是空的:
 
-### apps
+删掉 `.gitmodules`
 
-- app-website ............ 网站本身
+`git submodule init`
 
-### MEMO
+`git submodule add git@github.com:SolidZORO/hyx-shared-codes.git src/__shared__`
 
-### husky
+然后可以用 `git submodule status` 检查状态
 
-项目只在 root 使用 husky，每次提交前会执行 记得
-`node "$REPO_ROOT/scripts/monorepo-husky-lint-staged.cjs"` 检查，如需修改
-lint，请修改此文件。
+## TIPS
 
-### rn
+`globalthis` 是给 `react-query` 使用的。兼容 `chrome69`.
 
-找到 `// RN-MONOREPO-MOD` 有一些正对 monorepo 修改的路径
+请基于 `.env.example` 创建两个 dotenv，分别对应
 
-多端必须指定 rn 一致版本：不然会出现 Invalid hook call. Hooks
-"react": "xx.0.0",
-"react-dom": "xx.0.0",
-"react-native": "0.xx.0",
+- 开发：`.env.development`
+- 生产：`.env.production`
 
-
-
-
+# 0fff99

@@ -1,0 +1,129 @@
+@use '__shared__/styles/style-antd-media/style-scss-vars-antd-media.gen' as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper {
+  // for-CSS-VARS--light
+  --card-bg: #ffffff;
+  // --card-shadow: 0 3px 4px rgba(0, 0, 0, 0.01);
+  // --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --border-color: #e2e8f0;
+  --accent-color: #1890ff;
+  --feature-bg: rgba(24, 144, 255, 0.05);
+}
+
+// -----------------------------------------------------------------------------
+// 🎬 ANIMATIONS
+//
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+.comp-wrapper {
+  padding: 80px 0;
+  min-height: 400px;
+
+  @media (min-width: $screen-md) {
+    padding: 80px 0;
+    min-height: 600px;
+  }
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  padding: 0 var(--app-page-padding);
+
+  @media (min-width: $screen-md) {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.01);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  position: relative;
+  min-height: 400px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+
+  @media (min-width: $screen-md) {
+    min-height: 500px;
+
+    &:hover {
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+      transform: scale(1.02);
+    }
+    // 兄弟节点选择器
+    &:hover + .product-card {
+      transform: scale(0.98);
+      // opacity: 0.8;
+    }
+  }
+}
+
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+
+  @media (min-width: $screen-md) {
+    height: 300px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-overlay {
+    display: none;
+  }
+}
+
+.card-content {
+  // padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  // @media (min-width: $screen-md) {
+  //   padding: 32px;
+  // }
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--app-text-primary);
+  margin: 0 0 16px 0;
+
+  @media (min-width: $screen-md) {
+    font-size: 1.75rem;
+  }
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: var(--app-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+
+  @media (min-width: $screen-md) {
+    font-size: 1rem;
+  }
+}

@@ -1,29 +1,44 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "__h5_monorepo_root__",
-  "files": [],
-  "references": [
-    {
-      "path": "packages/----pkg-config"
-    },
-    {
-      "path": "packages/----pkg-platform"
-    },
-    {
-      "path": "packages/----pkg-uni"
-    },
-    {
-      "path": "packages/app-website"
-    }
-  ],
+  "display": "__APP_WEBSITE__",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "----pkg-config/*": ["packages/----pkg-config/*"],
-      "----pkg-platform/*": ["packages/----pkg-platform/*"],
-      "----pkg-uni/*": ["packages/----pkg-uni/*"],
-      "app-website/*": ["packages/app-website/*"]
-    }
+      "__shared__/*": ["./src/__shared__/*"],
+      "@/*": ["./src/*"]
+    },
+    "target": "ES6",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    //
+    "allowJs": true,
+    "strict": true,
+    //
+    "useDefineForClassFields": true,
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    //
+    "noEmit": true,
+    "noUnusedLocals": false,
+    // 可以使用未使用的变量
+    "noUnusedParameters": false,
+    // 可以使用未使用的 parems
+    "noUncheckedSideEffectImports": true,
+    "noFallthroughCasesInSwitch": true,
+    //
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "allowArbitraryExtensions": true,
+    //
+    "resolveJsonModule": true,
+    "resolvePackageJsonImports": false,
+    //
+    // Causes issues with package.json "exports"
+    "forceConsistentCasingInFileNames": true
   },
-  "exclude": ["node_modules", "**/Pods/**"]
+  "include": ["**/*"],
+  "exclude": ["node_modules", "src/assets/iconfont/**/*"]
 }

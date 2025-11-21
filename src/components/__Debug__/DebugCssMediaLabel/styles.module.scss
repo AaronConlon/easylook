@@ -1,0 +1,53 @@
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS MIXIN VARS
+//
+// prettier-ignore
+.comp-wrapper { // for-CSS-VARS--light
+  --label-color: #fff3;
+}
+
+// prettier-ignore
+:global(.theme-dark) .comp-wrapper, .comp-wrapper--isDarkMode { // for-CSS-VARS--dark
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  display: flex;
+  position: fixed;
+  // bottom: calc(16px + env(safe-area-inset-bottom, 0));
+  bottom: 8px;
+  // top: 8px;
+  left: 8px;
+  border: 1px solid var(--label-color);
+  color: var(--label-color);
+  padding: 2px 5px;
+  line-height: 1;
+  font-size: 12px;
+  border-radius: 3px;
+  font-family: var(--ui-app-font-family-code);
+  transform-origin: right;
+  transform: scale(0.85);
+  z-index: 999999;
+}
+
+.current-size,
+.current-media,
+.condition-media {
+}
+
+.current-size-text {
+  color: var(--label-color);
+}
+
+.current-size {
+}
+
+.current-media {
+  margin-left: 10px;
+}
+
+.condition-media {
+  margin-left: 10px;
+}

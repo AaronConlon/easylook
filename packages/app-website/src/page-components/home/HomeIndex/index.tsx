@@ -1,1 +1,0 @@
-export { HomeIndex } from './HomeIndex';

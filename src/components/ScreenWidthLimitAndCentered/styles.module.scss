@@ -1,0 +1,34 @@
+@use '__shared__/styles/style-antd-media/style-scss-vars-antd-media.gen' as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper { // for-CSS-VARS--light
+}
+
+// prettier-ignore
+:global(.theme-dark) .comp-wrapper, .comp-wrapper--isDarkMode { // for-CSS-VARS--dark
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+.comp-wrapper {
+  width: 100%;
+
+  // @media (min-width: $screen-md) {
+  //   margin: 0 auto;
+  //   width: $screen-lg;
+  // }
+
+  @media (min-width: $screen-md) {
+    margin: 0 auto;
+    width: $screen-xl;
+  }
+}
+
+:global(.theme-dark) .comp-wrapper,
+.comp-wrapper--isDarkMode {
+}

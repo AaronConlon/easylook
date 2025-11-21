@@ -1,0 +1,1 @@
+export { AppMasterRouterProvider } from './AppMasterRouterProvider';

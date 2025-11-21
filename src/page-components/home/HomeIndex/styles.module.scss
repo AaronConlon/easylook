@@ -1,0 +1,37 @@
+@use '__shared__/styles/style-antd-media/style-scss-vars-antd-media.gen' as *;
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper {
+  // for-CSS-VARS--light
+}
+
+// prettier-ignore
+.comp-wrapper--isDarkMode {
+  // for-CSS-VARS--dark
+}
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+.comp-wrapper {
+  min-height: 100vh;
+}
+
+// 区块容器
+.section {
+  width: 100%;
+}
+
+// 奇数区块 - 白色背景
+.section--odd {
+  background: #ffffff;
+}
+
+// 偶数区块 - 浅灰色背景
+.section--even {
+  background: #aeaeae22;
+}

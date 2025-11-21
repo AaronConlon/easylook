@@ -1,0 +1,652 @@
+@use '__shared__/styles/style-antd-media/style-scss-vars-antd-media.gen' as *;
+
+// -----------------------------------------------------------------------------
+// 🌈 COMP CSS VARS
+//
+
+// prettier-ignore
+.comp-wrapper {
+  --primary-color: #1b52ac;
+  --text-primary: #1f1f22;
+  --text-secondary: #6f7174;
+  --text-muted: #9ca3af;
+  --bg-white: #ffffff;
+  --bg-light: #f9fafb;
+  --bg-category: #eff6ff;
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+
+// -----------------------------------------------------------------------------
+// 💅 COMP CSS PROPERTY
+//
+
+// 标题区域
+.encyclopedia-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 16px 0;
+
+  @media (min-width: $screen-md) {
+    padding: 64px 24px 0;
+  }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 16px;
+
+  @media (min-width: $screen-md) {
+    margin-bottom: 48px;
+  }
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--app-brand-color, #05519b);
+    margin: 0;
+    line-height: 1.2;
+
+    @media (min-width: $screen-md) {
+      font-size: 30px;
+    }
+  }
+
+  @media (min-width: $screen-md) {
+    gap: 16px;
+  }
+}
+
+.title-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--app-brand-color, #05519b);
+  flex-shrink: 0;
+
+  @media (min-width: $screen-md) {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+// 控制按钮区域
+.section-controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  isolation: isolate;
+}
+
+// 背景 mask
+.control-mask {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: var(--app-brand-color, #05519b);
+  border-radius: 8px;
+  top: 4px;
+  left: 48px; // 默认在第二个按钮（Layout 按钮）位置：4px padding + 40px button + 4px gap
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  box-shadow: 0 2px 8px rgba(5, 81, 155, 0.2);
+
+  @media (min-width: $screen-md) {
+    width: 44px;
+    height: 44px;
+    left: 52px; // 4px padding + 44px button + 4px gap
+  }
+}
+
+// 当 hover 第一个按钮时，mask 移动到第一个按钮
+.section-controls:has(.sort-btn:hover) .control-mask {
+  left: 4px;
+}
+
+// 当 hover 第二个按钮时，mask 保持在第二个按钮
+.section-controls:has(.layout-btn:hover) .control-mask {
+  left: 48px;
+
+  @media (min-width: $screen-md) {
+    left: 52px;
+  }
+}
+
+.control-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+  z-index: 1;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    color: white;
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &.active {
+    color: white;
+  }
+
+  @media (min-width: $screen-md) {
+    width: 44px;
+    height: 44px;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
+
+// 列表容器
+.encyclopedia-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 64px;
+
+  @media (min-width: $screen-md) {
+    padding: 0 24px 96px;
+  }
+}
+
+// 列表项
+.encyclopedia-item {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-white);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  // box-shadow: var(--shadow-md);
+  border: var(--app-card-border);
+  box-shadow: var(--app-card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  &:hover {
+    // box-shadow: var(--shadow-lg);
+    box-shadow: var(--app-card-shadow--hover);
+    transform: translateY(-4px);
+
+    .item-cover {
+      img {
+        transform: scale(1.05);
+      }
+
+      // 移除蒙层
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $screen-md) {
+    flex-direction: row;
+    margin-bottom: 32px;
+  }
+}
+
+// 封面图区域
+.item-cover {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background-color: var(--bg-light);
+  flex-shrink: 0;
+
+  @media (min-width: $screen-md) {
+    width: 560px;
+    height: auto;
+    min-height: 240px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  // 图片蒙层
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+}
+
+.cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--bg-light) 0%,
+    var(--bg-category) 100%
+  );
+  color: var(--text-muted);
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+// 内容区域
+.item-content {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 240px;
+
+  @media (min-width: $screen-md) {
+    padding: 32px;
+  }
+}
+
+// 分类标签
+.category-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: var(--bg-category);
+  color: var(--primary-color);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+// 标题
+.item-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (min-width: $screen-md) {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+}
+
+// 描述
+.item-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0 0 20px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (min-width: $screen-md) {
+    font-size: 15px;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    margin-bottom: 24px;
+  }
+}
+
+// 底部信息栏
+.item-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+
+  @media (min-width: $screen-md) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+// 来源和标签容器
+.source-and-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+// 来源
+.source {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+
+  &::before {
+    content: '来源：';
+  }
+}
+
+// 标签容器
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+// 单个标签
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: var(--bg-light);
+  color: var(--text-muted);
+  font-size: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--bg-category);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+
+// 时间
+.item-time {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+// -----------------------------------------------------------------------------
+// 网格布局样式
+// -----------------------------------------------------------------------------
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @media (min-width: $screen-md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-item {
+  flex-direction: column;
+  margin-bottom: 0;
+
+  &:hover {
+    .grid-cover {
+      img {
+        transform: scale(1.05);
+      }
+
+      // 移除蒙层
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    .grid-title {
+      color: var(--app-brand-color, #05519b);
+    }
+
+    .link-bg {
+      transform: scaleX(1);
+    }
+  }
+}
+
+// 网格封面图
+.grid-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .cover-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    z-index: 1;
+
+    span {
+      color: white;
+      font-size: 14px;
+    }
+  }
+
+  // 图片蒙层
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+}
+
+// 网格内容区
+.grid-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+// 网格时间
+.grid-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  time {
+    font-weight: 500;
+  }
+}
+
+// 网格标题
+.grid-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease;
+
+  @media (min-width: $screen-md) {
+    font-size: 20px;
+  }
+}
+
+// 网格描述
+.grid-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+
+  @media (min-width: $screen-md) {
+    font-size: 15px;
+  }
+}
+
+// 网格链接
+.grid-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  width: fit-content;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+  }
+
+  span:first-child {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    color: white;
+
+    svg {
+      color: white;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:hover {
+      color: var(--text-primary);
+
+      svg {
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  @media (min-width: $screen-md) {
+    font-size: 15px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+// 链接背景动画
+.link-bg {
+  position: absolute;
+  inset: -4px;
+  background-color: var(--app-brand-color, #05519b);
+  border-radius: 24px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
