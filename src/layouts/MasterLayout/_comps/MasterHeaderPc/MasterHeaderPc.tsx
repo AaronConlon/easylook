@@ -7,7 +7,7 @@ import { cx } from '__shared__/utils/cx-util';
 
 import { URouteLink } from '__shared__/ui-components/URouteLink';
 
-import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
+import LogoSvg from '@/assets/images/logo.svg?react';
 
 import { MASTER_HEADER_MENUS } from '@/consts/master-header-const';
 

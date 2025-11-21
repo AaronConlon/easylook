@@ -78,7 +78,11 @@ const rsbuildConfig = defineConfig({
         },
       },
     }),
-    pluginSvgr({ mixedImport: true }),
+    pluginSvgr({
+      svgrOptions: {
+        exportType: 'default',
+      },
+    }),
     pluginEslint({
       enable: true,
       eslintPluginOptions: {

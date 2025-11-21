@@ -45,6 +45,11 @@ export const ProductVideosSection = (props: ProductVideosSectionProps) => {
     videos = [],
     categories = [],
   } = props;
+
+
+  console.log('videos', videos);
+  console.log('categories', categories);
+
   const hasCategories = categories.length > 0;
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);

@@ -11,7 +11,7 @@ import { useNavigate } from '__shared__/hooks/useNavigate';
 
 import { UEventButton } from '__shared__/ui-components/UEventButton';
 
-import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
+import LogoSvg from '@/assets/images/logo.svg?react';
 
 import { MASTER_HEADER_MENUS } from '@/consts/master-header-const';
 

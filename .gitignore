@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 /packages/----pkg-uni/uni-assets/__PUBLIC__/
 ~
+build

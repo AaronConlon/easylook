@@ -1,0 +1,3 @@
+[submodule "src/__shared__"]
+	path = src/__shared__
+	url = git@github.com:SolidZORO/hyx-shared-codes.git

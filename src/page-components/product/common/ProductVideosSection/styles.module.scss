@@ -3,6 +3,7 @@
 //
 @use '__shared__/styles/style-antd-media/style-scss-vars-antd-media.gen' as *;
 
+
 // -----------------------------------------------------------------------------
 // 💅 CSS VARS
 //
@@ -175,11 +176,15 @@
 
 .video-thumbnails {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 12px;
   overflow-y: auto;
   max-height: 520px;
   padding-right: 8px;
+
+  @media (min-width: $screen-md) {
+    flex-direction: column;
+  }
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -197,6 +202,7 @@
   padding: 0;
   cursor: pointer;
   text-align: center;
+  max-width: 300px;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,

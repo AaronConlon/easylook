@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 
-import { ReactComponent as LogoSvgFooter } from '@/assets/images/logo-footer.svg';
-import { ReactComponent as LogoSvg } from '@/assets/images/logo.svg';
+import LogoSvgFooter from '@/assets/images/logo-footer.svg?react';
+import LogoSvg from '@/assets/images/logo.svg?react';
 
 interface IProps {
   className?: string;
