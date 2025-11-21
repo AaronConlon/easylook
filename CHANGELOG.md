@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.4 (2025-11-21)
+
+
+### Features
+
+* about page ([7c89515](https://github.com/profit-projects/easylook-website/commit/7c89515733d23c435a3efb3e56ff9955d31d96d6))
+* add dynamic data replace feature ([fd9dac5](https://github.com/profit-projects/easylook-website/commit/fd9dac5f3b6c41c578308fa8300a74cd8546f263))
+* add multiple page ([8285d13](https://github.com/profit-projects/easylook-website/commit/8285d13209512052168363de0b062c22144db04a))
+* homepage ui ([33a154a](https://github.com/profit-projects/easylook-website/commit/33a154aabf74351c006e45962eb15f707247604c))
+* product 1 ([2b16ef7](https://github.com/profit-projects/easylook-website/commit/2b16ef74a91d270cf1dc40aa827b9d89a344a1bd))
+* replace hard code with store ([d666394](https://github.com/profit-projects/easylook-website/commit/d666394e079efbda98f1fae23009877b6322fc84))
+* update styles ([95c5234](https://github.com/profit-projects/easylook-website/commit/95c523458d9a1b3286c013c8a18c84a765f381b7))
+* 加入 /test/any 路由 ([6cbdc54](https://github.com/profit-projects/easylook-website/commit/6cbdc546200a3e81c99c9e900fa04b28742401ef))
+* 把 global.scss 的变量抽到 uni ([c80b8d7](https://github.com/profit-projects/easylook-website/commit/c80b8d7cc7965bd26baf6f9d849d51e39e3ae1e8))
+* 新增 card ([f42dc23](https://github.com/profit-projects/easylook-website/commit/f42dc235c78d8703c2e0da31db307650e31bfc39))
+* 更新 deps，eslint max-len 80 ([3627c2c](https://github.com/profit-projects/easylook-website/commit/3627c2c1b6391a1556bed502d04df0d57307fd53))
+* 添加fetch mock的伪代码 ([518c80e](https://github.com/profit-projects/easylook-website/commit/518c80e880400331cf80abf9b458eb374096dc5a))
+
+
+### Bug Fixes
+
+* add multi page ([d273faa](https://github.com/profit-projects/easylook-website/commit/d273faa92ae2f7143e54727ea0f8b939601cb967))
+* clear useless code ([c41cc34](https://github.com/profit-projects/easylook-website/commit/c41cc34fbe9e9763c221b9253c4c160e96ba7a6f))
+* contact us page ([5f1bcf4](https://github.com/profit-projects/easylook-website/commit/5f1bcf480c0d5d43cd8225a2f8ddb7ecaf766ea8))
+* contact us ui ([70d8a17](https://github.com/profit-projects/easylook-website/commit/70d8a178b7f14afd90fcf2b7d052e80e579fe52b))
+* eslint error ([b30b158](https://github.com/profit-projects/easylook-website/commit/b30b1581b87abd1bba0d30c08c82412f849a1901))
+* header style ([01b3005](https://github.com/profit-projects/easylook-website/commit/01b300598acabf068de77611a90318422edba8fa))
+* homepage bugs ([653ed98](https://github.com/profit-projects/easylook-website/commit/653ed9869f57baa0e8d16eed02865bbbf7f5947a))
+* homepage nav bug ([d1d58ed](https://github.com/profit-projects/easylook-website/commit/d1d58ed88f85d4584211ed89a7fc9633c6777878))
+* homepage style ([15b2d2d](https://github.com/profit-projects/easylook-website/commit/15b2d2d86d48e6823d0850e957ed7b0f4f6ee5f7))
+* page style ([bd6f585](https://github.com/profit-projects/easylook-website/commit/bd6f58536a01f0eda3db5621963dc9369a241190))
+* plyr version ([1138004](https://github.com/profit-projects/easylook-website/commit/1138004bb38f70439c5ea82a661d7bf53d638dbb))
+* plyr version ([126e793](https://github.com/profit-projects/easylook-website/commit/126e793d52ba7b0f7e03b349246b34f38a9940c7))
+* product page style ([e4247ce](https://github.com/profit-projects/easylook-website/commit/e4247cef41acb597eff857cf7ea0ff0e1303674f))
+* product style ([9f5a8a6](https://github.com/profit-projects/easylook-website/commit/9f5a8a6120da5fee1b9c3d391fa91ca2e76724f2))
+* replace map png ([4579ced](https://github.com/profit-projects/easylook-website/commit/4579ced2b1ce89f19f9eb374f813671e6c1d61a0))
+* reset article data ([0b55409](https://github.com/profit-projects/easylook-website/commit/0b55409a3064743560261608b59c8d7564453c7c))
+* reset article data ([6325333](https://github.com/profit-projects/easylook-website/commit/6325333b4b85cb1ccdbc16e5a73530b74d432889))
+* ui ([7bc4bc8](https://github.com/profit-projects/easylook-website/commit/7bc4bc82342ea9d0da632b69d147e7042fb4e9e4))
+* ui styles ([e5b9a5b](https://github.com/profit-projects/easylook-website/commit/e5b9a5b2753378dcc851586ac8ad3e9624e3a574))
+* update header menu and contact me page ([6d56186](https://github.com/profit-projects/easylook-website/commit/6d5618652042a3eb94812df867fb4cc0222c1c37))
+* update homepage ([aa9002e](https://github.com/profit-projects/easylook-website/commit/aa9002eafaa5414877d8e9397c283da8e957c45d))
+* update product desc ui ([432fe8a](https://github.com/profit-projects/easylook-website/commit/432fe8a091b768e1a190e8a18e798260e424f206))
+* update product iamge ([c4f8642](https://github.com/profit-projects/easylook-website/commit/c4f864281fc18617640096a45a13e09a51c15353))
+* update store ([42ac1ef](https://github.com/profit-projects/easylook-website/commit/42ac1ef08b7a1e980bb4e26e09d840b70b1f8885))
+* update ui ([2efd62c](https://github.com/profit-projects/easylook-website/commit/2efd62c68ea2dc5d3dee956051dfae66635a5f7d))
+* update ui ([5558d62](https://github.com/profit-projects/easylook-website/commit/5558d627a8536a7ec28091d0b123d377ed2ec472))
+* 修复 Home 关于我们 link ([0106884](https://github.com/profit-projects/easylook-website/commit/01068846d1b8ffaebe7b16bcadd0a85490627041))
+* 修复 swiper loop 错误 ([8d24a28](https://github.com/profit-projects/easylook-website/commit/8d24a28c21288a1bdc6409ee2d47894d6dab7393))
+* 修复你知道吗数字还没看到就滚动 ([1f2eb85](https://github.com/profit-projects/easylook-website/commit/1f2eb85f2ca4ca6354c9c8f6f94728bdfae0660f))
+* 修复冲突product-box2.jpg ([c3b7196](https://github.com/profit-projects/easylook-website/commit/c3b71966937bcc596cd1051d3f7ed69d8edb0044))
+* 修改主题色 ([295e490](https://github.com/profit-projects/easylook-website/commit/295e490a56fa0edd77209c7429432acc8b9bcbb8))
+
 ### [0.1.3](https://github.com/SolidZORO/easylook-website-v2/compare/app-website@v0.1.2...app-website@v0.1.3) (2025-11-20)
 
 
