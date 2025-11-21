@@ -53,9 +53,7 @@ jobs:
 
       - name: 安装依赖
         if: ${{ steps.STEP_CACHE.outputs.cache-hit != 'true' }}
-        run: |
-          cd packages/app-website
-          yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       #
       # GEN .env
@@ -87,29 +85,26 @@ jobs:
       
 
       - name: 构建前端项目
-        run: |
-          cd packages/app-website
-          yarn build
+        run: yarn build
 
       - name: 验证构建产物
         run: |
-          if [ ! -d "./packages/app-website/build" ]; then
+          if [ ! -d "./build" ]; then
             echo "构建失败：找不到 build 目录"
             exit 1
           fi
           echo "构建成功，产物大小："
-          du -sh ./packages/app-website/build
+          du -sh ./build
 
       - name: 压缩构建产物
         run: |
-          cd packages/app-website
           zip -r build.zip build/
           echo "✅ 构建产物已压缩"
           echo "压缩文件大小："
           ls -lh build.zip
 
           # 将压缩文件移动到根目录，避免传输时保留目录结构
-          mv build.zip ../../${{ env.__PKG_BUILD_NAME__ }}.zip
+          mv build.zip ./${{ env.__PKG_BUILD_NAME__ }}.zip
 
       - name: 推送构建产物到远程服务器
         uses: appleboy/scp-action@v0.1.7
@@ -118,7 +113,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          source: '${{ env.__PKG_BUILD_NAME__ }}.zip'
+          source: './${{ env.__PKG_BUILD_NAME__ }}.zip'
           target: '${{ secrets.REMOTE_TARGET_PATH }}'
           overwrite: true
 
