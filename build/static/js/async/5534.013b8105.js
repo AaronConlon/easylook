@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkapp_website=self.webpackChunkapp_website||[]).push([["5534"],{82877:function(e,n,p){p.r(n),p.d(n,{component:()=>c});var t=p(39974);function c(){return(0,t.jsx)("div",{children:'Hello "/cooperation/"!'})}}}]);

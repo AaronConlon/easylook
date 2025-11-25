@@ -80,6 +80,10 @@ jobs:
           echo REACT_APP_DEBUG_BAR_PASSWORD_HASH=${{ secrets.REACT_APP_DEBUG_BAR_PASSWORD_HASH }} >> .env
           echo "---- DOTENV-PLACEHOLDER-E ----"
           cat .env
+
+
+      - name: 生成 CSS 文件
+        run: yarn gencss
       
 
       - name: 构建前端项目

@@ -25,5 +25,4 @@ dist-ssr
 /packages/----pkg-uni/uni-assets/__PUBLIC__/
 ~
 # build docs
-build/*
 build

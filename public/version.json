@@ -3,10 +3,10 @@
     "APP": {
       "PKG_NAME": "app-website",
       "AUTHOR": "Jason Feng <solidzoro[#]live.com>",
-      "VERSION": "0.1.8",
-      "BUILD_NUMBER": 1008,
-      "BUILD_TIME": "20251125-181039",
-      "COMMIT_HASH": "1d54"
+      "VERSION": "0.1.9",
+      "BUILD_NUMBER": 1009,
+      "BUILD_TIME": "20251125-181232",
+      "COMMIT_HASH": "2d67"
     }
   }
 }
