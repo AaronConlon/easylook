@@ -271,7 +271,7 @@ export const ProductVideosSection = (props: ProductVideosSectionProps) => {
 
           {activeVideoList.length > 1 && (
             <div className={cx(styles['playlist-panel'])}>
-              <p className={cx(styles['playlist-title'])}>更多训练</p>
+              <p className={cx(styles['playlist-title'])}>训练列表</p>
               <div
                 className={cx(styles['video-thumbnails'])}
                 ref={thumbnailContainerRef}

@@ -84,15 +84,8 @@ jobs:
           echo "---- DOTENV-PLACEHOLDER-E ----"
           cat .env
 
-
-      - name: 查看 shared 目录
-        run: ls -la ./src/__shared__
-
       - name: 生成 CSS 文件
         run: yarn gencss
-
-
-      
 
       - name: 构建前端项目
         run: yarn build

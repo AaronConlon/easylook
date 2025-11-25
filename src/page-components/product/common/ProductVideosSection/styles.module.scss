@@ -142,7 +142,7 @@
   background-color: #fff;
   border-radius: 4px;
   padding: 8px 12px;
-  padding-bottom: 36px;
+  // padding-bottom: 36px;
 }
 
 .video-title {
@@ -342,7 +342,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   width: 100%;
-  max-width: 900px;
+  // max-width: 900px;
 
   @media (min-width: $screen-md) {
     // display: flex;
@@ -357,7 +357,7 @@
 .tab-btn {
   border: 1px solid rgba(5, 81, 155, 0.15);
   border-radius: 4px;
-  padding: 12px;
+  padding: 24px 12px;
   background: white;
   display: flex;
   flex-direction: column;
