@@ -78,7 +78,19 @@
   color: var(--text-secondary);
   margin: 0 0 32px 0;
   line-height: 1.7;
-  text-align: center;
+  position: relative;
+  // text-align: center;
+  padding-left: 12px;
+  &::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 100%;
+    background-color: var(--app-brand-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
   @media (min-width: $screen-md) {
     font-size: 16px;
@@ -127,6 +139,10 @@
 .video-info {
   text-align: left;
   padding-right: 40px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  padding-bottom: 36px;
 }
 
 .video-title {
@@ -154,10 +170,10 @@
 .playlist-panel {
   width: 320px;
   flex-shrink: 0;
-  border-radius: 16px;
+  border-radius: 4px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 20px 45px -20px rgba(15, 23, 42, 0.35);
-  padding: 16px;
+  padding: 10px 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -179,7 +195,7 @@
   flex-direction: row;
   gap: 12px;
   overflow-y: auto;
-  max-height: 520px;
+  max-height: 540px;
   padding-right: 8px;
 
   @media (min-width: $screen-md) {
@@ -333,8 +349,8 @@
     // justify-content: center;
     // align-items: center;
     // gap: 12px;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    // margin: 0 auto;
   }
 }
 
